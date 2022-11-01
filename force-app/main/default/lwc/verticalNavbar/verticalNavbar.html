@@ -1,0 +1,98 @@
+<template>
+    <nav>
+        <div>
+            <ul>
+                <li>
+                    <span onclick={handleToggle}>
+                        <lightning-icon icon-name="utility:rows" alternative-text="Toggle" title="toggle"
+                            class="my-icon">
+                        </lightning-icon>
+                        <span class={hide}></span>
+                    </span>
+                </li>
+
+                <li>
+                    <span onclick={toHome}>
+                        <lightning-icon icon-name="utility:home" alternative-text="Home" title="Home" class="my-icon">
+                        </lightning-icon>
+                        <span class={hide}>Home</span>
+                    </span>
+                </li>
+
+                <li>
+                    <span onclick={toAdmission}>
+                        <lightning-icon icon-name="utility:record_create" alternative-text="Admission Management"
+                            title="Admission Management" class="my-icon">
+                        </lightning-icon>
+                        <span class={hide}>Admission Management</span>
+                    </span>
+                </li>
+
+                <li>
+                    <span onclick={toFee}>
+                        <lightning-icon icon-name="utility:moneybag" alternative-text="Fee Management"
+                            title="Fee Management" class="my-icon">
+                        </lightning-icon>
+                        <span class={hide}>Fee Management</span>
+                    </span>
+                </li>
+
+                <li>
+                    <span onclick={toCheckin}>
+                        <lightning-icon icon-name="utility:checkin" alternative-text="CheckIns" title="CheckIns"
+                            class="my-icon">
+                        </lightning-icon>
+                        <span class={hide}>CheckIns</span>
+                    </span>
+                </li>
+
+                <li>
+                    <span onclick={toSettings}>
+                        <lightning-icon icon-name="utility:settings" alternative-text="Settings" title="Settings"
+                            class="my-icon">
+                        </lightning-icon>
+                        <span class={hide}>Settings</span>
+                    </span>
+                </li>
+
+                <li>
+                    <span onclick={toSubscription}>
+                        <lightning-icon icon-name="utility:alert" alternative-text="Subscription" title="Subscription"
+                            class="my-icon">
+                        </lightning-icon>
+                        <span class={hide}>Subscription</span>
+                    </span>
+                </li>
+
+                <!-- <li>
+                    <a href="https://sedin2019--vidhyaan.lightning.force.com/lightning/n/Promote_Students"
+                        target="_blank">
+                        <lightning-icon icon-name="utility:promotion_segments" alternative-text="Promote Student"
+                            title="Promote Student" class="my-icon">
+                        </lightning-icon>
+                        <span class={hide}>Promote Student</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="https://sedin2019--vidhyaan.lightning.force.com/lightning/n/Invoice" target="_blank">
+                        <lightning-icon icon-name="utility:file" alternative-text="Invoice" title="Invoice"
+                            class="my-icon">
+                        </lightning-icon>
+                        <span class={hide}>Invoice</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="https://sedin2019--vidhyaan.lightning.force.com/lightning/o/Attendance__c/home"
+                        target="_blank">
+                        <lightning-icon icon-name="utility:shift_pattern" alternative-text="Attendence"
+                            title="Attendence" class="my-icon">
+                        </lightning-icon>
+                        <span class={hide}>Attendence</span>
+                    </a>
+                </li> -->
+            </ul>
+        </div>
+    </nav>
+</template>

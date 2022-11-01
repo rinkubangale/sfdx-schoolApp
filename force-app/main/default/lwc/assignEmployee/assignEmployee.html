@@ -1,0 +1,24 @@
+<template>
+    <lightning-quick-action-panel header="Assign Employee">
+        
+         <lightning-layout multiple-rows>
+        <lightning-layout-item size="12">
+           
+          <!-- Search Input filed. Below-->
+          <lightning-input type="text" onchange={handleSearchChange} placeholder="Search by Employee Name or Employee Unique ID"
+                value={searchKeyWord}></lightning-input>
+
+        </lightning-layout-item>
+        <lightning-layout-item size="12" style="height: 250px;margin-top: 12px;">
+            <lightning-datatable data={responseData} columns={columns} key-field="id"  onrowselection={handleRowAction}>
+            </lightning-datatable>
+        </lightning-layout-item>
+    </lightning-layout>
+       
+    <!--SAVE and CLOSE Button -->
+        <div slot="footer">
+          <lightning-button variant="neutral" label="Cancel" onclick={closeModal}></lightning-button>
+          <lightning-button variant="brand" label="Save"  onclick={handleSave} class="slds-m-left_x-small"></lightning-button>
+        </div>
+      </lightning-quick-action-panel>
+</template>

@@ -1,0 +1,32 @@
+<template>
+    <div class="navContainer">
+        <div class="navItem">
+            <img src="https://www.getjenny.com/hs-fs/hubfs/salesforce.png?width=577&name=salesforce.png"
+                alt="Vidhyaan School Logo" height="50px">
+            <span>Vidhyaan</span>
+        </div>
+        <div class="navItemLeft" onclick={showProfileHandler}>
+            <img src={userImg} alt="User Profile Image" onmouseover={showList} onmouseout={hideList}>
+            <!-- R
+            </span> -->
+            <template if:true={showListVar}>
+                <div class="popup">
+                    <p>{userName}</p>
+                </div>
+            </template>
+            <template if:true={showProfile}>
+                <div class="popup clickInfo">
+                    <div class="profilePicContainer">
+                        <img src={userImg} alt="User Profile Image">
+                    </div>
+                    <div class="profileDetails">
+                        <p class="profileName">{userName}</p>
+                        <a href="/lightning/setup/SetupOneHome/home"
+                            target="_blank">Setting</a>
+                        <a href="/secur/logout.jsp">Log Out</a>
+                    </div>
+                </div>
+            </template>
+        </div>
+    </div>
+</template>

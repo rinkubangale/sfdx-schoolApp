@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>AdmListView</fullName>
+    <columns>NAME</columns>
+    <columns>Academic_Year__c</columns>
+    <columns>Assign_Classes__c</columns>
+    <columns>Total_No_of_Seats__c</columns>
+    <columns>Seats_Filled__c</columns>
+    <columns>No_of_Seats_Available__c</columns>
+    <filterScope>Everything</filterScope>
+    <label>AdmListView</label>
+</ListView>

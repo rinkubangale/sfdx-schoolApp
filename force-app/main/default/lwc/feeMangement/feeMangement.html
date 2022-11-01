@@ -1,0 +1,64 @@
+<template>
+    <template if:true={clicked}>
+        <template if:true={feesListView}>
+            <c-fees-list-view onbackbtn={handleBack}></c-fees-list-view>
+        </template>
+        <template if:true={feePlanListView}>
+            <c-fee-plan-list-view onbackbtn={handleBack}></c-fee-plan-list-view>
+        </template>
+        <template if:true={adhocFeeListView}>
+            <c-adhoc-fee-list-view onbackbtn={handleBack}></c-adhoc-fee-list-view>
+        </template>
+    </template>
+
+    <template if:false={clicked}>
+        <lightning-card>
+            <lightning-layout class="resScreen" multiple-rows>
+
+                <lightning-layout-item flexibility="auto" padding="around-small">
+                    <span onclick={openCard} data-name="feesListView">
+                        <c-default-card obj-api-name='Fee_Types__c' header="Create Fee Type" step="STEP 1"
+                            header-line="Create Fee Type for your Fee Plans" example-tag="---">
+                        </c-default-card>
+                    </span>
+                </lightning-layout-item>
+
+                <lightning-layout-item flexibility="auto" padding="around-small">
+                    <span onclick={openCard} data-name="feePlanListView">
+                        <c-default-card obj-api-name='Fee_plan__c' header="Create Fee Plan" step="STEP 2"
+                            header-line="Create Fee Plan for an Academic Year"
+                            example-tag="[for eg: Monthly, Quarterly, Half Yearly, Custom Plans, apply discounts and penalties]">
+                        </c-default-card>
+                    </span>
+                </lightning-layout-item>
+
+                <lightning-layout-item flexibility="auto" padding="around-small">
+                    <span onclick={openCard} data-name="adhocFeeListView">
+                        <c-default-card obj-api-name='Adhoc_Fee__c' header="Create Adhoc Fees" step="STEP 3"
+                            header-line="Create Adhoc Fees for One/multiple Students or for any specific classes"
+                            example-tag="">
+                        </c-default-card>
+                    </span>
+                </lightning-layout-item>
+
+                <lightning-layout-item flexibility="auto" padding="around-small">
+                    <span data-name="teacherListView">
+                        <c-default-card obj-api-name='Adhoc_Fee__c' header="Payment Gateway" step="STEP 4"
+                            header-line="Razorpay's Free Payment Gateway"
+                            example-tag="Supports Netbanking, Credit, Debit Cards, UPI etc">
+                        </c-default-card>
+                    </span>
+                </lightning-layout-item>
+
+                <lightning-layout-item flexibility="auto" padding="around-small">
+                    <span data-name="teacherListView">
+                        <c-default-card obj-api-name='Adhoc_Fee__c' header="View Invoices" step="STEP 4"
+                            header-line="Invoice" example-tag="View/Edit Invoice at student level">
+                        </c-default-card>
+                    </span>
+                </lightning-layout-item>
+
+            </lightning-layout>
+        </lightning-card>
+    </template>
+</template>

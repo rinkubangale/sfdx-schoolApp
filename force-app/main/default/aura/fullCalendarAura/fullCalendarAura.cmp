@@ -1,0 +1,8 @@
+<aura:component implements="force:lightningQuickActionWithoutHeader,force:hasRecordId,lightning:isUrlAddressable" access="global">
+   <c:fullCalendarJs recId="{!v.recId}"/>
+</aura:component>	
+
+
+
+ <!-- <c:fullCalendarJs recId="{!v.recId}"/>  -->
+     <!-- <aura:attribute name="calendarId" type="Id" /> -->

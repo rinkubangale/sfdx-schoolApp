@@ -1,0 +1,65 @@
+<template>
+    <!-- <lightning-card> -->
+        <lightning-quick-action-panel title="Assigned Software" style="background-color: #ede8e8 !important; ">
+            <span>
+                <lightning-icon icon-name="standard:asset_object" size="small" class="slds-float_left"></lightning-icon>
+            </span>
+            <span class="slds-p-around_large slds-p-top_large" style="font-size: small;font-weight: bold;">
+                Assigned Softwares ({count})
+            </span>
+            <span style="float:right;">
+                <lightning-button label="Untag assets" variant="neutral"  class=" slds-p-around_small" onclick={OpenConfirmationPage}></lightning-button >
+            </span>
+            <!-- <span  style="float:right;">
+                <lightning-button-icon icon-name="utility:refresh" class=" slds-p-around_small" onclick={refresh}></lightning-button-icon>
+            </span> -->
+            
+        </lightning-quick-action-panel>
+        <!-- <lightning-card> -->
+            <lightning-datatable
+            key-field="Id"
+            data={data}
+            columns={columns}
+            onrowaction={handleRowAction}
+            onrowselection={handleSelectedRow}
+            show-row-number-column="true">
+            <!-- hide-checkbox-column="true" -->
+        </lightning-datatable>
+        <!-- </lightning-card> -->
+        
+        <template if:true={isModalOpen}>
+
+            <c-unassign-page emp={recordId} record-id={assetId} checkbox-val = "true"></c-unassign-page>
+            
+        </template>
+    <!-- </lightning-card> -->
+    <template if:true={ConfirmationPage}>
+        <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+            <div class="slds-modal__container">
+             <!-- modal header start -->
+               <header class="slds-modal__header">
+                  <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse" title="Close" onclick={closeConfirmPage}>
+                     <lightning-icon icon-name="utility:close"
+                        alternative-text="close"
+                        variant="inverse"
+                        size="small" ></lightning-icon>
+                     <span class="slds-assistive-text">Close</span>
+                  </button>
+                  <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">Untag Confirmation</h2>
+               </header>
+               <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                <p class="slds-align_absolute-center">Are you sure you want to untag selected Assets and move to inventory?</p>
+          </div>
+
+            <footer class="slds-modal__footer">
+                <lightning-button label="Confirm" onclick={untagAssets} class="slds-p-around_small"
+                    variant="brand"></lightning-button>
+                <lightning-button label="Cancel" onclick={closeConfirmPage} variant="netrual"></lightning-button>
+            </footer>
+        </div>
+    </section>
+    <div class="slds-backdrop slds-backdrop_open"></div>
+        
+    </template>
+    
+</template>

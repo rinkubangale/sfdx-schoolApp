@@ -1,0 +1,61 @@
+<template>
+    <lightning-quick-action-panel header="Assign Asset">
+        <lightning-layout if:true={firstPage}>
+            <lightning-layout-item size="4">
+
+            </lightning-layout-item>
+            <lightning-layout-item size="4">
+                <c-customselect record-type-options={recordTypeOptions} onselectedvalue={handlesSelectValue}></c-customselect>
+<!-- 
+                <div class="slds-form-element">
+                    <label class="slds-form-element__label">
+                        
+                        <span class="">Select a Record Type</span>
+                    </label>
+                    <div class="slds-form-element__control">
+                        <div class="slds-select_container">
+                            <select class="slds-select" 
+                                    onchange={handleChange} 
+>
+                                <option value="Select">Select</option>
+                                <template for:each={recordTypeOptions} for:item="option">
+                                    <option key={option.label} class="uiInputSelectOption" value={option.value}>{option.value}</option>
+                                </template>
+                            </select>
+                        </div>
+                    </div>
+                </div> -->
+                <!-- <lightning-combobox name="recordTypes" label="Select a Record Type" value={selectedRecordType}
+                    placeholder="-Select-" options={recordTypeOptions} onchange={handleChange}>
+                </lightning-combobox> -->
+            </lightning-layout-item>
+            <lightning-layout-item size="4">
+
+            </lightning-layout-item>
+        </lightning-layout>
+
+        <div class="slds-m-around_medium" if:false={firstPage}>
+            <c-product-search selected-record-type={selectedRecordType}  onselectedrecords={handleSelecteProducts}></c-product-search>
+
+            <!-- <lightning-layout multiple-rows>
+                <lightning-layout-item size="12">
+                    <lightning-input type="text" onchange={handleSearchChange} placeholder="Search by Product Name"
+                        value={searchKeyWord}></lightning-input>
+                </lightning-layout-item>
+                <lightning-layout-item size="12" style="height: 250px;margin-top: 12px;">
+                    <lightning-datatable data={responseData} columns={columns} key-field="id">
+                    </lightning-datatable>
+                </lightning-layout-item>
+            </lightning-layout> -->
+
+        </div>
+
+        <div slot="footer">
+            <lightning-button onclick={closeModal} variant="neutral" label="Cancel"></lightning-button>
+            <lightning-button variant="brand" label="Next" onclick={handleNextPage} if:true={firstPage}
+                class="slds-m-left_x-small"></lightning-button>
+            <lightning-button variant="brand" label="Save" onclick={handleSave} if:false={firstPage}
+                class="slds-m-left_x-small"></lightning-button>
+        </div>
+    </lightning-quick-action-panel>
+</template>

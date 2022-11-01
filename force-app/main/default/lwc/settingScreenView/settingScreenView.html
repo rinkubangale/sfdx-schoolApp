@@ -1,0 +1,21 @@
+<template>
+    <template if:true={clicked}>
+        <template if:true={holidayListView}>
+            <c-leave-tracker onbackbtn={handleBack}></c-leave-tracker>
+        </template>
+    </template>
+
+    <template if:false={clicked}>
+        <lightning-card class="removeBg">
+            <lightning-layout class="resScreen" multiple-rows>
+                <lightning-layout-item flexibility="auto" padding="around-small">
+                    <span onclick={openCard} data-name="holidayListView">
+                        <c-default-card obj-api-name='Leave__c' header="Add Holidays" step="STEP 1"
+                            header-line="Add Holidays for Schools" example-tag="Diwali, Christmas, Pongal, Holi">
+                        </c-default-card>
+                    </span>
+                </lightning-layout-item>
+            </lightning-layout>
+        </lightning-card>
+    </template>
+</template>

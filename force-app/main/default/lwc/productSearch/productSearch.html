@@ -1,0 +1,12 @@
+<template>
+    <lightning-layout multiple-rows>
+        <lightning-layout-item size="12">
+            <lightning-input type="text" onchange={handleSearchChange} placeholder="Search by Product Name"
+                value={searchKeyWord}></lightning-input>
+        </lightning-layout-item>
+        <lightning-layout-item size="12" style="height: 250px;margin-top: 12px;">
+            <lightning-datatable data={responseData} columns={columns} key-field="id"  onrowselection={handleRowAction}>
+            </lightning-datatable>
+        </lightning-layout-item>
+    </lightning-layout>
+</template>

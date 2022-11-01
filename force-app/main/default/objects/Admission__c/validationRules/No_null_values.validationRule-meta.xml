@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>No_null_values</fullName>
+    <active>true</active>
+    <errorConditionFormula>OR( ISNULL(Total_No_of_Seats__c),  ISNULL(Seats_Filled__c))</errorConditionFormula>
+    <errorMessage>The Field should not be empty!</errorMessage>
+</ValidationRule>

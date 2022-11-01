@@ -1,0 +1,52 @@
+<template>
+
+    <lightning-quick-action-panel header="Asset Details">
+        <lightning-spinner alternative-text="Loading" size="medium" if:true={showSpinner}></lightning-spinner>
+
+        <lightning-layout>
+            <lightning-layout-item size="9">
+                <lightning-layout>
+                    <lightning-layout-item size="1">
+                        <p>Name</p>
+                    </lightning-layout-item>
+                    <lightning-layout-item size="4">
+                        <lightning-input  style="margin-top: -19px;
+                        margin-bottom: 8px;" value={employeeName} disabled></lightning-input>
+
+                    </lightning-layout-item>
+                </lightning-layout>
+            </lightning-layout-item>
+            
+            <lightning-layout-item size="3">
+                <lightning-input type="checkbox" label="Is Active" checked  name="input1" disabled></lightning-input>
+
+                <!-- <lightning-input label="Is Active" value={isActive}></lightning-input> -->
+            </lightning-layout-item>
+        </lightning-layout>
+    
+    
+        <template if:true={recordData}>
+
+            <lightning-datatable hide-checkbox-column key-field="id" data={recordData} columns={columns}>
+
+            </lightning-datatable>
+
+            <!-- <lightning-button type="Submit" variant="Brand" label="Save"></lightning-button>   -->
+
+        </template>
+        <div slot="footer">
+            <lightning-button
+                variant="neutral"
+                onclick={handleClose}
+                label="Cancel"
+            ></lightning-button>
+            <lightning-button
+                variant="brand"
+                onclick={handleResign}
+                label="Resign"
+                class="slds-m-left_x-small"
+            ></lightning-button>
+        </div>
+    </lightning-quick-action-panel>
+
+</template>

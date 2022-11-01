@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Email_Required</fullName>
+    <active>false</active>
+    <description>without Email the contact record will not be created</description>
+    <errorConditionFormula>REGEX ( UPPER ( Email ) ,&quot;^[A-Z0-9._%+-/!#$%&amp;&apos;*=?^_`{|}~]+@[A-Z0-9.-]+\\.[A-Z]{2,4}$&quot;)</errorConditionFormula>
+    <errorDisplayField>Email</errorDisplayField>
+    <errorMessage>Email ID should follow the pattern</errorMessage>
+</ValidationRule>

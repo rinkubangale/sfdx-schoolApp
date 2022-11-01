@@ -1,0 +1,16 @@
+.hoverIcon{
+    opacity: 0.2;
+}
+.hoverIcon:hover{
+    cursor: pointer;
+    opacity: 1;
+}
+.borderLine{
+    border-bottom: 1px solid;
+    opacity: 0.1;
+    padding-top: 10px;
+}
+
+.buttonPadding{
+    margin-top:15px;
+}

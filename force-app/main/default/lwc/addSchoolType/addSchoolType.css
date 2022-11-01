@@ -1,0 +1,38 @@
+.slds-col{
+    text-align: center;
+}
+
+h2.header {
+    margin: 0rem 1rem 1rem 1rem;
+    font-size: 1rem;
+}
+
+.slds-grid.slds-wrap{
+    gap: 20px !important;
+    justify-content: center;
+}
+
+.slds-size_4-of-12{
+    width: 30% !important;
+}
+
+.slds-size_4-of-12:hover{
+    background-color: #0176d3;
+    color: white;
+    font-weight: 600;
+}
+
+.selectedClass{
+    background-color: #0176d3;
+    color: white;
+    font-weight: 600;
+}
+
+.slds-form-element__label {
+    color: inherit !important;
+}
+
+/* :host {
+    --sds-c-checkbox-color-background-checked: green;
+    --sds-c-checkbox-mark-color-foreground: yellow;
+} */

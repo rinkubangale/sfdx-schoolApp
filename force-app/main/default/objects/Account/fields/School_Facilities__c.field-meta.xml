@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>School_Facilities__c</fullName>
+    <externalId>false</externalId>
+    <label>School Facilities</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Co-Education</fullName>
+                <default>false</default>
+                <label>Co-Education</label>
+            </value>
+            <value>
+                <fullName>Medical Facilities</fullName>
+                <default>false</default>
+                <label>Medical Facilities</label>
+            </value>
+            <value>
+                <fullName>Hostel</fullName>
+                <default>false</default>
+                <label>Hostel</label>
+            </value>
+            <value>
+                <fullName>School Library</fullName>
+                <default>false</default>
+                <label>School Library</label>
+            </value>
+            <value>
+                <fullName>Computer Lab</fullName>
+                <default>false</default>
+                <label>Computer Lab</label>
+            </value>
+            <value>
+                <fullName>Sports</fullName>
+                <default>false</default>
+                <label>Sports</label>
+            </value>
+            <value>
+                <fullName>Cafeteria</fullName>
+                <default>false</default>
+                <label>Cafeteria</label>
+            </value>
+            <value>
+                <fullName>Disabled Friendly</fullName>
+                <default>false</default>
+                <label>Disabled Friendly</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+    <visibleLines>10</visibleLines>
+</CustomField>

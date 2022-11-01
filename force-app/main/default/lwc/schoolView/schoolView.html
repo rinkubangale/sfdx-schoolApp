@@ -1,0 +1,86 @@
+<template>
+
+  <lightning-layout multiple-rows horizontal-align="center">
+    <lightning-layout-item size="3" padding="around-small" class="layoutitemcommon color" alignment-bump="">
+      <div class="slds-clearfix topdiv">
+        <div class="slds-text-heading_small">
+          <b>Attendance</b>
+        </div>
+        <div class="topdiv2">
+          <lightning-icon size="small" icon-name="utility:event" alternative-text="" title="Event">
+          </lightning-icon>
+          <lightning-icon size="small" icon-name="utility:weeklyview" alternative-text="" title="Event">
+          </lightning-icon>
+        </div>
+      </div>
+      <br />
+      <div class="middlediv">
+        <div>
+          <input type="text" class="addnotesbox" placeholder="Add Notes"></input>
+        </div>
+        <div>
+          <lightning-button icon-name="utility:clock" variant={classStyleBtn} label={clockInLabel}
+            title="Destructive action" onclick={handleClick} class="clockin"></lightning-button>
+          <p><b style="font-size: 12px;">{sinceLogin}</b><span style="font-size: 10px;"> Since Last Login</span></p>
+        </div>
+      </div>
+      <br />
+      <div class="bottomdiv">
+        <div class="slds-text-heading_large slds-text-align_center duration">
+          <h1>{timer}</h1>
+        </div>
+        <div class="slds-text-align_center slds-text-heading_small todaydate">
+          <p>{dateToday}</p>
+        </div>
+      </div>
+    </lightning-layout-item>
+
+    <lightning-layout-item size="3" class="layoutitemcommon" style="position:relative" padding="around-small"
+      alignment-bump="">
+      <div class="slds-clearfix">
+        <div class="slds-text-heading_small">
+          <b>Birthday</b>
+        </div>
+      </div>
+      <div if:false={userData.length} class="middlediv2">
+      </div>
+      <div class="slds-text-body_small middlediv3" style="display:flex; gap:10px; padding:10px; justify-content:center">
+        <p if:false={userData.length}>No upcoming birthdays this month.</p>
+        <template class="birthday" for:each={userData} for:item="user">
+          <div key={user.Id}>
+            <img src={user.MediumPhotoUrl} alt={user.Name} width="40px" style="border-radius:50%" />
+            <p>{user.Name}</p>
+            <p>{user.Birthday__c}</p>
+          </div>
+        </template>
+      </div>
+    </lightning-layout-item>
+
+    <lightning-layout-item size="3" class="layoutitemcommon" padding="around-small" alignment-bump="">
+      <div class="slds-clearfix bottomdiv2">
+        <div>
+          <b>Upcoming Holidays</b>
+        </div>
+        <div style="margin-left:2em">
+          <lightning-button class="listview" label="List" onclick={handleClick1}></lightning-button>
+          <lightning-button class="graphicview" label="Graphic" onclick={handleClick2}></lightning-button>
+        </div>
+      </div>
+      <br />
+      <div style="overflow:auto; height: 70%">
+        <template for:each={holidaysData} for:item="holiday">
+          <div key={holiday.Id} class="slds-clearfix" style="padding: 10px 0px;">
+            <div class="festival">
+              <h3>{holiday.Name}</h3>
+            </div>
+            <div class="slds-float_right thirddiv">
+              <p>{holiday.date}</p>
+              <p>{holiday.day}</p>
+            </div>
+          </div>
+        </template>
+      </div>
+    </lightning-layout-item>
+  </lightning-layout>
+
+</template>

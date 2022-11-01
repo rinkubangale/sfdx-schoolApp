@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Affiliate_to_Board__c</fullName>
+    <externalId>false</externalId>
+    <label>Affiliate to/Board</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>CBSE</fullName>
+                <default>false</default>
+                <label>CBSE</label>
+            </value>
+            <value>
+                <fullName>STATE BOARD</fullName>
+                <default>false</default>
+                <label>STATE BOARD</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

@@ -1,0 +1,133 @@
+<template>
+
+    <lightning-quick-action-panel header="Software Details">
+
+
+
+        <lightning-record-edit-form object-api-name="Inventory_Line_Item__c">
+
+
+            <lightning-accordion allow-multiple-sections-open onsectiontoggle={handleSectionToggle}
+                active-section-name={activeSections}>
+                <lightning-accordion-section name="A" label="Software Information">
+                    <lightning-layout multiple-rows>
+                        <lightning-layout-item size="6">
+                            <lightning-input-field field-name="Product_Name__c"></lightning-input-field>
+                        </lightning-layout-item>
+                         <lightning-layout-item size="6">
+                            <lightning-input-field field-name="Discription__c"></lightning-input-field>
+
+                        </lightning-layout-item>
+                        <lightning-layout-item size="6">
+                            <lightning-input-field field-name="Price__c"></lightning-input-field>
+
+                        </lightning-layout-item>
+                        <!-- <lightning-layout-item size="6">
+                            <lightning-input-field field-name="Product_Code__c"></lightning-input-field>
+
+                        </lightning-layout-item> -->
+                        <lightning-layout-item size="6">
+                            <lightning-input-field field-name="License_Count__c"></lightning-input-field>
+
+                        </lightning-layout-item>
+                        <lightning-layout-item size="6">
+                            <lightning-input-field field-name="License_Type__c"></lightning-input-field>
+
+                        </lightning-layout-item>
+                        <lightning-layout-item size="6">
+                            <lightning-input-field field-name="Product_Type__c" disabled></lightning-input-field>
+
+                        </lightning-layout-item>
+                        <lightning-layout-item size="6">
+                            <lightning-input-field field-name="Purchase_Date__c"></lightning-input-field>
+
+                        </lightning-layout-item>
+                    </lightning-layout>
+                </lightning-accordion-section>
+
+                <lightning-accordion-section name="B" label="Subscription Details" if:true={isSubscription}>
+                    <lightning-layout multiple-rows>
+                        <lightning-layout-item size="6">
+                            <lightning-input-field field-name="Subscription_Start_Date__c"></lightning-input-field>
+
+                        </lightning-layout-item>
+                        <lightning-layout-item size="6">
+                            <lightning-input-field field-name="Billing_Frequency__c"></lightning-input-field>
+
+                        </lightning-layout-item>
+                        <lightning-layout-item size="6">
+                            <lightning-input-field field-name="Subscription_End_Date__c"></lightning-input-field>
+
+                        </lightning-layout-item>
+                        <lightning-layout-item size="6">
+                            <lightning-input-field field-name="Subscription_Type__c"></lightning-input-field>
+
+                        </lightning-layout-item>
+
+                    </lightning-layout>
+                </lightning-accordion-section>
+
+            </lightning-accordion>
+            <!-- <lightning-button variant="Brand" label="Add"></lightning-button> -->
+            <div class="slds-clearfix">
+                <lightning-button label="Add" class="slds-float_right" onclick={addInventoryLineItem}>
+                </lightning-button>
+            </div>
+        </lightning-record-edit-form>
+
+        <!-- <lightning-datatable   
+        key-field="id" 
+                    data={recordData}
+                    columns={columns}>
+    
+            </lightning-datatable> -->
+        <table class="slds-table slds-table_bordered slds-table_cell-buffer" style="margin-top: 5px;">
+            <thead>
+                <tr class="slds-text-title_caps">
+                    <template for:each={columns} for:item="header">
+
+                        <th scope="col" key={header} style=" text-align:center;height:35px">
+                            <div class="slds-truncate" title={header.fieldName}>{header.label}</div>
+                        </th>
+                    </template>
+                </tr>
+            </thead>
+            <tbody>
+
+                <template for:each={recordData} for:item="it" for:index="index">
+                    <tr class="slds-hint-parent" key={it.Product_Code__c} style="cursor: pointer;">
+                        <td data-label="product Name" style=" text-align:center">
+                            {it.Product_Name__c}
+                        </td>
+                        <!-- <td data-label="product code" style=" text-align:center">
+                            {it.Product_Code__c}
+                        </td> -->
+                        <td data-label="price" style=" text-align:center">
+                            {it.Price__c}
+                        </td>
+                        <td data-label="License count" style=" text-align:center">
+                            {it.License_Count__c}
+                        </td>
+                        <td data-label="License type" style=" text-align:center">
+                            {it.License_Type__c}
+                        </td>
+                        <td data-label="Purchase Date" style=" text-align:center">
+                            {it.Purchase_Date__c}
+                        </td>
+                    </tr>
+                </template>
+            </tbody>
+        </table>
+
+
+        <!-- <template if:true={recordData}>
+        </template>
+     -->
+
+        <div slot="footer">
+            <lightning-button variant="neutral" label="Cancel"></lightning-button>
+            <lightning-button variant="brand" label="Save" onclick={handleSave} class="slds-m-left_x-small"></lightning-button>
+        </div>
+    </lightning-quick-action-panel>
+
+</template>

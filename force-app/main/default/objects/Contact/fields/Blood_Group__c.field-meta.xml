@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Blood_Group__c</fullName>
+    <externalId>false</externalId>
+    <label>Blood Group</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>A-positive (A+)</fullName>
+                <default>false</default>
+                <label>A-positive (A+)</label>
+            </value>
+            <value>
+                <fullName>A-negative (A-)</fullName>
+                <default>false</default>
+                <label>A-negative (A-)</label>
+            </value>
+            <value>
+                <fullName>B-positive (B+)</fullName>
+                <default>false</default>
+                <label>B-positive (B+)</label>
+            </value>
+            <value>
+                <fullName>B-negative (B-)</fullName>
+                <default>false</default>
+                <label>B-negative (B-)</label>
+            </value>
+            <value>
+                <fullName>AB-positive (AB+)</fullName>
+                <default>false</default>
+                <label>AB-positive (AB+)</label>
+            </value>
+            <value>
+                <fullName>AB-negative (AB-)</fullName>
+                <default>false</default>
+                <label>AB-negative (AB-)</label>
+            </value>
+            <value>
+                <fullName>O-positive (O+)</fullName>
+                <default>false</default>
+                <label>O-positive (O+)</label>
+            </value>
+            <value>
+                <fullName>O-negative (O-)</fullName>
+                <default>false</default>
+                <label>O-negative (O-)</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

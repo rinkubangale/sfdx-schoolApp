@@ -1,0 +1,31 @@
+<template>
+    <template if:true={showHome} class="homeContainer">
+        <!-- <div class="leftContainer">
+        </div>
+        <div class="rightContainer"></div> -->
+        <c-school-view></c-school-view>
+
+    </template>
+
+    <template if:true={showFee}>
+        <!-- <div>Fee Management Component In-Progress</div> -->
+        <c-fee-mangement></c-fee-mangement>
+    </template>
+
+    <template if:true={showAdmission} class="admissionContainer">
+        <c-home-default clicked={goBack}></c-home-default>
+    </template>
+
+    <template if:true={showSetting}>
+        <!-- <div>Settings Component In-Progress</div> -->
+        <c-setting-screen-view></c-setting-screen-view>
+    </template>
+
+    <template if:true={showSubscription}>
+        <div>Subscription Component In-Progress</div>
+    </template>
+
+    <template if:true={showCheckin}>
+        <c-check-in-list-view></c-check-in-list-view>
+    </template>
+</template>

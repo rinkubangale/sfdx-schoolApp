@@ -1,0 +1,63 @@
+.layoutitemcommon {
+  border-radius: 5px;
+  background-color: white;
+  margin-right: 5em;
+  height: 15em;
+  color: black;
+  border: 1px solid #eef;
+}
+
+.addnotesbox {
+  height: 2.4em;
+  width: 13em;
+}
+
+.topdiv {
+  display: flex;
+  justify-content: space-between;
+}
+
+.topdiv2 {
+  margin-left: 6em;
+}
+.middlediv {
+  display: flex;
+  justify-content: space-evenly;
+}
+.middlediv2 {
+  background-image: url(https://cdn-icons-png.flaticon.com/512/1244/1244448.png?w=740&t=st=1667282888~exp=1667283488~hmac=42b81ac…);
+  width: 5rem;
+  height: 5rem;
+  background-repeat: round;
+  margin: 1rem auto;
+}
+
+.middlediv3 {
+  text-align: center;
+}
+
+.bottomdiv2 {
+  display: flex;
+  justify-content: space-between;
+}
+
+.clockin {
+  height: 1px;
+  width: 1px;
+  font-size: 10px;
+}
+
+.listview {
+  font-size: 10px;
+  background-color: coral;
+  margin: 1px;
+}
+
+.graphicview {
+  font-size: 10px;
+  margin: 1px;
+}
+
+.thirddiv {
+  margin-top: -19px;
+}

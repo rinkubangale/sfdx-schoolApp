@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Subject_Course__c</fullName>
+    <deleteConstraint>Restrict</deleteConstraint>
+    <externalId>false</externalId>
+    <label>Subject &amp; Course</label>
+    <referenceTo>Subject_Course__c</referenceTo>
+    <relationshipLabel>Class Sub Teach</relationshipLabel>
+    <relationshipName>Class_Sub_Teach</relationshipName>
+    <required>true</required>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

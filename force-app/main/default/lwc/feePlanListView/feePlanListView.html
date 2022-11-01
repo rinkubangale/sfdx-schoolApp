@@ -1,0 +1,87 @@
+<template>
+    <lightning-card>
+        <div class="slds-p-horizontal_medium">
+            <lightning-layout>
+                <lightning-layout-item size="4" class="slds-p-left_small">
+                    <lightning-icon icon-name="action:clone" class="slds-p-left_small  " alternative-text="Clone"
+                        title="Clone"></lightning-icon>
+                    <span class="slds-p-horizontal_small" style="font-weight: bold; color: black">Create Fee
+                        Plan</span>
+                </lightning-layout-item>
+                <lightning-layout-item size="8">
+                    <div class="slds-clearfix">
+                        <div class="slds-float_right">
+                            <c-create-fee-plan></c-create-fee-plan>
+                        </div>
+                    </div>
+                </lightning-layout-item>
+            </lightning-layout>
+
+            <div class="slds-m-top_medium">
+
+                <lightning-datatable key-field="Id" data={dataList} columns={columns}
+                    onrowselection={rowSelectionHandler} onrowaction={rowActionHandler} checkbox-column="true"
+                    onsave={saveHandleAction} draft-values={fldsItemValues} sorted-by={sortBy}
+                    sorted-direction={sortDirection} onsort={doSorting} oncellchange={keyUpHandler}>
+                </lightning-datatable>
+
+            </div>
+
+        </div>
+        <div slot="footer" class="slds-clearfix slds-p-top_xxx-small ">
+            <lightning-button label="Back" variant="brand" onclick={goBack}
+                class="slds-var-m-left_xx-small slds-float_left"></lightning-button>
+            <lightning-button label="Delete" variant="brand" onclick={deleteHandler}
+                class="slds-var-m-left_xx-small slds-float_right"></lightning-button>
+
+            <template if:true={deleteWindow}>
+                <c-delete-confirmation modal-value={deleteWindow} obj-name="Admission__c" records-id={delId}
+                    onmodalchange={handleModalChange}>
+                </c-delete-confirmation>
+            </template>
+
+
+        </div>
+        <template if:true={isModalOpen}>
+
+            <!-- Modal/Popup Box LWC starts here -->
+
+            <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true"
+                aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open slds-modal_medium">
+
+                <div class="slds-modal__container">
+
+                    <!-- Modal/Popup Box LWC header here -->
+
+                    <div class="slds-clearfix">
+
+                        <div class="slds-float_right">
+
+                            <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse"
+                                title="Close" onclick={closeModal}>
+
+                                <lightning-icon icon-name="utility:close" alternative-text="close" variant="inverse"
+                                    size="small"></lightning-icon>
+
+                                <span class="slds-assistive-text">Close</span>
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                    <!-- Modal/Popup Box LWC body starts here -->
+
+                    <c-edit-fee-plan records-id={recordID} get-modal-value={isModalOpen}
+                        onmodalchange={handleModalChange}>
+                    </c-edit-fee-plan>
+
+                </div>
+
+            </section>
+            <div class="slds-backdrop slds-backdrop_open"></div>
+        </template>
+    </lightning-card>
+
+</template>

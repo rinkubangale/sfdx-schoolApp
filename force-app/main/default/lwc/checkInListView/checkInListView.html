@@ -1,0 +1,196 @@
+<template>
+    <lightning-spinner variant="brand" alternative-text="Loading..." size="medium" if:true={isLoading}>
+    </lightning-spinner>
+    <lightning-card style="color: #000">
+        <lightning-tabset>
+            <lightning-tab label="Staff checkin">
+                <div style="margin-left: 30px; font-size: 14px;">
+                    <lightning-layout>
+                        <lightning-layout-item size="4">
+                            <lightning-button label="Staff Checkin" value="Staff Checkin" onchange={getsearchRecords}
+                                options={checkInData} onclick={showData}></lightning-button></span>
+                            <span style="margin-left: 30px; font-size: 14px;">
+                                <lightning-button label="Student Checkin" value="Student Checkin"></lightning-button>
+                            </span>
+                        </lightning-layout-item>
+
+
+                        <lightning-layout-item size="5">
+                            <span class="slds-text-title slds-align_absolute-center" style="margin-right: 88px;">
+                                <lightning-input variant="label-hidden" name="enter-search"
+                                    placeholder="Search Staff by Name" type="search" onchange={getsearchRecords}
+                                    options={checkInData}></lightning-input>
+                            </span>
+                        </lightning-layout-item>
+                        <lightning-layout-item size="3">
+                            <span class=" slds-p-left_medium slds-text-heading_medium" style=MARGIN-TOP:15px;>
+
+                                <span style="margin-right: 30px;font-variant: petite-caps;">Present</span>
+                                <span style="padding-right: 30px;"><b>{present}</b></span>
+                                <span style="padding-right: 22px; font-variant: petite-caps;">Absent</span>
+                                <span style="margin-right: 30px"><b>{absentCheckInData}</b></span>
+                            </span>
+                        </lightning-layout-item>
+                    </lightning-layout>
+                </div>
+                <lightning-layout>
+                    <lightning-layout-item size="12" class="slds-p-around_medium">
+                        <div
+                            class="slds-m-top_medium slds-table_bordered slds-table_fixed-layout slds-table_resizable-cols ">
+
+                            <lightning-datatable key-field="CheckInId" data={checkInData} columns={columns}
+                                hide-checkbox-column="true" onrowaction={handleRowAction} sorted-by={sortBy}
+                                sorted-direction={sortDirection} onsort={doSorting}>
+                            </lightning-datatable>
+                        </div>
+
+                    </lightning-layout-item>
+                </lightning-layout>
+            </lightning-tab>
+
+            <!-- ------------------------------------------------- -->
+            <lightning-tab label="Staff Report">
+
+                <lightning-layout multiple-rows="true">
+
+                    <lightning-layout-item size="4" flexibility="auto" class="slds-p-around_medium">
+                        <lightning-combobox name="progress" label="Select Teacher" placeholder="Select Teacher"
+                            options={teacherOptions} value={teacherName} onchange={handleTeacherChange}>
+                        </lightning-combobox>
+                    </lightning-layout-item>
+
+                    <lightning-layout-item size="4" flexibility="auto" class="slds-p-around_medium">
+                        <lightning-input type="month" label="Select a month" onchange={monthHandler}></lightning-input>
+                    </lightning-layout-item>
+
+                    <!-- <lightning-layout-item size="4" flexibility="auto" style="margin-top:auto ;"
+                        class="slds-p-around_medium">
+                        <lightning-button label="Submit" onclick={submitStaffReport}></lightning-button>
+                    </lightning-layout-item> -->
+                </lightning-layout>
+
+                <lightning-layout multiple-rows="true" class="outerBorder slds-p-around_medium">
+                    <lightning-layout-item size="2" flexibility="auto" class="slds-p-around_medium">
+                        <lightning-button-group if:true={monthAndTeacherSelected}>
+                            <lightning-button label="Week" onclick={openWeek}></lightning-button>
+                            <lightning-button label="Month" onclick={openMonth}></lightning-button>
+                        </lightning-button-group>
+                    </lightning-layout-item>
+
+                    <lightning-layout-item size="4" flexibility="auto" class="slds-p-around_medium">
+                        <lightning-formatted-text if:true={monthAndTeacherSelected} value={heading}
+                            style="display: flex; justify-content:center; font-size:medium; font-weight:bold">
+                        </lightning-formatted-text>
+                    </lightning-layout-item>
+
+                    <lightning-layout-item size="2" flexibility="auto" style="display: flex;
+        justify-content: flex-end;" class="slds-p-around_medium">
+                        <lightning-button-group if:true={monthAndTeacherSelected}>
+                            <lightning-button icon-name="utility:arrow_left" onclick={leftcontrol}></lightning-button>
+                            <lightning-button icon-name="utility:arrow_right" onclick={rightcontrol}></lightning-button>
+                        </lightning-button-group>
+                    </lightning-layout-item>
+
+                    <template if:true={isResultEmpty}>
+                        <lightning-layout-item size="12" flexibility="auto" style="overflow:auto;">
+                            <h2><b>No Data to display</b></h2>
+                        </lightning-layout-item>
+                    </template>
+
+                    <template if:true={monthAndTeacherSelected}>
+                        <template if:true={monthWindow}>
+                            <template if:false={isResultEmpty}>
+                                <lightning-layout-item size="10" style="overflow: auto;" flexibility="auto"
+                                    class="slds-p-around_medium">
+                                    <table>
+                                        <thead>
+
+                                            <template for:each={header} for:item="item">
+                                                <th key={item.Id} class="tborder">{item.Dates}</th>
+                                            </template>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+
+                                                <template for:each={data2} for:item="item">
+                                                    <th key={item.Id} class="tborder">{item.Status}</th>
+                                                </template>
+                                            </tr>
+
+                                        </tbody>
+                                    </table>
+                                </lightning-layout-item>
+                                <lightning-layout-item size="2" class="slds-p-around_medium">
+                                    <table class="tborder">
+                                        <tr class="tborder tableHead">
+                                            <th class="tborder thead">Present</th>
+                                            <th class="tborder thead">Absent</th>
+                                        </tr>
+                                        <tr class="tborder">
+                                            <td class="tborder thead">{countP}</td>
+                                            <td class="tborder thead">{countA}</td>
+                                        </tr>
+
+
+                                    </table>
+                                </lightning-layout-item>
+
+
+
+                            </template>
+                        </template>
+
+
+
+                        <template if:true={weekwindow}>
+                            <template if:false={isResultEmpty}>
+                                <lightning-layout-item size="10" flexibility="auto" style="overflow:auto;"
+                                    class="slds-p-around_medium">
+                                    <table>
+                                        <thead>
+                                            <template for:each={data1} for:item="item">
+                                                <th key={item.Id} class="tborder">{item.Date}</th>
+                                            </template>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <template for:each={data1} for:item="item">
+                                                    <th key={item.Id} class="tborder">{item.Status}</th>
+                                                </template>
+                                            </tr>
+                                        </tbody>
+
+
+
+                                    </table>
+                                </lightning-layout-item>
+
+                                <lightning-layout-item size="2" class="slds-p-around_medium">
+                                    <table>
+                                        <thead>
+                                            <tr class="tborder tableHead">
+                                                <th class="tborder thead">Present</th>
+                                                <th class="tborder thead">Absent</th>
+                                            </tr>
+                                        </thead>
+
+                                        <tr class="tborder">
+                                            <td class="tborder thead">{countP}</td>
+                                            <td class="tborder thead">{countA}</td>
+                                        </tr>
+
+
+                                    </table>
+                                </lightning-layout-item>
+                            </template>
+                        </template>
+
+                    </template>
+
+
+
+                </lightning-layout>
+            </lightning-tab>
+        </lightning-tabset>
+    </lightning-card>
+</template>

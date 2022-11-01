@@ -1,0 +1,154 @@
+<template>
+
+    <lightning-card style="margin:15px; text-transform:capitalize;" class="slds-card__header ">
+        <lightning-layout>
+            <lightning-layout-item size="4" class="slds-float_left slds-p-around_medium">
+                <div style="font-weight: bold; font-size: larger;  " class=" slds-p-around_small ">Holidays
+                </div>
+
+
+            </lightning-layout-item>
+
+            <lightning-layout-item size="4"></lightning-layout-item>
+
+            <lightning-layout-item size="4" class="slds-float_right" style="padding-top: 2em">
+
+                <lightning-button variant="brand" class="slds-m-left_x-small slds-p-horizontal_x-small"
+                    style="padding-left:25em" icon-name="utility:add" label="Add" title="Add Holidays"
+                    onclick={openModal}>
+                </lightning-button>
+            </lightning-layout-item>
+        </lightning-layout>
+
+
+        <template if:true={isModalOpen}>
+
+            <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true"
+                aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open slds-modal_large">
+                <div class="slds-modal__container">
+                    <!-- <div>
+                                <button class="slds-button slds-float_right slds-button_icon slds-modal__close slds-button_icon-inverse"
+                                    title="Close" onclick={closeModal}>
+                                    <lightning-icon icon-name="utility:close" alternative-text="close" variant="inverse"
+                                        size="small"></lightning-icon>
+                                    <span class="slds-assistive-text">Close</span>
+                                </button>
+                            </div> -->
+                    <!-- 
+                            style="margin:15px; text-transform:uppercase; font-weight:bold "
+                            icon-name="action:new_child_case" class="slds-modal__content  slds-p-around_medium"  title="Create Academic Year" -->
+
+
+
+                    <header class="slds-modal__header">
+                        <button
+                            class="slds-button slds-float_right slds-button_icon slds-modal__close slds-button_icon-inverse"
+                            title="Close" onclick={closeModal}>
+                            <lightning-icon icon-name="utility:close" alternative-text="close" onclick={closeModal}
+                                variant="inverse" size="small"></lightning-icon>
+                            <span class="slds-assistive-text">Close</span>
+                        </button>
+                        <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">
+                            Add Holidays
+                        </h2>
+                    </header>
+                    <lightning-card style="background:white;">
+                        <lightning-record-edit-form object-api-name="Leave__c" record-id={recordId}>
+                            <lightning-layout multiple-rows class="slds-p-around_medium">
+                                <lightning-layout-item size="5" class="slds-p-around_small slds-p-top_none ">
+                                    <lightning-input-field field-name="Name" onchange={handleName}>
+                                    </lightning-input-field>
+                                </lightning-layout-item>
+                                <lightning-layout-item size="2" class="slds-p-around_small slds-p-top_none">
+
+                                </lightning-layout-item>
+                                <lightning-layout-item size="5" class="slds-p-around_small slds-p-top_none ">
+                                    <lightning-input-field field-name="Leave_Date__c" onchange={handleDate}>
+                                    </lightning-input-field>
+                                </lightning-layout-item>
+
+                                <lightning-layout-item size="5" class="slds-p-around_small slds-p-top_none ">
+                                    <lightning-input-field field-name="Applicable_For__c" onchange={handleLocation}>
+                                    </lightning-input-field>
+                                </lightning-layout-item>
+                                <lightning-layout-item size="2" class="slds-p-around_small slds-p-top_none">
+
+                                </lightning-layout-item>
+                                <lightning-layout-item size="5" class="slds-p-around_small slds-p-top_none ">
+                                    <lightning-input-field field-name="Leave_Description__c"
+                                        onchange={handleDescription}>
+                                    </lightning-input-field>
+                                </lightning-layout-item>
+
+                                <lightning-layout-item size="3" class="slds-p-around_small slds-p-top_none">
+                                    <h3>No. of days before which the reminder should be sent</h3>
+                                </lightning-layout-item>
+                                <lightning-layout-item size="2" style="margin-top:-1em"
+                                    class="slds-p-around_small slds-p-top_none ">
+                                    <lightning-combobox type="number" name="progress" label="Status" value={value}
+                                        placeholder="Select" options={reminderOptions} onchange={handleReminder}>
+                                    </lightning-combobox>
+                                </lightning-layout-item>
+                                <lightning-layout-item size="2" class="slds-p-around_small slds-p-top_none">
+
+                                </lightning-layout-item>
+                                <lightning-layout-item size="5" class="slds-p-around_small slds-p-top_none ">
+                                    <lightning-input-field field-name="Image_Address__c" onchange={handleImageAddress}>
+                                    </lightning-input-field>
+                                </lightning-layout-item>
+                                <br />
+                                <lightning-layout-item size="1" class="slds-p-around_small slds-p-top_none">
+                                    <input type="checkbox" name="options" id="checkbox-unique-id-81"
+                                        value="checkbox-unique-id-81" checked="" />
+                                </lightning-layout-item>
+                                <lightning-layout-item size="4" class="slds-p-around_small slds-p-top_none">
+                                    <h3>Notify Applicable Employees</h3>
+                                </lightning-layout-item>
+
+                            </lightning-layout>
+                        </lightning-record-edit-form>
+
+
+                        <div slot="footer" class="slds-clearfix " style="background-color:c9c9c9">
+                            <lightning-button label="Cancel" onclick={closeModal}
+                                class=" slds-p-around_x-small slds-float_right"></lightning-button>
+                            <lightning-button label="Save" onclick={saveHandler} variant="brand"
+                                class=" slds-p-around_x-small slds-float_right">
+                            </lightning-button>
+                        </div>
+
+                    </lightning-card>
+                </div>
+            </section>
+            <div class="slds-backdrop slds-backdrop_open"></div>
+        </template>
+
+
+        <div style="height: auto;">
+            <template if:true={dataList}>
+                <lightning-datatable key-field="Id" data={dataList} columns={columns} suppress-bottom-bar>
+                </lightning-datatable>
+            </template>
+        </div>
+        <!-- <template if:true={isModalOpen}>
+
+            
+
+
+            <c-edit-leave-tracker record-id={recordId} is-show-modal={isModalOpen} onmodalchange={handleModalChange}>
+            </c-edit-leave-tracker>
+
+           
+
+        </template> -->
+
+        <div slot="footer" class="slds-clearfix slds-p-top_xxx-small ">
+            <lightning-button variant="brand" label="Back" title="Back" class="slds-var-m-left_xx-small slds-float_left"
+                onclick={goBack}></lightning-button>
+
+            <lightning-button label="Delete" onclick={getSelectedRec} variant="brand"
+                class="slds-var-m-left_xx-small slds-float_right"></lightning-button>
+        </div>
+
+    </lightning-card>
+</template>
