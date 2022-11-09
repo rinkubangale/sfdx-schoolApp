@@ -1,7 +1,7 @@
 <template>
     <lightning-card style="text-transform: capitalize;" class="slds-card__header ">
-        <lightning-tabset>
-            <lightning-tab label="School Type">
+        <lightning-tabset active-tab-value="manageDepartment">
+            <lightning-tab label="School Type" value="schoolType">
                 <lightning-card>
                     <lightning-layout>
                         <lightning-layout-item size="4" class="slds-p-left_small slds-card__header">
@@ -33,7 +33,7 @@
                     </div>
                 </lightning-card>
             </lightning-tab>
-            <lightning-tab label="Manage Department" title="Manage Department">
+            <lightning-tab label="Manage Department" value="manageDepartment" title="Manage Department">
                 <lightning-card>
                     <lightning-layout>
                         <lightning-layout-item size="4" class="slds-p-left_small slds-card__header">

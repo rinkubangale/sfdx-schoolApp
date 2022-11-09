@@ -1,127 +1,130 @@
-.navItem{
-    display: flex;
-    align-items: center;
+.navItem {
+  display: flex;
+  align-items: center;
 }
 
-.navItem > img{
-    width: 85px;
-    height: 54px;
-    margin: 3px;
+.navItem > img {
+  display: none;
+  width: 85px;
+  height: 54px;
+  margin: 3px;
 }
 
-.navItem > img ~ span{
-    font-family: 'Brush Script MT', cursive;
-    /* font-family: 'Courier New', monospace; */
-    font-size: 30px;
-    letter-spacing: 2px;
-    color: #00a1e0;
-    margin-left: 5px;
+.navItem > img ~ span {
+  font-size: 2rem;
+  text-transform: uppercase;
+  color: #00a1e0;
+  margin-left: 1rem;
+  font-weight: 600;
+  /* font-family: 'Brush Script MT', cursive; */
+  /* font-family: 'Courier New', monospace; */
+  /* letter-spacing: 2px; */
 }
 
-.navItemLeft{
-    border-radius: 50%;
-    background-color: #4c55bd;
-    color: white;
-    width: 50px;
-    height: 50px;
-    margin: 5px;
-    cursor: pointer;
+.navItemLeft {
+  border-radius: 50%;
+  background-color: #4c55bd;
+  color: white;
+  width: 50px;
+  height: 50px;
+  margin: 5px;
+  cursor: pointer;
 }
 
-.navItemLeft>img{
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    font-size: 35px;
+.navItemLeft > img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  font-size: 35px;
 }
 
-.navContainer{
-    height: 60px;
-    display: flex;
-    justify-content: space-between;
+.navContainer {
+  height: 60px;
+  display: flex;
+  justify-content: space-between;
 }
 
-.popup{
-    display: block;
-    position: absolute;
-    background-color: #fff;
-    color: rgb(0, 0, 0);
-    padding: 10px;
-    right: 15px;
-    top: 65px;
-    width: max-content;
-    border-radius: 10px 10px 10px 10px;
-    box-shadow: 0 0px 2px 2px rgb(0 0 0 / 10%);
+.popup {
+  display: block;
+  position: absolute;
+  background-color: #fff;
+  color: rgb(0, 0, 0);
+  padding: 10px;
+  right: 15px;
+  top: 65px;
+  width: max-content;
+  border-radius: 10px 10px 10px 10px;
+  box-shadow: 0 0px 2px 2px rgb(0 0 0 / 10%);
 }
 
-.popup::after{
-    content: '';
-    width: 11px;
-    height: 11px;
-    background-color: #fff !important;
-    border-left: 1px solid rgba(0, 0, 0, 0.1);
-    border-top: 1px solid rgba(0, 0, 0, 0.1);
-    rotate: 45deg;
-    top: -6px;
-    position: absolute;
-    right: 15px;
-    box-shadow: -4px -4px 2px 2px rgb(0 0 0 / 10%)
+.popup::after {
+  content: "";
+  width: 11px;
+  height: 11px;
+  background-color: #fff !important;
+  border-left: 1px solid rgba(0, 0, 0, 0.1);
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  rotate: 45deg;
+  top: -6px;
+  position: absolute;
+  right: 15px;
+  box-shadow: -4px -4px 2px 2px rgb(0 0 0 / 10%);
 }
 
-.clickInfo{
-    display: flex;
-    gap: 5px;
-    width: 200px;
-    align-items: center;
-    background-color: white !important;
-    box-shadow: 0 2px 2px 0 rgb(0 0 0 / 10%);
-    right: 6px !important;
-    top: 67px;
-    border-radius: 5px;
+.clickInfo {
+  display: flex;
+  gap: 5px;
+  width: 200px;
+  align-items: center;
+  background-color: white !important;
+  box-shadow: 0 2px 2px 0 rgb(0 0 0 / 10%);
+  right: 6px !important;
+  top: 67px;
+  border-radius: 5px;
 }
 
-.clickInfo::after{
-    content: '';
-    width: 11px;
-    height: 11px;
-    background-color: white !important;
-    border-left: 1px solid rgb(0 0 0 / 10%);
-    border-top: 1px solid rgb(0 0 0 / 10%);
-    rotate: 45deg;
-    top: -6px;
-    position: absolute;
-    left: 166px;
+.clickInfo::after {
+  content: "";
+  width: 11px;
+  height: 11px;
+  background-color: white !important;
+  border-left: 1px solid rgb(0 0 0 / 10%);
+  border-top: 1px solid rgb(0 0 0 / 10%);
+  rotate: 45deg;
+  top: -6px;
+  position: absolute;
+  left: 166px;
 }
 
 .clickInfo::before {
-    content: "+";
-    color: rgb(0 0 0 / 25%);
-    font-size: 35px;
-    rotate: 45deg;
-    position: absolute;
-    top: -10px;
-    right: 5px;
+  content: "+";
+  color: rgb(0 0 0 / 25%);
+  font-size: 35px;
+  rotate: 45deg;
+  position: absolute;
+  top: -10px;
+  right: 5px;
 }
 
-.profilePicContainer{
-    background-color:white !important;
+.profilePicContainer {
+  background-color: white !important;
 }
 
-.profilePicContainer>img{
-    border-radius: 50%;
-    background-color: #4c55bd;
-    color: white;
-    width: 45px;
-    height: 45px;
-    margin: 5px;
-    /* padding: 0px 14px; */
-    font-size: 30px;
+.profilePicContainer > img {
+  border-radius: 50%;
+  background-color: #4c55bd;
+  color: white;
+  width: 45px;
+  height: 45px;
+  margin: 5px;
+  /* padding: 0px 14px; */
+  font-size: 30px;
 }
 
-.profileDetails{
-    color: black;
+.profileDetails {
+  color: black;
 }
 
-.profileDetails>a:nth-child(odd){
-    margin-left: 10px;
+.profileDetails > a:nth-child(odd) {
+  margin-left: 10px;
 }

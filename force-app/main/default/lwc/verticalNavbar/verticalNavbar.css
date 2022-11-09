@@ -1,44 +1,44 @@
-nav ul{
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
+nav ul {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
 }
 
-ul li{
-    display: flex;
-    /* justify-content: center; */
-    padding: 5px 5px 5px 14px;
-    width: 100%;
-    height: 80px;
+ul li {
+  display: flex;
+  /* justify-content: center; */
+  padding: 8px;
+  width: 100%;
+  /* height: 80px; */
 }
 
-.toggleLiTag{
-    justify-content: flex-start !important;
+.toggleLiTag {
+  justify-content: flex-start !important;
 }
 
-ul li:hover{
-    background:#015198;
+ul li:hover {
+  background: #015198;
 }
 
-ul li > span{
-    display: flex;
-    align-items: center;
-    text-transform: uppercase;
+ul li > span {
+  display: flex;
+  align-items: center;
+  text-transform: uppercase;
 }
 
-ul li > a{
-    display: flex;
-    align-items: center;
-    color: #fff;
-    text-transform: uppercase;
+ul li > a {
+  display: flex;
+  align-items: center;
+  color: #fff;
+  text-transform: uppercase;
 }
 
 .my-icon {
-    --sds-c-icon-color-foreground-default: white;
-    margin: 10px;
+  --sds-c-icon-color-foreground-default: white;
+  margin: 10px;
 }
 
-.iconTile{
-    display: none;
+.iconTile {
+  display: none;
 }

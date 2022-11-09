@@ -33,17 +33,12 @@
 
     <template if:false={clicked}>
         <lightning-card class="removeBg">
-
             <lightning-layout style="text-align: center;">
                 <lightning-layout-item flexibility="auto">
                     <c-wireframe-lwc></c-wireframe-lwc>
                 </lightning-layout-item>
             </lightning-layout>
-
             <lightning-layout class="resScreen" multiple-rows>
-
-                <!-- <div  > -->
-
                 <lightning-layout-item flexibility="auto" padding="around-small">
                     <span onclick={openCard} data-name="academicListView">
                         <c-default-card obj-api-name='Academic_Year__c' header="Create Academic Year" step="STEP 1"
@@ -52,7 +47,6 @@
                         </c-default-card>
                     </span>
                 </lightning-layout-item>
-
                 <lightning-layout-item flexibility="auto" padding="around-small">
                     <span onclick={openCard} data-name="departmentListView">
                         <c-default-card obj-api-name='Department__c' header="Add Department" step="STEP 2"
@@ -61,7 +55,6 @@
                         </c-default-card>
                     </span>
                 </lightning-layout-item>
-
                 <lightning-layout-item flexibility="auto" padding="around-small">
                     <span onclick={openCard} data-name="teacherListView">
                         <c-default-card obj-api-name='ContactTeacher' header="Add Teachers/Admins" step="STEP 4"
@@ -69,10 +62,6 @@
                         </c-default-card>
                     </span>
                 </lightning-layout-item>
-
-                <!-- </div> -->
-
-                <!-- <div >  -->
                 <lightning-layout-item flexibility="auto" padding="around-small">
                     <span onclick={openCard} data-name="listClass">
                         <c-default-card obj-api-name='Class__c' header="Add Class" step="STEP 4"
@@ -81,7 +70,6 @@
                         </c-default-card>
                     </span>
                 </lightning-layout-item>
-
                 <lightning-layout-item flexibility="auto" padding="around-small">
                     <span onclick={openCard} data-name="studentListView">
                         <c-default-card obj-api-name='ContactStudent' header="Add Student" step="STEP 5"
@@ -90,7 +78,6 @@
                         </c-default-card>
                     </span>
                 </lightning-layout-item>
-
                 <lightning-layout-item flexibility="auto" padding="around-small">
                     <span onclick={openCard} data-name="admissionListView">
                         <c-default-card obj-api-name='Admission__c' header="Create Admissions" step="STEP 6"
@@ -99,9 +86,6 @@
                         </c-default-card>
                     </span>
                 </lightning-layout-item>
-                <!-- </div> -->
-
-                <!-- <div class="resScreen"> -->
                 <lightning-layout-item flexibility="auto" padding="around-small">
                     <span onclick={openCard} data-name="listSubject">
                         <c-default-card obj-api-name='Subject_Course__c' header="Create Subjects" step="STEP 7"
@@ -123,10 +107,7 @@
                         </c-default-card>
                     </span>
                 </lightning-layout-item>
-                <!-- </div> -->
             </lightning-layout>
-
-
         </lightning-card>
     </template>
 </template>
