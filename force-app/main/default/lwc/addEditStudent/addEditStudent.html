@@ -1,3 +1,4 @@
+<!-- sldsValidatorIgnore -->
 <template>
 
     <div id="addClassRoomContainer" class="col-md-11 center-block dashboard-container">
@@ -35,7 +36,7 @@
                     style="background-color: transparent;">
                     <div class="slds-m-vertical_medium ">
                         <lightning-card>
-                            <lightning-layout size="12">
+                            <lightning-layout size="6">
                                 <lightning-layout-item size="2">
                                     <div>
                                         <template if:false={newFileWasUploaded}>
@@ -70,58 +71,12 @@
                             </lightning-layout>
                             <lightning-accordion allow-multiple-sections-open>
                                 <lightning-accordion-section name="A" label="Basic Information">
-                                    <lightning-layout multiple-rows="true" class="slds-p-top_large">
-                                        <lightning-layout-item size="12" class="slds-p-around_x-small">
-                                            <!-- <lightning-input label="Mobile Number" type="text"
-                                                placeholder="Enter your Mobile Number" pattern="[0-9]{10}"
-                                                message-when-pattern-mismatch="Please provide valid mobile number of exact 10 digits"
-                                                onchange={handleInputChange} class="validate" max-length="10"
-                                                disabled={Disabled} required>
-                                            </lightning-input> -->
-                                            <div class="slds-form-element">
-                                                <label class="slds-form-element__label" for="text-input-id-47">
-                                                    <abbr class="slds-required" title="required">*</abbr>Mobile
-                                                    Number</label>
-                                                <div class="slds-form-element__control">
-                                                    <input type="tel" placeholder="Mobile Number" required=""
-                                                        class="slds-input" />
-                                                </div>
-                                            </div>
-                                        </lightning-layout-item>
-                                        <lightning-layout-item size="12" class="slds-p-around_x-small">
-                                            <!-- <lightning-input type="text" label="Roll Number"
-                                                placeholder="Auto generated" disabled onchange={handleInputChange}>
-                                            </lightning-input> -->
-                                            <div class="slds-form-element">
-                                                <label class="slds-form-element__label" for="text-input-id-47">
-                                                    <abbr class="slds-required" title="required"></abbr>Roll
-                                                    Number</label>
-                                                <div class="slds-form-element__control">
-                                                    <input type="number" placeholder="Auto generated" disabled=""
-                                                        required="" class="slds-input" />
-                                                </div>
-                                            </div>
-                                        </lightning-layout-item>
-                                        <lightning-layout-item size="12" class="slds-p-around_x-small">
-                                            <!-- <lightning-input label="Date of Admission" type="date"
-                                                placeholder="Date of Admission" onchange={handleInputChange}
-                                                class="validate" required>
-                                            </lightning-input> -->
-                                            <div class="slds-form-element">
-                                                <label class="slds-form-element__label" for="text-input-id-47">
-                                                    <abbr class="slds-required" title="required">*</abbr>Date of
-                                                    Admission</label>
-                                                <div class="slds-form-element__control">
-                                                    <input type="date" placeholder="Date of Admission" required=""
-                                                        class="slds-input" />
-                                                </div>
-                                            </div>
-                                        </lightning-layout-item>
-                                        <lightning-layout-item size="12" class="slds-p-around_x-small">
-                                            <!-- <lightning-input type="text" label="First Name" placeholder="First Name"
+                                    <lightning-layout multiple-rows="true">
+                                        <lightning-layout-item size="6" class="slds-p-around_x-small">
+                                            <lightning-input type="text" label="First Name" placeholder="First Name"
                                                 onchange={handleInputChange} class="validate" required>
-                                            </lightning-input> -->
-                                            <div class="slds-form-element">
+                                            </lightning-input>
+                                            <!-- <div class="slds-form-element">
                                                 <label class="slds-form-element__label" for="text-input-id-47">
                                                     <abbr class="slds-required" title="required">*</abbr>First
                                                     Name</label>
@@ -129,13 +84,13 @@
                                                     <input type="text" placeholder="First Name" required=""
                                                         class="slds-input" />
                                                 </div>
-                                            </div>
+                                            </div> -->
                                         </lightning-layout-item>
-                                        <lightning-layout-item size="12" class="slds-p-around_x-small">
-                                            <!-- <lightning-input type="text" label="Middle Name" placeholder="Middle Name"
+                                        <lightning-layout-item size="6" class="slds-p-around_x-small">
+                                            <lightning-input type="text" label="Middle Name" placeholder="Middle Name"
                                                 onchange={handleInputChange}>
-                                            </lightning-input> -->
-                                            <div class="slds-form-element">
+                                            </lightning-input>
+                                            <!-- <div class="slds-form-element">
                                                 <label class="slds-form-element__label" for="text-input-id-47">
                                                     <abbr class="slds-required" title="required"></abbr>Middle
                                                     Name</label>
@@ -143,13 +98,13 @@
                                                     <input type="text" placeholder="Middle Name" required=""
                                                         class="slds-input" />
                                                 </div>
-                                            </div>
+                                            </div> -->
                                         </lightning-layout-item>
-                                        <lightning-layout-item size="12" class="slds-p-around_x-small">
-                                            <!-- <lightning-input type="text" label="Last Name" placeholder="Last Name"
+                                        <lightning-layout-item size="6" class="slds-p-around_x-small">
+                                            <lightning-input type="text" label="Last Name" placeholder="Last Name"
                                                 class="validate" onchange={handleInputChange} required>
-                                            </lightning-input> -->
-                                            <div class="slds-form-element">
+                                            </lightning-input>
+                                            <!-- <div class="slds-form-element">
                                                 <label class="slds-form-element__label" for="text-input-id-47">
                                                     <abbr class="slds-required" title="required">*</abbr>Last
                                                     Name</label>
@@ -157,18 +112,64 @@
                                                     <input type="text" placeholder="Last Name" required=""
                                                         class="slds-input" />
                                                 </div>
-                                            </div>
+                                            </div> -->
+                                        </lightning-layout-item>
+                                        <lightning-layout-item size="6" class="slds-p-around_x-small">
+                                            <lightning-input type="text" label="Roll Number"
+                                                placeholder="Auto generated" disabled onchange={handleInputChange}>
+                                            </lightning-input>
+                                            <!-- <div class="slds-form-element">
+                                                <label class="slds-form-element__label" for="text-input-id-47">
+                                                    <abbr class="slds-required" title="required"></abbr>Roll
+                                                    Number</label>
+                                                <div class="slds-form-element__control">
+                                                    <input type="number" placeholder="Auto generated" disabled=""
+                                                        required="" class="slds-input" />
+                                                </div>
+                                            </div> -->
+                                        </lightning-layout-item>
+                                        <lightning-layout-item size="6" class="slds-p-around_x-small">
+                                            <lightning-input label="Mobile Number" type="text"
+                                                placeholder="Enter your Mobile Number" pattern="[0-9]{10}"
+                                                message-when-pattern-mismatch="Please provide valid mobile number of exact 10 digits"
+                                                onchange={handleInputChange} class="validate" max-length="10"
+                                                disabled={Disabled} required>
+                                            </lightning-input>
+                                            <!-- <div class="slds-form-element">
+                                                <label class="slds-form-element__label" for="text-input-id-47">
+                                                    <abbr class="slds-required" title="required">*</abbr>Mobile
+                                                    Number</label>
+                                                <div class="slds-form-element__control">
+                                                    <input type="tel" placeholder="Mobile Number" required=""
+                                                        class="slds-input" />
+                                                </div>
+                                            </div> -->
+                                        </lightning-layout-item>
+                                        <lightning-layout-item size="6" class="slds-p-around_x-small">
+                                            <lightning-input label="Date of Admission" type="date"
+                                                placeholder="Date of Admission" onchange={handleInputChange}
+                                                class="validate" required>
+                                            </lightning-input>
+                                            <!-- <div class="slds-form-element">
+                                                <label class="slds-form-element__label" for="text-input-id-47">
+                                                    <abbr class="slds-required" title="required">*</abbr>Date of
+                                                    Admission</label>
+                                                <div class="slds-form-element__control">
+                                                    <input type="date" placeholder="Date of Admission" required=""
+                                                        class="slds-input" />
+                                                </div>
+                                            </div> -->
                                         </lightning-layout-item>
                                     </lightning-layout>
                                 </lightning-accordion-section>
                                 <lightning-accordion-section name="B" label="Add Optional Details">
-                                    <lightning-layout multiple-rows="true" class="slds-p-top_large">
-                                        <lightning-layout-item size="12" class="slds-p-around_x-small">
-                                            <!-- <label>Class Name</label>
+                                    <lightning-layout multiple-rows="true">
+                                        <lightning-layout-item size="6" class="slds-p-around_x-small">
+                                            <label>Class Name</label>
                                             <c-custom-lookup obj-name="Class__c" onlookupselected={classInpChange}
                                                 filter="">
-                                            </c-custom-lookup> -->
-                                            <div class="slds-form-element">
+                                            </c-custom-lookup>
+                                            <!-- <div class="slds-form-element">
                                                 <label class="slds-form-element__label" for="text-input-id-47">
                                                     <abbr class="slds-required" title="required"></abbr>Class
                                                     Name</label>
@@ -176,16 +177,16 @@
                                                     <input type="text" placeholder="Search" required=""
                                                         class="slds-input" />
                                                 </div>
-                                            </div>
+                                            </div> -->
                                         </lightning-layout-item>
                                         <!-- <template if:true={Disabled}> -->
-                                        <lightning-layout-item size="12" class="slds-p-around_x-small">
-                                            <!-- <label>Class Section</label>
+                                        <lightning-layout-item size="6" class="slds-p-around_x-small">
+                                            <label>Class Section</label>
                                             <c-custom-lookup obj-name="section__c" is-value-selected={valueSelected}
                                                 ondisablesection={disableSec} disabled={disabled}
                                                 onlookupselected={classSecInpChange} filter={filter}>
-                                            </c-custom-lookup> -->
-                                            <div class="slds-form-element">
+                                            </c-custom-lookup>
+                                            <!-- <div class="slds-form-element">
                                                 <label class="slds-form-element__label" for="text-input-id-47">
                                                     <abbr class="slds-required" title="required"></abbr>Class
                                                     Section</label>
@@ -193,18 +194,18 @@
                                                     <input type="text" placeholder="Search" required=""
                                                         class="slds-input" />
                                                 </div>
-                                            </div>
+                                            </div> -->
                                         </lightning-layout-item>
                                         <!-- </template> -->
-                                        <lightning-layout-item size="12" class="slds-p-around_x-small">
-                                            <!-- <label>Academic Year</label>
+                                        <lightning-layout-item size="6" class="slds-p-around_x-small">
+                                            <label>Academic Year</label>
                                             <c-custom-lookup class="slds-scrollable  slds-scrollable_y"
                                                 error-message='check' inputlabel="Academic Year"
                                                 obj-name="Academic_Year__c" search-placeholder="Select Academic year"
                                                 icon-name="standard:account" onlookupselected={handleAccountSelection}
                                                 throw-error={isError} filter='' required="true">
-                                            </c-custom-lookup> -->
-                                            <div class="slds-form-element">
+                                            </c-custom-lookup>
+                                            <!-- <div class="slds-form-element">
                                                 <label class="slds-form-element__label" for="text-input-id-47">
                                                     <abbr class="slds-required" title="required"></abbr>Academic
                                                     Year</label>
@@ -212,15 +213,15 @@
                                                     <input type="text" placeholder="Select Academic Year" required=""
                                                         class="slds-input" />
                                                 </div>
-                                            </div>
+                                            </div> -->
                                         </lightning-layout-item>
-                                        <lightning-layout-item size="12" class="slds-p-around_x-small">
-                                            <!-- <lightning-input type="text" label="Email Address"
+                                        <lightning-layout-item size="6" class="slds-p-around_x-small">
+                                            <lightning-input type="text" label="Email Address"
                                                 pattern="[A-Za-z0-9._-]+@[a-z0-9-]+.[a-z]{2,}$"
                                                 placeholder="Enter Your Email" class="validate"
                                                 onchange={handleInputChange} required>
-                                            </lightning-input> -->
-                                            <div class="slds-form-element">
+                                            </lightning-input>
+                                            <!-- <div class="slds-form-element">
                                                 <label class="slds-form-element__label" for="text-input-id-47">
                                                     <abbr class="slds-required" title="required"></abbr>Email
                                                     Address</label>
@@ -228,39 +229,39 @@
                                                     <input type="email" placeholder="Enter Email Address" required=""
                                                         class="slds-input" />
                                                 </div>
-                                            </div>
+                                            </div> -->
                                         </lightning-layout-item>
-                                        <lightning-layout-item size="12" class="slds-p-around_x-small">
-                                            <!-- <lightning-input type="Date" label="Date of Birth"
-                                                onchange={handleInputChange}></lightning-input> -->
-                                            <div class="slds-form-element">
+                                        <lightning-layout-item size="6" class="slds-p-around_x-small">
+                                            <lightning-input type="Date" label="Date of Birth"
+                                                onchange={handleInputChange}></lightning-input>
+                                            <!-- <div class="slds-form-element">
                                                 <label class="slds-form-element__label" for="text-input-id-47">
                                                     <abbr class="slds-required" title="required"></abbr>Date of
                                                     Birth</label>
                                                 <div class="slds-form-element__control">
                                                     <input type="date" placeholder="" required="" class="slds-input" />
                                                 </div>
-                                            </div>
+                                            </div> -->
                                         </lightning-layout-item>
-                                        <lightning-layout-item size="12" class="slds-p-around_x-small">
-                                            <!-- <lightning-combobox name="Gender__c" label="Gender" options={options2}
+                                        <lightning-layout-item size="6" class="slds-p-around_x-small">
+                                            <lightning-combobox name="Gender__c" label="Gender" options={options2}
                                                 placeholder="Select Gender" value={value} onchange={handleInputChange}>
-                                            </lightning-combobox> -->
-                                            <div class="slds-form-element">
+                                            </lightning-combobox>
+                                            <!-- <div class="slds-form-element">
                                                 <label class="slds-form-element__label" for="text-input-id-47">
                                                     <abbr class="slds-required" title="required"></abbr>Gender</label>
                                                 <div class="slds-form-element__control">
                                                     <input type="text" placeholder="Select Gender" required=""
                                                         class="slds-input" />
                                                 </div>
-                                            </div>
+                                            </div> -->
                                         </lightning-layout-item>
-                                        <lightning-layout-item size="12" class="slds-p-around_x-small">
-                                            <!-- <lightning-combobox name="Blood Group" label="Blood Group"
+                                        <lightning-layout-item size="6" class="slds-p-around_x-small">
+                                            <lightning-combobox name="Blood Group" label="Blood Group"
                                                 placeholder="Select Blood Group" value={value} options={options3}
                                                 onchange={handleInputChange}>
-                                            </lightning-combobox> -->
-                                            <div class="slds-form-element">
+                                            </lightning-combobox>
+                                            <!-- <div class="slds-form-element">
                                                 <label class="slds-form-element__label" for="text-input-id-47">
                                                     <abbr class="slds-required" title="required"></abbr>Blood
                                                     Group</label>
@@ -268,19 +269,18 @@
                                                     <input type="text" placeholder="Select Blood Group" required=""
                                                         class="slds-input" />
                                                 </div>
-                                            </div>
-
+                                            </div> -->
                                         </lightning-layout-item>
                                     </lightning-layout>
                                 </lightning-accordion-section>
                                 <lightning-accordion-section name="C" label="Current Address">
-                                    <lightning-layout size="12" class="slds-p-top_large">
+                                    <lightning-layout size="12" multiple-rows="true">
                                         <lightning-layout-item size="12" class="slds-p-horizontal_x-small">
-                                            <!-- <lightning-input label="Address 1" type="text"
+                                            <lightning-input label="Address 1" type="text"
                                                 placeholder="Enter your Address" onchange={handleInputChange}
                                                 class="validate">
-                                            </lightning-input> -->
-                                            <div class="slds-form-element">
+                                            </lightning-input>
+                                            <!-- <div class="slds-form-element">
                                                 <label class="slds-form-element__label" for="text-input-id-47">
                                                     <abbr class="slds-required" title="required"></abbr>Address
                                                     1</label>
@@ -288,16 +288,15 @@
                                                     <input type="text" placeholder="Enter your Address" required=""
                                                         class="slds-input" />
                                                 </div>
-                                            </div>
+                                            </div> -->
                                         </lightning-layout-item>
-                                    </lightning-layout>
-                                    <lightning-layout size="12" class="slds-p-top_large">
+
                                         <lightning-layout-item size="12" class="slds-p-horizontal_x-small">
-                                            <!-- <lightning-input label="Address 2" type="text"
+                                            <lightning-input label="Address 2" type="text"
                                                 placeholder="Enter your Address" onchange={handleInputChange}
                                                 class="validate">
-                                            </lightning-input> -->
-                                            <div class="slds-form-element">
+                                            </lightning-input>
+                                            <!-- <div class="slds-form-element">
                                                 <label class="slds-form-element__label" for="text-input-id-47">
                                                     <abbr class="slds-required" title="required"></abbr>Address
                                                     2</label>
@@ -305,61 +304,53 @@
                                                     <input type="text" placeholder="Enter your Address" required=""
                                                         class="slds-input" />
                                                 </div>
-                                            </div>
+                                            </div> -->
                                         </lightning-layout-item>
-                                    </lightning-layout>
-                                    <lightning-layout size="12" class="slds-p-top_large">
-                                        <lightning-layout-item size="12" class="slds-p-around_x-small">
-                                            <!-- <lightning-combobox name="Country" label="Country" value={value}
+                                        <lightning-layout-item size="6" class="slds-p-around_x-small">
+                                            <lightning-combobox name="Country" label="Country" value={value}
                                                 placeholder="Select Country" options={options4}
                                                 onchange={handleInputChange}>
-                                            </lightning-combobox> -->
-                                            <div class="slds-form-element">
+                                            </lightning-combobox>
+                                            <!-- <div class="slds-form-element">
                                                 <label class="slds-form-element__label" for="text-input-id-47">
                                                     <abbr class="slds-required" title="required"></abbr>Country</label>
                                                 <div class="slds-form-element__control">
                                                     <input type="text" placeholder="Select Country" required=""
                                                         class="slds-input" />
                                                 </div>
-                                            </div>
+                                            </div> -->
                                         </lightning-layout-item>
-                                    </lightning-layout>
-                                    <lightning-layout size="12">
-                                        <lightning-layout-item size="12" class="slds-p-around_x-small">
-                                            <!-- <lightning-input name="Enter State" label="State" type="text"
+                                        <lightning-layout-item size="6" class="slds-p-around_x-small">
+                                            <lightning-input name="Enter State" label="State" type="text"
                                                 onchange={handleInputChange}>
-                                            </lightning-input> -->
-                                            <div class="slds-form-element">
+                                            </lightning-input>
+                                            <!-- <div class="slds-form-element">
                                                 <label class="slds-form-element__label" for="text-input-id-47">
                                                     <abbr class="slds-required" title="required"></abbr>State</label>
                                                 <div class="slds-form-element__control">
                                                     <input type="text" placeholder="Enter State" required=""
                                                         class="slds-input" />
                                                 </div>
-                                            </div>
+                                            </div> -->
                                         </lightning-layout-item>
-                                    </lightning-layout>
-                                    <lightning-layout size="12">
-                                        <lightning-layout-item size="12" class="slds-p-around_x-small">
-                                            <!-- <lightning-input label="Pincode" type="text" placeholder="Pincode"
+                                        <lightning-layout-item size="6" class="slds-p-around_x-small">
+                                            <lightning-input label="Pincode" type="text" placeholder="Pincode"
                                                 onchange={handleInputChange}>
-                                            </lightning-input> -->
-                                            <div class="slds-form-element">
+                                            </lightning-input>
+                                            <!-- <div class="slds-form-element">
                                                 <label class="slds-form-element__label" for="text-input-id-47">
                                                     <abbr class="slds-required" title="required"></abbr>Pincode</label>
                                                 <div class="slds-form-element__control">
                                                     <input type="text" placeholder="Enter Pincode" required=""
                                                         class="slds-input" />
                                                 </div>
-                                            </div>
+                                            </div> -->
                                         </lightning-layout-item>
-                                    </lightning-layout>
-                                    <lightning-layout size="12">
-                                        <lightning-layout-item size="12" class="slds-p-around_x-small">
-                                            <!-- <lightning-input label="City/Town" type="text" placeholder="Enter your City"
+                                        <lightning-layout-item size="6" class="slds-p-around_x-small">
+                                            <lightning-input label="City/Town" type="text" placeholder="Enter your City"
                                                 onchange={handleInputChange}>
-                                            </lightning-input> -->
-                                            <div class="slds-form-element">
+                                            </lightning-input>
+                                            <!-- <div class="slds-form-element">
                                                 <label class="slds-form-element__label" for="text-input-id-47">
                                                     <abbr class="slds-required"
                                                         title="required"></abbr>City/Town</label>
@@ -367,17 +358,15 @@
                                                     <input type="text" placeholder="Enter your City" required=""
                                                         class="slds-input" />
                                                 </div>
-                                            </div>
+                                            </div> -->
                                         </lightning-layout-item>
-                                    </lightning-layout>
-                                    <lightning-layout size="12">
-                                        <lightning-layout-item size="12"
+                                        <lightning-layout-item size="6"
                                             class="slds-p-horizontal_x-small slds-p-top_large">
-                                            <!-- <lightning-input type="checkbox"
+                                            <lightning-input type="checkbox"
                                                 label="Mark Current address as Permanent Address too" name="input1"
                                                 onchange={handleCheckBox}>
-                                            </lightning-input> -->
-                                            <div class="slds-form-element">
+                                            </lightning-input>
+                                            <!-- <div class="slds-form-element">
                                                 <label class="slds-form-element__label" style="float:none"
                                                     for="text-input-id-47">
                                                     <abbr class="slds-required" title="required"></abbr>Mark Current
@@ -386,18 +375,18 @@
                                                     style="width: 24px !important; float:left;">
                                                     <input type="checkbox" required="" class="slds-input" />
                                                 </div>
-                                            </div>
+                                            </div> -->
                                         </lightning-layout-item>
                                     </lightning-layout>
                                 </lightning-accordion-section>
                                 <lightning-accordion-section name="D" label="Permanent Address">
-                                    <lightning-layout size="12" class="slds-p-top_large">
+                                    <lightning-layout size="12" multiple-rows="true">
                                         <lightning-layout-item size="12" class="slds-p-horizontal_x-small">
-                                            <!-- <lightning-input label="Address 1" type="text"
+                                            <lightning-input label="Address 1" type="text"
                                                 placeholder="Enter your Address" onchange={handleInputChange}
                                                 class="validate">
-                                            </lightning-input> -->
-                                            <div class="slds-form-element">
+                                            </lightning-input>
+                                            <!-- <div class="slds-form-element">
                                                 <label class="slds-form-element__label" for="text-input-id-47">
                                                     <abbr class="slds-required" title="required"></abbr>Address
                                                     1</label>
@@ -405,16 +394,14 @@
                                                     <input type="text" placeholder="Enter your Address" required=""
                                                         class="slds-input" />
                                                 </div>
-                                            </div>
+                                            </div> -->
                                         </lightning-layout-item>
-                                    </lightning-layout>
-                                    <lightning-layout size="12" class="slds-p-top_large">
                                         <lightning-layout-item size="12" class="slds-p-horizontal_x-small">
-                                            <!-- <lightning-input label="Address 2" type="text"
+                                            <lightning-input label="Address 2" type="text"
                                                 placeholder="Enter your Address" onchange={handleInputChange}
                                                 class="validate">
-                                            </lightning-input> -->
-                                            <div class="slds-form-element">
+                                            </lightning-input>
+                                            <!-- <div class="slds-form-element">
                                                 <label class="slds-form-element__label" for="text-input-id-47">
                                                     <abbr class="slds-required" title="required"></abbr>Address
                                                     2</label>
@@ -422,61 +409,53 @@
                                                     <input type="text" placeholder="Enter your Address" required=""
                                                         class="slds-input" />
                                                 </div>
-                                            </div>
+                                            </div> -->
                                         </lightning-layout-item>
-                                    </lightning-layout>
-                                    <lightning-layout size="12" class="slds-p-top_large">
-                                        <lightning-layout-item size="12" class="slds-p-around_x-small">
-                                            <!-- <lightning-combobox name="Country" label="Country" value={value}
+                                        <lightning-layout-item size="6" class="slds-p-around_x-small">
+                                            <lightning-combobox name="Country" label="Country" value={value}
                                                 placeholder="Select Country" options={options4}
                                                 onchange={handleInputChange}>
-                                            </lightning-combobox> -->
-                                            <div class="slds-form-element">
+                                            </lightning-combobox>
+                                            <!-- <div class="slds-form-element">
                                                 <label class="slds-form-element__label" for="text-input-id-47">
                                                     <abbr class="slds-required" title="required"></abbr>Country</label>
                                                 <div class="slds-form-element__control">
                                                     <input type="text" placeholder="Select Country" required=""
                                                         class="slds-input" />
                                                 </div>
-                                            </div>
+                                            </div> -->
                                         </lightning-layout-item>
-                                    </lightning-layout>
-                                    <lightning-layout size="12">
-                                        <lightning-layout-item size="12" class="slds-p-around_x-small">
-                                            <!-- <lightning-input name="Enter State" label="State" type="text"
+                                        <lightning-layout-item size="6" class="slds-p-around_x-small">
+                                            <lightning-input name="Enter State" label="State" type="text"
                                                 onchange={handleInputChange}>
-                                            </lightning-input> -->
-                                            <div class="slds-form-element">
+                                            </lightning-input>
+                                            <!-- <div class="slds-form-element">
                                                 <label class="slds-form-element__label" for="text-input-id-47">
                                                     <abbr class="slds-required" title="required"></abbr>State</label>
                                                 <div class="slds-form-element__control">
                                                     <input type="text" placeholder="Enter State" required=""
                                                         class="slds-input" />
                                                 </div>
-                                            </div>
+                                            </div> -->
                                         </lightning-layout-item>
-                                    </lightning-layout>
-                                    <lightning-layout size="12">
-                                        <lightning-layout-item size="12" class="slds-p-around_x-small">
-                                            <!-- <lightning-input label="Pincode" type="text" placeholder="Pincode"
+                                        <lightning-layout-item size="6" class="slds-p-around_x-small">
+                                            <lightning-input label="Pincode" type="text" placeholder="Pincode"
                                                 onchange={handleInputChange}>
-                                            </lightning-input> -->
-                                            <div class="slds-form-element">
+                                            </lightning-input>
+                                            <!-- <div class="slds-form-element">
                                                 <label class="slds-form-element__label" for="text-input-id-47">
                                                     <abbr class="slds-required" title="required"></abbr>Pincode</label>
                                                 <div class="slds-form-element__control">
                                                     <input type="text" placeholder="Enter Pincode" required=""
                                                         class="slds-input" />
                                                 </div>
-                                            </div>
+                                            </div> -->
                                         </lightning-layout-item>
-                                    </lightning-layout>
-                                    <lightning-layout size="12">
-                                        <lightning-layout-item size="12" class="slds-p-around_x-small">
-                                            <!-- <lightning-input label="City/Town" type="text" placeholder="Enter your City"
+                                        <lightning-layout-item size="6" class="slds-p-around_x-small">
+                                            <lightning-input label="City/Town" type="text" placeholder="Enter your City"
                                                 onchange={handleInputChange}>
-                                            </lightning-input> -->
-                                            <div class="slds-form-element">
+                                            </lightning-input>
+                                            <!-- <div class="slds-form-element">
                                                 <label class="slds-form-element__label" for="text-input-id-47">
                                                     <abbr class="slds-required"
                                                         title="required"></abbr>City/Town</label>
@@ -484,17 +463,17 @@
                                                     <input type="text" placeholder="Enter your City" required=""
                                                         class="slds-input" />
                                                 </div>
-                                            </div>
+                                            </div> -->
                                         </lightning-layout-item>
                                     </lightning-layout>
                                 </lightning-accordion-section>
                                 <lightning-accordion-section name="E" label="Parents Information">
-                                    <lightning-layout multiple-rows="true" class="slds-p-top_large">
-                                        <lightning-layout-item size="12" class="slds-p-around_x-small">
-                                            <!-- <lightning-combobox name="Point of Contact" label="Point of Contact"
+                                    <lightning-layout multiple-rows="true">
+                                        <lightning-layout-item size="6" class="slds-p-around_x-small">
+                                            <lightning-combobox name="Point of Contact" label="Point of Contact"
                                                 placeholder="Point of Contact" options={PointOfContactOptions}
-                                                onchange={handlePointChange}></lightning-combobox> -->
-                                            <div class="slds-form-element">
+                                                onchange={handlePointChange}></lightning-combobox>
+                                            <!-- <div class="slds-form-element">
                                                 <label class="slds-form-element__label" for="text-input-id-47">
                                                     <abbr class="slds-required" title="required"></abbr>Point of
                                                     Contact</label>
@@ -502,13 +481,13 @@
                                                     <input type="text" placeholder="Point of Contact" required=""
                                                         class="slds-input" />
                                                 </div>
-                                            </div>
+                                            </div> -->
                                         </lightning-layout-item>
-                                        <lightning-layout-item size="12" class="slds-p-around_x-small">
-                                            <!-- <lightning-combobox name="Occupation" label="Occupation"
+                                        <lightning-layout-item size="6" class="slds-p-around_x-small">
+                                            <lightning-combobox name="Occupation" label="Occupation"
                                                 placeholder="Occupation" options={OccupationOptions}
-                                                onchange={handleInputChange}></lightning-combobox> -->
-                                            <div class="slds-form-element">
+                                                onchange={handleInputChange}></lightning-combobox>
+                                            <!-- <div class="slds-form-element">
                                                 <label class="slds-form-element__label" for="text-input-id-47">
                                                     <abbr class="slds-required"
                                                         title="required"></abbr>Occupation</label>
@@ -516,58 +495,58 @@
                                                     <input type="text" placeholder="Occupation" required=""
                                                         class="slds-input" />
                                                 </div>
-                                            </div>
+                                            </div> -->
                                         </lightning-layout-item>
                                         <!-- <template if:true={}> -->
-                                        <lightning-layout-item size="12" class="slds-p-around_x-small">
-                                            <!-- <lightning-input label={FirstNameLabel} type="text"
+                                        <lightning-layout-item size="6" class="slds-p-around_x-small">
+                                            <lightning-input label={FirstNameLabel} type="text"
                                                 onchange={handleInputChange}>
-                                            </lightning-input> -->
-                                            <div class="slds-form-element">
+                                            </lightning-input>
+                                            <!-- <div class="slds-form-element">
                                                 <label class="slds-form-element__label" for="text-input-id-47">
                                                     <abbr class="slds-required" title="required"></abbr>First
                                                     Name</label>
                                                 <div class="slds-form-element__control">
                                                     <input type="text" placeholder="" required="" class="slds-input" />
                                                 </div>
-                                            </div>
+                                            </div> -->
                                         </lightning-layout-item>
-                                        <lightning-layout-item size="12" class="slds-p-around_x-small">
-                                            <!-- <lightning-input label={LastNameLabel} type="text"
+                                        <lightning-layout-item size="6" class="slds-p-around_x-small">
+                                            <lightning-input label={LastNameLabel} type="text"
                                                 onchange={handleInputChange}>
-                                            </lightning-input> -->
-                                            <div class="slds-form-element">
+                                            </lightning-input>
+                                            <!-- <div class="slds-form-element">
                                                 <label class="slds-form-element__label" for="text-input-id-47">
                                                     <abbr class="slds-required" title="required"></abbr>Last
                                                     Name</label>
                                                 <div class="slds-form-element__control">
                                                     <input type="text" placeholder="" required="" class="slds-input" />
                                                 </div>
-                                            </div>
+                                            </div> -->
                                         </lightning-layout-item>
                                         <!-- </template> -->
-                                        <lightning-layout-item size="12" class="slds-p-around_x-small">
-                                            <!-- <lightning-input label="Religion" type="text" onchange={handleInputChange}>
-                                            </lightning-input> -->
-                                            <div class="slds-form-element">
+                                        <lightning-layout-item size="6" class="slds-p-around_x-small">
+                                            <lightning-input label="Religion" type="text" onchange={handleInputChange}>
+                                            </lightning-input>
+                                            <!-- <div class="slds-form-element">
                                                 <label class="slds-form-element__label" for="text-input-id-47">
                                                     <abbr class="slds-required" title="required"></abbr>Religion</label>
                                                 <div class="slds-form-element__control">
                                                     <input type="text" placeholder="" required="" class="slds-input" />
                                                 </div>
-                                            </div>
+                                            </div> -->
                                         </lightning-layout-item>
-                                        <lightning-layout-item size="12" class="slds-p-around_x-small">
-                                            <!-- <lightning-combobox name="Country" label="Country" placeholder="Country"
-                                                options={options4} onchange={handleInputChange}></lightning-combobox> -->
-                                            <div class="slds-form-element">
+                                        <lightning-layout-item size="6" class="slds-p-around_x-small">
+                                            <lightning-combobox name="Country" label="Country" placeholder="Country"
+                                                options={options4} onchange={handleInputChange}></lightning-combobox>
+                                            <!-- <div class="slds-form-element">
                                                 <label class="slds-form-element__label" for="text-input-id-47">
                                                     <abbr class="slds-required" title="required"></abbr>Country</label>
                                                 <div class="slds-form-element__control">
                                                     <input type="text" placeholder="Select Country" required=""
                                                         class="slds-input" />
                                                 </div>
-                                            </div>
+                                            </div> -->
                                         </lightning-layout-item>
                                     </lightning-layout>
                                 </lightning-accordion-section>

@@ -65,7 +65,7 @@ lightning-card {
 .slds-form-element__control {
   float: right;
   clear: none;
-  width: 70%;
+  width: -webkit-fill-available;
 }
 
 .slds-form-element__control input {

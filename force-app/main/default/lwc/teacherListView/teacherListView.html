@@ -14,7 +14,7 @@
 
             <lightning-layout-item size="4" class="slds-align_absolute-center slds-p-left_xx-large ">
 
-                <div>
+                <!-- <div>
 
                     <lightning-input name="Search teacher" label="Search Teachers" placeholder="Search Teachers"
                         type="search" value={TeacherName} onchange={handleSearch}></lightning-input>
@@ -22,6 +22,13 @@
                         <option key={TeacherObj.Id}>{TeacherObj.Name}</option>
                     </template>
 
+                </div> -->
+
+                <div class="mySearchBar">
+                    <lightning-icon icon-name="utility:search" size="x-small" alternative-text="search"
+                        title="Search Teachers">
+                    </lightning-icon>
+                    <input type="text" placeholder="Search Teachers" />
                 </div>
 
             </lightning-layout-item>
