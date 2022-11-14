@@ -1,0 +1,122 @@
+<!-- sldsValidatorIgnore -->
+<!-- sldsValidatorIgnore -->
+<template>
+
+    <div id="addClassRoomContainer" class="col-md-11 center-block dashboard-container">
+        <!--add class main content-->
+        <div id="error" class="error"> </div>
+        <main class="main-content add-class-wrap">
+            <div class="header row no-left-margin no-right-margin">
+                <a href="#" data-close="true">
+                    <div class="back" onclick={handleModalChange}>
+                        <lightning-icon icon-name="utility:back" size="x-small" alternative-text="Back!" title="Back">
+                        </lightning-icon>
+                        <p>Back</p>
+                    </div>
+                </a>
+                <div class="Add-c-headings">
+                    <p class="add-heading-manage fivpx-mrgn-btm">
+                        <lightning-icon class="new-icon" icon-name="utility:new" size="small" alternative-text="new!"
+                            title="new">
+                        </lightning-icon>
+                        <b>{headTitle}</b>
+                    </p>
+                    <p class="add-subheading-manage">{subHeadTitle}</p>
+                </div>
+                <a href="#" data-close="true">
+                    <div class="esc" onclick={handleModalChange}>
+                        <lightning-icon icon-name="utility:close" size="x-small" alternative-text="Esc!" title="Esc">
+                        </lightning-icon>
+                        <p>Esc</p>
+                    </div>
+                </a>
+            </div>
+            <!--/add-class-header-->
+
+            <div class="add-class-body">
+                <div>
+                    <lightning-card>
+                        <lightning-accordion allow-multiple-sections-open active-section-name="A">
+                            <lightning-accordion-section label="Basic Details" name="A">
+                                <lightning-layout multiple-rows>
+                                    <lightning-layout-item size="12" class="slds-p-around_x-small">
+                                        <lightning-input type="text" label="To"></lightning-input>
+                                    </lightning-layout-item>
+                                    <lightning-layout-item size="12" class="slds-p-around_x-small">
+                                        <lightning-input type="toggle" label="All Class?" name="input1">
+                                        </lightning-input>
+                                    </lightning-layout-item>
+                                    <lightning-layout-item size="4" class="slds-p-around_x-small">
+                                        <lightning-combobox name="progress" label="Select Event Type" value={value}
+                                            placeholder="Select Progress" options={options} onchange={handleChange}>
+                                        </lightning-combobox>
+                                    </lightning-layout-item>
+                                    <lightning-layout-item size="4" class="slds-p-around_x-small">
+                                        <lightning-input type="date" label="Publish Date"></lightning-input>
+                                    </lightning-layout-item>
+                                    <lightning-layout-item size="4" class="slds-p-around_x-small">
+                                        <lightning-input type="date" label="Due Date"></lightning-input>
+                                    </lightning-layout-item>
+                                    <lightning-layout-item size="12" class="slds-p-around_x-small">
+                                        <lightning-input type="text" label="Subject"></lightning-input>
+                                    </lightning-layout-item>
+                                    <lightning-layout-item size="12" class="slds-p-around_x-small">
+                                        <lightning-input type="text" label="Description"></lightning-input>
+                                    </lightning-layout-item>
+                                </lightning-layout>
+                            </lightning-accordion-section>
+                            <lightning-accordion-section label="Optional Link" name="B">
+                                <lightning-layout multiple-rows>
+                                    <lightning-layout-item size="4" class="slds-p-around_x-small">
+                                        <lightning-button label="Add Link" onclick={addLink}></lightning-button>
+                                    </lightning-layout-item>
+                                    <!-- </lightning-layout>
+                                        <lightning-layout multiple-rows> -->
+                                    <lightning-layout-item size="12" class="slds-p-around_x-small">
+                                        <template for:each={LinksData} for:item="link" for:index="index">
+                                            <div key={link.Id} class="slds-p-top_x-small">
+                                                <lightning-layout multiple-rows>
+                                                    <lightning-layout-item size="5">
+                                                        <lightning-input type="text" name="linkName" data-index={index}
+                                                            onchange={handleChangeLink} label="Link Name"
+                                                            value={link.linkName}>
+                                                        </lightning-input>
+                                                    </lightning-layout-item>
+                                                    <lightning-layout-item size="5" class="slds-p-left_x-small">
+                                                        <lightning-input type="text" name="link" data-index={index}
+                                                            onchange={handleChangeLink} label="Link" value={link.link}>
+                                                        </lightning-input>
+                                                    </lightning-layout-item>
+                                                    <lightning-layout-item size="2" class="slds-p-left_x-small"
+                                                        style="padding-top: 1.45rem;">
+                                                        <lightning-button-icon data-index={index}
+                                                            icon-name="utility:delete" alternative-text="Delete"
+                                                            class="slds-m-left_xx-small" title="Delete"
+                                                            onclick={deleteLink}>
+                                                        </lightning-button-icon>
+                                                    </lightning-layout-item>
+                                                </lightning-layout>
+                                            </div>
+                                        </template>
+                                    </lightning-layout-item>
+                                    <lightning-layout-item size="12" class="slds-p-around_x-small">
+                                        <lightning-input type="file"></lightning-input>
+                                    </lightning-layout-item>
+                                </lightning-layout>
+                            </lightning-accordion-section>
+                        </lightning-accordion>
+                    </lightning-card>
+                </div>
+                <div class="slds-clearfix">
+                    <lightning-button label={headTitle} variant="brand" onclick={addStudentRecord}
+                        class="slds-p-around_x-small slds-align_absolute-center"></lightning-button>
+                </div>
+            </div>
+            <template if:true={isLoading}>
+                <lightning-spinner alternative-text="Loading" variant="brand" style="background:transparent;">
+                </lightning-spinner>
+            </template>
+        </main>
+    </div>
+
+</template>

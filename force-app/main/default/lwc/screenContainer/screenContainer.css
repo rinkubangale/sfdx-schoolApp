@@ -16,7 +16,7 @@
 }
 
 .yContainer {
-  height: -webkit-fill-available;
+  min-height: 91vh;
   display: flex;
   color: #fff;
 }

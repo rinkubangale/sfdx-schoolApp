@@ -1,0 +1,41 @@
+<template>
+
+    <template if:false={isModalOpen}>
+        <lightning-card style="margin:15px; text-transform:capitalize;" class="slds-card__header ">
+            <lightning-layout>
+                <lightning-layout-item size="6" class="slds-float_left slds-p-around_medium">
+                    <lightning-icon icon-name="standard:record" alternative-text="icon">
+                    </lightning-icon>
+                    <span style="font-weight: bold; font-size: larger;" class="slds-p-around_small">VIEW ALERTS &
+                        NOTIFICAION</span>
+                </lightning-layout-item>
+                <lightning-layout-item size="6" class="slds-float_right slds-clearfix">
+                    <lightning-button variant="brand" class="slds-float_right slds-p-around_medium"
+                        icon-name="utility:adduser" title="Create Alert" onclick={openModal}>
+                    </lightning-button>
+                </lightning-layout-item>
+            </lightning-layout>
+            <!-- <template if:true={isDelete}>
+                <c-delete-confirmation records-id={DelId} obj-name="Academic_Year__c" onmodalchange={closemodaldelete}>
+                </c-delete-confirmation>
+            </template> -->
+            <div style="height: auto;">
+                <template if:true={dataList}>
+                    <lightning-datatable resize-column-disabled key-field="Id" data={dataList} columns={columns}
+                        onrowaction={rowActionHandler} max-column-width="100px" column-widths-mode=auto
+                        suppress-bottom-bar style="overflow:hidden;">
+                    </lightning-datatable>
+                </template>
+            </div>
+            <div slot="footer" class="slds-clearfix slds-p-top_xxx-small ">
+                <lightning-button label="Back" variant="brand" onclick={goBack}
+                    class="slds-var-m-left_xx-small slds-float_left"></lightning-button>
+                <lightning-button label="Delete" onclick={getSelectedRec} variant="brand"
+                    class="slds-var-m-left_xx-small slds-float_right"></lightning-button>
+            </div>
+        </lightning-card>
+    </template>
+    <template if:true={isModalOpen}>
+        <c-add-edit-alerts onmodalchange={closeModal}></c-add-edit-alerts>
+    </template>
+</template>
