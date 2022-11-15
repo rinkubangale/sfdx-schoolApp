@@ -1,30 +1,34 @@
 <template>
-    <lightning-card>
+    <template if:false={isModalOpen}>
+        <lightning-card>
 
-        <lightning-layout class="slds-p-bottom_none">
+            <lightning-layout class="slds-p-bottom_none">
 
-            <lightning-layout-item size="6" class="slds-p-left_small slds-card__header">
+                <lightning-layout-item size="6" class="slds-p-left_small slds-card__header">
 
-                <lightning-icon icon-name="standard:record" alternative-text="Clone" title="Clone"></lightning-icon>
+                    <lightning-icon icon-name="standard:record" alternative-text="Clone" title="Clone"></lightning-icon>
 
-                <span style="font-weight: bold; font-size: large;  " class="slds-p-horizontal_small ">Student List
-                    View</span>
+                    <span style="font-weight: bold; font-size: large;  " class="slds-p-horizontal_small ">Student List
+                        View</span>
 
-            </lightning-layout-item>
+                </lightning-layout-item>
 
-            <lightning-layout-item size="6" class="slds-p-around_medium">
+                <lightning-layout-item size="6" class="slds-p-around_medium">
 
-                <div class=" slds-float_right">
-                    <c-create-student></c-create-student>
-                </div>
-            </lightning-layout-item>
+                    <div class=" slds-float_right">
+                        <!-- <c-create-student></c-create-student> -->
+                        <lightning-button-icon icon-name="utility:adduser" variant="brand" alternative-text="Add user"
+                            class=" slds-p-around_small" title="Add user" onclick={openModal}>
+                        </lightning-button-icon>
+                    </div>
+                </lightning-layout-item>
 
 
-        </lightning-layout>
+            </lightning-layout>
 
 
 
-        <!-- 
+            <!-- 
             <div>
 
                 <div class=" slds-float_right">
@@ -32,7 +36,7 @@
                     <c-create-student></c-create-student>
                  <lightning-button label="Delete" variant="brand" onclick={deleteSelectedStudents}
             class="slds-var-m-left_xx-small slds-float_right"></lightning-button> -->
-        <!-- <lightning-button-icon icon-name="utility:delete" variant="brand" alternative-text="Delete user"
+            <!-- <lightning-button-icon icon-name="utility:delete" variant="brand" alternative-text="Delete user"
                          class=" slds-p-around_small" title="Delete user" onclick={deleteSelectedStudents}>
                     </lightning-button-icon> 
 
@@ -40,74 +44,74 @@
 
             </div>  -->
 
-        <!-- <lightning-card style="box-shadow: black;"
+            <!-- <lightning-card style="box-shadow: black;"
             class="slds-c-modal-shadow slds-p-top_none  slds-card_boundary slds-media__figure slds-c-card-shadow slds-card__body_inner"> -->
 
-        <lightning-layout size="12" class=" slds-p-around_small slds-align_absolute-center ">
+            <lightning-layout size="12" class=" slds-p-around_small slds-align_absolute-center ">
 
-            <lightning-layout-item size="2">
-                <div class=" slds-p-horizontal_small" style="font-weight:bold;font-size: 20px;text-align:center">
-                    {total}
-                </div>
-                <div class="slds-p-horizontal_large"
-                    style="color:rgb(2, 178, 231); font-size:large; text-align:center;font-family: serif; ">Total
-                </div>
-            </lightning-layout-item>
+                <lightning-layout-item size="2">
+                    <div class=" slds-p-horizontal_small" style="font-weight:bold;font-size: 20px;text-align:center">
+                        {total}
+                    </div>
+                    <div class="slds-p-horizontal_large"
+                        style="color:rgb(2, 178, 231); font-size:large; text-align:center;font-family: serif; ">Total
+                    </div>
+                </lightning-layout-item>
 
-            <lightning-layout-item size="2">
-                <div class="slds-p-horizontal_small" style="font-weight:bold;font-size: 20px;text-align:center">
-                    {active}
-                </div>
-                <div class="slds-p-horizontal_large"
-                    style="color:rgb(30, 114, 23); font-size:large; text-align:center;font-family: serif;">Active
-                </div>
-            </lightning-layout-item>
+                <lightning-layout-item size="2">
+                    <div class="slds-p-horizontal_small" style="font-weight:bold;font-size: 20px;text-align:center">
+                        {active}
+                    </div>
+                    <div class="slds-p-horizontal_large"
+                        style="color:rgb(30, 114, 23); font-size:large; text-align:center;font-family: serif;">Active
+                    </div>
+                </lightning-layout-item>
 
-            <lightning-layout-item size="2">
-                <div class=" slds-p-horizontal_small" style="font-weight:bold;font-size: 20px;text-align:center">
-                    {Inactive}
-                </div>
-                <div class="slds-p-horizontal_large"
-                    style="color:rgb(212, 12, 12); font-size:large; text-align:center;font-family: serif;">Inactive
-                </div>
-            </lightning-layout-item>
+                <lightning-layout-item size="2">
+                    <div class=" slds-p-horizontal_small" style="font-weight:bold;font-size: 20px;text-align:center">
+                        {Inactive}
+                    </div>
+                    <div class="slds-p-horizontal_large"
+                        style="color:rgb(212, 12, 12); font-size:large; text-align:center;font-family: serif;">Inactive
+                    </div>
+                </lightning-layout-item>
 
-            <lightning-layout-item size="2">
-                <div class=" slds-p-horizontal_small" style="font-weight:bold;font-size: 20px;text-align:center">
-                    {New} 0
-                </div>
-                <div class="slds-p-horizontal_large"
-                    style="color:rgb(51, 129, 173); font-size:large; text-align:center;font-family: serif;">New
-                </div>
+                <lightning-layout-item size="2">
+                    <div class=" slds-p-horizontal_small" style="font-weight:bold;font-size: 20px;text-align:center">
+                        {New} 0
+                    </div>
+                    <div class="slds-p-horizontal_large"
+                        style="color:rgb(51, 129, 173); font-size:large; text-align:center;font-family: serif;">New
+                    </div>
 
-            </lightning-layout-item>
-            <lightning-layout-item size="2">
-                <div class="slds-p-horizontal_small" style="font-weight:bold;font-size: 20px;text-align:center">
-                    {Waitlisted} 0
-                </div>
-                <div class="slds-p-horizontal_large"
-                    style="color:rgb(201, 130, 24); font-size:large; text-align:center;font-family: serif;">
-                    Waitlisted </div>
-            </lightning-layout-item>
-            <!-- <lightning-button label="Create Student" variant="brand" onclick={navigateToNewRecordPage} class="slds-var-m-left_xx-small slds-float_right"></lightning-button> -->
+                </lightning-layout-item>
+                <lightning-layout-item size="2">
+                    <div class="slds-p-horizontal_small" style="font-weight:bold;font-size: 20px;text-align:center">
+                        {Waitlisted} 0
+                    </div>
+                    <div class="slds-p-horizontal_large"
+                        style="color:rgb(201, 130, 24); font-size:large; text-align:center;font-family: serif;">
+                        Waitlisted </div>
+                </lightning-layout-item>
+                <!-- <lightning-button label="Create Student" variant="brand" onclick={navigateToNewRecordPage} class="slds-var-m-left_xx-small slds-float_right"></lightning-button> -->
 
-        </lightning-layout>
+            </lightning-layout>
 
-        <!-- </lightning-card> -->
+            <!-- </lightning-card> -->
 
-        <div style=" height: auto; ">
-            <lightning-datatable key-field="Id" data={dataList} columns={columns} onrowselection={handleRowSelection}
-                onrowaction={handleRowAction} draft-values={fldsItemValues} show-row-number-column="false"
-                onsave={saveHandleAction}>
-            </lightning-datatable>
-            <!-- <c-custom-types-global key-field="Id" data={cases} columns={columns}
+            <div style=" height: auto; ">
+                <lightning-datatable key-field="Id" data={dataList} columns={columns}
+                    onrowselection={handleRowSelection} onrowaction={handleRowAction} draft-values={fldsItemValues}
+                    show-row-number-column="false" onsave={saveHandleAction}>
+                </lightning-datatable>
+                <!-- <c-custom-types-global key-field="Id" data={cases} columns={columns}
                 onrowselection={handleRowSelection}
                 onrowaction={handleRowAction} draft-values={fldsItemValues} onsave={saveHandleAction}
             ></c-custom-types-global> -->
-        </div>
+            </div>
 
-        <template if:true={isModalOpen}>
-            <!-- <lightning-card>
+            <template if:true={isModalOpen}>
+                <!-- <lightning-card>
                 <lightning-layout>
 
                     <section  role="dialog" tabindex="-1" id="userApprovalModal" aria-labelledby="modal-heading-01" aria-modal="true"
@@ -129,34 +133,39 @@
 
                             <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
                                 <div class="slds-m-vertical_medium "> -->
-            <!-- Modal/Popup Box LWC body starts here -->
-            <c-edit-student record-id={recordID} modal-value={isModalOpen} selected-name={className}
-                selected-section={classSection} onmodalchange={handleModalChange} academic-year={Year}></c-edit-student>
-            <!-- <c-edit-student records-id={recordID} edit-obj={editObj} edit-data={editData} onclose={handleCloseModal}
+                <!-- Modal/Popup Box LWC body starts here -->
+                <c-edit-student record-id={recordID} modal-value={isModalOpen} selected-name={className}
+                    selected-section={classSection} onmodalchange={handleModalChange} academic-year={Year}>
+                </c-edit-student>
+                <!-- <c-edit-student records-id={recordID} edit-obj={editObj} edit-data={editData} onclose={handleCloseModal}
                                          onedit={popup} modal-value={isModalOpen}></c-edit-student> -->
-            <!--   </div>
+                <!--   </div>
                             </div>
                         </div>
                     </section>
                     <div class="slds-backdrop slds-backdrop_open"></div>
                 </lightning-layout>
             </lightning-card> -->
-        </template>
-
-
-        <div slot="footer" class="slds-clearfix slds-p-top_xxx-small ">
-            <lightning-button label="Back" variant="brand" onclick={goBack}
-                class="slds-var-m-left_xx-small slds-float_left"></lightning-button>
-            <lightning-button label="Delete" variant="brand" onclick={deleteStudents}
-                class="slds-var-m-left_xx-small slds-float_right"></lightning-button>
-            <template if:true={isPopOpen}>
-                <c-delete-confirmation records-id={deleteId} modal-value={isPopOpen} onmodalchange={handleModalChange}
-                    obj-name="Contact"></c-delete-confirmation>
             </template>
-            <!-- <lightning-button label="Edit" variant="brand" onclick={editSelectedStudents}
+
+
+            <div slot="footer" class="slds-clearfix slds-p-top_xxx-small ">
+                <lightning-button label="Back" variant="brand" onclick={goBack}
+                    class="slds-var-m-left_xx-small slds-float_left"></lightning-button>
+                <lightning-button label="Delete" variant="brand" onclick={deleteStudents}
+                    class="slds-var-m-left_xx-small slds-float_right"></lightning-button>
+                <template if:true={isPopOpen}>
+                    <c-delete-confirmation records-id={deleteId} modal-value={isPopOpen}
+                        onmodalchange={handleModalChange} obj-name="Contact"></c-delete-confirmation>
+                </template>
+                <!-- <lightning-button label="Edit" variant="brand" onclick={editSelectedStudents}
             class="slds-var-m-left_xx-small slds-float_right"></lightning-button> -->
-        </div>
-    </lightning-card>
+            </div>
+        </lightning-card>
 
 
+    </template>
+    <template if:true={isModalOpen}>
+        <c-add-edit-student onmodalchange={closeModal}></c-add-edit-student>
+    </template>
 </template>
