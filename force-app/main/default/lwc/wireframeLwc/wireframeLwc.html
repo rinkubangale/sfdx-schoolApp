@@ -1,34 +1,41 @@
 <template>
-  <!-- lightning button for open modal window -->
-  <lightning-icon class="sIcon" icon-name="action:new_account" alternative-text="School" title="School">
-  </lightning-icon>
-  <a class="slds-text-heading_medium madding" onclick={openModal}>SETUP Your School Profile</a>
-  <!-- <lightning-button variant="brand"
-     label="School Profile"
-     title="School Profile"
-     onclick={openModal}
-     class="slds-m-left_x-small">
-  </lightning-button> -->
-  <!--Use template if:true to display/hide popup based on isModalOpen value-->
-  <template if:true={isModalOpen}>
-    <section role="dialog" tabindex="-1" aria-modal="true" aria-labelledby="modal-heading-01"
-      class="slds-modal slds-fade-in-open slds-modal_large">
-      <div class="slds-modal__container">
-        <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse" title="Close"
-          onclick={closeModal}>
-          <lightning-icon icon-name="utility:close" alternative-text="close" variant="inverse" size="small">
-          </lightning-icon>
-          <span class="slds-assistive-text">Close</span>
-        </button>
-        <div class="slds-modal__header">
-          <h1 id="modal-heading-01" class="slds-modal__title slds-hyphenate">School Profile</h1>
+  <div id="addClassRoomContainer" class="col-md-11 center-block dashboard-container">
+    <!--add class main content-->
+    <div id="error" class="error"> </div>
+    <main class="main-content add-class-wrap">
+      <div class="header row no-left-margin no-right-margin">
+        <a href="#" data-close="true">
+          <div class="back" onclick={handleModalChange}>
+            <lightning-icon icon-name="utility:back" size="x-small" alternative-text="Back!" title="Back">
+            </lightning-icon>
+            <p>Back</p>
+          </div>
+        </a>
+        <div class="Add-c-headings">
+          <p class="add-heading-manage fivpx-mrgn-btm">
+            <lightning-icon class="new-icon" icon-name="utility:new" size="small" alternative-text="new!" title="new">
+            </lightning-icon>
+            <b>SETUP Your
+              School Profile</b>
+          </p>
+          <p class="add-subheading-manage">{subHeadTitle}</p>
         </div>
-        <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+        <a href="#" data-close="true">
+          <div class="esc" onclick={handleModalChange}>
+            <lightning-icon icon-name="utility:close" size="x-small" alternative-text="Esc!" title="Esc">
+            </lightning-icon>
+            <p>Esc</p>
+          </div>
+        </a>
+      </div>
+      <!--/add-class-header class="add-class-body"-->
+      <template if:true={schooltypePicklist.data}>
+        <div class="add-class-body slds-modal__content slds-p-around_medium" id="modal-content-id-1">
           <label>
             <lightning-layout size="12">
               <div class="smallScreen">
                 <lightning-layout-item size="4">
-                  <div style="width: 300px; height: 170px; margin-right: 40px;">
+                  <div style="width: 300px; height: 170px; margin-left: 1rem;">
                     <template if:true={filesList}>
                       <template for:each={filesList} for:item="file">
                         <div key={file.value}>
@@ -41,11 +48,6 @@
                         </div>
                       </template>
                     </template>
-                    <!-- <template if:false={filesList}>  
-                        <lightning-icon icon-name="custom:custom16" style="zoom: 300%; margin-left: 180px; position:relative"
-                        alternative-text="Upload an Image4"
-                        class="slds-m-left_x-small" ></lightning-icon>
-                  </template> -->
                     <template if:true={file}>
                       <div>
                         <img src={frame} />
@@ -65,19 +67,7 @@
                 </lightning-layout-item>
               </div>
             </lightning-layout>
-            <!--img src="https://cdn.pixabay.com/photo/2018/02/17/00/06/school-3158985_960_720.png" width="120rem" style="margin-left: 5% ;"-->
-
-            <!--lightning-button variant="destructive" title="Reset Form" class="slds-m-top_small slds-m-horizontal_small" label="Reset Image" onclick={resetFormAction}></lightning-button-->
           </label>
-          <!-- <template if:true={filesList}>
-            <template for:each={filesList} for:item="file">
-              <div key={file.value}>
-              </div>
-            </template>
-          </template> -->
-          <!-- <template if:true={file}>
-            <p style="margin-left: 20px ;">{file.name}</p>
-          </template> -->
           <br>
           <br>
 
@@ -342,7 +332,8 @@
                     <div class="slds-form-element">
                       <lightning-input type="toggle" label="Status of School Affiliation?" data-id="toggle1"
                         onchange={Affiliationstatuschangeval} name={statusaffiliation} value={statuss}
-                        checked={statuss}></lightning-input>
+                        checked={statuss}>
+                      </lightning-input>
                     </div>
                   </div>
                   <div class="slds-p-horizontal--small slds-col slds-size_6-of-12 slds-m-bottom--medium">
@@ -451,9 +442,20 @@
 
               </lightning-accordion-section>
             </lightning-accordion>
+            <div class="slds-var-m-top_large slds-align_absolute-center">
+              <lightning-button variant="brand" type="submit" label="Save" onclick={submitDetails}>
+              </lightning-button>
+            </div>
           </template>
         </div>
-        <template if:false={accounts}>
+      </template>
+      <template if:false={schooltypePicklist.data}>
+        <lightning-spinner alternative-text="Loading" variant="brand"
+          style="background:transparent; margin: auto;width: 50px;height: 50px;">
+        </lightning-spinner>
+      </template>
+
+      <!-- <template if:false={accounts}>
           <div class="slds-modal__footer">
             <button class="slds-button slds-button_brand" onclick={submitDetails}>Save</button>
             <button class="slds-button slds-button_neutral" aria-label="Cancel and close"
@@ -467,10 +469,10 @@
               onclick={closeModal}>Cancel</button>
           </div>
         </template>
-      </div>
-      </div>
-    </section>
-    <div class="slds-backdrop slds-backdrop_open" role="presentation"></div>
-  </template>
-
+        <template if:true={isLoading}>
+          <lightning-spinner alternative-text="Loading" variant="brand" style="background:transparent;">
+          </lightning-spinner>
+        </template> -->
+    </main>
+  </div>
 </template>

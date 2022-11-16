@@ -1,0 +1,59 @@
+<template>
+    <!-- <template if:false={isModalOpen}> -->
+        <lightning-card style="margin:15px; text-transform:capitalize;" class="slds-card__header ">
+
+            <lightning-layout>
+                <lightning-layout-item size="4" class="slds-float_left slds-p-around_medium">
+                    <lightning-icon icon-name="standard:record" alternative-text="Clone" title="Leave Type">
+                    </lightning-icon>
+    
+                    <span style="font-weight: bold; font-size: larger" class=" slds-p-around_small ">Leave Type</span>
+                </lightning-layout-item>
+    
+                <lightning-layout-item size="4" class="slds-align_absolute-center slds-p-around_medium">
+                    <div class="mySearchBar">
+                        <lightning-icon icon-name="utility:search" size="x-small" alternative-text="search"
+                            title="Leave Type">
+                        </lightning-icon>
+                        <input type="text" placeholder="Search Leave Type" />
+                    </div>
+                </lightning-layout-item>
+    
+                <lightning-layout-item size="4" class="slds-float_right slds-clearfix">
+                    <c-add-leave-type class="slds-float_right slds-p-around_medium">
+                    </c-add-leave-type>
+                    <!-- <c-add-academic-year-wireframe class="slds-float_right slds-p-around_medium">
+                    </c-add-academic-year-wireframe> -->
+    
+                </lightning-layout-item>
+            </lightning-layout>
+    
+    
+    
+            <template if:true={isModalOpen}>
+                <!-- <c-edit-academic-year record-id={recordId} is-show-modal={isModalOpen} onmodalchange={handleModalChange}>
+                </c-edit-academic-year> -->
+            </template>
+    
+    
+            <template if:true={isDelete}>
+                <c-delete-confirmation records-id={DelId} obj-name="Academic_Year__c" onmodalchange={closemodaldelete}>
+                </c-delete-confirmation>
+            </template>
+    
+            <div style="height: auto;">
+                <template if:true={dataList}>
+                    <lightning-datatable key-field="Id" onrowaction={rowActionHandler}
+                        column-widths-mode=auto suppress-bottom-bar>
+                    </lightning-datatable>
+                </template>
+            </div>
+            <div slot="footer" class="slds-clearfix slds-p-top_xxx-small ">
+                <lightning-button label="Back" variant="brand" onclick={goBack}
+                    class="slds-var-m-left_xx-small slds-float_left"></lightning-button>
+                <lightning-button label="Delete" onclick={getSelectedRec} variant="brand"
+                    class="slds-var-m-left_xx-small slds-float_right"></lightning-button>
+            </div>
+        </lightning-card>
+    
+</template>

@@ -1,0 +1,27 @@
+<template>
+    <lightning-card style="background: white">
+        <lightning-layout multiple-rows class="slds-p-around_medium">
+            <lightning-layout-item size="12" class="slds-p-around_small slds-p-top_none ">
+                <div style="display:flex">
+                    <div style="margin:16px"><b>Pending</b></div>
+                    <div style="margin:16px"><b>Completed</b></div>
+                </div>
+            </lightning-layout-item>
+            <lightning-layout-item size="2">
+<lightning-input type="search" placeholder="Select Staff/Student Name"></lightning-input>
+            </lightning-layout-item>
+            <lightning-layout-item size="1">
+
+            </lightning-layout-item>
+            <lightning-layout-item size="2">
+<lightning-input type="search" placeholder="Enter Date"></lightning-input>
+            </lightning-layout-item>
+            <lightning-layout-item size="6">
+
+            </lightning-layout-item>
+            <lightning-layout-item size="1" style="margin-top:17px">
+<lightning-button variant="brand" label="Fetch" title="Fetch" onclick={aaa}></lightning-button>
+            </lightning-layout-item>
+        </lightning-layout>
+    </lightning-card>
+</template>

@@ -1,0 +1,165 @@
+<template>
+
+    <div id="addClassRoomContainer" class="col-md-11 center-block dashboard-container">
+        <!--add class main content-->
+        <div id="error" class="error"> </div>
+        <main class="main-content add-class-wrap">
+            <div class="header row no-left-margin no-right-margin">
+                <a href="#" data-close="true">
+                    <div class="back" onclick={handleModalChange}>
+                        <lightning-icon icon-name="utility:back" size="x-small" alternative-text="Back!" title="Back">
+                        </lightning-icon>
+                        <p>Back</p>
+                    </div>
+                </a>
+                <div class="Add-c-headings">
+                    <p class="add-heading-manage fivpx-mrgn-btm">
+                        <lightning-icon class="new-icon" icon-name="utility:new" size="small" alternative-text="new!"
+                            title="new">
+                        </lightning-icon>
+                        <b>{headTitle}</b>
+                    </p>
+                    <p class="add-subheading-manage">{subHeadTitle}</p>
+                </div>
+                <a href="#" data-close="true">
+                    <div class="esc" onclick={handleModalChange}>
+                        <lightning-icon icon-name="utility:close" size="x-small" alternative-text="Esc!" title="Esc">
+                        </lightning-icon>
+                        <p>Esc</p>
+                    </div>
+                </a>
+            </div>
+            <!--/add-class-header-->
+
+            <div class="add-class-body">
+                <!-- <form data-parsley-validate="">
+                    <div class="form-group">
+                        <div class="row no-left-margin no-right-margin">
+                            <div class="col-sm-12 mt">
+                                <div class="row easyoption-section selectable-div active" id="select_option_first1">
+                                    <div id="branchesTab"
+                                        style="margin-bottom: 1.5rem;display: inline-block;width: 100%;">
+                                        <label class="col-md-12">Select branches</label>
+                                        <div class="col-sm-12 mt add-classroom-tags remove-border-css">
+                                            <select class="ac_select branches select2-hidden-accessible"
+                                                id="branchesList" data-select2-id="branchesList" tabindex="-1"
+                                                aria-hidden="true">
+                                                <option value="" data-select2-id="18">Select branches</option>
+                                                <option value="249200">Main Branch</option>
+                                                <option value="1250655">Second Branch</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <label class="col-md-12">Please enter name and add a comma or press enter.</label>
+                                    <div class="col-sm-12 mt add-classroom-tags remove-border-css classroom-uppercase">
+                                        <div class="form-group bigger-taginput">
+                                            <div class="bootstrap-tagsinput" style="padding:0px;">
+                                                <div class="bootstrap-tagsinput" style=""><input type="text"
+                                                        placeholder=""></div><input type="text" value=""
+                                                    class="form-control" data-role="tagsinput" id="addClassroomTag"
+                                                    style="display: none;">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                    <div class="form-group text-center col-md-12">
+                                        <button class="btn btn-default btn-lg button btn-edit-details ladda-button"
+                                            data-color="green" data-style="expand-right" type="submit"> <span
+                                                class="ladda-label">Add Classroom
+                                            </span> </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form> -->
+                <!-- <lightning-record-edit-form object-api-name={objectName} onload={handleLoading}>
+                    <template for:each={allFields} for:item="field">
+                        <lightning-input-field key={field.key} field-name={field.fieldName}></lightning-input-field>
+                    </template>
+                    <div class="slds-var-m-top_large slds-align_absolute-center">
+                       
+                     
+                    </div>
+                </lightning-record-edit-form> -->
+                <!-- <lightning-button variant="brand" class="slds-m-left_x-small slds-p-horizontal_x-small"
+
+                icon-name="utility:adduser" title="Create Department" onclick={openModal}>
+            
+                </lightning-button> -->
+                <!-- <template if:true={isModalOpen}>
+                    <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true"
+                        aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open slds-modal_medium">
+                        <div class="slds-modal__container">
+                            <div class="slds-clearfix"> -->
+                <!-- <div class="slds-float_right">
+                                    <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse"
+                                        title="Close" onclick={closeModal}>
+                                        <lightning-icon icon-name="utility:close" alternative-text="close" variant="inverse"
+                                            size="small"></lightning-icon>
+                                        <span class="slds-assistive-text">Close</span>
+                                    </button>
+                                </div> -->
+
+
+
+                <!-- <header class="slds-modal__header">
+                                    <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse"
+                                        title="Close" onclick={closeModal}>
+                                        <lightning-icon icon-name="utility:close" onclick={closeModal} title="Close" alternative-text="close" variant="inverse"
+                                            size="small"></lightning-icon>
+                                        <span class="slds-assistive-text">Close</span>
+                                    </button>
+                                    <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">
+                                        Create Department
+                                    </h2>
+                                </header>
+                            </div> -->
+
+
+                <!-- <lightning-card > -->
+                <!-- <span class="slds-align_absolute-center slds-p-vertical_xxx-small" style="font-weight: bold;font-size:large">
+            
+                                    Create Department
+                            </span>
+                            <hr class="slds-p-vertical_none"> -->
+
+                <lightning-layout class="slds-p-horizontal_x-small">
+                    <!-- <lightning-layout-item size="4" class="slds-p-horizontal_x-small slds-p-bottom_small ">
+                                 <lightning-input type="text" label="Department Id" placeholder="Department Id"   size="6" ></lightning-input> 
+                            </lightning-layout-item> -->
+                    <lightning-layout-item size="12" class="slds-p-horizontal_x-small slds-p-bottom_small ">
+                        <lightning-input type="text" class="validate" label="Department Name"
+                            placeholder="Department Name" onchange={handleNameChange} required></lightning-input>
+                    </lightning-layout-item>
+                    <!-- <lightning-layout-item size="4" class="slds-p-horizontal_x-small slds-p-bottom_small ">
+                                 <lightning-input type="text" label="Department Id" placeholder="Department Id"   size="6" ></lightning-input> 
+                            </lightning-layout-item> -->
+                </lightning-layout>
+
+                <div slot="footer" class="slds-p-top_xxx-small slds-clearfix">
+                    <lightning-button label="Cancel" class="slds-m-left_x-small slds-float_right" onclick={closeModal}>
+                    </lightning-button>
+                    <lightning-button label="Save" class=" slds-float_right" onclick={createAccount} variant="brand"
+                        onchange={isInputValid}></lightning-button>
+                    <!-- <lightning-button icon-name="utility:add" label="Custom Fields" onclick={addCustomFields} variant="brand" class="slds-var-m-left_xx-small slds-float_left"></lightning-button> -->
+                </div>
+
+                <!-- </lightning-card> -->
+
+
+
+            </div>
+            <!-- </section> -->
+            <!-- <div class="slds-backdrop slds-backdrop_open"></div> -->
+            <!-- </template>
+            </div> -->
+            <!-- <lightning-button variant="brand" label='save'>   </lightning-button> -->
+            <template if:true={isLoading}>
+                <lightning-spinner alternative-text="Loading" variant="brand" style="background:transparent;">
+                </lightning-spinner>
+            </template>
+        </main>
+    </div>
+
+</template>

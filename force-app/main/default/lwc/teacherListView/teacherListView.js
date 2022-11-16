@@ -67,7 +67,10 @@ export default class TeacherListView extends LightningElement {
     }
 
     @track isModalOpen = false;
-
+    @track createmodal = false;
+    handelModel(){
+        this.createmodal = !this.createmodal;
+    }
     openModal() {
         this.isModalOpen = true;
         //this.isPopOpen = true;

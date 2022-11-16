@@ -27,25 +27,15 @@ const actions = [
   }
 ];
 
+
 const columns = [
   { label: "From", fieldName: "From__c" },
   { label: "To", fieldName: "To__c" },
   { label: "Last Modified By", fieldName: "LastModifiedBy" },
   { label: "Last Modified Date", fieldName: "LastModifiedDate" },
   { type: "action", typeAttributes: { rowActions: actions } }
-
-  // {
-  //     type: "button-icon", typeAttributes: {
-  //         iconName: "utility:delete",
-  //         alternativeText: "Delete", title: "Delete", name: 'delete'
-  //     }
-  // },
-
-  // {
-  //     type: 'action',
-  //     typeAttributes: { rows: action },
-  // },
 ];
+
 
 export default class AcademicListView extends LightningElement {
   connectedCallback() {
@@ -230,10 +220,7 @@ export default class AcademicListView extends LightningElement {
     if (evt.detail.action.name === "delete") {
       this.isDelete = true;
       rowDel.push(evt.detail.row.Id);
-      // deleteAclistTable({ arr: rowDel })
-      //     .then((res) => this.dataList = res);
-
-      // this.showDeleteToast();
+ 
 
       this.DelId = rowDel;
     } else if (evt.detail.action.label === "edit") {

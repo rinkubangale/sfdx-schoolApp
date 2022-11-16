@@ -42,10 +42,25 @@ export default class AdmissionListView extends LightningElement {
     @track sortDirection;
     @track dataListcopy = [];
     @track arr = [];
-
+    @track isModalOpen = false;
 
     @track deleteWindow = false;
 
+    openModal() {
+        this.isModalOpen = !this.isModalOpen;
+      }
+    
+      closeModal() {
+        this.isModalOpen = false;
+      }
+    
+      submitDetails() {
+        this.isModalOpen = false;
+      }
+    
+      handleModalChange(event) {
+        this.isModalOpen = event.detail;
+      }
     openDeleteWindow() {
         this.deleteWindow = true;
     }
@@ -169,7 +184,8 @@ export default class AdmissionListView extends LightningElement {
         }))
 
     }
-
+    @track DelId = [];
+    @track arr = [];
     @track isModalOpen = false;
     columns = columns;
     academic;
@@ -179,7 +195,7 @@ export default class AdmissionListView extends LightningElement {
     admissionResult;
     admissionVal;
     admissionAnswer;
-    delId = [];
+   
     @track editRecordId;
     @track editObj = {};
 
@@ -284,20 +300,20 @@ export default class AdmissionListView extends LightningElement {
         // console.log(this.academic);
     }
 
-    getSelectedRec() {
+    // getSelectedRec() {
 
-        var selectedRecords = this.template.querySelector("lightning-datatable").getSelectedRows();
-        let len = selectedRecords.length;
-        if (selectedRecords.length > 0) {
-            console.log('selectedRecords are ' + JSON.stringify(selectedRecords));
-            selectedRecords.forEach(currentItem => {
-                console.log('Selecteeeed')
-                this.arr.push(currentItem.Id);
-                console.log('Selecteeeed134')
-            });
-        }
-        return len;
-    }
+    //     var selectedRecords = this.template.querySelector("lightning-datatable").getSelectedRows();
+    //     let len = selectedRecords.length;
+    //     if (selectedRecords.length > 0) {
+    //         console.log('selectedRecords are ' + JSON.stringify(selectedRecords));
+    //         selectedRecords.forEach(currentItem => {
+    //             console.log('Selecteeeed')
+    //             this.arr.push(currentItem.Id);
+    //             console.log('Selecteeeed134')
+    //         });
+    //     }
+    //     return len;
+    // }
 
     rowSelectionHandler(event) {
 
@@ -314,11 +330,13 @@ export default class AdmissionListView extends LightningElement {
 
     rowActionHandler(event) {
         console.log('Checkingg')
-
+        const rowDel = [];
         if (event.detail.action.label === 'Delete') {
             this.deleteWindow = true;
-
-            this.delId = event.detail.row.Id;
+            rowDel.push(event.detail.row.Id);
+       
+      
+            this.DelId = rowDel;
             console.log('dfghgfdfgh' + this.delId)
 
             // deleteAdmission({ admissionIds: [event.detail.row.Id] }).then((res) => {
@@ -337,72 +355,77 @@ export default class AdmissionListView extends LightningElement {
         }
 
         else {
-            // console.log('edit')
+             console.log('edit');
             this.editObj = this.dataList.find(x => x.Id == event.detail.row.Id);
             this.editRecordId = event.detail.row.Id;
-            this.openPopup = true
+            this.isModalOpen = true;
             // console.log('EdittttttttttttObj' +JSON.stringify(this.editObj) )
 
 
-            this.editData.Academic_Year__c = this.editObj.Academic_Year__c
-            this.editData.Admission_Close_Date__c = this.editObj.Admission_Close_Date__c
-            //   console.log( 'Closeeeeeeeeeeee' +this.editData.Admission_Close_Date__c);
-            this.editData.Assign_Classes__c = this.editObj.Assign_Classes__c
-            this.editData.No_of_Seats_Available__c = this.editObj.No_of_Seats_Available__c
-            this.editData.Starting_Fee__c = this.editObj.Starting_Fee__c
-            //   console.log( this.editData.Starting_Fee__c);
-            this.editData.Minimum_Age_limit__c = this.editObj.Minimum_Age_limit__c
-            this.editData.Required_Proofs__c = this.editObj.Required_Proofs__c
-            this.editData.Admission_Status__c = this.editObj.Admission_Status__c
-            this.editData.Max_No_of_Applications__c = this.editObj.Max_No_of_Applications__c
-            this.editData.Total_No_of_Seats__c = this.editObj.Total_No_of_Seats__c
-            this.editData.Seats_Filled__c = this.editObj.Seats_Filled__c
-            this.editData.Admission_Available_on_Website__c = this.editObj.Admission_Available_on_Website__c
-            this.editData.Maximum_Age_limit__c = this.editObj.Maximum_Age_limit__c
+            // this.editData.Academic_Year__c = this.editObj.Academic_Year__c
+            // this.editData.Admission_Close_Date__c = this.editObj.Admission_Close_Date__c
+            // //   console.log( 'Closeeeeeeeeeeee' +this.editData.Admission_Close_Date__c);
+            // this.editData.Assign_Classes__c = this.editObj.Assign_Classes__c
+            // this.editData.No_of_Seats_Available__c = this.editObj.No_of_Seats_Available__c
+            // this.editData.Starting_Fee__c = this.editObj.Starting_Fee__c
+            // //   console.log( this.editData.Starting_Fee__c);
+            // this.editData.Minimum_Age_limit__c = this.editObj.Minimum_Age_limit__c
+            // this.editData.Required_Proofs__c = this.editObj.Required_Proofs__c
+            // this.editData.Admission_Status__c = this.editObj.Admission_Status__c
+            // this.editData.Max_No_of_Applications__c = this.editObj.Max_No_of_Applications__c
+            // this.editData.Total_No_of_Seats__c = this.editObj.Total_No_of_Seats__c
+            // this.editData.Seats_Filled__c = this.editObj.Seats_Filled__c
+            // this.editData.Admission_Available_on_Website__c = this.editObj.Admission_Available_on_Website__c
+            // this.editData.Maximum_Age_limit__c = this.editObj.Maximum_Age_limit__c
 
 
 
         }
     }
 
-    deleteHandler() {
-
-        if (this.getSelectedRec() > 0) {
-            console.log('Delete')
-            this.deleteWindow = true;
-            for (let x of this.selectedAdmission) {
-                console.log('this.selectedAdmission' + this.selectedAdmission)
-                this.delId.push(x.Id);
-            }
-
-            // const idList = this.selectedAdmission.map(row => { return row.Id })
-            // deleteAdmission({ admissionIds: idList }).then(() => {
-            //     //return refreshApex(this.dataList);
-            //     location.reload();
-            // })
-
-            // this.template.querySelector('lightning-datatable').selectedRows = [];
-            // this.selectedAdmission = undefined;
-
-            // this.dispatchEvent(
-            //     new ShowToastEvent({
-            //         title: 'Success',
-            //         message: 'Records Deleted Successfully!!',
-            //         variant: 'success'
-            //     })
-            // );
+    deleteRec() {
+        this.deleteWindow = true;
+    
+        if (this.arr.length > 0) {
+          // deleteAclistTable({ arr: this.arr })
+          //     .then((res) => this.dataList = res);
+          // this.showDeleteToast();
+          this.DelId = this.arr;
         }
-        else if (this.getSelectedRec() == 0) {
-            this.dispatchEvent(
-                new ShowToastEvent({
-                    title: 'Error While Deleting Record',
-                    message: 'Please select a record to Delete',
-                    variant: 'error',
-                }),
-            );
-        }
-    }
+      }
 
+ showNonSelectedDeleteToast() {
+    const evt = new ShowToastEvent({
+      title: "Error While Deleting the Record",
+      message: "Please select a record to Delete",
+      variant: "error",
+      mode: "dismissable"
+    });
+    this.dispatchEvent(evt);
+  }
+
+    getSelectedRec() {
+        var selectedRecords = this.template
+          .querySelector("lightning-datatable")
+          .getSelectedRows();
+        if (selectedRecords.length > 0) {
+          // console.log('selectedRecords are ', JSON.stringify(selectedRecords));
+          selectedRecords.map((currentItem) => {
+            this.arr.push(currentItem.Id);
+            // alert(currentItem.Id);
+          });
+          //// this.selectedIds = ids.replace(/^,/, '');
+          // this.lstSelectedRecords = selectedRecords;
+          // this.arr = selectedIds;
+          // alert(this.selectedIds);
+          this.deleteRec();
+        } else {
+          this.showNonSelectedDeleteToast();
+        }
+      }
+    handleModalChange(event) {
+        this.isModalOpen = event.detail;
+      }
     handleCloseModal(event) {
         this.isModalOpen = event.detail
         this.openPopup = event.detail
@@ -457,9 +480,11 @@ export default class AdmissionListView extends LightningElement {
         location.reload();
         // console.log('refresh2345')
     }
-
-    openModal(event) {
-        this.isModalOpen = true;
-
-    }
+    closeModal() {
+        this.isModalOpen = false;
+      }
+    
+    openModal() {
+        this.isModalOpen = !this.isModalOpen;
+      }
 }

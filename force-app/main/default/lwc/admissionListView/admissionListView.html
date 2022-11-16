@@ -1,4 +1,5 @@
 <template>
+<template if:false={isModalOpen}>
     <lightning-card>
         <div class="slds-p-horizontal_medium">
             <lightning-layout>
@@ -46,11 +47,7 @@
 
             </template>
 
-
-            <template if:true={isModalOpen}>
-                <c-create-subject onsave={handleSaveHandler} onclose={handleCloseModal}></c-create-subject>
-
-            </template>
+           
 
 
             <!-- <template if:true={deleteWindow}>
@@ -99,11 +96,11 @@
         <div slot="footer" class="slds-clearfix slds-p-top_xxx-small ">
             <lightning-button label="Back" variant="brand" onclick={goBack}
                 class="slds-var-m-left_xx-small slds-float_left"></lightning-button>
-            <lightning-button label="Delete" variant="brand" onclick={deleteHandler}
+            <lightning-button label="Delete" variant="brand" onclick={getSelectedRec}
                 class="slds-var-m-left_xx-small slds-float_right"></lightning-button>
 
             <template if:true={deleteWindow}>
-                <c-delete-confirmation modal-value={deleteWindow} obj-name="Admission__c" records-id={delId}
+                <c-delete-confirmation modal-value={deleteWindow} obj-name="Admission__c" records-id={DelId}
                     onmodalchange={handleModalChange}>
                 </c-delete-confirmation>
             </template>
@@ -112,5 +109,9 @@
         </div>
 
     </lightning-card>
-
+    </template>
+    
+    <template if:true={isModalOpen}>
+        <c-add-manage-admission onmodalchange={closeModal}></c-add-manage-admission>
+    </template>
 </template>

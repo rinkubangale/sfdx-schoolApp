@@ -1,5 +1,8 @@
 <template>
     <template if:true={clicked}>
+        <template if:true={schoolSetting}>
+            <c-wireframe-lwc onmodalchange={closeModal}></c-wireframe-lwc>
+        </template>
         <template if:true={academicListView}>
             <c-academic-list-view onbackbtn={handleBack}></c-academic-list-view>
         </template>
@@ -32,10 +35,16 @@
     </template>
 
     <template if:false={clicked}>
+        <!-- <template if:false={isModalOpen}> -->
         <lightning-card class="removeBg">
             <lightning-layout style="text-align: center;">
                 <lightning-layout-item flexibility="auto">
-                    <c-wireframe-lwc></c-wireframe-lwc>
+                    <!-- <c-wireframe-lwc></c-wireframe-lwc> -->
+                    <lightning-icon class="sIcon" icon-name="action:new_account" alternative-text="School"
+                        title="School">
+                    </lightning-icon>
+                    <a class="slds-text-heading_medium madding" data-name="schoolSetting" onclick={openCard}>SETUP Your
+                        School Profile</a>
                 </lightning-layout-item>
             </lightning-layout>
             <lightning-layout class="resScreen" multiple-rows>
@@ -109,5 +118,7 @@
                 </lightning-layout-item> -->
             </lightning-layout>
         </lightning-card>
+        <!-- </template> -->
+
     </template>
 </template>

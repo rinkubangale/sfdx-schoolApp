@@ -1,0 +1,166 @@
+<template>
+    <div id="addClassRoomContainer" class="col-md-11 center-block dashboard-container">
+        <!--add class main content-->
+        <div id="error" class="error"> </div>
+        <main class="main-content add-class-wrap">
+            <div class="header row no-left-margin no-right-margin">
+                <a href="#" data-close="true">
+                    <div class="back" onclick={handleModalChange}>
+                        <lightning-icon icon-name="utility:back" size="x-small" alternative-text="Back!" title="Back">
+                        </lightning-icon>
+                        <p>Back</p>
+                    </div>
+                </a>
+                <div class="Add-c-headings">
+                    <p class="add-heading-manage fivpx-mrgn-btm">
+                        <lightning-icon class="new-icon" icon-name="utility:new" size="small" alternative-text="new!"
+                            title="new">
+                        </lightning-icon>
+                        <b>{headTitle}</b>
+                    </p>
+                    <p class="add-subheading-manage">{subHeadTitle}</p>
+                </div>
+                <a href="#" data-close="true">
+                    <div class="esc" onclick={handleModalChange}>
+                        <lightning-icon icon-name="utility:close" size="x-small" alternative-text="Esc!" title="Esc">
+                        </lightning-icon>
+                        <p>Esc</p>
+                    </div>
+                </a>
+            </div>
+            <div class="add-class-body">
+                <lightning-record-edit-form object-api-name="Fee_plan__c">
+                    <lightning-layout multiple-rows="true">
+                        <lightning-layout-item size="6">
+                            <lightning-input-field onchange={handleInputChange} field-name="Name">
+                            </lightning-input-field>
+                        </lightning-layout-item>
+                        <lightning-layout-item size="6">
+                            <lightning-input-field onchange={handleInputChange} field-name="Academic_Year__c">
+                            </lightning-input-field>
+                        </lightning-layout-item>
+                        <lightning-layout-item size="6">
+                            <lightning-input-field onchange={handleInputChange} field-name="Plan_Type__c">
+                            </lightning-input-field>
+                        </lightning-layout-item>
+                        <lightning-layout-item size="6">
+                            <lightning-input-field onchange={handleInputChange} field-name="Class__c">
+                            </lightning-input-field>
+                        </lightning-layout-item>
+                        <lightning-layout-item size="6">
+                            <lightning-input-field onchange={handleInputChange}
+                                field-name="Total_Number_of_Students__c">
+                            </lightning-input-field>
+                        </lightning-layout-item>
+                    </lightning-layout>
+
+                    <lightning-accordion allow-multiple-sections-open class="section-accordion" active-section-name="A">
+                        <lightning-accordion-section name="A" label="Set Fee Terms & Fee Types">
+
+                            <lightning-layout multiple-rows="true">
+
+                                <lightning-layout-item size="6">
+                                    <lightning-input-field onchange={handleInputChange}
+                                        field-name="Fee_Plan_Start_Date__c">
+                                    </lightning-input-field>
+                                </lightning-layout-item>
+
+                                <lightning-layout-item size="6">
+                                    <lightning-input-field onchange={handleInputChange}
+                                        field-name="Fee_Plan_End_Date__c">
+                                    </lightning-input-field>
+                                </lightning-layout-item>
+
+                                <lightning-layout-item size="6">
+                                    <lightning-input-field onchange={handleInputChange}
+                                        field-name="Billing_Frequency__c">
+                                    </lightning-input-field>
+                                </lightning-layout-item>
+
+                            </lightning-layout>
+
+                        </lightning-accordion-section>
+
+                        <lightning-accordion-section name="B" label="Discount">
+                            <lightning-layout multiple-rows="true">
+
+                                <lightning-layout-item size="6">
+                                    <lightning-input-field onchange={handleInputChange} field-name="Show_Discount__c">
+                                    </lightning-input-field>
+                                </lightning-layout-item>
+                                <template if:true={showDiscFields}>
+                                    <lightning-layout-item size="6">
+                                        <lightning-input-field onchange={handleInputChange}
+                                            field-name="Discount_Mode__c">
+                                        </lightning-input-field>
+                                    </lightning-layout-item>
+                                    <lightning-layout-item size="6">
+                                        <lightning-input-field onchange={handleInputChange}
+                                            field-name="Discount_Amount_Value__c">
+                                        </lightning-input-field>
+                                    </lightning-layout-item>
+                                    <lightning-layout-item size="6">
+                                        <lightning-input-field onchange={handleInputChange}
+                                            field-name="Discount_Percentage_Value__c">
+                                        </lightning-input-field>
+                                    </lightning-layout-item>
+                                </template>
+
+                            </lightning-layout>
+                        </lightning-accordion-section>
+
+                        <lightning-accordion-section name="C" label="Penalty">
+                            <lightning-layout multiple-rows="true">
+
+                                <lightning-layout-item size="6">
+                                    <lightning-input-field onchange={handleInputChange} field-name="Show_Penalty__c">
+                                    </lightning-input-field>
+                                </lightning-layout-item>
+
+                                <template if:true={showPenaltyFields}>
+
+                                    <lightning-layout-item size="6">
+                                        <lightning-input-field onchange={handleInputChange}
+                                            field-name="Penalty_Mode__c">
+                                        </lightning-input-field>
+                                    </lightning-layout-item>
+
+                                    <lightning-layout-item size="6">
+                                        <lightning-input-field onchange={handleInputChange}
+                                            field-name="Penalty_Amount_Value__c">
+                                        </lightning-input-field>
+                                    </lightning-layout-item>
+
+                                    <lightning-layout-item size="6">
+                                        <lightning-input-field onchange={handleInputChange}
+                                            field-name="Penalty_Percentage_Value__c">
+                                        </lightning-input-field>
+                                    </lightning-layout-item>
+
+                                    <lightning-layout-item size="6">
+                                        <lightning-input-field onchange={handleInputChange} field-name="Paid_After__c">
+                                        </lightning-input-field>
+                                    </lightning-layout-item>
+
+                                </template>
+
+                            </lightning-layout>
+                        </lightning-accordion-section>
+                    </lightning-accordion>
+                </lightning-record-edit-form>
+                <lightning-layout>
+                    <lightning-layout-item size="12" class="slds-var-m-top_large slds-align_absolute-center">
+                        <lightning-button label={btnLabel} onclick={saveHandler} variant="brand"
+                            class=" slds-p-around_x-small slds-float_right">
+                        </lightning-button>
+                    </lightning-layout-item>
+                </lightning-layout>
+            </div>
+
+            <template if:true={isLoading}>
+                <lightning-spinner alternative-text="Loading" variant="brand" style="background:transparent;">
+                </lightning-spinner>
+            </template>
+        </main>
+    </div>
+</template>

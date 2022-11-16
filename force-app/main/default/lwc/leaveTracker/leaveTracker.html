@@ -11,11 +11,10 @@
 
             <lightning-layout-item size="4"></lightning-layout-item>
 
-            <lightning-layout-item size="4" class="slds-float_right" style="padding-top: 2em">
+            <lightning-layout-item size="4" class="slds-float_right slds-clearfix" style="padding-top: 2em">
 
-                <lightning-button variant="brand" class="slds-m-left_x-small slds-p-horizontal_x-small"
-                    style="padding-left:25em" icon-name="utility:add" label="Add" title="Add Holidays"
-                    onclick={openModal}>
+                <lightning-button variant="brand" class="slds-m-left_x-small slds-p-horizontal_x-small slds-float_right slds-p-around_medium"
+                    icon-name="utility:add" label="Add" title="Add Holidays" onclick={openModal}>
                 </lightning-button>
             </lightning-layout-item>
         </lightning-layout>
@@ -56,7 +55,7 @@
                         <lightning-record-edit-form object-api-name="Leave__c" record-id={recordId}>
                             <lightning-layout multiple-rows class="slds-p-around_medium">
                                 <lightning-layout-item size="5" class="slds-p-around_small slds-p-top_none ">
-                                    <lightning-input-field field-name="Name" onchange={handleName}>
+                                    <lightning-input-field field-name="Name" onchange={handleName} validate>
                                     </lightning-input-field>
                                 </lightning-layout-item>
                                 <lightning-layout-item size="2" class="slds-p-around_small slds-p-top_none">
@@ -126,21 +125,20 @@
 
         <div style="height: auto;">
             <template if:true={dataList}>
-                <lightning-datatable key-field="Id" data={dataList} columns={columns} suppress-bottom-bar>
+                <lightning-datatable key-field="Id" data={dataList} columns={columns} onrowaction={rowActionHandler}
+                    suppress-bottom-bar>
                 </lightning-datatable>
             </template>
         </div>
-        <!-- <template if:true={isModalOpen}>
 
-            
-
-
-            <c-edit-leave-tracker record-id={recordId} is-show-modal={isModalOpen} onmodalchange={handleModalChange}>
+        <template if:true={isModalOpenn}>
+            <c-edit-leave-tracker record-id={recordId} is-show-modal={isModalOpenn}>
             </c-edit-leave-tracker>
-
-           
-
-        </template> -->
+        </template>
+        <template if:true={isDelete}>
+            <c-delete-confirmation records-id={DelId} obj-name="Leave__c" onmodalchange={closemodaldelete}>
+            </c-delete-confirmation>
+        </template>
 
         <div slot="footer" class="slds-clearfix slds-p-top_xxx-small ">
             <lightning-button variant="brand" label="Back" title="Back" class="slds-var-m-left_xx-small slds-float_left"

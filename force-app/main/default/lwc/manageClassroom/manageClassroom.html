@@ -1,0 +1,82 @@
+<!-- sldsValidatorIgnore -->
+<template>
+   
+        <lightning-card>
+            <div class="slds-p-horizontal_medium slds-clearfix">
+
+                <div class="slds-border_bottom slds-p-bottom_medium">
+                    <lightning-icon icon-name="standard:education" alternative-text="class/Subjects"
+                        title="Manage Classes and Subjects">
+                    </lightning-icon>
+                    <span style="font-weight: bold; font-size: 16px; text-transform: uppercase;"
+                        class="slds-m-left_x-small slds-text-heading_large">Manage Class and
+                        Classroom</span>
+                    <!-- <c-create-class class="slds-float_right" label="Add Classes"></c-create-class> -->
+                    <!-- <lightning-button variant="brand" icon-name="utility:adduser" title="Create class"
+                        onclick={openModal} class="slds-float_right slds-m-left_medium">
+                    </lightning-button> -->
+                </div>
+                <div style="width: 250px;margin: auto;"><lightning-input name="Search School type" type="search" label="Search class" placeholder="All Classes"
+                    onchange={handlesearch} value={depname}></lightning-input></div>
+               <lightning-layout style=" border: outset;
+               background-color: wheat;margin-top: 20px;
+               margin-bottom: 30px;">
+                <lightning-layout-item size="6">
+                    <div>Class and Classroom</div>
+                </lightning-layout-item>
+                <lightning-layout-item size="6">
+                    <div style="margin-left: 512px">Action</div>
+                </lightning-layout-item>
+               </lightning-layout>
+               <lightning-layout style='margin-bottom: 30px;'>
+               <lightning-layout-item size="6" >
+                <div>Class LKG</div>
+            </lightning-layout-item>
+        </lightning-layout>
+               
+
+
+                
+
+
+                <div style = "display: flex;flex-wrap: wrap;">
+                    
+                        <template for:each={sectionlist} for:item="field">
+                            <div style="margin: 4px;
+                            border: solid black;
+                            width: 150px;
+                            height: 40px;
+                            text-align: -webkit-center;
+                            background-color: rgb(52, 118, 241);" key={field.Name}>{field.Name}</div> 
+                         </template>
+
+                      
+                </div>
+                <lightning-layout style='margin-bottom: 30px;' >
+                <lightning-layout-item size="6">
+                    <div>Class UKG</div>
+                </lightning-layout-item>
+            </lightning-layout>
+                   
+    
+    
+                    
+    
+    
+                    <div style = "display: flex;flex-wrap: wrap;">
+                        
+                            <template for:each={sectionlist} for:item="field">
+                                <div style="margin: 4px;
+                                border: solid black;
+                                width: 150px;
+                                height: 40px;
+                                text-align: -webkit-center;
+                                background-color: rgb(52, 118, 241);" key={field.Name}>{field.Name}</div> 
+                             </template>
+    
+                          
+                    </div>
+
+            </div>
+        </lightning-card>
+    </template>

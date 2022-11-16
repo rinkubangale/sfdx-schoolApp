@@ -1,7 +1,9 @@
 <template>
+    <template if:false={createmodal}>
     <lightning-card style="text-transform: capitalize;" class="slds-card__header ">
 
         <lightning-tabset active-tab-value="two">
+
             <lightning-tab label="School app" value="one">
                 <lightning-card>
 
@@ -60,64 +62,86 @@
 
 
                 </lightning-card>
-
+            
             </lightning-tab>
 
 
 
             <lightning-tab label="Manage Department" title="Manage Department" value="two">
-                <lightning-card>
-                    <lightning-layout>
+                
+
+                    <lightning-card>
+                        <lightning-layout multiple-rows>
 
 
 
-                        <lightning-layout-item size="4" class="slds-p-left_small slds-card__header">
+                            <lightning-layout-item size="4" class="slds-p-left_small slds-card__header">
 
-                            <lightning-icon icon-name="standard:record" alternative-text="Clone" title="Clone">
+                                <lightning-icon icon-name="standard:record" alternative-text="Clone" title="Clone">
 
-                            </lightning-icon>
-
-                            <span style="font-weight: bold; font-size: larger;  " class="slds-p-horizontal_small ">View
-                                Departments</span>
-
-                        </lightning-layout-item>
-
-
-                        <lightning-layout-item size="4" class="slds-p-around_medium">
-                            <div class="mySearchBar">
-                                <lightning-icon icon-name="utility:search" size="x-small" alternative-text="search"
-                                    title="Search Departments">
                                 </lightning-icon>
-                                <input type="text" name="Search Department" placeholder="Search Departments"
-                                    onchange={handlesearch} value={depname} />
-                                <!-- <lightning-input name="Search Department" type="search" label="Search Departments" placeholder="Search departments"
+
+                                <span style="font-weight: bold; font-size: larger;  "
+                                    class="slds-p-horizontal_small ">View
+                                    Departments</span>
+
+                            </lightning-layout-item>
+
+
+                            <lightning-layout-item size="4" class="slds-p-around_medium">
+                                <div class="mySearchBar">
+                                    <lightning-icon icon-name="utility:search" size="x-small" alternative-text="search"
+                                        title="Search Departments">
+                                    </lightning-icon>
+                                    <input type="text" name="Search Department" placeholder="Search Departments"
+                                        onchange={handlesearch} value={depname} />
+                                    <!-- <lightning-input name="Search Department" type="search" label="Search Departments" placeholder="Search departments"
                                         onchange={handlesearch} value={depname}></lightning-input> -->
 
-                                <template for:each={DepartmentList} for:item="Departmentobj" for:index="index">
+                                    <template for:each={DepartmentList} for:item="Departmentobj" for:index="index">
 
-                                    <option key={Departmentobj.Id}>{Departmentobj.Name}</option>
+                                        <option key={Departmentobj.Id}>{Departmentobj.Name}</option>
 
-                                </template>
-                            </div>
-                        </lightning-layout-item>
-
-
-                        <lightning-layout-item size="4" class="slds-p-around_medium">
+                                    </template>
+                                </div>
+                            </lightning-layout-item>
 
 
-                            <div class="slds-clearfix">
-                                <c-add-department class="slds-var-m-left_xx-small slds-float_right"></c-add-department>
-                            </div>
-
-                        </lightning-layout-item>
+                            <lightning-layout-item size="4" class="slds-p-around_medium">
 
 
-                    </lightning-layout>
+                                <div class="slds-clearfix">
+                                    <!-- <c-add-department class="slds-var-m-left_xx-small slds-float_right"></c-add-department> -->
+
+                                    <lightning-button variant="brand"
+                                        class="slds-m-left_x-small slds-p-horizontal_x-small"
+                                        icon-name="utility:adduser" title="Create Department" onclick={handelModel}>
+
+                                    </lightning-button>
+                                </div>
+                            </lightning-layout-item>
+                        </lightning-layout>
+                        <lightning-layout>
+                            <lightning-layout-item size="12">
+                                <!-- <div style=" height: auto; "> -->
+                                    <lightning-datatable key-field="id" data={Department__c} data-id="Sathish"
+                                        columns={columns} onrowaction={rowActionHandler} suppress-bottom-bar>
+                                    </lightning-datatable>
+
+                                    <div class="slds-clearfix slds-p-top_xxx-small ">
+                                        <lightning-button label="DELETE" onclick={deleterow} variant="brand"
+                                            class="slds-var-m-left_xx-small slds-p-around_medium slds-float_right">
+                                        </lightning-button>
+
+                                    </div>
+                                <!-- </div> -->
+                            </lightning-layout-item>
+                        </lightning-layout>
+                    </lightning-card>
+                
 
 
-
-
-                </lightning-card>
+              
                 <template if:true={isDelete}>
 
                     <c-delete-confirmation records-id={recid} obj-name="Department__c" onmodalchange={closemodaldelete}>
@@ -158,7 +182,7 @@
                     <div class="slds-backdrop slds-backdrop_open"></div>
 
                 </template>
-                <div style=" height: auto; ">
+                <!-- <div style=" height: auto; ">
                     <lightning-datatable key-field="id" data={Department__c} data-id="Sathish" columns={columns}
                         onrowaction={rowActionHandler} suppress-bottom-bar>
                     </lightning-datatable>
@@ -166,8 +190,8 @@
                         <lightning-button label="DELETE" onclick={deleterow} variant="brand"
                             class="slds-var-m-left_xx-small slds-p-around_medium slds-float_right"></lightning-button>
 
-                    </div>
-                </div>
+                    </div> -->
+             
 
                 <template if:true={isDelete}>
 
@@ -307,5 +331,9 @@
                 class="slds-var-m-left_xx-small slds-float_right"></lightning-button>
 
         </div> -->
-    </lightning-card>
+    </lightning-card> 
+</template>
+<template if:true={createmodal}>
+    <c-add-edit-department onclick={handleModalChange}></c-add-edit-department>
+</template>
 </template>

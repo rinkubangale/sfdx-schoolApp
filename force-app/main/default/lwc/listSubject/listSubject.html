@@ -1,4 +1,5 @@
 <template>
+    <template if:false={isModalOpen}>
     <lightning-card>
         <div class="slds-p-horizontal_medium slds-clearfix">
 
@@ -9,7 +10,16 @@
                 <span style="font-weight: bold; font-size: 16px; text-transform: uppercase;"
                     class="slds-m-left_x-small slds-text-heading_large">Manage Classes and
                     Subjects</span>
-                <c-add-subjects class="slds-float_right"></c-add-subjects>
+                    <div class="slds-float_right slds-clearfix">
+                        <!-- <c-academic-year class="slds-float_right slds-p-around_medium">
+                    </c-academic-year> -->
+                        <lightning-button variant="brand" class="slds-float_right slds-p-around_medium"
+                            icon-name="utility:adduser" title="Create Academic Year" onclick={openModal}>
+                        </lightning-button>
+                        <!-- <c-add-academic-year-wireframe class="slds-float_right slds-p-around_medium">
+                    </c-add-academic-year-wireframe> -->
+    
+                </div>
             </div>
 
             <template if:true={isModalOpen}>
@@ -142,4 +152,8 @@
             </template>
         </div>
     </lightning-card>
+</template>
+<template if:true={isModalOpen}>
+    <c-add-edit-subject onmodalchange={closeModal}></c-add-edit-subject>
+</template>
 </template>

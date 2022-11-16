@@ -50,16 +50,15 @@ export default class ListSubject extends LightningElement {
     saveDraftValues = [];
     selectedSubject;
     @track dataList;
-
+    @track isModalOpen = false;
 
     @track isModalOpen = false;
     @track isPopOpen = false;
     @track deletId = [];
 
     openModal() {
-        this.isModalOpen = true;
-        this.isPopOpen = true;
-    }
+        this.isModalOpen = !this.isModalOpen;
+      }
 
     closeModal() {
         this.isModalOpen = false;

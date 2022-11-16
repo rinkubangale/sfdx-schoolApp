@@ -44,36 +44,116 @@
                                 </lightning-input-field>
                             </lightning-layout-item>
                         </lightning-layout>
+                        
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Quantity</th>
+                                    <th>Amount</th>
+                                    <th>Discount percentage</th>
+                                    <th>Discount Amount</th>
+                                    <th>Tax SLAB</th>
+                                    <th>Amount</th>
+                                    <th>Net Amount</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <template  for:each={payment.data} for:item="pay">
+                                <tr key={pay.Id} style="height:50px" class="slds-border_bottom slds-border_top">
+                            <!-- <tbody>
+                                <tr> -->
+                                    <td> <input onchange={onChangeHandler} name="Fee_Name__c" /></td>
+                                    <td><input onchange={onChangeHandler} name="Quantity__c" /></td>
+                                    <td> <input onchange={onChangeHandler}
+                                            name="Actual_Amount_One_Quantity__c"  />
+                                    </td>
+                                    <td><input onchange={onChangeHandler} name="Discount_Percentage__c"  />
+                                    </td>
+                                    <td><input onchange={onChangeHandler} name="Discount_Amount__c" value={Discount_Amount__c} />
+                                    </td>
+                                    <td><input onchange={onChangeHandler} name="Tax_SLAB__c" /></td>
+                                    <td><input onchange={onChangeHandler} name="Amount__c" value={Amount__c}  /></td>
+                                    <td>
+                                        <input onchange={onChangeHandler} name="Net_Amount__c"
+                                             value={Net_Amount__c} />
+                                            </td>
+                                    <td>
+                                        <lightning-button-icon icon-name="utility:add" alternative-text="Settings"
+                                            title="Settings" onclick={handleClick}></lightning-button-icon>
+                                        <lightning-button-icon icon-name="utility:dash" alternative-text="Settings"
+                                            title="Settings" onclick={removeBtn}></lightning-button-icon>
+                                    </td>
+                                </tr>
+                                <tr key={pay.Id} style="height:50px" class="slds-border_bottom slds-border_top">
+                                    <td> </td>
+                                    <td></td>
+                                    <td>
+                                    </td>
+                                    <td>
+                                    </td>
+                                    <td>
+                                    </td>
+                                    <td></td>
+                                    <td>Actual Amount</td>
+                                    <td> <input onchange={onChangeHandler}
+                                            name="Actual_Amount_One_Quantity__c" value={Actual_Amount_One_Quantity__c}/>
 
-                        <lightning-layout>
-                            <lightning-layout-item size="12">
-                                <table
-                                    class="slds-table slds-table_cell-buffer slds-table_bordered  slds-border_left slds-border_right">
-                                    <thead>
-                                        <tr>
-                                            <th>Name</th>
-                                            <th>Quantity</th>
-                                            <th>Amount</th>
-                                            <th>Discount percentage</th>
-                                            <th>Discount Amount</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <th> <input onchange={handleInputChange} field-name="Name" /></th>
-                                            <th><input onchange={handleInputChange} field-name="Quantity__c" /></th>
-                                            <th> <input onchange={handleInputChange}
-                                                    field-name="Actual_Amount_One_Quantity__c"/>
-                                                </th>
-                                            <th><input onchange={handleInputChange} field-name="Discount_Percentage__c" />
-                                                </th>
-                                            <th><input onchange={handleInputChange} field-name="Discount_Amount__c" />
-                                                </th>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </lightning-layout-item>
-                        </lightning-layout>
+                                    </td>
+                                    <td></td>
+                                </tr>
+                                <tr key={pay.Id} style="height:50px" class="slds-border_bottom slds-border_top">
+                                    <td> </td>
+                                    <td></td>
+                                    <td>
+                                    </td>
+                                    <td>
+                                    </td>
+                                    <td>
+                                    </td>
+                                    <td></td>
+                                    <td>Discount(-)</td>
+
+                                    <td><input onchange={onChangeHandler} name="Discount_Amount__c" value={Discount_Amount__c} />
+
+                                    </td>
+                                    <td></td>
+                                </tr>
+                                <tr key={pay.Id} style="height:50px" class="slds-border_bottom slds-border_top">
+                                    <td> </td>
+                                    <td></td>
+                                    <td>
+                                    </td>
+                                    <td>
+                                    </td>
+                                    <td>
+                                    </td>
+                                    <td></td>
+                                    <td>Total Tax(+)</td>
+
+                                    <td><input onchange={onChangeHandler} name="Amount__c" value={Amount__c} /></td>
+                                    <td></td>
+                                </tr>
+                                <tr key={pay.Id} style="height:50px" class="slds-border_bottom slds-border_top">
+                                    <td> </td>
+                                    <td></td>
+                                    <td>
+                                    </td>
+                                    <td>
+                                    </td>
+                                    <td>
+                                    </td>
+                                    <td></td>
+                                    <td>Total payable Amount</td>
+
+
+                                    <td><input onchange={onChangeHandler} name="Amount__c" /></td>
+                                    <td></td>
+                                </tr>
+                            <!-- </tbody>
+                        </tr> -->
+                            </template>
+                        </table>
 
 
                     </lightning-record-edit-form>

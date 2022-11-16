@@ -1,4 +1,5 @@
 <template>
+    <template if:false={createmodal}>
     <lightning-card class="slds-card__header " label="Manage Teachers and Admins">
         <lightning-layout size="12">
 
@@ -38,8 +39,10 @@
                 <div>
 
                     <div class=" slds-float_right">
+                        <lightning-button variant="brand" class="slds-m-left_x-small slds-p-horizontal_x-small"
 
-                        <c-add-teacher></c-add-teacher>
+                        icon-name="utility:adduser" title="Create Teacher" onclick={handelModel}></lightning-button>
+                        <!-- <c-add-teacher></c-add-teacher> -->
 
                     </div>
 
@@ -125,4 +128,8 @@
         </div>
 
     </lightning-card>
+    </template>
+    <template if:true={createmodal}>
+        <c-add-teacher onclick={handelModel}></c-add-teacher>
+    </template>
 </template>

@@ -1,27 +1,28 @@
 import { LightningElement, track, wire, api } from "lwc";
-import leaveTracker from "@salesforce/apex/leaveTrackerClass.leaveTracker";
-import holidayRecordShow from "@salesforce/apex/leaveTrackerClass.holidayRecordShow";
+import holidayPrepopulate from  "@salesforce/apex/leaveTrackerClass.holidayPrepopulate";
+import updateHolidays from "@salesforce/apex/leaveTrackerClass.updateHolidays";
 import { ShowToastEvent } from "lightning/platformShowToastEvent";
 import { NavigationMixin } from "lightning/navigation";
-const columns = [
-  {
-    label: "Name",
-    fieldName: "Name"
-  },
-  {
-    label: "Date",
-    fieldName: "Leave_Date__c"
-  },
-  {
-    label: "Location",
-    fieldName: "Applicable_For__c"
-  },
-  {
-    label: "Description",
-    fieldName: "Leave_Description__c"
-  },
-  { type: 'action', typeAttributes: { rowActions: actions } }
-];
+
+// const columns = [
+//   {
+//     label: "Name",
+//     fieldName: "Name"
+//   },
+//   {
+//     label: "Date",
+//     fieldName: "Leave_Date__c"
+//   },
+//   {
+//     label: "Location",
+//     fieldName: "Applicable_For__c"
+//   },
+//   {
+//     label: "Description",
+//     fieldName: "Leave_Description__c"
+//   },
+//   { type: 'action', typeAttributes: { rowActions: actions } }
+// ];
 export default class EditLeaveTracker extends LightningElement {
   @api recordId;
   @track ImageAddress;
@@ -31,6 +32,9 @@ export default class EditLeaveTracker extends LightningElement {
   @track LeaveDate;
   @track LeaveLocation;
   @track Description;
+
+  @api isShowModal;
+  @track isModalOpenn = false;
   get reminderOptions() {
     return [
       {
@@ -47,7 +51,9 @@ export default class EditLeaveTracker extends LightningElement {
       }
     ];
   }
-  @wire(holidayRecordShow) wiredAccounts({ data, error }) {
+   //@wire(holidayPrepopulate, ({ recId: '$recordId' }))
+   updateHolidays ({ error, data })
+   {
     if (data) {
       console.log("AA", data);
       this.dataList = data.map((item) => {
@@ -63,24 +69,37 @@ export default class EditLeaveTracker extends LightningElement {
       console.log(error);
     }
   }
-  columns = columns;
-  isModalOpen = false;
+  
+  
+
+  isShowModal = false;
 
   openModal() {
-    this.isModalOpen = true;
+    this.isShowModal = true;
   }
   closeModal() {
-    this.isModalOpen = false;
+    this.isShowModal = false;
+    const selectEvent = new CustomEvent('modalchange', {
+    detail: this.isShowModal
+    });
+    this.dispatchEvent(selectEvent);
   }
+
+  
+    
 
   showSuccessToast() {
     const evt = new ShowToastEvent({
-      title: "New Holiday Created",
-      message: "New Holiday record has been created",
+      title: "Holiday Updated",
+      message: "Holiday record has been Updated",
       variant: "success",
       mode: "dismissable"
     });
     this.dispatchEvent(evt);
+
+    setTimeout(() => {
+      location.reload();
+    }, 1500);
   }
 
   handleName(event) {
@@ -108,9 +127,10 @@ this.ImageAddress = event.target.value;
 console.log('ImageAddress', typeof this.ImageAddress);
   }
 
-  saveHandler() {
+  updateHandler() {
     console.log("Hiiiiiiiiiiiiiiiiiiiiiiii");
-    leaveTracker({
+    updateHolidays({
+      recId: this.recordId,
       Name: this.Name,
       LeaveDate: this.LeaveDate,
       LeaveLocation: this.LeaveLocation,

@@ -58,7 +58,7 @@ export default class AcademicListTable extends LightningElement {
   @track columns = columns;
   @track arr = [];
   @track isModalOpen = false;
-
+  @track createmodal = false;
   @track options = [];
 
   openModal() {
@@ -74,7 +74,9 @@ export default class AcademicListTable extends LightningElement {
     //Add your code to call apex method or do some processing
     this.isModalOpen = false;
   }
-
+ handelModel(){
+    this.createmodal = !this.createmodal;
+ }
   handleModalChange(event) {
     this.isModalOpen = event.detail;
   }

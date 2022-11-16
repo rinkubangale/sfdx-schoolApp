@@ -22,24 +22,11 @@
                 </lightning-layout-item>
 
                 <lightning-layout-item size="4" class="slds-float_right slds-clearfix">
-                    <!-- <c-academic-year class="slds-float_right slds-p-around_medium">
-                </c-academic-year> -->
                     <lightning-button variant="brand" class="slds-float_right slds-p-around_medium"
                         icon-name="utility:adduser" title="Create Academic Year" onclick={openModal}>
                     </lightning-button>
-                    <!-- <c-add-academic-year-wireframe class="slds-float_right slds-p-around_medium">
-                </c-add-academic-year-wireframe> -->
-
                 </lightning-layout-item>
             </lightning-layout>
-
-
-
-            <template if:true={isModalOpen}>
-                <c-edit-academic-year record-id={recordId} is-show-modal={isModalOpen}
-                    onmodalchange={handleModalChange}>
-                </c-edit-academic-year>
-            </template>
 
 
             <template if:true={isDelete}>
@@ -50,7 +37,7 @@
             <div style="height: auto;">
                 <template if:true={dataList}>
                     <lightning-datatable key-field="Id" data={dataList} columns={columns} onrowaction={rowActionHandler}
-                        column-widths-mode=auto suppress-bottom-bar>
+                        column-widths-mode=auto resize-column-disabled suppress-bottom-bar>
                     </lightning-datatable>
                 </template>
             </div>

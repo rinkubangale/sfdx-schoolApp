@@ -32,32 +32,35 @@
             <!--/add-class-header-->
 
             <div class="add-class-body">
-                <div class="slds-modal__content slds-p-around_medium"
-                    style="background-color: transparent; padding-bottom: 0;">
-                    <div>
-                        <!-- <lightning-input label="Subject Name" placeholder="Subject Name" onchange={handleNameChange}
+                <!-- <div class="slds-modal__content slds-p-around_medium"
+                    style="background-color: transparent; padding-bottom: 0;"> -->
+
+                <!-- <lightning-input label="Subject Name" placeholder="Subject Name" onchange={handleNameChange}
                             required>
                         </lightning-input> -->
 
-                        <lightning-layout size="12">
-                            <lightning-layout-item size="12" class="slds-p-around_x-small">
-                                <div class="slds-form-element">
-                                    <label class="slds-form-element__label" for="text-input-id-47">
-                                        <abbr class="slds-required" title="required"></abbr>Subject Name</label>
-                                    <div class="slds-form-element__control">
-                                        <input type="text" placeholder="Subject Name" required="" class="slds-input" />
-                                    </div>
-                                </div>
-                            </lightning-layout-item>
-                        </lightning-layout>
-                    </div>
+                <lightning-layout class="slds-p-horizontal_x-small">
+                    <lightning-layout-item size="3" class="slds-p-horizontal_x-small slds-p-bottom_small">
 
-                    <div class="slds-clearfix" style="margin-top:1rem;">
-                        <lightning-button label={headTitle} variant="brand" onclick={addStudentRecord}
-                            class="slds-p-around_x-small slds-align_absolute-center"></lightning-button>
-                    </div>
-                </div>
+                    </lightning-layout-item>
+                    <lightning-layout-item size="6" class="slds-p-horizontal_x-small slds-p-bottom_small">
+                        <lightning-input type="text" label="Subject Name" placeholder="Subject Name">
+                        </lightning-input>
+                    </lightning-layout-item>
+                    <lightning-layout-item size="3" class="slds-p-horizontal_x-small slds-p-bottom_small">
+
+                    </lightning-layout-item>
+                </lightning-layout>
+               
+                <lightning-layout-item size="12" class="slds-var-m-top_large slds-align_absolute-center">
+                    <lightning-button label={btnLabel} variant="brand" onclick={saveHandler}
+                        class="slds-p-around_x-small slds-float_right"></lightning-button>
+                </lightning-layout-item>
             </div>
+
+
+           
+            <!-- </div> -->
             <template if:true={isLoading}>
                 <lightning-spinner alternative-text="Loading" variant="brand" style="background:transparent;">
                 </lightning-spinner>
