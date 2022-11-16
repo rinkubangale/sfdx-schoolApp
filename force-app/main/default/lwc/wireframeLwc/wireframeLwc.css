@@ -76,3 +76,17 @@ button {
   background-color: white;
   /* background-color: #fff; */
 }
+
+@media (min-width: 720px) and (max-width: 1080px) {
+  .dashboard-container {
+    width: 100%;
+  }
+  .add-class-body {
+    width: 90%;
+    margin: 2rem auto;
+    padding: 1rem 0rem;
+  }
+  .imgLayout {
+    width: fit-content;
+  }
+}

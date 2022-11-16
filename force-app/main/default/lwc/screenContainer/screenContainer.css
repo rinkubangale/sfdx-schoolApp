@@ -24,7 +24,7 @@
 .yContainerLeft {
   /* background-color: #005fb2; */
   background-color: #0176d3;
-  width: 4%;
+  width: fit-content !important;
   min-height: 100%;
   transition: all 0.3s !important;
 }
@@ -34,17 +34,17 @@
     width: 20% !important;
 } */
 
-.toggle {
+/* .toggle {
   width: 14% !important;
 }
 
 .toggle ~ .yContainerRight {
-  width: 86% !important;
-}
+  width: -webkit-fill-available !important;
+} */
 
 .yContainerRight {
   background-image: linear-gradient(180deg, #e6edf3, #fff);
-  width: 96% !important;
+  width: -webkit-fill-available !important;
   transition: all 0.3s !important;
 }
 
@@ -52,7 +52,7 @@ div::-webkit-scrollbar {
   display: none;
 }
 
-@media (max-width: 720px) {
+/* @media (max-width: 720px) {
   .yContainerLeft {
     width: 10%;
   }
@@ -62,4 +62,4 @@ div::-webkit-scrollbar {
   .yContainerLeft {
     width: 7%;
   }
-}
+} */

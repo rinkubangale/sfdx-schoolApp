@@ -24,7 +24,7 @@ lightning-layout-item {
   height: 100%;
   border-radius: 10px 0px 0px 10px;
   position: relative;
-  overflow: auto;
+  /* overflow: auto; */
   align-items: center;
   justify-content: center;
 }
@@ -39,8 +39,8 @@ lightning-layout-item {
 
 .rightBox {
   display: flex;
-  align-items: center;
-  justify-content: center;
+  /* align-items: center;
+  justify-content: center; */
   flex-direction: column;
   background-color: #e5f0fa;
   padding: 10px;
@@ -51,7 +51,8 @@ lightning-layout-item {
 }
 
 .rightBox > p {
-  text-align: center;
+  font-size: 0.8rem;
+  color: #898989;
 }
 
 .resScreen {
@@ -105,8 +106,8 @@ lightning-layout-item {
 }
 
 .rightBox > h3 {
-  font-weight: bold;
-  text-align: center;
+  font-weight: 600;
+  font-size: 0.8rem;
 }
 
 .step {
@@ -129,4 +130,30 @@ lightning-layout-item {
 
 .rightBox::-webkit-scrollbar {
   display: none;
+}
+
+@media (min-width: 720px) and (max-width: 1080px) {
+  .container {
+    height: auto;
+  }
+  .leftBox {
+    width: 100%;
+    border-radius: 10px 10px 0px 0px;
+  }
+  .arrow-left {
+    display: none;
+  }
+  .rightBox {
+    width: 100%;
+  }
+  /* .rightBox > h3 {
+    font-weight: 600;
+    text-align: justify;
+    font-size: 0.8rem;
+  }
+  .rightBox > p {
+    text-align: justify;
+    color: #898989;
+    font-size: 0.8rem;
+  } */
 }
