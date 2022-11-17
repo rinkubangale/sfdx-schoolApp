@@ -1,6 +1,6 @@
 <!-- sldsValidatorIgnore -->
 <template>
-   
+    <template if:false={createmodal}>
         <lightning-card>
             <div class="slds-p-horizontal_medium slds-clearfix">
 
@@ -16,21 +16,23 @@
                         onclick={openModal} class="slds-float_right slds-m-left_medium">
                     </lightning-button> -->
                 </div>
-                <div style="width: 250px;margin: auto;"><lightning-input name="Search School type" type="search" label="Search class" placeholder="All Classes"
+                <!-- <div style="width: 250px;margin: auto;"><lightning-input name="Search School type" type="search" label="Search class" placeholder="All Classes"
                     onchange={handlesearch} value={depname}></lightning-input></div>
-               <lightning-layout style=" border: outset;
-               background-color: wheat;margin-top: 20px;
-               margin-bottom: 30px;">
+               <lightning-layout style=" border: aqua;
+               background-color: rgb(240, 247, 246);
+               margin-top: 20px;
+               margin-bottom: 30px;
+               height: 25px;">
                 <lightning-layout-item size="6">
-                    <div>Class and Classroom</div>
+                    <div><b>Class and Classroom</b></div>
                 </lightning-layout-item>
                 <lightning-layout-item size="6">
-                    <div style="margin-left: 512px">Action</div>
+                    <div style="margin-left: 512px"><b>Action</b></div>
                 </lightning-layout-item>
                </lightning-layout>
                <lightning-layout style='margin-bottom: 30px;'>
                <lightning-layout-item size="6" >
-                <div>Class LKG</div>
+                <div><b>Class LKG</b></div>
             </lightning-layout-item>
         </lightning-layout>
                
@@ -43,18 +45,18 @@
                     
                         <template for:each={sectionlist} for:item="field">
                             <div style="margin: 4px;
-                            border: solid black;
+                            border:  rgb(17, 12, 12);
                             width: 150px;
                             height: 40px;
                             text-align: -webkit-center;
-                            background-color: rgb(52, 118, 241);" key={field.Name}>{field.Name}</div> 
+                            background-color: #3395ff;" key={field.Name}>{field.Name}</div> 
                          </template>
 
                       
                 </div>
                 <lightning-layout style='margin-bottom: 30px;' >
                 <lightning-layout-item size="6">
-                    <div>Class UKG</div>
+                    <div><b>Class UKG</b></div>
                 </lightning-layout-item>
             </lightning-layout>
                    
@@ -67,16 +69,144 @@
                         
                             <template for:each={sectionlist} for:item="field">
                                 <div style="margin: 4px;
-                                border: solid black;
+                                border:  black;
                                 width: 150px;
                                 height: 40px;
                                 text-align: -webkit-center;
-                                background-color: rgb(52, 118, 241);" key={field.Name}>{field.Name}</div> 
+                                background-color: #3395ff ;" key={field.Name}>{field.Name}</div> 
                              </template>
     
                           
                     </div>
 
+            </div> -->
             </div>
+            <div class="container">
+
+                <table>
+                    <thead style="border:aqua ;">
+                        <th>
+                            <div style="margin: 19px;"><b>Class</b></div>
+                        </th>
+                        <th>
+                            <div style="margin: 19px;"><b>Sections</b></div>
+                        </th>
+                        <th>
+                            <div><b>Action</b></div>
+                        </th>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <h6 href="#">LKG</h6>
+                            </td>
+                            <td>
+                                <ul class="lkgSection">
+                                    <li onclick={handelModel}>LKG A</li>
+                                    <li onclick={handelModel}>LKG B</li>
+                                    <li onclick={handelModel}>LKG C</li>
+                                    <li onclick={handelModel}>LKG D</li>
+                                    <li onclick={handelModel}>LKG E</li>
+                                    <li onclick={handelModel}>LKG F</li>
+                                </ul>
+                            </td>
+                            <td>
+                                <a href="#">Add Section</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <h6 href="#">UKG</h6>
+                            </td>
+                            <td>
+                                <ul class="lkgSection">
+                                    <li>UKG A</li>
+                                    <li>UKG B</li>
+                                    <li>UKG C</li>
+                                    <li>UKG D</li>
+                                    <li>UKG E</li>
+                                    <li>UKG F</li>
+                                </ul>
+                            </td>
+                            <td>
+                                <a href="#">Add Section</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <h6 href="#">1st</h6>
+                            </td>
+                            <td>
+                                <ul class="lkgSection">
+                                    <li>1st A</li>
+                                    <li>1st B</li>
+                                    <li>1st C</li>
+                                    <li>1st D</li>
+                                    <li>1st E</li>
+                                    <li>1st F</li>
+                                </ul>
+                            </td>
+                            <td>
+                                <a href="#">Add Section</a>
+                            </td>
+                        </tr>
+                        <!-- <tr>
+                    <td>
+                        <div style="display: flex;flex-wrap: wrap;">
+
+                            <template for:each={sectionlist} for:item="field">
+                                <div style="margin: 4px;
+                        border:  rgb(17, 12, 12);
+                        width: 150px;
+                        height: 40px;
+                        text-align: -webkit-center;
+                        background-color: #3395ff;" key={field.Name}>{field.Name}</div>
+                            </template>
+                        </div>
+                    </td>
+
+                    <td><a href="">Add Section</a></td>
+
+
+                </tr>
+
+                <tr>
+                    <td>
+                        <div><b>Class UKG</b></div>
+                    </td>
+
+
+
+                </tr>
+                <tr>
+                    <td>
+                        <div style="display: flex;flex-wrap: wrap;">
+
+                            <template for:each={sectionlist} for:item="field">
+                                <div style="margin: 4px;
+                            border:  rgb(17, 12, 12);
+                            width: 150px;
+                            height: 40px;
+                            text-align: -webkit-center;
+                            background-color: #3395ff;" key={field.Name}>{field.Name}</div>
+                            </template>
+                        </div>
+                    </td>
+
+                    <td><a href="#">Add Section</a></td>
+
+
+                </tr> -->
+                    </tbody>
+                </table>
+            </div>
+
+            <lightning-button label="Back" variant="brand" title="back" onclick={goBack} class="slds-m-left_x-small">
+            </lightning-button>
+
         </lightning-card>
     </template>
+    <template if:true={createmodal}>
+        <c-manage-student-teacher-subject onclick={handleModalChange}></c-manage-student-teacher-subject>
+    </template>
+</template>

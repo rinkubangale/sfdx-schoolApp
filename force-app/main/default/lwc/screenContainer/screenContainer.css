@@ -29,19 +29,6 @@
   transition: all 0.3s !important;
 }
 
-/* .yContainerLeft:hover{
-    background-color: #005fb2;
-    width: 20% !important;
-} */
-
-/* .toggle {
-  width: 14% !important;
-}
-
-.toggle ~ .yContainerRight {
-  width: -webkit-fill-available !important;
-} */
-
 .yContainerRight {
   background-image: linear-gradient(180deg, #e6edf3, #fff);
   width: -webkit-fill-available !important;
@@ -52,14 +39,33 @@ div::-webkit-scrollbar {
   display: none;
 }
 
-/* @media (max-width: 720px) {
-  .yContainerLeft {
-    width: 10%;
-  }
+.globalAcademic.globalBranch {
+  height: 100%;
+  color: #000;
+  display: flex;
+  align-items: center;
+  flex-direction: row-reverse;
+  /* justify-content: space-between; */
 }
 
-@media (min-width: 720px) and (max-width: 1080px) {
-  .yContainerLeft {
-    width: 7%;
-  }
-} */
+select {
+  border: none;
+  outline: none;
+  padding: 8px;
+  /* border-radius: 0px 0px 0px 0px; */
+  color: white;
+  background: #0176d3bb;
+  appearance: none;
+}
+
+select > option {
+  appearance: none;
+}
+
+select[name="globalBranch"] {
+  border-radius: 8px 0px 0px 0px;
+}
+
+c-content-screen {
+  padding: 32px;
+}

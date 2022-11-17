@@ -14,7 +14,8 @@
         </template>
 
         <template if:true={listClass}>
-            <c-class-list onbackbtn={handleBack}></c-class-list>
+            <!-- <c-class-list onbackbtn={handleBack}></c-class-list> -->
+            <c-manage-classroom onbackbtn={handleBack}></c-manage-classroom>
         </template>
         <template if:true={studentListView}>
             <c-student-list-view onbackbtn={handleBack}></c-student-list-view>

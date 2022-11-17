@@ -8,10 +8,31 @@
                 <c-vertical-navbar onbtnclick={handleBtnClick} ontogglebtn={handleToggle}></c-vertical-navbar>
             </div>
             <div class="yContainerRight">
-                <div
-                    style="width: 100%; height: 80px; background: linear-gradient(180deg, rgb(1 118 211 / 10%), transparent)">
-                </div>
                 <div style="padding: 0 2rem">
+                    <div
+                        style="width: 100%; height: 80px; background: linear-gradient(180deg, rgb(1 118 211 / 10%), transparent)">
+                        <div class="globalAcademic globalBranch">
+                            <div class="searchAcademicYear">
+                                <!-- <label for="globalAcademic">Academic Year: </label> -->
+                                <select name="globalAcademic" id="globalAcademic">
+                                    <option value="none" selected disabled hidden>Academic Year</option>
+                                    <option value="2022/Nov - 2023/Jun">2022/Nov - 2023/Jun</option>
+                                    <option value="2022/Jun - 2023/Dec">2022/Jun - 2023/Dec</option>
+                                    <option value="2022/Mar - 2023/Feb">2022/Mar - 2023/Feb</option>
+                                </select>
+                            </div>
+                            <div class="searchSchoolBranch">
+                                <!-- <label for="globalBranch">Branch: </label> -->
+                                <select name="globalBranch" id="globalBranch">
+                                    <option value="none" selected disabled hidden>Branch</option>
+                                    <option value="Pune">Pune</option>
+                                    <option value="Bangalore">Bangalore</option>
+                                    <option value="Delhi">Delhi</option>
+                                    <option value="Chennai">Chennai</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
                     <c-content-screen show-home={showContainer.home} show-fee={showContainer.fee}
                         show-admission={showContainer.admission} show-setting={showContainer.settings}
                         show-subscription={showContainer.subscription} show-checkin={showContainer.showCheckin}
