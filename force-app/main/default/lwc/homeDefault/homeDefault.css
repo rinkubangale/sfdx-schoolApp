@@ -23,6 +23,14 @@
   --slds-c-card-color-background: transparent;
 }
 
+.guidedFlow {
+  display: flex;
+  background: #8080801f;
+  padding: 1rem;
+  border-radius: 2rem;
+  justify-content: space-evenly;
+}
+
 @media (max-width: 720px) {
   .resScreen {
     /* width: 80vw; */
