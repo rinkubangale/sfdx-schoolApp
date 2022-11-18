@@ -21,6 +21,15 @@
                 </li>
 
                 <li>
+                    <span onclick={toSubscription}>
+                        <lightning-icon icon-name="utility:alert" size="small" alternative-text="Notifications"
+                            title="Notifications" class="my-icon">
+                        </lightning-icon>
+                        <span class={hide}>Notifications</span>
+                    </span>
+                </li>
+
+                <li>
                     <span onclick={toAdmission}>
                         <lightning-icon icon-name="utility:record_create" size="small"
                             alternative-text="Admission Management" title="Admission Management" class="my-icon">
@@ -56,14 +65,6 @@
                     </span>
                 </li>
 
-                <li>
-                    <span onclick={toSubscription}>
-                        <lightning-icon icon-name="utility:alert" size="small" alternative-text="Notifications"
-                            title="Notifications" class="my-icon">
-                        </lightning-icon>
-                        <span class={hide}>Notifications</span>
-                    </span>
-                </li>
 
                 <!-- <li>
                     <a href="https://sedin2019--vidhyaan.lightning.force.com/lightning/n/Promote_Students"

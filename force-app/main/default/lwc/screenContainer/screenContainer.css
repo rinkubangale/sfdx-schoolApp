@@ -44,7 +44,8 @@ div::-webkit-scrollbar {
   color: #000;
   display: flex;
   align-items: center;
-  flex-direction: row-reverse;
+  justify-content: space-between;
+  /* flex-direction: row-reverse; */
   /* justify-content: space-between; */
 }
 
@@ -53,8 +54,8 @@ select {
   outline: none;
   padding: 8px;
   /* border-radius: 0px 0px 0px 0px; */
-  color: white;
-  background: #0176d3bb;
+  /* color: white; */
+  background: #ffffff80;
   appearance: none;
 }
 
@@ -62,9 +63,9 @@ select > option {
   appearance: none;
 }
 
-select[name="globalBranch"] {
+/* select[name="globalBranch"] {
   border-radius: 8px 0px 0px 0px;
-}
+} */
 
 c-content-screen {
   padding: 32px;
