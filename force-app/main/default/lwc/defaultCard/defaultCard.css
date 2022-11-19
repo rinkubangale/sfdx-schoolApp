@@ -90,7 +90,6 @@ lightning-layout-item {
   width: 100%;
   height: 15vh;
   border: 1px solid #ccc;
-  margin: 10px;
   border-radius: 10px;
   cursor: pointer;
 }
@@ -117,31 +116,33 @@ lightning-layout-item {
   transform: rotate(-90deg);
 }
 
-.arrow-left {
-  width: 0;
-  height: 0;
+.leftBox::after {
+  content: "";
+  display: block;
   border-top: 10px solid transparent;
   border-bottom: 10px solid transparent;
   border-right: 10px solid #e5f0fa;
   position: absolute;
-  bottom: 60%;
-  right: 47%;
+  right: 0;
+  bottom: 65%;
 }
 
 .rightBox::-webkit-scrollbar {
   display: none;
 }
 
+/* @media (max-width: 1080px) {
+} */
 @media (min-width: 720px) and (max-width: 1080px) {
+  .leftBox::after {
+    display: none;
+  }
   .container {
     height: auto;
   }
   .leftBox {
     width: 100%;
     border-radius: 10px 10px 0px 0px;
-  }
-  .arrow-left {
-    display: none;
   }
   .rightBox {
     width: 100%;

@@ -1,15 +1,13 @@
 .layoutitemcommon {
-  border-radius: 5px;
+  border-radius: 1rem;
   background-color: white;
-  margin-right: 5em;
-  height: 15em;
   color: black;
   border: 1px solid #eef;
 }
 
 .addnotesbox {
-  height: 2.4em;
-  width: 13em;
+  padding: 12px;
+  margin: 0 8px 8px 0;
 }
 
 .topdiv {
@@ -17,9 +15,9 @@
   justify-content: space-between;
 }
 
-.topdiv2 {
+/* .topdiv2 {
   margin-left: 6em;
-}
+} */
 .middlediv {
   display: flex;
   justify-content: space-evenly;

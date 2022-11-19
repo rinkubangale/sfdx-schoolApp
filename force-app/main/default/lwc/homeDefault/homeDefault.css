@@ -19,16 +19,22 @@
   --slds-c-card-body-spacing-inline-start: 1rem;
 }
 
-.removeBg {
+.cardBg {
   --slds-c-card-color-background: transparent;
+  color: #444;
 }
 
 .guidedFlow {
   display: flex;
   background: #8080801f;
   padding: 1rem;
+  margin: 0 0.75rem;
   border-radius: 2rem;
   justify-content: space-evenly;
+}
+
+ul.guidedFlow > li {
+  margin: 8px 0;
 }
 
 @media (max-width: 720px) {
@@ -55,6 +61,11 @@
 .headCont {
   width: 100%;
   text-align: center;
+}
+
+lightning-layout-item.slds-size_1-of-1.slds-medium-size_6-of-12.slds-large-size_4-of-12.slds-col {
+  text-align: justify;
+  padding: 1rem;
 }
 
 /* .vIcon{
