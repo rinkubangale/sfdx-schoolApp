@@ -87,7 +87,7 @@
                 <lightning-datatable key-field="Id" data={dataList} columns={columns}
                     onrowselection={rowSelectionHandler} onrowaction={rowActionHandler} checkbox-column="true"
                     onsave={saveHandleAction} draft-values={fldsItemValues} sorted-by={sortBy}
-                    sorted-direction={sortDirection} onsort={doSorting} oncellchange={keyUpHandler}>
+                    sorted-direction={sortDirection} onsort={doSorting} oncellchange={keyUpHandler} resize-column-disabled>
                 </lightning-datatable>
 
             </div>

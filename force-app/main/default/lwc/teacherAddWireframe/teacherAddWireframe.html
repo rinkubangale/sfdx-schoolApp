@@ -1,0 +1,158 @@
+<template>
+
+    <div id="addClassRoomContainer" class="col-md-11 center-block dashboard-container">
+        <!--add class main content-->
+        <div id="error" class="error"> </div>
+        <main class="main-content add-class-wrap">
+            <div class="header row no-left-margin no-right-margin">
+                <a href="#" data-close="true">
+                    <div class="back" onclick={handleModalChange}>
+                        <lightning-icon icon-name="utility:back" size="x-small" alternative-text="Back!" title="Back">
+                        </lightning-icon>
+                        <p>Back</p>
+                    </div>
+                </a>
+                <div class="Add-c-headings">
+                    <p class="add-heading-manage fivpx-mrgn-btm">
+                        <lightning-icon class="new-icon" icon-name="utility:new" size="small" alternative-text="new!"
+                            title="new">
+                        </lightning-icon>
+                        <b>{headTitle}</b>
+                    </p>
+                    <p class="add-subheading-manage">{subHeadTitle}</p>
+                </div>
+                <a href="#" data-close="true">
+                    <div class="esc" onclick={handleModalChange}>
+                        <lightning-icon icon-name="utility:close" size="x-small" alternative-text="Esc!" title="Esc">
+                        </lightning-icon>
+                        <p>Esc</p>
+                    </div>
+                </a>
+            </div>
+            <!--/add-class-header-->
+
+            <div class="add-class-body">
+                <!-- <form data-parsley-validate="">
+                    <div class="form-group">
+                        <div class="row no-left-margin no-right-margin">
+                            <div class="col-sm-12 mt">
+                                <div class="row easyoption-section selectable-div active" id="select_option_first1">
+                                    <div id="branchesTab"
+                                        style="margin-bottom: 1.5rem;display: inline-block;width: 100%;">
+                                        <label class="col-md-12">Select branches</label>
+                                        <div class="col-sm-12 mt add-classroom-tags remove-border-css">
+                                            <select class="ac_select branches select2-hidden-accessible"
+                                                id="branchesList" data-select2-id="branchesList" tabindex="-1"
+                                                aria-hidden="true">
+                                                <option value="" data-select2-id="18">Select branches</option>
+                                                <option value="249200">Main Branch</option>
+                                                <option value="1250655">Second Branch</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <label class="col-md-12">Please enter name and add a comma or press enter.</label>
+                                    <div class="col-sm-12 mt add-classroom-tags remove-border-css classroom-uppercase">
+                                        <div class="form-group bigger-taginput">
+                                            <div class="bootstrap-tagsinput" style="padding:0px;">
+                                                <div class="bootstrap-tagsinput" style=""><input type="text"
+                                                        placeholder=""></div><input type="text" value=""
+                                                    class="form-control" data-role="tagsinput" id="addClassroomTag"
+                                                    style="display: none;">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                    <div class="form-group text-center col-md-12">
+                                        <button class="btn btn-default btn-lg button btn-edit-details ladda-button"
+                                            data-color="green" data-style="expand-right" type="submit"> <span
+                                                class="ladda-label">Add Classroom
+                                            </span> </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form> -->
+                <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                    <lightning-layout size="12">
+                        <lightning-layout-item size="4" class="slds-p-around_x-small">
+                            <lightning-input type="text" label="First Name" placeholder="Teacher Name" name="teach"
+                                onchange={nameInpChange} class="validate" required>
+                            </lightning-input>
+                            <!-- <c-custom-lookup obj-name="Contact"></c-custom-lookup> -->
+                        </lightning-layout-item>
+                        <lightning-layout-item size="4" class="slds-p-around_x-small">
+                            <lightning-input type="text" label="Last Name" placeholder="Teacher Name" name="teach"
+                                onchange={nameInpChange} class="validate" required>
+                            </lightning-input>
+                            <!-- <c-custom-lookup obj-name="Contact"></c-custom-lookup> -->
+                        </lightning-layout-item>
+                        <div  style="  margin-top: 6px;" >
+                        <lightning-layout-item size="4" class="slds-p-around_x-small">
+                            <!-- <label>Department Name</label> 
+                        <c-custom-lookup obj-name="Department__c" onlookupselected={deptInpChange}>
+                            </c-custom-lookup>  -->
+                            <c-multi-select-lookup label="Department Name" field-name="Name" object-name="Department__c"
+                                onuserselected={handleSelectValue}></c-multi-select-lookup>
+                        </lightning-layout-item>
+                    </div>
+                    </lightning-layout>
+                    <lightning-layout size="12">
+                        <lightning-layout-item size="4" class="slds-p-around_x-small">
+                            <lightning-input type="Text" label="User ID" placeholder="USerID" name="User ID"
+                                onchange={emailInpChange} class="validate" required>
+                            </lightning-input>
+                        </lightning-layout-item>
+                        <lightning-layout-item size="4" class="slds-p-around_x-small">
+                            <lightning-input type="email" label="Email Id" placeholder="Email Id" name="em"
+                                onchange={emailInpChange} class="validate" required>
+                            </lightning-input>
+                        </lightning-layout-item>
+                        <lightning-layout-item size="4" class="slds-p-around_x-small">
+                            <lightning-input type="tel" label="Mobile" placeholder="Mobile" max-length="10" pattern="[0-9]{10}"
+                                name="mob" onchange={mobileInpChange} class="validate"
+                                message-when-pattern-mismatch="Please provide valid mobile number of exact 10digits"
+                                required style="width: 90%;">
+                            </lightning-input>
+                        </lightning-layout-item>
+                    </lightning-layout>
+                    <lightning-layout size="12">
+                        <lightning-layout-item size="4">
+                            <lightning-input type="text" label="Status" placeholder="status" name="teach"
+                            onchange={nameInpChange} class="validate" required style="width: 234px;
+                            margin-left: 8px;">
+                        </lightning-input>   
+                        </lightning-layout-item>
+                    </lightning-layout>
+
+                    <div style="    margin: 20px;"><b>Optional Fields</b></div>
+                    <lightning-layout size="12">
+                        <lightning-layout-item size="4">
+                            <lightning-input type="text" label="Employment Type" placeholder="Teacher Name" name="teach"
+                            onchange={nameInpChange} class="validate" required>
+                        </lightning-input>   
+                        </lightning-layout-item>
+                        <lightning-layout-item size="4" class="slds-p-around_small slds-p-top_none">
+                            <lightning-input type="month" label="Date of Joining" name="Date of Joining" required size="6"
+                                onchange={handleInput}></lightning-input>
+                        </lightning-layout-item>
+                        <lightning-layout-item size="4" class="slds-p-around_small slds-p-top_none">
+                            <lightning-input type="month" label="Date of leaving" name="Date of leaving" required size="6"
+                                onchange={handleInput}></lightning-input>
+                        </lightning-layout-item>
+                    </lightning-layout>
+</div>
+                    <div class="slds-var-m-top_large slds-align_absolute-center">
+                        <lightning-button variant="brand" type="submit" label="Save">
+                        </lightning-button>
+                    </div>
+                
+            </div>
+            <template if:true={isLoading}>
+                <lightning-spinner alternative-text="Loading" variant="brand" style="background:transparent;">
+                </lightning-spinner>
+            </template>
+        </main>
+    </div>
+
+</template>

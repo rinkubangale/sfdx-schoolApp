@@ -4,8 +4,11 @@
             <ul>
                 <li>
                     <span onclick={handleToggle}>
-                        <lightning-icon icon-name="utility:rows" size="small" alternative-text="Toggle" title="toggle"
-                            class="my-icon">
+                        <lightning-icon if:false={toggle} icon-name="utility:rows" size="small"
+                            alternative-text="Toggle" title="toggle" class="my-icon">
+                        </lightning-icon>
+                        <lightning-icon if:true={toggle} class="my-icon" icon-name="utility:close" size="small"
+                            alternative-text="Toggle" title="toggle">
                         </lightning-icon>
                         <span class={hide}></span>
                     </span>

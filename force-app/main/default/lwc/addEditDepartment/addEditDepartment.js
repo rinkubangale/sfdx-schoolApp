@@ -1,50 +1,52 @@
-import { LightningElement, api, track } from "lwc";
+import {
+    LightningElement,
+    api,
+    track
+} from "lwc";
 
 export default class AddEditDepartment extends LightningElement {
-     @api fields;
+    @api fields;
     @api headTitle = "Add Department";
     @api objectName;
     @api subHeadTitle = "Add Department";
     @track allFields;
     @track isLoading = false;
-  
+    @track isModalOpen = false;
+
     get btnLabel() {
-      return this.headTitle;
+        return this.headTitle;
     }
-  
-    // connectedCallback() {
-    //   this.allFields = this.fields.map((item) => {
-    //     return {
-    //       key: item,
-    //       fieldName: item
-    //     };
-    //   });
-    // }
-  
+    
+    closeModal() {
+        this.isModalOpen = false;
+    }
+
     handleModalChange() {
-      this.dispatchEvent(new CustomEvent("modalchange", { detail: false }));
+        this.dispatchEvent(new CustomEvent("modalchange", {
+            detail: false
+        }));
     }
-  
+
     handleLoading() {
-      this.isLoading = false;
+        this.isLoading = false;
     }
     RecordId;
     name = '';
 
-    @track isModalOpen = false;
-    openModal() {
-        // to open modal set isModalOpen tarck value as true
-        this.isModalOpen = true;
-    }
-    closeModal() {
-        // to close modal set isModalOpen tarck value as false
-        this.isModalOpen = false;
-    }
-    submitDetails() {
-        // to close modal set isModalOpen tarck value as false
-        //Add your code to call apex method or do some processing
-        this.isModalOpen = false;
-    }
+    // @track isModalOpen = false;
+    // openModal() {
+    //     // to open modal set isModalOpen tarck value as true
+    //     this.isModalOpen = true;
+    // }
+    // closeModal() {
+    //     // to close modal set isModalOpen tarck value as false
+    //     this.isModalOpen = false;
+    // }
+    // submitDetails() {
+    //     // to close modal set isModalOpen tarck value as false
+    //     //Add your code to call apex method or do some processing
+    //     this.isModalOpen = false;
+    // }
 
 
     handleNameChange(event) {
@@ -53,18 +55,21 @@ export default class AddEditDepartment extends LightningElement {
         console.log(this.name)
 
     }
-    
+
     createAccount(event) {
         console.log('createAcc')
         const fields = {};
 
         fields[NAME_FIELD.fieldApiName] = this.name;
-    
+
         console.log('feild')
         console.log(this.isInputValid())
         console.log('find')
-        const recordInput = { apiName: department_object.objectApiName, fields };
-        if(this.isInputValid()){
+        const recordInput = {
+            apiName: department_object.objectApiName,
+            fields
+        };
+        if (this.isInputValid()) {
             this.dispatchEvent(
                 new ShowToastEvent({
                     title: 'Error',
@@ -72,11 +77,11 @@ export default class AddEditDepartment extends LightningElement {
                     variant: 'error',
                 }),
             );
-           return;
-           
+            return;
+
         }
-        if(this.name.trim() == ''){
-            return  this.dispatchEvent(
+        if (this.name.trim() == '') {
+            return this.dispatchEvent(
                 new ShowToastEvent({
                     title: 'Error creating record',
                     message: 'Department name should not be empty',
@@ -84,19 +89,19 @@ export default class AddEditDepartment extends LightningElement {
                 }),
             );
         }
-       
+
         createRecord(recordInput)
             .then(account => {
-                console.log('account=====>'+JSON.stringify(account))
+                console.log('account=====>' + JSON.stringify(account))
                 this.result = account;
-               // this.RecordId = Record.id;
+                // this.RecordId = Record.id;
                 this.dispatchEvent(
                     new ShowToastEvent({
                         title: 'Success',
                         message: 'Department Saved',
                         variant: 'success',
                     }),
-                    
+
                 );
                 location.reload();
                 console.log('testing')
@@ -110,7 +115,7 @@ export default class AddEditDepartment extends LightningElement {
                 console.log('testing2')
             })
             .catch(error => {
-                console.log('error=====>'+JSON.stringify(error))
+                console.log('error=====>' + JSON.stringify(error))
 
                 this.dispatchEvent(
                     new ShowToastEvent({
@@ -120,13 +125,11 @@ export default class AddEditDepartment extends LightningElement {
                     }),
                 );
             });
-            
-           
-             
     }
+
     isInputValid() {
         console.log('find')
-        
+
         let isValid = true;
         console.log('find1')
 
@@ -136,7 +139,7 @@ export default class AddEditDepartment extends LightningElement {
         inputFields.forEach(inputField => {
             console.log('find3')
 
-            if(inputField.checkValidity()) {
+            if (inputField.checkValidity()) {
                 console.log('find4')
 
                 inputField.reportValidity();
@@ -153,11 +156,9 @@ export default class AddEditDepartment extends LightningElement {
         });
 
         return isValid;
-        
-        
+    }
 
-       
 
-     }
-    
-  }
+
+
+}

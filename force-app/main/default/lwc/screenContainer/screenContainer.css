@@ -59,14 +59,10 @@ select {
   appearance: none;
 }
 
-select > option {
+select>option {
   appearance: none;
 }
 
 /* select[name="globalBranch"] {
   border-radius: 8px 0px 0px 0px;
 } */
-
-c-content-screen {
-  padding: 32px;
-}

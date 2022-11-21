@@ -85,7 +85,7 @@
                         <lightning-tab label={title} value="two">
                             <lightning-datatable if:true={b} key-field="Id" data={data} columns={columns}
                                 onrowselection={handleSelectedRow} column-widths-mode="auto"
-                                onrowaction={handleRowAction} draft-values={fldsItemValues} onsave={handleSave}>
+                                onrowaction={handleRowAction} draft-values={fldsItemValues} onsave={handleSave} resize-column-disabled>
                             </lightning-datatable>
                         </lightning-tab>
 

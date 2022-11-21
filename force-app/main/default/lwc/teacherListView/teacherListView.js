@@ -42,12 +42,19 @@ export default class TeacherListView extends LightningElement {
     @track array = [];
     selectedTeachers;
     wiredTeachers;
-
+@track isModalOpen = false;
     //////inline edit
     fldsItemValues = [];
 
     @track isPopOpen = false;
-
+    
+    openModal() {
+        this.isModalOpen = !this.isModalOpen;
+      }
+    
+      closeModal() {
+        this.isModalOpen = false;
+      }
     goBack() {
         // history.back();
         this.dispatchEvent(new CustomEvent('backbtn', {

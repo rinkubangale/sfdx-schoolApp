@@ -1,0 +1,137 @@
+<template>
+    <lightning-card style="margin:15px; text-transform:capitalize;" class="slds-card__header ">
+        <lightning-layout>
+            <lightning-layout-item size="4">
+
+            </lightning-layout-item>
+            <lightning-layout-item size="4">
+
+            </lightning-layout-item>
+            <lightning-layout-item size="4" class="slds-clearfix">
+                <lightning-button variant="brand" class="slds-float_right slds-p-around_medium"
+                    icon-name="utility:adduser" title="Add Subjects" onclick={openModal}>
+                </lightning-button>
+            </lightning-layout-item>
+        </lightning-layout>
+        <lightning-layout style="margin-top: 10px;">
+            <lightning-layout-item style="width:100% ;">
+                <div class="slds-p-horizontal_medium slds-clearfix">
+                    <table>
+                        <thead style="border:aqua ;">
+                            <th>
+                                <div style="margin: 19px;"><b>Subject Name</b></div>
+                            </th>
+                            <th>
+                                <div><b>Type</b></div>
+                            </th>
+                            <th>
+                                <div><b>Student</b></div>
+                            </th>
+                            <th>
+                                <div><b>Assign teacher</b></div>
+                            </th>
+                            <th>
+                                <div><b>Co-Teacher(s)</b></div>
+                            </th>
+                            <th>
+                                <div><b>Action</b></div>
+                            </th>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+
+                                    <ul class="lkgSection" style="margin: 19px;">
+                                        <li>English</li>
+
+
+                                    </ul>
+                                </td>
+                                <td>
+                                    <div>Mandatory</div>
+                                </td>
+                                <td>
+                                    <ul class="lkgSection">
+                                        <li>All</li>
+
+
+                                    </ul>
+                                </td>
+                                <td>
+                                    <div><a href="#">Assign</a></div>
+                                </td>
+                                <td>
+                                    <div><a href="#">Assign</a></div>
+                                </td>
+                                <td>
+                                    <div>Edit</div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+
+                                    <ul class="lkgSection" style="margin: 19px;">
+                                        <li>French</li>
+
+
+                                    </ul>
+                                </td>
+                                <td>
+                                    <div>Optional</div>
+                                </td>
+                                <td>
+                                    <ul class="lkgSection">
+                                        <li>Students-2</li>
+                                        <li><a href="#">Add Student</a></li>
+
+                                    </ul>
+                                </td>
+                                <td>
+                                    <div><a href="#">Assign</a></div>
+                                </td>
+                               
+                                <td>
+                                    <div><a href="#">Assign</a></div>
+                                </td>
+                               
+                                <td>
+                                    <div>Edit</div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+
+                                    <ul class="lkgSection" style="margin: 19px;">
+                                        <li>Maths</li>
+
+
+                                    </ul>
+                                </td>
+                                <td>
+                                    <div>Mandatory</div>
+                                </td>
+                                <td>
+                                    <ul class="lkgSection">
+                                        <li>All</li>
+
+
+                                    </ul>
+                                </td>
+                                <td>
+                                    <div><a href="#">Assign</a></div>
+                                </td>
+                                <td>
+                                    <div><a href="#">Assign</a></div>
+                                </td>
+                                <td>
+                                    <div>Edit</div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </lightning-layout-item>
+        </lightning-layout>
+    </lightning-card>
+
+</template>

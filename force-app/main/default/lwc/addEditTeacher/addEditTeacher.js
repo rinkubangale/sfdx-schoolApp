@@ -11,7 +11,11 @@ export default class AddEditAddEditTeacherWireframe extends LightningElement {
   get btnLabel() {
     return this.headTitle;
   }
-
+  handleModalChange() {
+    this.dispatchEvent(new CustomEvent("modalchange", {
+      detail: false
+    }));
+  }
 //   connectedCallback() {
 //     this.allFields = this.fields.map((item) => {
 //       return {
@@ -158,5 +162,14 @@ export default class AddEditAddEditTeacherWireframe extends LightningElement {
           this.showErrorToast('Please fill the fields');
       }
 
+  }
+  get btnLabel() {
+    return this.headTitle;
+  } 
+  
+  handleModalChange() {
+    this.dispatchEvent(new CustomEvent("modalchange", {
+      detail: false
+    }));
   }
 }

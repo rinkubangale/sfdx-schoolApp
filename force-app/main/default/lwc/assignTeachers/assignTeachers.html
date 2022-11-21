@@ -1,0 +1,121 @@
+<template>
+    <template if:false={createmodal}>
+    <template if:false={isAssignOpen}>
+        <lightning-card style="margin:15px; text-transform:capitalize;" class="slds-card__header ">
+            <div class="cardcss">
+                <div class="header row no-left-margin no-right-margin">
+                    <a href="#" data-close="true">
+                        <div class="back" onclick={handleModalChange}>
+                            <lightning-icon icon-name="utility:back" size="x-small" alternative-text="Back!" title="Back">
+                            </lightning-icon>
+                            <p>Back</p>
+                        </div>
+                    </a>
+                    <div class="Add-c-headings">
+                        <p class="add-heading-manage fivpx-mrgn-btm">
+                            <lightning-icon class="new-icon" icon-name="utility:new" size="small" alternative-text="new!"
+                                title="new">
+                            </lightning-icon>
+                            <b>{headTitle}</b>
+                        </p>
+                        <!-- <p class="add-subheading-manage">{subHeadTitle}</p> -->
+                    </div>
+                    <a href="#" data-close="true">
+                        <div class="esc" onclick={handleModalChange}>
+                            <lightning-icon icon-name="utility:close" size="x-small" alternative-text="Esc!" title="Esc">
+                            </lightning-icon>
+                            <p>Esc</p>
+                        </div>
+                    </a>
+                </div>
+                <div>
+                    <!-- <div class="slds-text-heading_large">
+                        <h1><b>Assign Teacher</b></h1>
+                    </div> -->
+                    <div class="slds-clearfix">
+                        <lightning-button class="slds-float_right" variant="brand" label="Add Teacher" onclick={handelModel}>
+
+                        </lightning-button>
+                           
+                        
+                    </div>
+                </div>
+                <div class="slds-p-horizontal_medium slds-clearfix" style="display:flex">
+                    <table>
+                        <thead>
+                            <th >
+                                <div>
+                                    <h2>Teacher Name</h2>
+                                </div>
+                            </th>
+                            <th>
+                                <div>
+                                    <h2>Action</h2>
+                                </div>
+                            </th>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <ul>
+                                        <li>
+                                            Poornima
+                                        </li>
+                                    </ul>
+                                </td>
+
+                                <td>
+                                    <ul>
+                                        <li>
+
+                                            <a href="#">Assign</a>
+                                        </li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <ul>
+                                        <li> Rajesh</li>
+                                    </ul>
+
+                                </td>
+                                <td>
+                                    <ul>
+                                        <li>
+
+                                            <a href="#">Assign</a>
+                                        </li>
+                                    </ul>
+
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <ul>
+                                        <li> Hemanth</li>
+                                    </ul>
+                                </td>
+
+                                <td>
+
+                                    <ul>
+                                        <li> <a href="#">Assign</a></li>
+                                    </ul>
+
+                                </td>
+                            </tr>
+
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </lightning-card>
+    </template>
+</template>
+<template if:true={isModalOpen}>
+    <c-teacher-Add-Wireframe onclick={handleModalChange}></c-teacher-Add-Wireframe>
+</template>
+</template>
+</template>

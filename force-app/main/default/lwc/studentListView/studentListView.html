@@ -102,7 +102,7 @@
             <div style=" height: auto; ">
                 <lightning-datatable key-field="Id" data={dataList} columns={columns}
                     onrowselection={handleRowSelection} onrowaction={handleRowAction} draft-values={fldsItemValues}
-                    show-row-number-column="false" onsave={saveHandleAction}>
+                    show-row-number-column="false" onsave={saveHandleAction} resize-column-disabled>
                 </lightning-datatable>
                 <!-- <c-custom-types-global key-field="Id" data={cases} columns={columns}
                 onrowselection={handleRowSelection}

@@ -1,0 +1,43 @@
+.mainContainer {
+    display: flex;
+    background: #dee3e7;
+    padding: 8px;
+    border-radius: 8px;
+    cursor: pointer;
+    position: relative;
+    min-height: 60px;
+}
+
+.iconContainer {
+    width: 20%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.infoContainer {
+    width: 70%;
+    margin: auto 0;
+}
+
+.infoContainer::after {
+    content: '>';
+    font-size: 24px;
+    color: grey;
+    position: absolute;
+    right: 12px;
+    top: 12px;
+}
+
+.subTitle {
+    font-size: 12px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.title {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}

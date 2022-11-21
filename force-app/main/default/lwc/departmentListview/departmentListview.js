@@ -62,9 +62,9 @@ export default class AcademicListTable extends LightningElement {
   @track options = [];
 
   openModal() {
-    // to open modal set isModalOpen tarck value as true
-    this.isModalOpen = true;
+    this.isModalOpen = !this.isModalOpen;
   }
+
   closeModal() {
     // to close modal set isModalOpen tarck value as false
     this.isModalOpen = false;
@@ -80,6 +80,8 @@ export default class AcademicListTable extends LightningElement {
   handleModalChange(event) {
     this.isModalOpen = event.detail;
   }
+
+ 
   columns1 = columns1;
   @wire(showschool)
   wiredClasses({ error, data }) {
@@ -323,4 +325,13 @@ export default class AcademicListTable extends LightningElement {
 
     return false;
   }
+
+  goBack() {  
+    this.dispatchEvent(
+      new CustomEvent("backbtn", {
+        detail: false
+      })
+    );
+  }
+  
 }

@@ -73,15 +73,13 @@
                         </div>
                     </div>
                 </form> -->
-                <!-- <lightning-record-edit-form object-api-name={objectName} onload={handleLoading}>
+                 <!-- <lightning-record-edit-form object-api-name={objectName} onload={handleLoading}>
                     <template for:each={allFields} for:item="field">
                         <lightning-input-field key={field.key} field-name={field.fieldName}></lightning-input-field>
-                    </template>
-                    <div class="slds-var-m-top_large slds-align_absolute-center">
-                       
+                    </template> -->
                      
-                    </div>
-                </lightning-record-edit-form> -->
+                    
+                <!-- </lightning-record-edit-form>  -->
                 <!-- <lightning-button variant="brand" class="slds-m-left_x-small slds-p-horizontal_x-small"
 
                 icon-name="utility:adduser" title="Create Department" onclick={openModal}>
@@ -92,7 +90,7 @@
                         aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open slds-modal_medium">
                         <div class="slds-modal__container">
                             <div class="slds-clearfix"> -->
-                <!-- <div class="slds-float_right">
+                                <!-- <div class="slds-float_right">
                                     <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse"
                                         title="Close" onclick={closeModal}>
                                         <lightning-icon icon-name="utility:close" alternative-text="close" variant="inverse"
@@ -100,10 +98,10 @@
                                         <span class="slds-assistive-text">Close</span>
                                     </button>
                                 </div> -->
-
-
-
-                <!-- <header class="slds-modal__header">
+            
+            
+            
+                                <!-- <header class="slds-modal__header">
                                     <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse"
                                         title="Close" onclick={closeModal}>
                                         <lightning-icon icon-name="utility:close" onclick={closeModal} title="Close" alternative-text="close" variant="inverse"
@@ -115,44 +113,45 @@
                                     </h2>
                                 </header>
                             </div> -->
-
-
-                <!-- <lightning-card > -->
-                <!-- <span class="slds-align_absolute-center slds-p-vertical_xxx-small" style="font-weight: bold;font-size:large">
+            
+            
+                            <!-- <lightning-card > -->
+                            <!-- <span class="slds-align_absolute-center slds-p-vertical_xxx-small" style="font-weight: bold;font-size:large">
             
                                     Create Department
                             </span>
                             <hr class="slds-p-vertical_none"> -->
-
-                <lightning-layout class="slds-p-horizontal_x-small">
-                    <!-- <lightning-layout-item size="4" class="slds-p-horizontal_x-small slds-p-bottom_small ">
+            
+                                 <lightning-layout  class="slds-p-horizontal_x-small">
+                            <!-- <lightning-layout-item size="4" class="slds-p-horizontal_x-small slds-p-bottom_small ">
                                  <lightning-input type="text" label="Department Id" placeholder="Department Id"   size="6" ></lightning-input> 
                             </lightning-layout-item> -->
-                    <lightning-layout-item size="12" class="slds-p-horizontal_x-small slds-p-bottom_small ">
-                        <lightning-input type="text" class="validate" label="Department Name"
-                            placeholder="Department Name" onchange={handleNameChange} required></lightning-input>
-                    </lightning-layout-item>
-                    <!-- <lightning-layout-item size="4" class="slds-p-horizontal_x-small slds-p-bottom_small ">
+                            <lightning-layout-item size="12" class="slds-p-horizontal_x-small slds-p-bottom_small ">
+                                <lightning-input type="text" class="validate" label="Department Name" placeholder="Department Name"  onchange ={handleNameChange} required ></lightning-input>
+                            </lightning-layout-item>
+                            <!-- <lightning-layout-item size="4" class="slds-p-horizontal_x-small slds-p-bottom_small ">
                                  <lightning-input type="text" label="Department Id" placeholder="Department Id"   size="6" ></lightning-input> 
                             </lightning-layout-item> -->
-                </lightning-layout>
-
-                <div slot="footer" class="slds-p-top_xxx-small slds-clearfix">
-                    <lightning-button label="Cancel" class="slds-m-left_x-small slds-float_right" onclick={closeModal}>
-                    </lightning-button>
-                    <lightning-button label="Save" class=" slds-float_right" onclick={createAccount} variant="brand"
-                        onchange={isInputValid}></lightning-button>
-                    <!-- <lightning-button icon-name="utility:add" label="Custom Fields" onclick={addCustomFields} variant="brand" class="slds-var-m-left_xx-small slds-float_left"></lightning-button> -->
-                </div>
-
-                <!-- </lightning-card> -->
-
-
-
-            </div>
-            <!-- </section> -->
-            <!-- <div class="slds-backdrop slds-backdrop_open"></div> -->
-            <!-- </template>
+                        </lightning-layout>
+                            
+                            <!-- <div slot="footer" class="slds-p-top_xxx-small slds-clearfix" > 
+                                <lightning-button  label="Cancel" class="slds-m-left_x-small slds-float_right"  onclick={closeModal}  ></lightning-button>
+                                    <lightning-button  label="Save" class=" slds-float_right"  onclick={createAccount}  variant="brand" onchange={isInputValid}></lightning-button>
+                                    <!- <lightning-button icon-name="utility:add" label="Custom Fields" onclick={addCustomFields} variant="brand" class="slds-var-m-left_xx-small slds-float_left"></lightning-button> -->
+                                <!-- </div>  --> 
+                        
+                        <!-- </lightning-card> -->
+            
+                        <div class="slds-var-m-top_large slds-align_absolute-center">
+                            <lightning-button variant="brand" type="submit" label="Add Department">
+                            </lightning-button>
+                        </div>
+                            
+                        </div>
+                       
+                    <!-- </section> -->
+                    <!-- <div class="slds-backdrop slds-backdrop_open"></div> -->
+                <!-- </template>
             </div> -->
             <!-- <lightning-button variant="brand" label='save'>   </lightning-button> -->
             <template if:true={isLoading}>

@@ -52,7 +52,7 @@
                         <lightning-datatable key-field="Id" data={Subject_Course__c} columns={columns}
                             show-row-number-column="true" column-widths-mode="auto" onrowselection={handleRowSelection}
                             onrowaction={handleRowAction} draft-values={fldsItemValues} onsave={saveHandleAction}
-                            onclick={confirmation}>
+                            onclick={confirmation} resize-column-disabled>
                         </lightning-datatable>
                         <!-- <table>
                             <thead>

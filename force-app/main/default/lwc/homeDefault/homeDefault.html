@@ -3,6 +3,12 @@
         <template if:true={schoolSetting}>
             <c-wireframe-lwc onmodalchange={closeModal}></c-wireframe-lwc>
         </template>
+        <template if:true={schoolBranch}>
+            <c-manage-branch onmodalchange={closeModal}></c-manage-branch>
+        </template>
+        <template if:true={previewSchool}>
+            <span class="slds-text-heading_medium" style="color:#000">No Content to display.</span>
+        </template>
         <template if:true={academicListView}>
             <c-academic-list-view onbackbtn={handleBack}></c-academic-list-view>
         </template>
@@ -38,41 +44,50 @@
     <template if:false={clicked}>
         <!-- <template if:false={isModalOpen}> -->
         <div class="cardBg">
-            <lightning-layout class="slds-grid slds-wrap" style="text-align: center;">
-                <lightning-layout-item flexibility="auto"
-                    class="slds-size_1-of-1 slds-medium-size_6-of-12 slds-large-size_4-of-12">
-                    <!-- <c-wireframe-lwc></c-wireframe-lwc> -->
-                    <lightning-icon class="sIcon" icon-name="action:new_account" alternative-text="School"
-                        title="School">
-                    </lightning-icon>
-                    <a class="slds-text-heading_medium madding" data-name="schoolSetting" onclick={openCard}>SETUP Your
-                        School Profile</a>
-                </lightning-layout-item>
-                <lightning-layout-item flexibility="auto"
-                    class="slds-size_1-of-1 slds-medium-size_6-of-12 slds-large-size_4-of-12">
-                    <!-- <c-wireframe-lwc></c-wireframe-lwc> -->
-                    <lightning-icon class="sIcon" icon-name="action:new_account" alternative-text="School"
-                        title="School">
-                    </lightning-icon>
-                    <a class="slds-text-heading_medium madding" data-name="schoolSetting" onclick={openCard}>Manage
-                        School Branch</a>
-                </lightning-layout-item>
-                <lightning-layout-item flexibility="auto"
-                    class="slds-size_1-of-1 slds-medium-size_6-of-12 slds-large-size_4-of-12">
-                    <!-- <c-wireframe-lwc></c-wireframe-lwc> -->
-                    <lightning-icon class="sIcon" icon-name="action:new_account" alternative-text="School"
-                        title="School">
-                    </lightning-icon>
-                    <a class="slds-text-heading_medium madding" data-name="schoolSetting" onclick={openCard}>Preview
-                        Your
-                        School</a>
-                </lightning-layout-item>
-            </lightning-layout>
             <lightning-layout class="slds-grid slds-wrap" multiple-rows>
                 <!-- <lightning-layout class="resScreen" multiple-rows> -->
                 <lightning-layout-item class="slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1"
-                    style="padding: 1rem;">Guided
-                    Flow
+                    style="display:none; padding: 1rem;">Guided Flows
+                </lightning-layout-item>
+                <lightning-layout-item flexibility="auto"
+                    class="slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1">
+                    <lightning-layout class="slds-grid slds-wrap" style="justify-content: center;">
+                        <lightning-layout-item flexibility="auto"
+                            class="slds-size_1-of-1 slds-medium-size_6-of-12 slds-large-size_4-of-12">
+                            <div class="setupCards">
+                                <lightning-icon size="small" class="sIcon1" icon-name="action:new_account"
+                                    alternative-text="School" title="School">
+                                </lightning-icon>
+                                <a class="slds-text-heading_medium madding" data-name="schoolSetting"
+                                    onclick={openCard}>
+                                    SETUP Your School Profile
+                                </a>
+                            </div>
+                        </lightning-layout-item>
+                        <lightning-layout-item flexibility="auto"
+                            class="slds-size_1-of-1 slds-medium-size_6-of-12 slds-large-size_4-of-12">
+                            <div class="setupCards">
+                                <lightning-icon size="small" class="sIcon2" icon-name="action:manage_perm_sets"
+                                    alternative-text="School" title="School">
+                                </lightning-icon>
+                                <a class="slds-text-heading_medium madding" data-name="schoolBranch" onclick={openCard}>
+                                    Manage School Branch
+                                </a>
+                            </div>
+                        </lightning-layout-item>
+                        <lightning-layout-item flexibility="auto"
+                            class="slds-size_1-of-1 slds-medium-size_6-of-12 slds-large-size_4-of-12">
+                            <div class="setupCards">
+                                <lightning-icon size="small" class="sIcon3" icon-name="action:preview"
+                                    alternative-text="School" title="School">
+                                </lightning-icon>
+                                <a class="slds-text-heading_medium madding" data-name="previewSchool"
+                                    onclick={defaultNotSet}>
+                                    Preview Your School
+                                </a>
+                            </div>
+                        </lightning-layout-item>
+                    </lightning-layout>
                 </lightning-layout-item>
                 <lightning-layout-item class="slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1">
                     <ul class="guidedFlow slds-grid slds-wrap">
@@ -89,24 +104,24 @@
                         <li class="slds-size_6-of-12 slds-medium-size_4-of-12 slds-large-size_2-of-12">
                             <lightning-icon icon-name="utility:success" alternative-text="Utility success"
                                 title="success"></lightning-icon>
-                            <span style="margin-left: 2px">Manage Class/Rooms</span>
+                            <span style="margin-left: 2px">Class/Sections</span>
                         </li>
                         <li class="slds-size_6-of-12 slds-medium-size_4-of-12 slds-large-size_2-of-12">
                             <lightning-icon icon-name="utility:success" alternative-text="Utility success"
                                 title="success"></lightning-icon>
-                            <span style="margin-left: 2px">Manage Students</span>
+                            <span style="margin-left: 2px">Students</span>
                         </li>
                         <li class="slds-size_6-of-12 slds-medium-size_4-of-12 slds-large-size_2-of-12">
                             <lightning-icon icon-name="utility:success" alternative-text="Utility success"
                                 title="success"></lightning-icon>
-                            <span style="margin-left: 2px">Manage Admission</span>
+                            <span style="margin-left: 2px">Admissions</span>
                         </li>
                     </ul>
                 </lightning-layout-item>
                 <lightning-layout-item flexibility="auto" padding="around-small"
                     class="slds-size_1-of-1 slds-medium-size_6-of-12 slds-large-size_4-of-12">
                     <span onclick={openCard} data-name="academicListView">
-                        <c-default-card obj-api-name='Academic_Year__c' header="Create Academic Year" step="STEP 1"
+                        <c-default-card obj-api-name='Academic_Year__c' header="Manage Academic Year" step="STEP 1"
                             header-line="Create Academic Year as per your standards"
                             example-tag="[for eg: 2021-2022, 2022-2024]">
                         </c-default-card>
@@ -114,8 +129,17 @@
                 </lightning-layout-item>
                 <lightning-layout-item flexibility="auto" padding="around-small"
                     class="slds-size_1-of-1 slds-medium-size_6-of-12 slds-large-size_4-of-12">
+                    <span onclick={defaultNotSet} data-name="schoolType">
+                        <c-default-card obj-api-name='Academic_Year__c' header="School Type Setup" step="STEP 1"
+                            header-line="Create School Type as per your requirements"
+                            example-tag="[for eg: Kindergarten, Lower primary, Upper primary]">
+                        </c-default-card>
+                    </span>
+                </lightning-layout-item>
+                <lightning-layout-item flexibility="auto" padding="around-small"
+                    class="slds-size_1-of-1 slds-medium-size_6-of-12 slds-large-size_4-of-12">
                     <span onclick={openCard} data-name="listClass">
-                        <c-default-card obj-api-name='Class__c' header="Add Class" step="STEP 4"
+                        <c-default-card obj-api-name='Class__c' header="Manage Class/Sections" step="STEP 4"
                             header-line="Add Your Class Names as per your standards"
                             example-tag="[for eg: LKG, UKG, Ist std, IIstd etc]">
                         </c-default-card>
@@ -124,7 +148,7 @@
                 <lightning-layout-item flexibility="auto" padding="around-small"
                     class="slds-size_1-of-1 slds-medium-size_6-of-12 slds-large-size_4-of-12">
                     <span onclick={openCard} data-name="studentListView">
-                        <c-default-card obj-api-name='ContactStudent' header="Add Student" step="STEP 5"
+                        <c-default-card obj-api-name='ContactStudent' header="Manage Students" step="STEP 5"
                             header-line="Add your Student along with Parent Details and map your Sibling in Student Profile"
                             example-tag="">
                         </c-default-card>
@@ -133,7 +157,7 @@
                 <lightning-layout-item flexibility="auto" padding="around-small"
                     class="slds-size_1-of-1 slds-medium-size_6-of-12 slds-large-size_4-of-12">
                     <span onclick={openCard} data-name="admissionListView">
-                        <c-default-card obj-api-name='Admission__c' header="Create Admissions" step="STEP 6"
+                        <c-default-card obj-api-name='Admission__c' header="Manage Admissions" step="STEP 6"
                             header-line="Create an Admission process for the current year"
                             example-tag="[the current annual period 2021-20]">
                         </c-default-card>
@@ -167,28 +191,26 @@
                     Settings
                 </lightning-layout-item>
                 <lightning-layout-item flexibility="auto" padding="around-small"
-                    class="slds-size_1-of-1 slds-medium-size_6-of-12 slds-large-size_4-of-12">
+                    class="slds-size_1-of-1 slds-medium-size_6-of-12 slds-large-size_3-of-12">
                     <span onclick={openCard} data-name="departmentListView">
-                        <c-default-card obj-api-name='Department__c' header="Add Department" step="STEP 2"
-                            header-line="Setup Your Departments"
-                            example-tag="[for eg: Lower Primary, English Department Sport, Lab Departments, etc]">
-                        </c-default-card>
+                        <c-optional-card icon-name="utility:notebook" header-line="Manage Departments"
+                            example-tag="Lower Primary, English Department, Sport...">
+                        </c-optional-card>
                     </span>
                 </lightning-layout-item>
                 <lightning-layout-item flexibility="auto" padding="around-small"
-                    class="slds-size_1-of-1 slds-medium-size_6-of-12 slds-large-size_4-of-12">
+                    class="slds-size_1-of-1 slds-medium-size_6-of-12 slds-large-size_3-of-12">
                     <span onclick={openCard} data-name="teacherListView">
-                        <c-default-card obj-api-name='ContactTeacher' header="Add Teachers, Admins" step="STEP 4"
-                            header-line="Add, Assign teachers to each Class room and Class sections" example-tag="">
-                        </c-default-card>
+                        <c-optional-card icon-name="utility:user_role" header-line="Manage Teachers/Admins"
+                            example-tag="">
+                        </c-optional-card>
                     </span>
                 </lightning-layout-item>
                 <lightning-layout-item flexibility="auto" padding="around-small"
-                    class="slds-size_1-of-1 slds-medium-size_6-of-12 slds-large-size_4-of-12">
+                    class="slds-size_1-of-1 slds-medium-size_6-of-12 slds-large-size_3-of-12">
                     <span onclick={openCard} data-name="teacherListView">
-                        <c-default-card obj-api-name='ContactTeacher' header="Manage Admins" step="STEP 4"
-                            header-line="Admin Management" example-tag="">
-                        </c-default-card>
+                        <c-optional-card icon-name="utility:people" header-line="Promote Students" example-tag="">
+                        </c-optional-card>
                     </span>
                 </lightning-layout-item>
             </lightning-layout>

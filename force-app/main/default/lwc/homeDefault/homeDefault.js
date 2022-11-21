@@ -1,5 +1,6 @@
 import { LightningElement, api, track } from "lwc";
 import { NavigationMixin } from "lightning/navigation";
+import { showError } from "c/utility";
 
 export default class HomeDefault extends NavigationMixin(LightningElement) {
   @api clicked = false;
@@ -13,6 +14,8 @@ export default class HomeDefault extends NavigationMixin(LightningElement) {
   @track examListView;
   @track invoiceListView;
   @track schoolSetting;
+  @track schoolBranch;
+  @track previewSchool;
 
   connectedCallback() {
     console.log("Home Page Loaded");
@@ -27,6 +30,10 @@ export default class HomeDefault extends NavigationMixin(LightningElement) {
     this.clicked = false;
   }
 
+  defaultNotSet() {
+    showError("This card does not contains data!");
+  }
+
   openCard(event) {
     this.clicked = true;
     this.academicListView = false;
@@ -39,10 +46,18 @@ export default class HomeDefault extends NavigationMixin(LightningElement) {
     this.examListView = false;
     this.invoiceListView = false;
     this.schoolSetting = false;
+    this.schoolBranch = false;
+    this.previewSchool = false;
 
     switch (event.currentTarget.dataset.name) {
       case "schoolSetting":
         this.schoolSetting = true;
+        break;
+      case "schoolBranch":
+        this.schoolBranch = true;
+        break;
+      case "previewSchool":
+        this.previewSchool = true;
         break;
       case "academicListView":
         this.academicListView = true;

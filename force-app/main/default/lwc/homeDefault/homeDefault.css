@@ -27,14 +27,19 @@
 .guidedFlow {
   display: flex;
   background: #8080801f;
-  padding: 1rem;
-  margin: 0 0.75rem;
   border-radius: 2rem;
   justify-content: space-evenly;
+  margin: 12px;
+  padding: 0 12px;
 }
 
+
 ul.guidedFlow>li {
-  margin: 8px 0;
+  margin: 12px auto;
+  text-align: center;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
 }
 
 @media (max-width: 720px) {
@@ -53,9 +58,15 @@ ul.guidedFlow>li {
   }
 }
 
+.setupCards {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .madding {
-  margin: 10px 0px;
-  padding: 10px;
+  padding: 8px;
+  font-size: 1rem;
 }
 
 .headCont {
@@ -71,9 +82,15 @@ lightning-layout-item.slds-size_1-of-1.slds-medium-size_6-of-12.slds-large-size_
 /* .vIcon{
     background-color: #830063;
     opacity: 75%;
+}*/
+.sIcon1 {
+  --sds-c-icon-color-background: #f008;
 }
 
-.sIcon{
-    background-color: #4da574;
-    opacity: 75%;
-} */
+.sIcon2 {
+  --sds-c-icon-color-background: #00f8;
+}
+
+.sIcon3 {
+  --sds-c-icon-color-background: #0f08;
+}

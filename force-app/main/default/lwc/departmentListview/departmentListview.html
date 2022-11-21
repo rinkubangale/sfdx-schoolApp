@@ -1,79 +1,74 @@
 <template>
-    <template if:false={createmodal}>
-    <lightning-card style="text-transform: capitalize;" class="slds-card__header ">
+    <template if:false={isModalOpen}>
+        <lightning-card style="text-transform: capitalize;" class="slds-card__header ">
 
-        <lightning-tabset active-tab-value="two">
+            <lightning-tabset active-tab-value="two">
 
-            <lightning-tab label="School app" value="one">
-                <lightning-card>
+                <lightning-tab label="School app" value="one">
+                    <lightning-card>
 
-                    <lightning-layout>
+                        <lightning-layout>
+
+                            <lightning-layout-item size="4" class="slds-p-left_small slds-card__header">
+
+                                <lightning-icon icon-name="standard:record" alternative-text="Clone" title="Clone">
+
+                                </lightning-icon>
+
+                                <span style="font-weight: bold; font-size: larger;  "
+                                    class="slds-p-horizontal_small ">View
+                                    School type</span>
+
+                            </lightning-layout-item>
 
 
-
-                        <lightning-layout-item size="4" class="slds-p-left_small slds-card__header">
-
-                            <lightning-icon icon-name="standard:record" alternative-text="Clone" title="Clone">
-
-                            </lightning-icon>
-
-                            <span style="font-weight: bold; font-size: larger;  " class="slds-p-horizontal_small ">View
-                                School type</span>
-
-                        </lightning-layout-item>
-
-
-                        <lightning-layout-item size="4" style="margin: -12px;">
-                            <div>
-                                <!-- <lightning-input name="Search School type" type="search" label="Search School type" placeholder="Search departments"
+                            <lightning-layout-item size="4" style="margin: -12px;">
+                                <div>
+                                    <!-- <lightning-input name="Search School type" type="search" label="Search School type" placeholder="Search departments"
                                 onchange={handlesearch} value={depname}></lightning-input> -->
 
-                                <template for:each={DepartmentList} for:item="Departmentobj" for:index="index">
+                                    <template for:each={DepartmentList} for:item="Departmentobj" for:index="index">
 
-                                    <option key={Departmentobj.Id}>{Departmentobj.Name}</option>
+                                        <option key={Departmentobj.Id}>{Departmentobj.Name}</option>
 
-                                </template>
-                            </div>
-                        </lightning-layout-item>
-
-
-                        <lightning-layout-item size="4" class="slds-p-around_medium">
+                                    </template>
+                                </div>
+                            </lightning-layout-item>
 
 
-                            <div class="slds-clearfix">
-
-                                <c-add-school-type class="slds-var-m-left_xx-small slds-float_right">
-                                </c-add-school-type>
-
-                            </div>
+                            <lightning-layout-item size="4" class="slds-p-around_medium">
 
 
-                        </lightning-layout-item>
-                    </lightning-layout>
+                                <div class="slds-clearfix">
+
+                                    <c-add-school-type class="slds-var-m-left_xx-small slds-float_right">
+                                    </c-add-school-type>
+
+                                </div>
 
 
-
-                    <div style=" height: auto; ">
-                        <lightning-datatable key-field="id" data={data} columns={columns1}
-                            onrowaction={rowActionHandler} suppress-bottom-bar>
-                        </lightning-datatable>
-                    </div>
+                            </lightning-layout-item>
+                        </lightning-layout>
 
 
 
-                </lightning-card>
-            
-            </lightning-tab>
+                        <div style=" height: auto; ">
+                            <lightning-datatable key-field="id" data={data} columns={columns1}
+                                onrowaction={rowActionHandler} resize-column-disabled suppress-bottom-bar>
+                            </lightning-datatable>
+                        </div>
 
 
 
-            <lightning-tab label="Manage Department" title="Manage Department" value="two">
-                
+                    </lightning-card>
+
+                </lightning-tab>
+
+                <lightning-tab label="Manage Department" title="Manage Department" value="two">
+
 
                     <lightning-card>
                         <lightning-layout multiple-rows>
-
-
 
                             <lightning-layout-item size="4" class="slds-p-left_small slds-card__header">
 
@@ -114,8 +109,8 @@
                                     <!-- <c-add-department class="slds-var-m-left_xx-small slds-float_right"></c-add-department> -->
 
                                     <lightning-button variant="brand"
-                                        class="slds-m-left_x-small slds-p-horizontal_x-small"
-                                        icon-name="utility:adduser" title="Create Department" onclick={handelModel}>
+                                        class="slds-m-left_x-small slds-p-horizontal_x-small slds-float_right"
+                                        icon-name="utility:adduser" title="Create Department" onclick={openModal}>
 
                                     </lightning-button>
                                 </div>
@@ -124,31 +119,35 @@
                         <lightning-layout>
                             <lightning-layout-item size="12">
                                 <!-- <div style=" height: auto; "> -->
-                                    <lightning-datatable key-field="id" data={Department__c} data-id="Sathish"
-                                        columns={columns} onrowaction={rowActionHandler} suppress-bottom-bar>
-                                    </lightning-datatable>
-
-                                    <div class="slds-clearfix slds-p-top_xxx-small ">
-                                        <lightning-button label="DELETE" onclick={deleterow} variant="brand"
-                                            class="slds-var-m-left_xx-small slds-p-around_medium slds-float_right">
-                                        </lightning-button>
-
-                                    </div>
-                                <!-- </div> -->
+                                <lightning-datatable key-field="id" data={Department__c} data-id="Sathish"
+                                    columns={columns} onrowaction={rowActionHandler} resize-column-disabled
+                                    suppress-bottom-bar>
+                                </lightning-datatable>
                             </lightning-layout-item>
                         </lightning-layout>
+
+                        <div slot="footer" class="slds-clearfix slds-p-top_xxx-small ">
+                            <lightning-button label="Back" variant="brand" onclick={goBack}
+                                class="slds-var-m-left_xx-small slds-float_left"></lightning-button>
+                            <lightning-button label="DELETE" onclick={deleterow} variant="brand"
+                                class="slds-var-m-left_xx-small slds-float_right">
+                            </lightning-button>
+
+                        </div>
+
                     </lightning-card>
-                
 
 
-              
-                <template if:true={isDelete}>
 
-                    <c-delete-confirmation records-id={recid} obj-name="Department__c" onmodalchange={closemodaldelete}>
-                    </c-delete-confirmation>
 
-                </template>
-                <template if:true={isModalOpen}>
+                    <template if:true={isDelete}>
+
+                        <c-delete-confirmation records-id={recid} obj-name="Department__c"
+                            onmodalchange={closemodaldelete}>
+                        </c-delete-confirmation>
+
+                    </template>
+                    <!-- <template if:true={isModalOpen}>
                     <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true"
                         aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open slds-modal_medium">
 
@@ -181,8 +180,8 @@
 
                     <div class="slds-backdrop slds-backdrop_open"></div>
 
-                </template>
-                <!-- <div style=" height: auto; ">
+                </template> -->
+                    <!-- <div style=" height: auto; ">
                     <lightning-datatable key-field="id" data={Department__c} data-id="Sathish" columns={columns}
                         onrowaction={rowActionHandler} suppress-bottom-bar>
                     </lightning-datatable>
@@ -191,24 +190,25 @@
                             class="slds-var-m-left_xx-small slds-p-around_medium slds-float_right"></lightning-button>
 
                     </div> -->
-             
 
-                <template if:true={isDelete}>
 
-                    <c-delete-confirmation records-id={recid} obj-name="Department__c" onmodalchange={closemodaldelete}>
-                    </c-delete-confirmation>
+                    <template if:true={isDelete}>
 
-                </template>
-                <template if:true={isModalOpen}>
+                        <c-delete-confirmation records-id={recid} obj-name="Department__c"
+                            onmodalchange={closemodaldelete}>
+                        </c-delete-confirmation>
 
-                    <!-- Modal/Popup Box LWC starts here -->
+                    </template>
+                    <!-- <template if:true={isModalOpen}>
+
+                   
 
                     <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true"
                         aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open slds-modal_medium">
 
                         <div class="slds-modal__container">
 
-                            <!-- Modal/Popup Box LWC header here -->
+                            
 
                             <div class="slds-clearfix">
 
@@ -229,7 +229,7 @@
 
                             </div>
 
-                            <!-- Modal/Popup Box LWC body starts here -->
+                            
 
                             <c-editdepartment records-id={recordID} get-modal-value={isModalOpen}
                                 onmodalchange={handleModalChange}></c-editdepartment>
@@ -241,8 +241,8 @@
 
                     <div class="slds-backdrop slds-backdrop_open"></div>
 
-                </template>
-                <!-- 
+                </template>  -->
+                    <!-- 
                     <div slot="footer" class="slds-clearfix slds-p-top_xxx-small ">
                         <lightning-button label="DELETE" onclick={deleterow} variant="brand"
                             class="slds-var-m-left_xx-small slds-float_right"></lightning-button>
@@ -251,29 +251,24 @@
 
 
 
-            </lightning-tab>
+                </lightning-tab>
 
+                <template if:true={isDelete}>
 
+                    <c-delete-confirmation records-id={recid} obj-name="Department__c" onmodalchange={closemodaldelete}>
+                    </c-delete-confirmation>
 
+                </template>
+                <!-- <template if:true={isModalOpen}>
 
-
-
-            <template if:true={isDelete}>
-
-                <c-delete-confirmation records-id={recid} obj-name="Department__c" onmodalchange={closemodaldelete}>
-                </c-delete-confirmation>
-
-            </template>
-            <template if:true={isModalOpen}>
-
-                <!-- Modal/Popup Box LWC starts here -->
+              
 
                 <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true"
                     aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open slds-modal_medium">
 
                     <div class="slds-modal__container">
 
-                        <!-- Modal/Popup Box LWC header here -->
+                       
 
                         <div class="slds-clearfix">
 
@@ -293,7 +288,7 @@
 
                         </div>
 
-                        <!-- Modal/Popup Box LWC body starts here -->
+                      
 
                         <c-editdepartment records-id={recordID} get-modal-value={isModalOpen}
                             onmodalchange={handleModalChange}></c-editdepartment>
@@ -306,18 +301,15 @@
 
                 <div class="slds-backdrop slds-backdrop_open"></div>
 
-            </template>
-            <lightning-button label="Back" title="back" variant="brand" onclick={goBack} class="slds-m-left_x-small">
-            </lightning-button>
+            </template> -->
+                <!-- <lightning-button label="Back" title="back" variant="brand" onclick={goBack} class="slds-m-left_x-small">
+            </lightning-button> -->
 
 
-            <!-- </lightning-tab> -->
+                <!-- </lightning-tab> -->
 
 
-        </lightning-tabset>
-
-
-
+            </lightning-tabset>
 
 
 
@@ -326,14 +318,17 @@
 
 
 
-        <!-- <div slot="footer" class="slds-clearfix slds-p-top_xxx-small ">
+
+
+
+            <!-- <div slot="footer" class="slds-clearfix slds-p-top_xxx-small ">
             <lightning-button label="DELETE" onclick={deleterow} variant="brand"
                 class="slds-var-m-left_xx-small slds-float_right"></lightning-button>
 
         </div> -->
-    </lightning-card> 
-</template>
-<template if:true={createmodal}>
-    <c-add-edit-department onclick={handleModalChange}></c-add-edit-department>
-</template>
+        </lightning-card>
+    </template>
+    <template if:true={isModalOpen}>
+        <c-add-edit-department onmodalchange={closeModal}></c-add-edit-department>
+    </template>
 </template>

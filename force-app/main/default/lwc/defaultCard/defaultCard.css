@@ -29,7 +29,7 @@ lightning-layout-item {
   justify-content: center;
 }
 
-.leftBox > h2 {
+.leftBox>h2 {
   letter-spacing: 2px;
   font-size: revert;
   width: 95%;
@@ -39,8 +39,6 @@ lightning-layout-item {
 
 .rightBox {
   display: flex;
-  /* align-items: center;
-  justify-content: center; */
   flex-direction: column;
   background-color: #e5f0fa;
   padding: 10px;
@@ -48,11 +46,19 @@ lightning-layout-item {
   height: 100%;
   border-radius: 0px 10px 10px 0px;
   overflow: auto;
+  justify-content: flex-start;
+  gap: 8px;
 }
 
-.rightBox > p {
+.rightBox>p {
   font-size: 0.8rem;
   color: #898989;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  white-space: normal;
 }
 
 .resScreen {
@@ -66,6 +72,7 @@ lightning-layout-item {
   /* flex-direction: row;
     justify-content: space-evenly; */
 }
+
 /* 
 @media(max-width: 720px){
     .resScreen{
@@ -93,6 +100,7 @@ lightning-layout-item {
   border-radius: 10px;
   cursor: pointer;
 }
+
 .slds-badge {
   color: white;
   background: #0176d3;
@@ -104,9 +112,15 @@ lightning-layout-item {
   font-size: xx-large;
 }
 
-.rightBox > h3 {
-  font-weight: 600;
+.rightBox>h3 {
+  font-weight: 500;
   font-size: 0.8rem;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  white-space: normal;
 }
 
 .step {
@@ -137,16 +151,20 @@ lightning-layout-item {
   .leftBox::after {
     display: none;
   }
+
   .container {
     height: auto;
   }
+
   .leftBox {
     width: 100%;
     border-radius: 10px 10px 0px 0px;
   }
+
   .rightBox {
     width: 100%;
   }
+
   /* .rightBox > h3 {
     font-weight: 600;
     text-align: justify;

@@ -1,0 +1,420 @@
+<template>
+    <template if:true={isManageAllOpen}>
+        <!-- <template if:false={isAssignTeacherOpen}> -->
+        <lightning-card>
+            <div class="slds-p-horizontal_medium slds-clearfix">
+
+                <div class="slds-border_bottom slds-p-bottom_medium">
+                    <lightning-icon icon-name="standard:education" alternative-text="class/Subjects"
+                        title="Manage Classes and Subjects">
+                    </lightning-icon>
+                    <span style="font-weight: bold; font-size: 16px; text-transform: uppercase;"
+                        class="slds-m-left_x-small slds-text-heading_large">Manage All
+                    </span>
+                    <!-- <c-create-class class="slds-float_right" label="Add Classes"></c-create-class> -->
+                    <!-- <lightning-button variant="brand" icon-name="utility:adduser" title="Create class"
+                        onclick={openModal} class="slds-float_right slds-m-left_medium">
+                    </lightning-button> -->
+                </div>
+
+                <lightning-tabset active-tab-value="two">
+
+                    <lightning-tab label="STUDENTS" value="one">
+                        <lightning-card>
+                            <div class="slds-m-top_medium">
+                                <div style="margin: 19px;
+                      margin-left: 450px;">
+                                    <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
+                                    <label for="vehicle1"> Show Sibling</label>
+                                    <span style="margin-left: 70px;"><input type="text" placeholder="Search.."></span>
+                                </div>
+                                <lightning-layout class="slds-badge slds-p-horizontal_medium slds-grid"
+                                    style="text-align: end;">
+
+
+                                    <lightning-layout-item size="2">
+
+                                        <span
+                                            class="slds-box_xx-small slds-text-color_inverse slds-badge slds-theme_warning">3</span>
+
+                                        <span
+                                            class=" slds-m-left_xx-small slds-text-font_monospace slds-text-body_small">Active</span>
+
+                                    </lightning-layout-item>
+
+                                    <lightning-layout-item size="2">
+
+                                        <span
+                                            class="slds-box_xx-small slds-text-color_inverse slds-badge slds-theme_warning">1</span>
+
+                                        <span
+                                            class=" slds-m-left_xx-small slds-text-font_monospace slds-text-body_small">Joined
+
+                                        </span>
+
+                                    </lightning-layout-item>
+
+                                    <lightning-layout-item size="2">
+
+                                        <span
+                                            class="slds-box_xx-small slds-text-color_inverse slds-badge slds-theme_warning">1</span>
+
+                                        <span
+                                            class=" slds-m-left_xx-small slds-text-font_monospace slds-text-body_small">Seats
+
+                                            Not Invited</span>
+
+                                    </lightning-layout-item>
+
+                                    <lightning-layout-item size="2">
+
+                                        <span
+                                            class="slds-box_xx-small slds-text-color_inverse slds-badge slds-theme_warning">0</span>
+
+                                        <span
+                                            class=" slds-m-left_xx-small slds-text-font_monospace slds-text-body_small">Inactive
+
+                                        </span>
+                                    </lightning-layout-item>
+                                    <lightning-layout-item size="2">
+
+                                        <span
+                                            class="slds-box_xx-small slds-text-color_inverse slds-badge slds-theme_warning">1</span>
+
+                                        <span
+                                            class=" slds-m-left_xx-small slds-text-font_monospace slds-text-body_small">Yet
+                                            to join</span>
+
+                                    </lightning-layout-item>
+                                </lightning-layout>
+                            </div>
+                            <lightning-layout style="margin-top: 10px;">
+                                <lightning-layout-item style="width:100% ;">
+                                    <div class="slds-p-horizontal_medium slds-clearfix">
+                                        <table>
+                                            <thead style="border:aqua ;">
+                                                <th>
+                                                    <div style="margin: 19px;"><b>Name</b></div>
+                                                </th>
+                                                <th>
+                                                    <div><b>DOJ</b></div>
+                                                </th>
+                                                <th>
+                                                    <div><b>DOB</b></div>
+                                                </th>
+                                                <th>
+                                                    <div><b>Portal</b></div>
+                                                </th>
+                                                <th>
+                                                    <div><b>Status</b></div>
+                                                </th>
+                                                <th>
+                                                    <div><b>Action</b></div>
+                                                </th>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>
+
+                                                        <ul class="lkgSection" style="margin: 19px;">
+                                                            <li>Rinku</li>
+                                                            <li>Roll #RK100</li>
+
+                                                        </ul>
+                                                    </td>
+                                                    <td>
+                                                        <div>2-April-2022</div>
+                                                    </td>
+                                                    <td>
+                                                        <ul class="lkgSection">
+                                                            <li>21-sep-20</li>
+                                                            <li>2 Years, 1 Month</li>
+
+                                                        </ul>
+                                                    </td>
+                                                    <td>
+                                                        <div>
+                                                            <select name="student">
+                                                                <option value="Join">Join</option>
+                                                                <option value="Invite">Invite</option>
+                                                                <option value="Not invite">Not invite</option>
+                                                                <option value="Yet to join">Yet to join</option>
+                                                            </select>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div>Active</div>
+                                                    </td>
+                                                    <td>
+                                                        <div><a href="#">Send Invite</a></div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+
+                                                        <ul class="lkgSection" style="margin: 19px;">
+                                                            <li>Srihari</li>
+                                                            <li>Roll #SH100</li>
+
+                                                        </ul>
+                                                    </td>
+                                                    <td>
+                                                        <div>2-April-2022</div>
+                                                    </td>
+                                                    <td>
+                                                        <ul class="lkgSection">
+                                                            <li>21-sep-20</li>
+                                                            <li>2 Years, 1 Month</li>
+
+                                                        </ul>
+                                                    </td>
+                                                    <td>
+                                                        <div>
+                                                            <select name="student">
+                                                                <option value="Join">Join</option>
+                                                                <option value="Invite">Invite</option>
+                                                                <option value="Not invite">Not invite</option>
+                                                                <option value="Yet to join">Yet to join</option>
+                                                            </select>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div>Active</div>
+                                                    </td>
+                                                    <td>
+                                                        <div><a href="#">Send Invite</a></div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+
+                                                        <ul class="lkgSection" style="margin: 19px;">
+                                                            <li>Shubu</li>
+                                                            <li>Roll #SS100</li>
+
+                                                        </ul>
+                                                    </td>
+                                                    <td>
+                                                        <div>2-April-2022</div>
+                                                    </td>
+                                                    <td>
+                                                        <ul class="lkgSection">
+                                                            <li>21-sep-20</li>
+                                                            <li>2 Years, 1 Month</li>
+
+                                                        </ul>
+                                                    </td>
+                                                    <td>
+                                                        <div>
+                                                            <select name="student">
+                                                                <option value="Join">Join</option>
+                                                                <option value="Invite">Invite</option>
+                                                                <option value="Not invite">Not invite</option>
+                                                                <option value="Yet to join">Yet to join</option>
+                                                            </select>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div>Active</div>
+                                                    </td>
+                                                    <td>
+                                                        <div><a href="#">Send Invite</a></div>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </lightning-layout-item>
+                            </lightning-layout>
+                        </lightning-card>
+                    </lightning-tab>
+
+                    <lightning-tab label="SUBJECTS" value="two">
+                        <lightning-card style="margin:15px; text-transform:capitalize;" class="slds-card__header ">
+                            <lightning-layout class="slds-m-top_none slds-p-top_none">
+                                <lightning-layout-item size="4">
+
+                                </lightning-layout-item>
+                                <lightning-layout-item size="4">
+
+                                </lightning-layout-item>
+                                <lightning-layout-item size="4" class="slds-clearfix" style="margin-top:-3rem">
+                                    <lightning-button variant="brand"
+                                        class="slds-float_right slds-p-around_medium slds-m-top_none"
+                                        icon-name="utility:adduser" title="Add Subjects" onclick={openModal}>
+                                    </lightning-button>
+                                </lightning-layout-item>
+                            </lightning-layout>
+                            <lightning-layout style="margin-top: 10px;">
+                                <lightning-layout-item style="width:100% ;">
+                                    <div class="slds-p-horizontal_medium slds-clearfix">
+                                        <table>
+                                            <thead style="border:aqua ;">
+                                                <th>
+                                                    <div style="margin: 19px;"><b>Subject Name</b></div>
+                                                </th>
+                                                <th>
+                                                    <div><b>Type</b></div>
+                                                </th>
+                                                <th>
+                                                    <div><b>Student</b></div>
+                                                </th>
+                                                <th>
+                                                    <div><b>Assign teacher</b></div>
+                                                </th>
+                                                <th>
+                                                    <div><b>Co-Teacher(s)</b></div>
+                                                </th>
+                                                <th>
+                                                    <div><b>Action</b></div>
+                                                </th>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>
+
+                                                        <ul class="lkgSection" style="margin: 19px;">
+                                                            <li>English</li>
+
+
+                                                        </ul>
+                                                    </td>
+                                                    <td>
+                                                        <div>
+                                                            <select name="subjectType">
+                                                                <option value="Mandatory">Mandatory</option>
+                                                                <option value="Optional">Optional</option>
+                                                            </select>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <ul class="lkgSection">
+                                                            <li>All</li>
+
+
+                                                        </ul>
+                                                    </td>
+                                                    <td>
+                                                        <div><a href="#" onclick={openAssignTeacherModal}>Assign</a>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div><a href="#" onclick={openAssignTeacherModal}>Assign</a>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div>
+                                                            <select name="subjectAction">
+                                                                <option value="Edit">Edit</option>
+                                                                <option value="RemoveTeacher">Remove Teacher</option>
+                                                                <option value="Delete">Delete</option>                                                       
+                                                              </select>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+
+                                                        <ul class="lkgSection" style="margin: 19px;">
+                                                            <li>French</li>
+
+
+                                                        </ul>
+                                                    </td>
+                                                    <td>
+                                                        <div>
+                                                            <select name="subjectType">
+                                                                <option value="Mandatory">Mandatory</option>
+                                                                <option value="Optional">Optional</option>
+                                                            </select>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <ul class="lkgSection">
+                                                            <li>Students-2</li>
+                                                            <li><a href="#">Add Student</a></li>
+
+                                                        </ul>
+                                                    </td>
+                                                    <td>
+                                                        <div><a href="#" onclick={openAssignTeacherModal}>Assign</a>
+                                                        </div>
+                                                    </td>
+
+                                                    <td>
+                                                        <div><a href="#" onclick={openAssignTeacherModal}>Assign</a>
+                                                        </div>
+                                                    </td>
+
+                                                    <td>
+                                                        <div>
+                                                            <select name="subjectAction">
+                                                                <option value="Edit">Edit</option>
+                                                                <option value="RemoveTeacher">Remove Teacher</option>
+                                                                <option value="Delete">Delete</option>                                                       
+                                                              </select>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+
+                                                        <ul class="lkgSection" style="margin: 19px;">
+                                                            <li>Maths</li>
+
+
+                                                        </ul>
+                                                    </td>
+                                                    <td>
+                                                        <div>
+                                                            <select name="subjectType">
+                                                                <option value="Mandatory">Mandatory</option>
+                                                                <option value="Optional">Optional</option>                                                       
+                                                              </select>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <ul class="lkgSection">
+                                                            <li>All</li>
+
+
+                                                        </ul>
+                                                    </td>
+                                                    <td>
+                                                        <div><a href="#" onclick={openAssignTeacherModal}>Assign</a>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div><a href="#" onclick={openAssignTeacherModal}>Assign</a>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div>
+                                                            <select name="subjectAction">
+                                                                <option value="Edit">Edit</option>
+                                                                <option value="RemoveTeacher">Remove Teacher</option>
+                                                                <option value="Delete">Delete</option>                                                       
+                                                              </select>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </lightning-layout-item>
+                            </lightning-layout>
+                        </lightning-card>
+                    </lightning-tab>
+                </lightning-tabset>
+            </div>
+        </lightning-card>
+    </template>
+    <!-- </template> -->
+    <template if:true={isSubjectOpen}>
+
+        <c-add-edit-subject onmodalchange={closeModal}></c-add-edit-subject>
+    </template>
+    <template if:true={isAssignTeacherOpen}>
+        <c-assign-teachers onmodalchange={closeAssignTeacherModal}></c-assign-teachers>
+    </template>
+</template>

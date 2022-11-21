@@ -82,49 +82,47 @@
                         </lightning-button>
                     </div>
                 </lightning-record-edit-form> -->
-                <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
-                    <lightning-layout size="12">
-                        <lightning-layout-item size="6" class="slds-p-around_x-small">
+                <!-- <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1"> -->
+                    <lightning-layout multiple-rows class="slds-p-around_medium" style="align-items: flex-end;">
+                        <lightning-layout-item size="6" class="slds-p-around_x-small slds-p-top_none">
                             <lightning-input type="text" label="Teacher Name" placeholder="Teacher Name" name="teach"
                                 onchange={nameInpChange} class="validate" required>
                             </lightning-input>
                             <!-- <c-custom-lookup obj-name="Contact"></c-custom-lookup> -->
                         </lightning-layout-item>
-                        <lightning-layout-item size="6" class="slds-p-around_x-small">
+                        <lightning-layout-item size="6" class="slds-p-around_x-small slds-p-top_none bgtrans">
                             <!-- <label>Department Name</label> 
                         <c-custom-lookup obj-name="Department__c" onlookupselected={deptInpChange}>
                             </c-custom-lookup>  -->
                             <c-multi-select-lookup label="Department Name" field-name="Name" object-name="Department__c"
-                                onuserselected={handleSelectValue}></c-multi-select-lookup>
+                                onuserselected={handleSelectValue} ></c-multi-select-lookup>
                         </lightning-layout-item>
                     </lightning-layout>
-                    <lightning-layout size="12">
-                        <lightning-layout-item size="6" class="slds-p-around_x-small">
+                    <lightning-layout multiple-rows class="slds-p-around_medium">
+                        <lightning-layout-item size="6" class="slds-p-around_x-small slds-p-top_none">
                             <lightning-input type="email" label="Email Id" placeholder="Email Id" name="em"
                                 onchange={emailInpChange} class="validate" required>
                             </lightning-input>
                         </lightning-layout-item>
-                        <lightning-layout-item size="6" class="slds-p-around_x-small">
+                        <lightning-layout-item size="6" class="slds-p-around_x-small slds-p-top_none">
                             <lightning-input type="tel" label="Mobile" placeholder="Mobile" max-length="10" pattern="[0-9]{10}"
                                 name="mob" onchange={mobileInpChange} class="validate"
                                 message-when-pattern-mismatch="Please provide valid mobile number of exact 10digits"
                                 required>
                             </lightning-input>
                         </lightning-layout-item>
-                    </lightning-layout>
-                    
-                        <div slot="footer" class="slds-clearfix slds-p-top_xxx-small ">
-                            <lightning-button label="Cancel" onclick={closeModal}
-                                class="slds-var-m-left_xx-small slds-float_right"></lightning-button>
-    
-                            <lightning-button label="Save" variant="brand" onclick={saveHandler}
-                                class="slds-var-m-left_xx-small slds-float_right"></lightning-button>
-                               
-                        </div>
+                        
+                   
+                    <lightning-layout-item size="12" class="slds-var-m-top_large slds-align_absolute-center">
+                        <lightning-button variant="brand" label={btnLabel} type="submit">
+                        </lightning-button>
+                    </lightning-layout-item>
+                </lightning-layout>
+                   
                     
 
 
-                </div>
+                <!-- </div> -->
             </div>
             <template if:true={isLoading}>
                 <lightning-spinner alternative-text="Loading" variant="brand" style="background:transparent;">

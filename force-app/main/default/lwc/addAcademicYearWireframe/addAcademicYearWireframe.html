@@ -44,26 +44,40 @@
                 </lightning-record-edit-form> -->
 
                 <lightning-layout multiple-rows class="slds-p-around_medium">
-                    <lightning-layout-item size="3" class="toFromMargin">
+                    <lightning-layout-item size="5" class="slds-p-around_small slds-p-top_none">
+                        <lightning-input type="month" label="From" title="From" name="fromDate" onchange={handleInput}>
+                        </lightning-input>
+                    </lightning-layout-item>
+
+
+                    <lightning-layout-item size="2" class="toFromMargin">
 
                     </lightning-layout-item>
-                   
-                    <lightning-layout-item size="6" class="slds-p-around_small slds-p-top_none">
-                        <lightning-input type="month" label="From" title="From" name="fromDate"
-                            onchange={handleInput}></lightning-input>
+
+                    <lightning-layout-item size="5" class="slds-p-around_small slds-p-top_none">
+                        <lightning-input type="month" label="To" title="To" name="toDate" onchange={handleInput}>
+                        </lightning-input>
                     </lightning-layout-item>
-                    <lightning-layout-item size="3" class="toFromMargin">
+                    <lightning-layout-item size="12" class="slds-var-m-top_large">
 
                     </lightning-layout-item>
-                    <lightning-layout-item size="3" class="toFromMargin">
-                        
-                    </lightning-layout-item>
-                    <lightning-layout-item size="6" class="slds-p-around_small slds-p-top_none">
-                        <lightning-input type="month" label="To" title="To" name="toDate" onchange={handleInput}></lightning-input>
-                    </lightning-layout-item>
-                    <lightning-layout-item size="3">
+                    <lightning-layout-item size="5" class="slds-p-around_small slds-p-top_none">
+                        <div style="display:flex">
+                        <div style="padding-top: 0.25rem">
+                            <p>Set to Default</p>
+                        </div>
 
-                    </lightning-layout-item >
+                        <div style="margin-left: 9rem">
+                            <select name="academicYearDefault">
+                                <option value="No">No</option>
+                                <option value="Yes">Yes</option>
+                            </select>
+                        </div>
+                    </div>
+                    </lightning-layout-item>
+                    <lightning-layout-item size="7">
+
+                    </lightning-layout-item>
                     <lightning-layout-item size="12" class="slds-var-m-top_large slds-align_absolute-center">
                         <lightning-button label={btnLabel} onclick={saveHandler} variant="brand"
                             class=" slds-p-around_x-small slds-float_right">
