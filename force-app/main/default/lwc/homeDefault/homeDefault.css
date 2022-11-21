@@ -33,7 +33,7 @@
   justify-content: space-evenly;
 }
 
-ul.guidedFlow > li {
+ul.guidedFlow>li {
   margin: 8px 0;
 }
 
@@ -64,7 +64,7 @@ ul.guidedFlow > li {
 }
 
 lightning-layout-item.slds-size_1-of-1.slds-medium-size_6-of-12.slds-large-size_4-of-12.slds-col {
-  text-align: justify;
+  text-align: left;
   padding: 1rem;
 }
 
