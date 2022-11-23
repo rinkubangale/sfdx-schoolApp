@@ -120,4 +120,11 @@
 
 .sync-icon {
     --sds-c-icon-color-foreground-default: #0176d3aa;
+    animation: spinner 20s linear infinite;
+}
+
+@keyframes spinner {
+    to {
+        transform: rotate(360deg);
+    }
 }
