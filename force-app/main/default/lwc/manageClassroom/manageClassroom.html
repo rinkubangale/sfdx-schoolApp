@@ -1,85 +1,28 @@
 <!-- sldsValidatorIgnore -->
 <template>
-    <template if:false={createmodal}>
+    <template if:true={isClassSectionOpen}>
         <lightning-card>
             <div class="slds-p-horizontal_medium slds-clearfix">
 
                 <div class="slds-border_bottom slds-p-bottom_medium">
-                    <lightning-icon icon-name="standard:education" alternative-text="class/Subjects"
-                        title="Manage Classes and Subjects">
+                    <lightning-icon icon-name="standard:education"
+                        title="Manage Classes and Sections">
                     </lightning-icon>
-                    <span style="font-weight: bold; font-size: 16px; text-transform: uppercase;"
-                        class="slds-m-left_x-small slds-text-heading_large">Manage Class and
-                        Classroom</span>
+                    <span style="font-weight: bold; font-size: 16px;"
+                        class="slds-m-left_x-small slds-text-heading_large">Manage Class &
+                        Sections</span>
                     <!-- <c-create-class class="slds-float_right" label="Add Classes"></c-create-class> -->
                     <!-- <lightning-button variant="brand" icon-name="utility:adduser" title="Create class"
                         onclick={openModal} class="slds-float_right slds-m-left_medium">
                     </lightning-button> -->
                 </div>
-                <!-- <div style="width: 250px;margin: auto;"><lightning-input name="Search School type" type="search" label="Search class" placeholder="All Classes"
-                    onchange={handlesearch} value={depname}></lightning-input></div>
-               <lightning-layout style=" border: aqua;
-               background-color: rgb(240, 247, 246);
-               margin-top: 20px;
-               margin-bottom: 30px;
-               height: 25px;">
-                <lightning-layout-item size="6">
-                    <div><b>Class and Classroom</b></div>
-                </lightning-layout-item>
-                <lightning-layout-item size="6">
-                    <div style="margin-left: 512px"><b>Action</b></div>
-                </lightning-layout-item>
-               </lightning-layout>
-               <lightning-layout style='margin-bottom: 30px;'>
-               <lightning-layout-item size="6" >
-                <div><b>Class LKG</b></div>
-            </lightning-layout-item>
-        </lightning-layout>
                
-
-
-                
-
-
-                <div style = "display: flex;flex-wrap: wrap;">
-                    
-                        <template for:each={sectionlist} for:item="field">
-                            <div style="margin: 4px;
-                            border:  rgb(17, 12, 12);
-                            width: 150px;
-                            height: 40px;
-                            text-align: -webkit-center;
-                            background-color: #3395ff;" key={field.Name}>{field.Name}</div> 
-                         </template>
-
-                      
+                 <div class="slds-float_right slds-clearfix">
+                    <lightning-button variant="brand" class="slds-float_right slds-p-around_medium"
+                        icon-name="utility:adduser" title="Create Class" onclick={openClassModal}>
+                    </lightning-button>
                 </div>
-                <lightning-layout style='margin-bottom: 30px;' >
-                <lightning-layout-item size="6">
-                    <div><b>Class UKG</b></div>
-                </lightning-layout-item>
-            </lightning-layout>
-                   
-    
-    
-                    
-    
-    
-                    <div style = "display: flex;flex-wrap: wrap;">
-                        
-                            <template for:each={sectionlist} for:item="field">
-                                <div style="margin: 4px;
-                                border:  black;
-                                width: 150px;
-                                height: 40px;
-                                text-align: -webkit-center;
-                                background-color: #3395ff ;" key={field.Name}>{field.Name}</div> 
-                             </template>
-    
-                          
-                    </div>
 
-            </div> -->
             </div>
             <div class="container">
 
@@ -102,12 +45,12 @@
                             </td>
                             <td>
                                 <ul class="lkgSection">
-                                    <li onclick={handelModel}>LKG A</li>
-                                    <li onclick={handelModel}>LKG B</li>
-                                    <li onclick={handelModel}>LKG C</li>
-                                    <li onclick={handelModel}>LKG D</li>
-                                    <li onclick={handelModel}>LKG E</li>
-                                    <li onclick={handelModel}>LKG F</li>
+                                    <li onclick={openModal}>LKG A</li>
+                                    <li onclick={openModal}>LKG B</li>
+                                    <li onclick={openModal}>LKG C</li>
+                                    <li onclick={openModal}>LKG D</li>
+                                    <li onclick={openModal}>LKG E</li>
+                                    <li onclick={openModal}>LKG F</li>
                                 </ul>
                             </td>
                             <td>
@@ -120,12 +63,12 @@
                             </td>
                             <td>
                                 <ul class="lkgSection">
-                                    <li>UKG A</li>
-                                    <li>UKG B</li>
-                                    <li>UKG C</li>
-                                    <li>UKG D</li>
-                                    <li>UKG E</li>
-                                    <li>UKG F</li>
+                                    <li onclick={openModal}>UKG A</li>
+                                    <li onclick={openModal}>UKG B</li>
+                                    <li onclick={openModal}>UKG C</li>
+                                    <li onclick={openModal}>UKG D</li>
+                                    <li onclick={openModal}>UKG E</li>
+                                    <li onclick={openModal}>UKG F</li>
                                 </ul>
                             </td>
                             <td>
@@ -138,11 +81,12 @@
                             </td>
                             <td>
                                 <ul class="lkgSection">
-                                    <li>1st A</li>
-                                    <li>1st B</li>
-                                    <li>1st C</li>
-                                    <li>1st D</li>
-                                    <li>1st E</li>
+                                    <li onclick={openModal}>1st A</li>
+                                    <li onclick={openModal}>1st B</li>
+                                    <li onclick={openModal}>1st C</li>
+                                    <li onclick={openModal}>1st D</li>
+                                    <li onclick={openModal}>1st E</li>
+                                    <li onclick={openModal}>1st F</li>
                                     <li>1st F</li>
                                 </ul>
                             </td>
@@ -206,7 +150,10 @@
 
         </lightning-card>
     </template>
-    <template if:true={createmodal}>
-        <c-manage-student-teacher-subject onclick={handleModalChange}></c-manage-student-teacher-subject>
+    <template if:true={isManageAllOpen}>
+        <c-manage-student-teacher-subject onbackbtn={closeModal}></c-manage-student-teacher-subject>
+    </template>
+    <template if:true={isAddClassOpen}>
+        <c-add-class onmodalchange={closeClassModal}></c-add-class>
     </template>
 </template>

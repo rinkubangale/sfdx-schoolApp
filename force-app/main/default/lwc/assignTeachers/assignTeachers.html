@@ -1,15 +1,15 @@
 <template>
     <template if:false={createmodal}>
     <template if:false={isAssignOpen}>
-        <lightning-card style="margin:15px; text-transform:capitalize;" class="slds-card__header ">
-            <div class="cardcss">
+        <lightning-card style="margin:15px; text-transform:capitalize" class="slds-card__header">
+            <div class="cardcss" style="border-radius:6px">
                 <div class="header row no-left-margin no-right-margin">
                     <a href="#" data-close="true">
-                        <div class="back" onclick={handleModalChange}>
+                        <!-- <div class="back" onclick={handleModalChange}>
                             <lightning-icon icon-name="utility:back" size="x-small" alternative-text="Back!" title="Back">
                             </lightning-icon>
                             <p>Back</p>
-                        </div>
+                        </div> -->
                     </a>
                     <div class="Add-c-headings">
                         <p class="add-heading-manage fivpx-mrgn-btm">
@@ -20,11 +20,19 @@
                         </p>
                         <!-- <p class="add-subheading-manage">{subHeadTitle}</p> -->
                     </div>
-                    <a href="#" data-close="true">
+                    <!-- <a href="#" data-close="true">
                         <div class="esc" onclick={handleModalChange}>
                             <lightning-icon icon-name="utility:close" size="x-small" alternative-text="Esc!" title="Esc">
                             </lightning-icon>
                             <p>Esc</p>
+                        </div>
+                    </a> -->
+
+                    <a href="#" data-close="true">
+                        <div class="back" onclick={handleModalChange}>
+                            <lightning-icon icon-name="utility:back" size="x-small" alternative-text="Back!" title="Back">
+                            </lightning-icon>
+                            <p>Back</p>
                         </div>
                     </a>
                 </div>
@@ -48,6 +56,9 @@
                                     <h2>Teacher Name</h2>
                                 </div>
                             </th>
+                            <th> <div>
+                                <h2>Is Admin</h2>
+                            </div></th>
                             <th>
                                 <div>
                                     <h2>Action</h2>
@@ -60,6 +71,14 @@
                                     <ul>
                                         <li>
                                             Poornima
+                                        </li>
+                                    </ul>
+                                </td>
+                                <td>
+                                    <ul>
+                                        <li>
+                                            <input type="checkbox" >
+                                            
                                         </li>
                                     </ul>
                                 </td>
@@ -83,6 +102,14 @@
                                 <td>
                                     <ul>
                                         <li>
+                                            <input type="checkbox" >
+                                            
+                                        </li>
+                                    </ul>
+                                </td>
+                                <td>
+                                    <ul>
+                                        <li>
 
                                             <a href="#">Assign</a>
                                         </li>
@@ -96,7 +123,14 @@
                                         <li> Hemanth</li>
                                     </ul>
                                 </td>
-
+                                <td>
+                                    <ul>
+                                        <li>
+                                            <input type="checkbox" >
+                                            
+                                        </li>
+                                    </ul>
+                                </td>
                                 <td>
 
                                     <ul>

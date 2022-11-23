@@ -1,0 +1,47 @@
+<template>
+
+    <div class="body">
+        <div class="msgHeader">
+            <div>
+                <div class="userImg"></div>
+                <div>
+                    <div class="userName">Rinku</div>
+                    <div class="classSection">9 A</div>
+                </div>
+            </div>
+            <div>
+                <lightning-icon class="sync-icon" icon-name="utility:sync" size="small" alternative-text="send"
+                    title="send">
+                </lightning-icon>
+                <lightning-icon icon-name="utility:close" size="small" alternative-text="send" title="send">
+                </lightning-icon>
+            </div>
+        </div>
+
+        <div class="msgBody">
+            <h2>Chat Messages</h2>
+            <template for:each={messages} for:item="msg">
+                <div key={msg.Id}>
+                    <div class={msg.className}>
+                        <p>{msg.textMsg}</p>
+                        <span class={msg.timeClass}>{msg.textTime}</span>
+                    </div>
+                </div>
+            </template>
+        </div>
+
+        <div class="msgFooter">
+            <div>
+                <div>
+                    <input type="text" placeholder="Type your message...">
+                    <lightning-icon icon-name="utility:attach" size="x-small" alternative-text="attach" title="attach">
+                    </lightning-icon>
+                </div>
+            </div>
+            <div>
+                <lightning-icon icon-name="utility:send" size="x-small" alternative-text="send" title="send">
+                </lightning-icon>
+            </div>
+        </div>
+    </div>
+</template>

@@ -5,6 +5,7 @@ import { showError } from "c/utility";
 export default class HomeDefault extends NavigationMixin(LightningElement) {
   @api clicked = false;
   @track academicListView;
+  @track schoolType;
   @track departmentListView;
   @track teacherListView;
   @track listClass;
@@ -37,6 +38,7 @@ export default class HomeDefault extends NavigationMixin(LightningElement) {
   openCard(event) {
     this.clicked = true;
     this.academicListView = false;
+    this.schoolType = false;
     this.departmentListView = false;
     this.teacherListView = false;
     this.listClass = false;
@@ -61,6 +63,9 @@ export default class HomeDefault extends NavigationMixin(LightningElement) {
         break;
       case "academicListView":
         this.academicListView = true;
+        break;
+      case "schoolType":
+        this.schoolType = true;
         break;
       case "teacherListView":
         this.teacherListView = true;

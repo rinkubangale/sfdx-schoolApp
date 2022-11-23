@@ -1,8 +1,9 @@
 .layoutitemcommon {
-  border-radius: 1rem;
+  /* border-radius: 1rem; */
   background-color: white;
   color: black;
   border: 1px solid #eef;
+  align-self: stretch;
 }
 
 .addnotesbox {
@@ -22,6 +23,7 @@
   display: flex;
   justify-content: space-evenly;
 }
+
 .middlediv2 {
   background-image: url(https://cdn-icons-png.flaticon.com/512/1244/1244448.png?w=740&t=st=1667282888~exp=1667283488~hmac=42b81ac…);
   width: 5rem;
@@ -58,4 +60,127 @@
 
 .thirddiv {
   margin-top: -19px;
+}
+
+/* .............................. */
+
+.staffOnTime,
+.notInToday {
+  padding: 12px;
+  color: #fff;
+  background: #0176d388;
+  text-align: center;
+  font-weight: 500;
+}
+
+.attendanceTable,
+.requestInbox {
+  padding: 12px;
+  color: #444;
+  font-weight: 500;
+  text-align: center;
+  background: #eee;
+}
+
+.attendanceTable,
+.requestInbox>div {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 1rem 0;
+}
+
+.info lightning-layout.slds-grid.slds-wrap {
+  gap: 2rem;
+  justify-content: space-between;
+}
+
+.info {
+  margin: 2rem 0;
+  background: white;
+  text-align: center;
+  /* padding: 1rem; */
+}
+
+.info>div {
+  padding: 1rem;
+}
+
+.img {
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  background: #bebebe;
+  font-size: xx-large;
+  color: white;
+  padding: 4px;
+}
+
+.popNum {
+  width: 20px;
+  height: 20px;
+  background: rgb(255, 92, 92);
+  color: #fff;
+  position: absolute;
+  padding: 2px;
+  border-radius: 50%;
+  text-align: center;
+  font-size: 12px;
+  bottom: 0;
+  right: 0;
+}
+
+div {
+  color: #000;
+}
+
+.msgContainer {
+  display: flex;
+  flex-wrap: wrap;
+  /* justify-content: space-evenly; */
+}
+
+.profileContainer {
+  width: 54px;
+  padding: 1rem;
+  margin: 1rem;
+}
+
+.profileContainer>div {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 54px;
+}
+
+span.userName {
+  font-size: 12px;
+}
+
+.profileContainer>div:first-child {
+  cursor: pointer;
+  width: 54px;
+  position: relative;
+}
+
+.filterMsg {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 1rem 0;
+}
+
+.filterMsg div>span {
+  margin: 8px;
+}
+
+.headerTitle {
+  text-align: left;
+}
+
+@media (min-width: 64em) {
+
+  .displayCardRows .slds-large-size_3-of-12,
+  .displayCardRows .slds-large-size--3-of-12 {
+    width: 30%;
+  }
 }

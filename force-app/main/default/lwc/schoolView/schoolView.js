@@ -19,6 +19,62 @@ export default class SchoolView extends LightningElement {
   birthdayDate;
   @track holidaysData = [];
   @track userData = [];
+  data1 = [
+    {
+      Id: 1,
+      Name: "Dhinakar",
+      firstLetter: "D",
+      totalMessages: "2"
+    },
+    {
+      Id: 2,
+      Name: "Jagdish",
+      firstLetter: "J",
+      totalMessages: "3"
+    },
+    {
+      Id: 3,
+      Name: "Shubhendra",
+      firstLetter: "S",
+      totalMessages: "4"
+    },
+    {
+      Id: 1,
+      Name: "Srihari",
+      firstLetter: "S",
+      totalMessages: "2"
+    },
+    {
+      Id: 2,
+      Name: "Abhilash",
+      firstLetter: "A",
+      totalMessages: "3"
+    },
+    {
+      Id: 3,
+      Name: "Subish",
+      firstLetter: "S",
+      totalMessages: "4"
+    },
+    {
+      Id: 1,
+      Name: "Nagaratna",
+      firstLetter: "N",
+      totalMessages: "2"
+    },
+    {
+      Id: 2,
+      Name: "Sujitha",
+      firstLetter: "S",
+      totalMessages: "3"
+    },
+    {
+      Id: 3,
+      Name: "Rinku",
+      firstLetter: "R",
+      totalMessages: "4"
+    }
+  ];
 
   get classStyleBtn() {
     return this.clockInLabel === "Clock Out" ? "brand-outline" : "brand";
@@ -179,5 +235,13 @@ export default class SchoolView extends LightningElement {
           console.error(err);
         });
     }
+  }
+
+  //....................Chat ScreenContainer
+
+  @track openChats = false;
+  openMsgBox() {
+    console.log("Its been closed");
+    this.openChats = true;
   }
 }

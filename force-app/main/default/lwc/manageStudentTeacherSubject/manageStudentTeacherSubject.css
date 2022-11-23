@@ -1,6 +1,17 @@
-select{
+select {
     border: none;
-    background-color: #0176d303;
-    padding: 6px;
+    background-color: #ffffff;
+    padding: 5px;
+    border: none;
+    border-color: none;
     outline: none;
+  }
+  :host{
+
+    --slds-c-card-color-background:white;
+
+    --slds-c-card-color-border:#c9c9c9;
+
+    --slds-c-card-footer-color-border:#c9c9c9;
+
 }

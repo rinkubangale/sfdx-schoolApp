@@ -1,90 +1,196 @@
 <template>
-
-  <lightning-layout multiple-rows>
-    <lightning-layout-item padding="around-small"
-      class="slds-size_1-of-1 slds-medium-size_6-of-12 slds-large-size_4-of-12 layoutitemcommon color"
-      alignment-bump="">
-      <div class="slds-clearfix topdiv">
-        <div class="slds-text-heading_small">
-          <b>Attendance</b>
-        </div>
-        <div class="topdiv2">
-          <lightning-icon size="small" icon-name="utility:event" alternative-text="" title="Event">
-          </lightning-icon>
-          <lightning-icon size="small" icon-name="utility:weeklyview" alternative-text="" title="Event">
-          </lightning-icon>
-        </div>
-      </div>
-      <br />
-      <div class="slds-grid slds-wrap">
-        <div>
-          <input type="text" class="addnotesbox" placeholder="Add Notes"></input>
-        </div>
-        <div>
-          <lightning-button icon-name="utility:clock" variant={classStyleBtn} label={clockInLabel}
-            title="Destructive action" onclick={handleClick} class="clockin"></lightning-button>
-          <p><b style="font-size: 12px;">{sinceLogin}</b><span style="font-size: 10px;"> Since Last Login</span></p>
-        </div>
-      </div>
-      <br />
-      <div class="bottomdiv">
-        <div class="slds-text-heading_large slds-text-align_center duration">
-          <h1>{timer}</h1>
-        </div>
-        <div class="slds-text-align_center slds-text-heading_small todaydate">
-          <p>{dateToday}</p>
-        </div>
-      </div>
-    </lightning-layout-item>
-
-    <lightning-layout-item class="slds-size_1-of-1 slds-medium-size_6-of-12 slds-large-size_4-of-12 layoutitemcommon"
-      style="position:relative" padding="around-small" alignment-bump="">
-      <div class="slds-clearfix">
-        <div class="slds-text-heading_small">
-          <b>Birthday</b>
-        </div>
-      </div>
-      <div if:false={userData.length} class="slds-grid slds-wrap middlediv2">
-      </div>
-      <div class="slds-text-body_small slds-grid slds-wrap"
-        style="display:flex; gap:10px; padding:10px; justify-content:center">
-        <p if:false={userData.length}>No upcoming birthdays this month.</p>
-        <template class="birthday" for:each={userData} for:item="user">
-          <div key={user.Id}>
-            <img src={user.MediumPhotoUrl} alt={user.Name} width="40px" style="border-radius:50%" />
-            <p>{user.Name}</p>
-            <p>{user.Birthday__c}</p>
-          </div>
-        </template>
-      </div>
-    </lightning-layout-item>
-
-    <lightning-layout-item class="slds-size_1-of-1 slds-medium-size_6-of-12 slds-large-size_4-of-12 layoutitemcommon"
-      padding="around-small" alignment-bump="">
-      <div class="slds-clearfix bottomdiv2">
-        <div>
-          <b>Upcoming Holidays</b>
-        </div>
-        <div style="margin-left:2em">
-          <lightning-button class="listview" label="List" onclick={handleClick1}></lightning-button>
-          <lightning-button class="graphicview" label="Graphic" onclick={handleClick2}></lightning-button>
-        </div>
-      </div>
-      <br />
-      <div style="overflow:auto; height: 70%">
-        <template for:each={holidaysData} for:item="holiday">
-          <div key={holiday.Id} class="slds-clearfix" style="padding: 10px 0px;">
-            <div class="festival">
-              <h3>{holiday.Name}</h3>
+  <div class="slds-grid slds-wrap">
+    <div class="slds-col slds-size_1-of-1 displayCardRows">
+      <lightning-layout multiple-rows style="gap: 2rem;">
+        <lightning-layout-item
+          class="slds-var-p-around_x-large slds-size_1-of-1 slds-medium-size_5-of-12 slds-large-size_3-of-12 layoutitemcommon color"
+          alignment-bump="">
+          <div class="slds-clearfix topdiv">
+            <div class="slds-text-heading_small">
+              <b>Attendance</b>
             </div>
-            <div class="slds-float_right thirddiv">
-              <p>{holiday.date}</p>
-              <p>{holiday.day}</p>
+            <div class="topdiv2">
+              <lightning-icon size="small" icon-name="utility:event" alternative-text="" title="Event">
+              </lightning-icon>
+              <lightning-icon size="small" icon-name="utility:weeklyview" alternative-text="" title="Event">
+              </lightning-icon>
             </div>
           </div>
-        </template>
-      </div>
-    </lightning-layout-item>
-  </lightning-layout>
+          <br />
+          <div class="slds-grid slds-wrap">
+            <div>
+              <input type="text" class="addnotesbox" placeholder="Add Notes"></input>
+            </div>
+            <div>
+              <lightning-button icon-name="utility:clock" variant={classStyleBtn} label={clockInLabel}
+                title="Destructive action" onclick={handleClick} class="clockin"></lightning-button>
+              <p><b style="font-size: 12px;">{sinceLogin}</b><span style="font-size: 10px;"> Since Last Login</span></p>
+            </div>
+          </div>
+          <br />
+          <div class="bottomdiv">
+            <div class="slds-text-heading_large slds-text-align_center duration">
+              <h1>{timer}</h1>
+            </div>
+            <div class="slds-text-align_center slds-text-heading_small todaydate">
+              <p>{dateToday}</p>
+            </div>
+          </div>
+        </lightning-layout-item>
 
+        <lightning-layout-item
+          class="slds-var-p-around_x-large slds-size_1-of-1 slds-medium-size_5-of-12 slds-large-size_3-of-12 layoutitemcommon"
+          style="position:relative" alignment-bump="">
+          <div class="slds-clearfix">
+            <div class="slds-text-heading_small">
+              <b>Birthday</b>
+            </div>
+          </div>
+          <div if:false={userData.length} class="slds-grid slds-wrap middlediv2">
+          </div>
+          <div class="slds-text-body_small slds-grid slds-wrap"
+            style="display:flex; gap:10px; padding:10px; justify-content:center">
+            <p if:false={userData.length}>No upcoming birthdays this month.</p>
+            <template class="birthday" for:each={userData} for:item="user">
+              <div key={user.Id}>
+                <img src={user.MediumPhotoUrl} alt={user.Name} width="40px" style="border-radius:50%" />
+                <p>{user.Name}</p>
+                <p>{user.Birthday__c}</p>
+              </div>
+            </template>
+          </div>
+        </lightning-layout-item>
+
+        <lightning-layout-item
+          class="slds-var-p-around_x-large slds-size_1-of-1 slds-medium-size_5-of-12 slds-large-size_3-of-12 layoutitemcommon"
+          alignment-bump="">
+          <div class="slds-clearfix bottomdiv2">
+            <div>
+              <b>Upcoming Holidays</b>
+            </div>
+            <div style="margin-left:2em">
+              <lightning-button class="listview" label="List" onclick={handleClick1}></lightning-button>
+              <lightning-button class="graphicview" label="Graphic" onclick={handleClick2}></lightning-button>
+            </div>
+          </div>
+          <br />
+          <div style="overflow:auto; height: 70%">
+            <template for:each={holidaysData} for:item="holiday">
+              <div key={holiday.Id} class="slds-clearfix" style="padding: 10px 0px;">
+                <div class="festival">
+                  <h3>{holiday.Name}</h3>
+                </div>
+                <div class="slds-float_right thirddiv">
+                  <p>{holiday.date}</p>
+                  <p>{holiday.day}</p>
+                </div>
+              </div>
+            </template>
+          </div>
+        </lightning-layout-item>
+      </lightning-layout>
+    </div>
+    <div class="slds-grid slds-wrap info">
+      <div class="slds-col slds-size_6-of-12">
+        <lightning-layout multiple-rows>
+          <lightning-layout-item class="slds-size_1-of-1 slds-medium-size_5-of-12">
+            <div class="staffOnTime">
+              <p>Staff on time Today</p>
+              <p>
+                <span>5</span>
+              </p>
+            </div>
+          </lightning-layout-item>
+          <lightning-layout-item class="slds-size_1-of-1 slds-medium-size_5-of-12">
+            <div class="notInToday">
+              <p>Not in Today</p>
+              <p>
+                <span>5</span>
+              </p>
+            </div>
+          </lightning-layout-item>
+          <lightning-layout-item class="slds-size_1-of-1">
+            <div class="attendanceTable">
+              <div class="slds-size_1-of-1 slds-medium-size_5-of-12 slds-large-size_3-of-12">
+                <p>Class Attendance</p>
+                <p>
+                  <span>5/24</span>
+                </p>
+              </div>
+              <div class="slds-size_1-of-1 slds-medium-size_5-of-12 slds-large-size_3-of-12">
+                <p>Total Students</p>
+                <p>
+                  <span>340</span>
+                </p>
+              </div>
+              <div class="slds-size_1-of-1 slds-medium-size_5-of-12 slds-large-size_3-of-12">
+                <p>Present</p>
+                <p>
+                  <span>320</span>
+                </p>
+              </div>
+              <div class="slds-size_1-of-1 slds-medium-size_5-of-12 slds-large-size_3-of-12">
+                <p>Absent</p>
+                <p>
+                  <span>20</span>
+                </p>
+              </div>
+            </div>
+          </lightning-layout-item>
+          <lightning-layout-item class="slds-size_1-of-1">
+            <div class="requestInbox">
+              <h1>Inbox</h1>
+              <div>
+                <div class="slds-size_1-of-1 slds-medium-size_6-of-12 slds-large-size_3-of-12">
+                  <p>Leave Request</p>
+                  <p>
+                    <span>2</span>
+                  </p>
+                </div>
+                <div class="slds-size_1-of-1 slds-medium-size_6-of-12 slds-large-size_3-of-12">
+                  <p>Attendance Swipe</p>
+                  <p>
+                    <span>3</span>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </lightning-layout-item>
+        </lightning-layout>
+      </div>
+      <div class="slds-col slds-size_6-of-12">
+        <div class="headerTitle">
+          <h1 class="slds-text-heading_medium">MESSAGES</h1>
+        </div>
+        <div class="filterMsg">
+          <div>Filter:
+            <span>
+              <input type="text" placeholder="All Staff" />
+            </span>
+          </div>
+          <div>
+            <select name="messages" id="messages">
+              <option value="All messages">All messages</option>
+            </select>
+          </div>
+        </div>
+        <div class="msgContainer slds-grid slds-wrap">
+          <template for:each={data1} for:item="item">
+            <div key={item.Id}
+              class="profileContainer slds-col slds-size_4-of-12 slds-medium-size_3-of-12 slds-large-size_2-of-12">
+              <div onclick={openMsgBox}>
+                <!-- <img src={userImg} alt="profile" /> -->
+                <div class="img">{item.firstLetter}</div>
+                <span class="popNum">{item.totalMessages}</span>
+              </div>
+              <div>
+                <span class="userName">{item.Name}</span>
+              </div>
+            </div>
+          </template>
+        </div>
+      </div>
+    </div>
+  </div>
+  <c-chat-popup if:true={openChats}></c-chat-popup>
 </template>

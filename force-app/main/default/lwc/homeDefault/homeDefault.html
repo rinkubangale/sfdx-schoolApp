@@ -12,6 +12,9 @@
         <template if:true={academicListView}>
             <c-academic-list-view onbackbtn={handleBack}></c-academic-list-view>
         </template>
+        <template if:true={schoolType}>
+            <c-school-type-standard onbackbtn={handleBack}></c-school-type-standard>
+        </template>
         <template if:true={departmentListView}>
             <c-department-listview onbackbtn={handleBack}></c-department-listview>
         </template>
@@ -94,27 +97,27 @@
                         <li class="slds-size_6-of-12 slds-medium-size_4-of-12 slds-large-size_2-of-12">
                             <lightning-icon icon-name="utility:success" alternative-text="Utility success"
                                 title="success"></lightning-icon>
-                            <span style="margin-left: 2px">Academic Year</span>
+                            <span>Academic Year</span>
                         </li>
                         <li class="slds-size_6-of-12 slds-medium-size_4-of-12 slds-large-size_2-of-12">
                             <lightning-icon icon-name="utility:success" alternative-text="Utility success"
                                 title="success"></lightning-icon>
-                            <span style="margin-left: 2px">School Type</span>
+                            <span>School Type</span>
                         </li>
                         <li class="slds-size_6-of-12 slds-medium-size_4-of-12 slds-large-size_2-of-12">
                             <lightning-icon icon-name="utility:success" alternative-text="Utility success"
                                 title="success"></lightning-icon>
-                            <span style="margin-left: 2px">Class/Sections</span>
+                            <span>Class/Sections</span>
                         </li>
                         <li class="slds-size_6-of-12 slds-medium-size_4-of-12 slds-large-size_2-of-12">
                             <lightning-icon icon-name="utility:success" alternative-text="Utility success"
                                 title="success"></lightning-icon>
-                            <span style="margin-left: 2px">Students</span>
+                            <span>Students</span>
                         </li>
                         <li class="slds-size_6-of-12 slds-medium-size_4-of-12 slds-large-size_2-of-12">
                             <lightning-icon icon-name="utility:success" alternative-text="Utility success"
                                 title="success"></lightning-icon>
-                            <span style="margin-left: 2px">Admissions</span>
+                            <span>Admissions</span>
                         </li>
                     </ul>
                 </lightning-layout-item>
@@ -129,8 +132,8 @@
                 </lightning-layout-item>
                 <lightning-layout-item flexibility="auto" padding="around-small"
                     class="slds-size_1-of-1 slds-medium-size_6-of-12 slds-large-size_4-of-12">
-                    <span onclick={defaultNotSet} data-name="schoolType">
-                        <c-default-card obj-api-name='Academic_Year__c' header="School Type Setup" step="STEP 1"
+                    <span onclick={openCard} data-name="schoolType">
+                        <c-default-card obj-api-name='Academic_Year__c' header="School Type Setup" step="STEP 2"
                             header-line="Create School Type as per your requirements"
                             example-tag="[for eg: Kindergarten, Lower primary, Upper primary]">
                         </c-default-card>
@@ -193,7 +196,7 @@
                 <lightning-layout-item flexibility="auto" padding="around-small"
                     class="slds-size_1-of-1 slds-medium-size_6-of-12 slds-large-size_3-of-12">
                     <span onclick={openCard} data-name="departmentListView">
-                        <c-optional-card icon-name="utility:notebook" header-line="Manage Departments"
+                        <c-optional-card icon-name="action:new_note" header-line="Manage Departments"
                             example-tag="Lower Primary, English Department, Sport...">
                         </c-optional-card>
                     </span>
@@ -201,7 +204,7 @@
                 <lightning-layout-item flexibility="auto" padding="around-small"
                     class="slds-size_1-of-1 slds-medium-size_6-of-12 slds-large-size_3-of-12">
                     <span onclick={openCard} data-name="teacherListView">
-                        <c-optional-card icon-name="utility:user_role" header-line="Manage Teachers/Admins"
+                        <c-optional-card icon-name="action:add_contact" header-line="Manage Teachers/Admins"
                             example-tag="">
                         </c-optional-card>
                     </span>
@@ -209,7 +212,7 @@
                 <lightning-layout-item flexibility="auto" padding="around-small"
                     class="slds-size_1-of-1 slds-medium-size_6-of-12 slds-large-size_3-of-12">
                     <span onclick={openCard} data-name="teacherListView">
-                        <c-optional-card icon-name="utility:people" header-line="Promote Students" example-tag="">
+                        <c-optional-card icon-name="action:new_group" header-line="Promote Students" example-tag="">
                         </c-optional-card>
                     </span>
                 </lightning-layout-item>

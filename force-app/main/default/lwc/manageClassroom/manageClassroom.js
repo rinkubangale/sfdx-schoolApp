@@ -1,16 +1,35 @@
-import { LightningElement, track, wire } from "lwc";
+import {
+  LightningElement,
+  track,
+  wire
+} from "lwc";
 import listClass from "@salesforce/apex/listClass.listClass";
 
 export default class ManageClassroom extends LightningElement {
+  @track isClassSectionOpen = true;
+  @track isManageAllOpen = false;
+  @track isAddClassOpen = false;
   @track modalopen;
   @track createmodal;
+
+  openClassModal() {
+    this.isClassSectionOpen = false;
+    this.isAddClassOpen = true;
+  }
+
+  closeClassModal() {
+    this.isClassSectionOpen = true;
+    this.isAddClassOpen = false;
+  }
   openModal() {
     // to open modal set isModalOpen tarck value as true
-    this.isModalOpen = true;
+    this.isManageAllOpen = true;
+    this.isClassSectionOpen = false;
   }
   closeModal() {
     // to close modal set isModalOpen tarck value as false
-    this.isModalOpen = false;
+    this.isManageAllOpen = false;
+    this.isClassSectionOpen = true;
   }
   submitDetails() {
     // to close modal set isModalOpen tarck value as false

@@ -6,11 +6,11 @@
         <main class="main-content add-class-wrap">
             <div class="header row no-left-margin no-right-margin">
                 <a href="#" data-close="true">
-                    <div class="back" onclick={handleModalChange}>
+                    <!-- <div class="back" onclick={handleModalChange}>
                         <lightning-icon icon-name="utility:back" size="x-small" alternative-text="Back!" title="Back">
                         </lightning-icon>
                         <p>Back</p>
-                    </div>
+                    </div> -->
                 </a>
                 <div class="Add-c-headings">
                     <p class="add-heading-manage fivpx-mrgn-btm">
@@ -19,13 +19,21 @@
                         </lightning-icon>
                         <b>{headTitle}</b>
                     </p>
-                    <p class="add-subheading-manage">{subHeadTitle}</p>
+                    <!-- <p class="add-subheading-manage">{subHeadTitle}</p> -->
                 </div>
-                <a href="#" data-close="true">
+                <!-- <a href="#" data-close="true">
                     <div class="esc" onclick={handleModalChange}>
                         <lightning-icon icon-name="utility:close" size="x-small" alternative-text="Esc!" title="Esc">
                         </lightning-icon>
                         <p>Esc</p>
+                    </div>
+                </a> -->
+
+                <a href="#" data-close="true">
+                    <div class="back" onclick={handleModalChange}>
+                        <lightning-icon icon-name="utility:back" size="x-small" alternative-text="Back!" title="Back">
+                        </lightning-icon>
+                        <p>Back</p>
                     </div>
                 </a>
             </div>
@@ -63,17 +71,17 @@
                     </lightning-layout-item>
                     <lightning-layout-item size="5" class="slds-p-around_small slds-p-top_none">
                         <div style="display:flex">
-                        <div style="padding-top: 0.25rem">
-                            <p>Set to Default</p>
-                        </div>
+                            <div style="padding-top: 0.25rem">
+                                <p style="font-size:smaller">Set to Default</p>
+                            </div>
 
-                        <div style="margin-left: 9rem">
-                            <select name="academicYearDefault">
-                                <option value="No">No</option>
-                                <option value="Yes">Yes</option>
-                            </select>
+                            <div style="margin-left: 9rem">
+                                <select name="academicYearDefault">
+                                    <option value="No">No</option>
+                                    <option value="Yes">Yes</option>
+                                </select>
+                            </div>
                         </div>
-                    </div>
                     </lightning-layout-item>
                     <lightning-layout-item size="7">
 

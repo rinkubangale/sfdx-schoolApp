@@ -30,8 +30,6 @@ export default class AssignTeachers extends LightningElement {
  handelModel(){
     this.createmodal = !this.createmodal;
  }
-  handleModalChange(event) {
-    this.isModalOpen = event.detail;
-  }
+ 
 
 }

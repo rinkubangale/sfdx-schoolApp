@@ -28,18 +28,22 @@
   display: flex;
   background: #8080801f;
   border-radius: 2rem;
-  justify-content: space-evenly;
-  margin: 12px;
-  padding: 0 12px;
+  justify-content: space-between;
+  margin: 0 12px;
 }
 
 
 ul.guidedFlow>li {
-  margin: 12px auto;
+  margin: 12px;
   text-align: center;
   text-overflow: ellipsis;
   overflow: hidden;
   white-space: nowrap;
+  width: fit-content;
+}
+
+ul.guidedFlow>li span {
+  margin-left: 4px !important;
 }
 
 @media (max-width: 720px) {
