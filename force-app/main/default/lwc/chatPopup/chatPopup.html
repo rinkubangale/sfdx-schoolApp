@@ -3,17 +3,18 @@
     <div class="body">
         <div class="msgHeader">
             <div>
-                <div class="userImg"></div>
+                <div class="userImg">{userImgChar}</div>
                 <div>
-                    <div class="userName">Rinku</div>
-                    <div class="classSection">9 A</div>
+                    <div class="userName">{userProfile.Name}</div>
+                    <div class="classSection">{userProfile.class}{userProfile.section}</div>
                 </div>
             </div>
             <div>
-                <lightning-icon class="sync-icon" icon-name="utility:sync" size="small" alternative-text="send"
-                    title="send">
+                <lightning-icon class="sync-icon" icon-name="utility:sync" size="small" alternative-text="sync"
+                    title="sync">
                 </lightning-icon>
-                <lightning-icon icon-name="utility:close" size="small" alternative-text="send" title="send">
+                <lightning-icon icon-name="utility:close" onclick={closeChat} size="small" alternative-text="close"
+                    title="close">
                 </lightning-icon>
             </div>
         </div>
@@ -33,13 +34,15 @@
         <div class="msgFooter">
             <div>
                 <div>
-                    <input type="text" placeholder="Type your message...">
+                    <input type="text" id="inputMsgBox" placeholder="Type your message..." onchange={handleTextChange}
+                        onkeyup={enterPressed} />
                     <lightning-icon icon-name="utility:attach" size="x-small" alternative-text="attach" title="attach">
                     </lightning-icon>
                 </div>
             </div>
             <div>
-                <lightning-icon icon-name="utility:send" size="x-small" alternative-text="send" title="send">
+                <lightning-icon icon-name="utility:send" size="x-small" alternative-text="send" title="send"
+                    onclick={sendMessage}>
                 </lightning-icon>
             </div>
         </div>

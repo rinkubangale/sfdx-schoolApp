@@ -178,7 +178,7 @@
           <template for:each={data1} for:item="item">
             <div key={item.Id}
               class="profileContainer slds-col slds-size_4-of-12 slds-medium-size_3-of-12 slds-large-size_2-of-12">
-              <div onclick={openMsgBox}>
+              <div onclick={toggleChatWindow} data-name={item.Name} data-section={item.section} data-class={item.class}>
                 <!-- <img src={userImg} alt="profile" /> -->
                 <div class="img">{item.firstLetter}</div>
                 <span class="popNum">{item.totalMessages}</span>
@@ -192,5 +192,5 @@
       </div>
     </div>
   </div>
-  <c-chat-popup if:true={openChats}></c-chat-popup>
+  <c-chat-popup onchatclose={toggleChatWindow} user-profile={userDetails} if:true={openChats}></c-chat-popup>
 </template>

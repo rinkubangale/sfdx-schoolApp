@@ -42,6 +42,9 @@
         <template if:true={invoiceListView}>
             <c-invoice-list-view onbackbtn={handleBack}></c-invoice-list-view>
         </template>
+        <template if:true={promoteStudents}>
+            <c-add-promote-student onbackbtn={closeModal}></c-add-promote-student>
+        </template>
     </template>
 
     <template if:false={clicked}>
@@ -211,7 +214,7 @@
                 </lightning-layout-item>
                 <lightning-layout-item flexibility="auto" padding="around-small"
                     class="slds-size_1-of-1 slds-medium-size_6-of-12 slds-large-size_3-of-12">
-                    <span onclick={openCard} data-name="teacherListView">
+                    <span onclick={openCard} data-name="promoteStudents">
                         <c-optional-card icon-name="action:new_group" header-line="Promote Students" example-tag="">
                         </c-optional-card>
                     </span>

@@ -24,55 +24,73 @@ export default class SchoolView extends LightningElement {
       Id: 1,
       Name: "Dhinakar",
       firstLetter: "D",
-      totalMessages: "2"
+      totalMessages: "2",
+      section: "A",
+      class: "9"
     },
     {
       Id: 2,
       Name: "Jagdish",
       firstLetter: "J",
-      totalMessages: "3"
+      totalMessages: "3",
+      section: "A",
+      class: "9"
     },
     {
       Id: 3,
       Name: "Shubhendra",
       firstLetter: "S",
-      totalMessages: "4"
+      totalMessages: "4",
+      section: "A",
+      class: "9"
     },
     {
       Id: 1,
       Name: "Srihari",
       firstLetter: "S",
-      totalMessages: "2"
+      totalMessages: "2",
+      section: "A",
+      class: "9"
     },
     {
       Id: 2,
       Name: "Abhilash",
       firstLetter: "A",
-      totalMessages: "3"
+      totalMessages: "3",
+      section: "A",
+      class: "9"
     },
     {
       Id: 3,
       Name: "Subish",
       firstLetter: "S",
-      totalMessages: "4"
-    },
-    {
-      Id: 1,
-      Name: "Nagaratna",
-      firstLetter: "N",
-      totalMessages: "2"
-    },
-    {
-      Id: 2,
-      Name: "Sujitha",
-      firstLetter: "S",
-      totalMessages: "3"
+      totalMessages: "4",
+      section: "A",
+      class: "9"
     },
     {
       Id: 3,
       Name: "Rinku",
       firstLetter: "R",
-      totalMessages: "4"
+      totalMessages: "4",
+      section: "A",
+      class: "9"
+    },
+    {
+      Id: 1,
+      Name: "Nagaratna",
+      firstLetter: "N",
+      totalMessages: "2",
+      section: "A",
+      class: "9"
+    },
+    {
+      Id: 2,
+      Name: "Sujitha",
+      firstLetter: "S",
+      totalMessages: "3",
+      section: "A",
+      class: "9"
     }
   ];
 
@@ -240,8 +258,14 @@ export default class SchoolView extends LightningElement {
   //....................Chat ScreenContainer
 
   @track openChats = false;
-  openMsgBox() {
-    console.log("Its been closed");
-    this.openChats = true;
+  @track userDetails;
+
+  toggleChatWindow(e) {
+    this.openChats = !this.openChats;
+    this.userDetails = {
+      Name: e.currentTarget.dataset.name,
+      section: e.currentTarget.dataset.section,
+      class: e.currentTarget.dataset.class
+    };
   }
 }
