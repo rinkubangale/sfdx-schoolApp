@@ -17,10 +17,6 @@
     flex-wrap: wrap;
 }
 
-.container>div {
-    padding: 1rem 0;
-}
-
 .container>div:first-child {
     background: white;
     border-radius: 8px;
