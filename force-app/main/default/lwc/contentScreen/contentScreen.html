@@ -29,10 +29,10 @@
     <template if:true={showCheckin}>
         <c-check-in-list-view clicked={goBack}></c-check-in-list-view>
     </template>
-    <template if:true={inbox}>
+    <template if:true={showInbox}>
         <c-check-in-list-view clicked={goBack}></c-check-in-list-view>
     </template>
-    <template if:true={newFeatures}>
-        <c-check-in-list-view clicked={goBack}></c-check-in-list-view>
+    <template if:true={showNewFeatures}>
+        <c-feature-request clicked={goBack}></c-feature-request>
     </template>
 </template>
