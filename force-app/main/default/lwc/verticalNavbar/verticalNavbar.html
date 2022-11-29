@@ -28,7 +28,7 @@
                         <lightning-icon icon-name="utility:alert" size="small" alternative-text="Notifications"
                             title="Notifications" class="my-icon">
                         </lightning-icon>
-                        <span class={hide}>Notifications</span>
+                        <span class={hide}>Alerts & Messages</span>
                     </span>
                 </li>
 
@@ -49,7 +49,14 @@
                         <span class={hide}>Fee Management</span>
                     </span>
                 </li>
-
+                <li>
+                    <span onclick={toInbox}>
+                        <lightning-icon icon-name="utility:inbox" size="small" alternative-text="Inbox" title="Inbox"
+                            class="my-icon">
+                        </lightning-icon>
+                        <span class={hide}>Inbox</span>
+                    </span>
+                </li>
                 <li>
                     <span onclick={toCheckin}>
                         <lightning-icon icon-name="utility:checkin" size="small" alternative-text="CheckIns"
@@ -65,6 +72,14 @@
                             title="Settings" class="my-icon">
                         </lightning-icon>
                         <span class={hide}>Settings</span>
+                    </span>
+                </li>
+                <li>
+                    <span onclick={toSuggestions}>
+                        <lightning-icon icon-name="utility:news" size="small" alternative-text="Feature Request"
+                            title="Feature Request" class="my-icon">
+                        </lightning-icon>
+                        <span class={hide}>Feature Request</span>
                     </span>
                 </li>
 

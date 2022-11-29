@@ -27,6 +27,12 @@
     </template>
 
     <template if:true={showCheckin}>
-        <c-check-in-list-view></c-check-in-list-view>
+        <c-check-in-list-view clicked={goBack}></c-check-in-list-view>
+    </template>
+    <template if:true={inbox}>
+        <c-check-in-list-view clicked={goBack}></c-check-in-list-view>
+    </template>
+    <template if:true={newFeatures}>
+        <c-check-in-list-view clicked={goBack}></c-check-in-list-view>
     </template>
 </template>

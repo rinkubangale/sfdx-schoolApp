@@ -177,6 +177,24 @@ span.userName {
   text-align: left;
 }
 
+.bottomdiv {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.btmlft>div>span {
+  margin-left: 4px;
+}
+
+.btmlft>div {
+  display: flex;
+  align-items: center;
+}
+
+.btmrgt>div>span {
+  font-size: 12px;
+}
+
 @media (min-width: 64em) {
 
   .displayCardRows .slds-large-size_3-of-12,
