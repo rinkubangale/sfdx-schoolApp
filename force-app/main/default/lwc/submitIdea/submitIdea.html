@@ -1,0 +1,37 @@
+<template>
+    <div class="container">
+        <div>
+            <span>Submit new idea</span>
+        </div>
+        <div>
+            <div>
+                <textarea id="story" name="story" rows="5" cols="33">
+                    What would you like to be able to do? How would that help you?
+                </textarea>
+            </div>
+            <div>
+                <div>How important is this for you?</div>
+                <div>
+                    <lightning-button-group>
+                        <lightning-button label="NICE-TO-HAVE"></lightning-button>
+                        <lightning-button label="IMPORTANT"></lightning-button>
+                        <lightning-button label="CRITICAL"></lightning-button>
+                    </lightning-button-group>
+                </div>
+            </div>
+            <div>
+                <div>
+                    <lightning-icon icon-name="utility:email" alternative-text="Utility email" title="email">
+                    </lightning-icon>
+                    <input type="email" name="email" placeholder="Email address" />
+                </div>
+                <lightning-button variant="brand" label="Submit" title="Submit" class="slds-m-left_x-small">
+                </lightning-button>
+            </div>
+            <div>
+                <span>By submitting you agree to the privacy policy of the Productboard customer who has created this
+                    Portal.</span>
+            </div>
+        </div>
+    </div>
+</template>

@@ -1,0 +1,18 @@
+.container {
+    color: #444
+}
+
+.container>div {
+    display: flex;
+    justify-content: space-between;
+}
+
+.container>div>div span {
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.firstTabContainer {
+    display: flex;
+    flex-wrap: wrap;
+}

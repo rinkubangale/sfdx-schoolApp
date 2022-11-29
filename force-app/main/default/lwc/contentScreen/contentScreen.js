@@ -8,6 +8,6 @@ export default class ContentScreen extends LightningElement {
   @api showSubscription;
   @api showCheckin;
   @api showInbox;
-  @api showNewFeatures;
+  @api showFeatures;
   @api goBack;
 }

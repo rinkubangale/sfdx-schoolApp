@@ -1,0 +1,29 @@
+.container {
+    width: 27rem;
+    background: white;
+    padding: 1rem;
+    margin: 1rem;
+    border-radius: 8px;
+}
+
+.container>div {
+    display: flex;
+    justify-content: space-between;
+}
+
+.container>div p {
+    padding: 1rem 0;
+}
+
+.container>div h1 {
+    font-weight: 600;
+}
+
+.viewIcons {
+    display: flex;
+    justify-content: space-between;
+    width: 10%;
+    --sds-c-icon-color-foreground-default: #80808088;
+    align-items: flex-end;
+    color: #808080aa;
+}
