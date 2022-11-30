@@ -1,0 +1,51 @@
+<template>
+    <div class="container">
+        <div class="header">
+            <div>Stages for prospects
+                <span>
+                    <lightning-icon icon-name="utility:share" size="x-small" alternative-text="share!" title="share">
+                    </lightning-icon>
+                </span>
+                <span>
+                    <lightning-icon icon-name="utility:user" size="x-small" alternative-text="user!" title="user">
+                    </lightning-icon> 3
+                </span>
+            </div>
+            <div>
+                <a href="#" data-close="true">
+                    <div class="back" onclick={handleModalChange}>
+                        <lightning-icon icon-name="utility:back" size="x-small" alternative-text="Back!" title="Back">
+                        </lightning-icon>
+                        <p>Back</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        <div class="body">
+            <div>
+                <span>
+                    <lightning-icon icon-name="action:user" size="x-small" alternative-text="user!" title="user">
+                    </lightning-icon>
+                </span>
+                <span>UTSAV</span>
+                <span>Posted on December 2021</span>
+            </div>
+            <div class="bodyText">{textBody}</div>
+        </div>
+
+        <div class="cardFooter">
+            <div class="slds-grid slds-wrap">
+                <div class="text-heading_medium slds-col slds-size_1-of-1 slds-large-size_6-of-12">How important is
+                    this for you?</div>
+                <div class="slds-col slds-size_1-of-1 slds-large-size_6-of-12">
+                    <lightning-button-group>
+                        <lightning-button label="NICE-TO-HAVE" disabled></lightning-button>
+                        <lightning-button label="IMPORTANT" disabled></lightning-button>
+                        <lightning-button label="CRITICAL" disabled></lightning-button>
+                    </lightning-button-group>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>

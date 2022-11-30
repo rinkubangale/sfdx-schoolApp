@@ -1,0 +1,47 @@
+.container {
+    color: #444;
+    background: white;
+}
+
+.header {
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+.header>div:first-child {
+    font-size: x-large;
+    font-weight: 500;
+}
+
+.header span {
+    padding-left: 1rem;
+}
+
+.header span:nth-child(1) {
+    padding-left: 4rem;
+}
+
+.body {
+    min-height: 20rem;
+    padding: 1rem 2rem;
+}
+
+.body>div:first-child>span {
+    padding-right: 1rem;
+}
+
+.body>div:first-child>span:nth-child(2) {
+    border-right: 2px solid grey;
+    margin-right: 1rem;
+}
+
+.bodyText {
+    padding: 1rem 3rem;
+    text-align: justify;
+}
+
+.cardFooter {
+    padding: 2rem;
+    background: #8199af44;
+}

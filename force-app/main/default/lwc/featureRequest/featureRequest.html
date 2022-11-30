@@ -1,5 +1,5 @@
 <template>
-    <div if:false={submitIdea} class="container">
+    <div if:true={viewAllIdea} class="container">
         <div>
             <div>
                 <span>Feature Request</span>
@@ -12,14 +12,14 @@
         <lightning-tabset>
             <lightning-tab label="UNDER CONSIDERATION">
                 <div class="firstTabContainer">
-                    <c-feature-req-card></c-feature-req-card>
-                    <c-feature-req-card></c-feature-req-card>
-                    <c-feature-req-card></c-feature-req-card>
-                    <c-feature-req-card></c-feature-req-card>
-                    <c-feature-req-card></c-feature-req-card>
-                    <c-feature-req-card></c-feature-req-card>
-                    <c-feature-req-card></c-feature-req-card>
-                    <c-feature-req-card></c-feature-req-card>
+                    <c-feature-req-card onclick={handleViewCard}></c-feature-req-card>
+                    <c-feature-req-card onclick={handleViewCard}></c-feature-req-card>
+                    <c-feature-req-card onclick={handleViewCard}></c-feature-req-card>
+                    <c-feature-req-card onclick={handleViewCard}></c-feature-req-card>
+                    <c-feature-req-card onclick={handleViewCard}></c-feature-req-card>
+                    <c-feature-req-card onclick={handleViewCard}></c-feature-req-card>
+                    <c-feature-req-card onclick={handleViewCard}></c-feature-req-card>
+                    <c-feature-req-card onclick={handleViewCard}></c-feature-req-card>
                 </div>
             </lightning-tab>
             <lightning-tab label="PLANNED" title="2nd tab extended title">
@@ -35,4 +35,5 @@
     </div>
 
     <c-submit-idea if:true={submitIdea} onback={handleSubmitIdea}></c-submit-idea>
+    <c-view-idea-card if:true={viewIdeaCard} onback={handleViewCard} text-body={textBody}></c-view-idea-card>
 </template>
