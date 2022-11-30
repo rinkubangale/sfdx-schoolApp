@@ -1,9 +1,7 @@
 .container {
-    width: 80%;
     margin: auto;
     border: 2px solid #0176d3;
     color: #444;
-    text-align: center;
     background: #f0f7fb;
     border-radius: 8px;
 }
@@ -19,11 +17,56 @@
 
 .container>div:first-child {
     background: white;
-    border-radius: 8px;
+    border-radius: 8px 8px 0 0;
 }
 
 .container>div:last-child>div {
     display: flex;
     width: 100%;
     justify-content: space-between;
+    padding: 1rem 0;
+}
+
+.container textarea {
+    width: 100%;
+}
+
+span.text-heading_title {
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.text-heading_medium {
+    font-weight: 500;
+}
+
+.inputBox {
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    padding: 0 12px;
+    background: white;
+    width: 80%;
+}
+
+input[type="email"] {
+    border: none;
+    outline: none;
+    width: 90%;
+    padding: 4px;
+}
+
+textarea {
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    padding: 8px;
+    background: white;
+    outline: none;
+}
+
+.header {
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: space-between !important;
+    text-align: center;
+    border-bottom: 1.5px solid #ccc;
 }

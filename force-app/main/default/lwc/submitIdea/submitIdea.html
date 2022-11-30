@@ -1,36 +1,49 @@
 <template>
-    <div class="container">
-        <div>
-            <span>Submit new idea</span>
-        </div>
-        <div>
-            <div>
-                <textarea id="story" name="story" rows="5" cols="33">
-                    What would you like to be able to do? How would that help you?
+    <div class="slds-grid slds-wrap">
+        <div class="container slds-col slds-size_1-of-1 slds-large-size_8-of-12">
+            <div class="header">
+                <span class="text-heading_title">Submit new idea</span>
+                <a href="#" data-close="true">
+                    <div class="back" onclick={handleModalChange}>
+                        <lightning-icon icon-name="utility:back" size="x-small" alternative-text="Back!" title="Back">
+                        </lightning-icon>
+                        <p>Back</p>
+                    </div>
+                </a>
+            </div>
+            <div class="slds-grid slds-wrap">
+                <div>
+                    <textarea id="story" name="story" rows="5" cols="33"
+                        placeholder="What would you like to be able to do? How would that help you?">
                 </textarea>
-            </div>
-            <div>
-                <div>How important is this for you?</div>
-                <div>
-                    <lightning-button-group>
-                        <lightning-button label="NICE-TO-HAVE"></lightning-button>
-                        <lightning-button label="IMPORTANT"></lightning-button>
-                        <lightning-button label="CRITICAL"></lightning-button>
-                    </lightning-button-group>
                 </div>
-            </div>
-            <div>
-                <div>
-                    <lightning-icon icon-name="utility:email" alternative-text="Utility email" title="email">
-                    </lightning-icon>
-                    <input type="email" name="email" placeholder="Email address" />
+                <div class="slds-grid slds-wrap">
+                    <div class="text-heading_medium slds-col slds-size_1-of-1 slds-large-size_6-of-12">How important is
+                        this for you?</div>
+                    <div class="slds-col slds-size_1-of-1 slds-large-size_6-of-12">
+                        <lightning-button-group>
+                            <lightning-button label="NICE-TO-HAVE"></lightning-button>
+                            <lightning-button label="IMPORTANT"></lightning-button>
+                            <lightning-button label="CRITICAL"></lightning-button>
+                        </lightning-button-group>
+                    </div>
                 </div>
-                <lightning-button variant="brand" label="Submit" title="Submit" class="slds-m-left_x-small">
-                </lightning-button>
-            </div>
-            <div>
-                <span>By submitting you agree to the privacy policy of the Productboard customer who has created this
-                    Portal.</span>
+                <div>
+                    <div class="inputBox">
+                        <lightning-icon icon-name="utility:email" size="small" alternative-text="Utility email"
+                            title="email">
+                        </lightning-icon>
+                        <input type="email" name="email" placeholder="Email address" />
+                    </div>
+                    <lightning-button variant="brand" label="Submit" title="Submit" class="slds-m-left_x-small">
+                    </lightning-button>
+                </div>
+                <div>
+                    <span class="slds-text-body_small">By submitting, you agree to the privacy policy of the
+                        Productboard
+                        customer who has created this
+                        Portal.</span>
+                </div>
             </div>
         </div>
     </div>
