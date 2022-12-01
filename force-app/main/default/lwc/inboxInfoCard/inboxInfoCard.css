@@ -1,0 +1,70 @@
+.container {
+    background: #fff;
+    padding: 1rem;
+    margin: 1rem 0;
+    width: fit-content;
+    display: flex;
+}
+
+.userImg {
+    min-width: 50px;
+    height: 50px;
+    background: #aaa;
+    margin: 4px 10px 0 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.userImg::before {
+    content: "";
+    width: 44px;
+    height: 44px;
+    background: #666;
+    position: absolute;
+    top: 30px;
+    border-radius: 50%;
+    left: 3px;
+}
+
+.userImg::after {
+    content: "";
+    width: 20px;
+    height: 20px;
+    background: #666;
+    position: absolute;
+    left: 15px;
+    top: 8px;
+    border-radius: 50%;
+}
+
+.cardInfo {
+    padding-left: 0.5rem;
+}
+
+.name~span {
+    color: grey;
+    font-size: 0.75rem;
+    margin-left: 5rem;
+}
+
+span.approvedBy,
+.leaveReason {
+    color: grey;
+    font-size: 0.75rem;
+    padding-bottom: 6px;
+}
+
+.approvedBy::before {
+    content: "Approved";
+    background: green;
+    padding: 2px 4px;
+    font-size: 0.75rem;
+    border-radius: 4px;
+    font-weight: 500;
+    color: white;
+}
+
+.actionType {
+    font-size: 0.9rem;
+    padding-top: 0.3rem;
+}

@@ -1,0 +1,9 @@
+.container {
+    color: #252525;
+}
+
+.firstTabContainer {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}

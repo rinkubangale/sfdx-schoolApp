@@ -1,0 +1,19 @@
+<template>
+    <div class="container">
+        <div class="userImg"></div>
+        <div class="cardInfo">
+            <div class="userName">
+                <span class="name">Jagadish Hospet</span>
+                <span if:true={days}>6 days ago</span>
+                <span if:false={days}>6 hours ago</span>
+            </div>
+            <div class="actionType" if:true={typeLeave}>Leave on Dec 25(1 day)</div>
+            <div class="leaveReason" if:true={typeLeave}>Christmas Eve</div>
+            <div class="actionType" if:false={typeLeave}>Time Logs Adjustment - 18 Nov 2022</div>
+            <div class="leaveReason" if:false={typeLeave}>Please Consider</div>
+            <div if:true={approved}>
+                <span class="approvedBy"> by Admin</span>
+            </div>
+        </div>
+    </div>
+</template>

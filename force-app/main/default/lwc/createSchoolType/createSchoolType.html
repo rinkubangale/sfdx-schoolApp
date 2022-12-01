@@ -1,0 +1,122 @@
+<template>
+
+    <div id="addClassRoomContainer" class="col-md-11 center-block dashboard-container">
+     
+        <div id="error" class="error"> </div>
+        <main class="main-content add-class-wrap">
+            <div class="header row no-left-margin no-right-margin">
+                <a href="#" data-close="true">
+                  
+                </a>
+                <div class="Add-c-headings">
+                    <p class="add-heading-manage fivpx-mrgn-btm">
+                        <lightning-icon class="new-icon" icon-name="utility:new" size="small" alternative-text="new!"
+                            title="new">
+                        </lightning-icon>
+                        <b>{headTitle}</b>
+                    </p>
+                    <p class="add-subheading-manage">{subHeadTitle}</p>
+                </div>
+                <a href="#" data-close="true">
+                    <div class="back" onclick={handleModalChange}>
+                        <lightning-icon icon-name="utility:back" size="x-small" alternative-text="Back!" title="Back">
+                        </lightning-icon>
+                        <p>Back</p>
+                    </div>
+                </a>
+            </div>
+           
+
+            <div class="add-class-body">
+              
+                <div class="slds-grid slds-wrap">
+                  
+                    <div class="slds-box slds-col slds-size_4-of-12">
+                        <div class="slds-form-element">
+                            <div class="slds-form-element__control">
+                                <div class="slds-checkbox">
+                                    <input type="checkbox" name="input1" id="checkbox1"
+                                        value="Kindergarten[Pre-KG,LKG,UKG]" onclick={handleChange} />
+                                    <label class="slds-checkbox__label" for="checkbox1">
+                                        <span class="slds-checkbox_faux"></span>
+                                        <span
+                                            class="slds-form-element__label">Kindergarten[Pre-KG,LKG,UKG]</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slds-box slds-col slds-size_4-of-12">
+                        <div class="slds-form-element">
+                            <div class="slds-form-element__control">
+                                <div class="slds-checkbox">
+                                    <input type="checkbox" name="input2" id="checkbox2"
+                                        value="Lower Primary[1st-5th Std]" onclick={handleChange} />
+                                    <label class="slds-checkbox__label" for="checkbox2">
+                                        <span class="slds-checkbox_faux"></span>
+                                        <span class="slds-form-element__label">Lower Primary[1st-5th Std]</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slds-box slds-col slds-size_4-of-12">
+                        <div class="slds-form-element">
+                            <div class="slds-form-element__control">
+                                <div class="slds-checkbox">
+                                    <input type="checkbox" name="input3" id="checkbox3"
+                                        value="Upper Primary School[6th-10th Std]" onclick={handleChange} />
+                                    <label class="slds-checkbox__label" for="checkbox3">
+                                        <span class="slds-checkbox_faux"></span>
+                                        <span class="slds-form-element__label">Upper Primary School[6th-10th
+                                            Std]</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slds-box slds-col slds-size_4-of-12">
+                        <div class="slds-form-element">
+                            <div class="slds-form-element__control">
+                                <div class="slds-checkbox">
+                                    <input type="checkbox" name="input4" id="checkbox4"
+                                        value="Regulary School[Nursery-10th]" onclick={handleChange} />
+                                    <label class="slds-checkbox__label" for="checkbox4">
+                                        <span class="slds-checkbox_faux"></span>
+                                        <span class="slds-form-element__label">Regulary
+                                            School[Nursery-10th]</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slds-box slds-col slds-size_4-of-12">
+                        <div class="slds-form-element">
+                            <div class="slds-form-element__control">
+                                <div class="slds-checkbox">
+                                    <input type="checkbox" name="input5" id="checkbox5"
+                                        value="K12 School[Nursery-12th]" onclick={handleChange} />
+                                    <label class="slds-checkbox__label" for="checkbox5">
+                                        <span class="slds-checkbox_faux"></span>
+                                        <span class="slds-form-element__label">K12 School[Nursery-12th]</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                    <div class="slds-var-m-top_large slds-align_absolute-center">
+                        <lightning-button variant="brand" type="submit" label={btnLabel}>
+                        </lightning-button>
+                    </div>
+             
+            </div>
+            <template if:true={isLoading}>
+                <lightning-spinner alternative-text="Loading" variant="brand" style="background:transparent;">
+                </lightning-spinner>
+            </template>
+        </main>
+    </div>
+
+</template>

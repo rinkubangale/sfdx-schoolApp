@@ -1,0 +1,66 @@
+<template>
+    <template if:false={isModalOpen}>
+    <lightning-card>
+
+        <lightning-layout>
+
+            <lightning-layout-item size="4" class="slds-p-left_small slds-card__header">
+
+                <lightning-icon icon-name="standard:record" alternative-text="Clone" title="View School Type">
+
+                </lightning-icon>
+
+                <span style="font-weight: bold; font-size: larger;  " class="slds-p-horizontal_small ">View
+                    School type</span>
+
+            </lightning-layout-item>
+
+
+            <lightning-layout-item size="4" style="margin: -12px;">
+                <div>
+                    <!-- <lightning-input name="Search School type" type="search" label="Search School type" placeholder="Search departments"
+                onchange={handlesearch} value={depname}></lightning-input> -->
+
+                    <template for:each={DepartmentList} for:item="Departmentobj" for:index="index">
+
+                        <option key={Departmentobj.Id}>{Departmentobj.Name}</option>
+
+                    </template>
+                </div>
+            </lightning-layout-item>
+
+
+            <lightning-layout-item size="4" class="slds-p-around_medium">
+
+
+                <div class=" slds-float_right">
+                    <lightning-button variant="brand" class="slds-m-left_x-small slds-p-horizontal_x-small"
+
+                    icon-name="utility:adduser" title="Create Teacher" onclick={openModal}></lightning-button>
+                    <!-- <c-add-teacher></c-add-teacher> -->
+
+                </div>
+
+            </lightning-layout-item>
+        </lightning-layout>
+        <div slot="footer" class="slds-clearfix slds-p-top_xxx-small ">
+            <lightning-button label="Back" variant="brand" onclick={goBack}
+                class="slds-var-m-left_xx-small slds-float_left"></lightning-button>
+        </div>
+
+
+
+        <div style=" height: auto; ">
+            <lightning-datatable key-field="id" data={data} columns={columns1} onrowaction={rowActionHandler}
+                resize-column-disabled suppress-bottom-bar>
+            </lightning-datatable>
+        </div>
+
+
+
+    </lightning-card>
+</template>
+<template if:true={isModalOpen}>
+    <c-create-school-type onmodalchange={closeModal}></c-create-school-type>
+</template>
+</template>
