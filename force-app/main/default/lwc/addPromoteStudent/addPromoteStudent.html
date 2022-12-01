@@ -6,11 +6,7 @@
         <main class="main-content add-class-wrap">
             <div class="header row no-left-margin no-right-margin">
                 <a href="#" data-close="true">
-                    <div class="back" onclick={handleModalChange}>
-                        <lightning-icon icon-name="utility:back" size="x-small" alternative-text="Back!" title="Back">
-                        </lightning-icon>
-                        <p>Back</p>
-                    </div>
+                   
                 </a>
                 <div class="Add-c-headings">
                     <p class="add-heading-manage fivpx-mrgn-btm">
@@ -22,10 +18,10 @@
                     <p class="add-subheading-manage">{subHeadTitle}</p>
                 </div>
                 <a href="#" data-close="true">
-                    <div class="esc" onclick={handleModalChange}>
-                        <lightning-icon icon-name="utility:close" size="x-small" alternative-text="Esc!" title="Esc">
+                    <div class="back" onclick={goBack}>
+                        <lightning-icon icon-name="utility:back" size="x-small" alternative-text="Back!" title="Back">
                         </lightning-icon>
-                        <p>Esc</p>
+                        <p>Back</p>
                     </div>
                 </a>
             </div>
@@ -73,7 +69,7 @@
                         </div>
                     </div>
                 </form> -->
-                <lightning-card>
+                
                     <lightning-layout multiple-rows="true">
                         <lightning-layout-item size="6" class="slds-p-around_medium">
                             <lightning-combobox
@@ -133,21 +129,20 @@
                         
                         
                     </lightning-layout-item>
-            
+            <div>
                     <lightning-layout-item size="12">
                         <lightning-datatable
                         key-field="Id"
                         data={data}
                         columns={columns}
                         onrowselection={handleSelectedRows}>
-                </lightning-datatable>
-                <lightning-button variant="Netural" label="CANCEL" title="Primary action" onclick={navigateToTabPage} class="slds-var-m-left_medium slds-p-around_small slds-float_right"></lightning-button>
-                  <lightning-button variant="Brand" label="PROMOTE STUDENTS" title="Primary action" onclick={promoteStudentss} class="slds-var-m-left_medium slds-p-around_small  slds-float_right"></lightning-button>
-                </lightning-layout-item>
+                </lightning-datatable> 
+            </lightning-layout-item>
+        </div>
                     </lightning-layout>
-                    </lightning-card>
+                   
                     <div class="slds-var-m-top_large slds-align_absolute-center">
-                        <lightning-button variant="brand" type="submit" label={btnLabel}>
+                        <lightning-button variant="brand" type="submit" label={headTitle}>
                         </lightning-button>
                     </div>
                 

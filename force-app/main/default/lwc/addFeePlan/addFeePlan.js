@@ -2,7 +2,7 @@ import { LightningElement, track, api } from 'lwc';
 
 export default class AddFeePlan extends LightningElement {
     @api fields;
-    @track headTitle = "Add Fee Plan";
+    @track headTitle = "Create Fee Plan";
     @api objectName;
     @api subHeadTitle = "Add New Fee Plan";
    @track allFields;

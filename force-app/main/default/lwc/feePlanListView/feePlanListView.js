@@ -1,27 +1,57 @@
-import { LightningElement, track, api, wire } from 'lwc';
-import { ShowToastEvent } from 'lightning/platformShowToastEvent';
+import {
+    LightningElement,
+    track,
+    api,
+    wire
+} from 'lwc';
+import {
+    ShowToastEvent
+} from 'lightning/platformShowToastEvent';
 import getFeePlanList from "@salesforce/apex/addFeeType.getFeePlanList";
 import deleteRecord from "@salesforce/apex/Lookup.deleteRecord";
 
-const actions = [
-    {
-        label: 'Edit', name: 'edit', iconName: "utility:edit",
+const actions = [{
+        label: 'Edit',
+        name: 'edit',
+        iconName: "utility:edit",
         alternativeText: "Edit",
         title: "Edit"
     },
     {
-        label: 'Delete', name: 'delete', iconName: "utility:delete",
+        label: 'Delete',
+        name: 'delete',
+        iconName: "utility:delete",
         alternativeText: "Delete",
         title: "Delete"
     }
 ];
 
-const columns = [
-    { label: 'Fee Plan Id', fieldName: 'Id', editable: false },
-    { label: 'Fee Plan Name', fieldName: 'Name', editable: true },
-    { label: 'Last Modified By', fieldName: 'LastModifiedBy', editable: false },
-    { label: 'Last Modified Date', fieldName: 'LastModifiedDate', editable: false },
-    { type: 'action', typeAttributes: { rowActions: actions } }
+const columns = [{
+        label: 'Fee Plan Id',
+        fieldName: 'Id',
+        editable: false
+    },
+    {
+        label: 'Fee Plan Name',
+        fieldName: 'Name',
+        editable: true
+    },
+    {
+        label: 'Last Modified By',
+        fieldName: 'LastModifiedBy',
+        editable: false
+    },
+    {
+        label: 'Last Modified Date',
+        fieldName: 'LastModifiedDate',
+        editable: false
+    },
+    {
+        type: 'action',
+        typeAttributes: {
+            rowActions: actions
+        }
+    }
 ];
 
 export default class FeePlanListView extends LightningElement {
@@ -29,20 +59,28 @@ export default class FeePlanListView extends LightningElement {
     columns = columns;
     @track dataList;
     @track isModalOpen = false;
+    @track isCreateFeeOpen = false;
     openModal() {
-        // to open modal set isModalOpen tarck value as true
         this.isModalOpen = true;
     }
+
     closeModal() {
-        // to close modal set isModalOpen tarck value as false
         this.isModalOpen = false;
+    }
+
+    openCreateFeePlan() {
+        this.isCreateFeeOpen = true;
+    }
+
+    closeCreateFeePlan() {
+        this.isCreateFeeOpen = false;
     }
     submitDetails() {
         // to close modal set isModalOpen tarck value as false
         //Add your code to call apex method or do some processing
         this.isModalOpen = false;
     }
-    
+
     handleModalChange(event) {
 
         this.isModalOpen = event.detail;
@@ -50,7 +88,10 @@ export default class FeePlanListView extends LightningElement {
     }
 
     @wire(getFeePlanList)
-    wiredDepartments({ data, error }) {
+    wiredDepartments({
+        data,
+        error
+    }) {
         if (data) {
             this.error = undefined;
             this.dataList = data.map((item) => {
@@ -73,7 +114,10 @@ export default class FeePlanListView extends LightningElement {
             console.log("delete");
             this.isDelete = true;
             this.recid.push(event.detail.row.Id);
-            deleteRecord({ myObject: "Fee_plan__c", recordId: this.recid })
+            deleteRecord({
+                    myObject: "Fee_plan__c",
+                    recordId: this.recid
+                })
                 .then((result) => {
                     this.dispatchEvent(
                         new ShowToastEvent({

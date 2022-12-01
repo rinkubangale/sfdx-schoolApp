@@ -29,6 +29,7 @@ const columns = [
 export default class FeesListView extends LightningElement {
 
     @track isModalOpen = false;
+    @track isCreateFeeTypeOpen = false;
     @track recid = [];
     @track DelId = [];
     @track isDelete;
@@ -48,6 +49,14 @@ export default class FeesListView extends LightningElement {
         // to close modal set isModalOpen tarck value as false
         this.isModalOpen = false;
     }
+    
+    openCreateFeeType() {
+        this.isCreateFeeTypeOpen = true;
+    }
+    closeCreateFeeType(){
+        this.isCreateFeeTypeOpen = false;
+    }
+
     submitDetails() {
         // to close modal set isModalOpen tarck value as false
         //Add your code to call apex method or do some processing

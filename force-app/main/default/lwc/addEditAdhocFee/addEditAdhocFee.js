@@ -4,7 +4,7 @@ export default class AddEditAdhocFee extends LightningElement {
   @api fields;
   @api headTitle = 'Add Adhoc Fee';
   @api objectName;
-  @api subHeadTitle = 'Add Adhoc Fee';
+  @api subHeadTitle;
   @track allFields;
   @track isLoading = false;
 

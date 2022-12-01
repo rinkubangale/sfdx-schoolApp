@@ -30,7 +30,8 @@
         <c-check-in-list-view clicked={goBack}></c-check-in-list-view>
     </template>
     <template if:true={showInbox}>
-        <c-check-in-list-view clicked={goBack}></c-check-in-list-view>
+        <!-- <div>Inbox is here!!</div> -->
+        <c-inbox></c-inbox>
     </template>
     <template if:true={showFeatures}>
         <c-feature-request clicked={goBack}></c-feature-request>

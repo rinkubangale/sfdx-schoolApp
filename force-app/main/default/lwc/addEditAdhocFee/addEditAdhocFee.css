@@ -25,10 +25,10 @@
   }
   
   .add-class-body {
-    width: 80%;
-    margin: 3rem auto;
+    width: 90%;
+    margin: 2rem auto;
     border: 2px solid #3395ff;
-    background-color: #f0f7fb;
+    background-color: #eff5f4;
     border-radius: 6px;
     padding: 2rem;
   }
@@ -39,7 +39,7 @@
   }
   
   .dashboard-container {
-    width: 80%;
+   
     margin: auto;
     border: 1px solid #ccc;
     border-radius: 6px;
@@ -51,18 +51,28 @@
     font-family: arial, sans-serif;
     border-collapse: collapse;
     width: 100%;
+    margin-top: 40px;
   }
   
   td, th {
-    border: 1px solid #020000;
+    border: 1px solid #ebe8e8;
     text-align: left;
     padding: 8px;
+    font-size: 13px;
   }
 
   td>input{
-    width: 54px;
+    width: 100px;
+    border: 1px solid #cbc6c6;
+    border-radius: 3px;
   }
   
-  tr:nth-child(even) {
-    background-color: #80b3ff;
+  th {
+    background-color: #f3f3f3;
+  }
+  td:nth-child(1){
+    width: 200px;
+  }
+  td:nth-last-child(){
+    background-color: #f3f3f3;
   }

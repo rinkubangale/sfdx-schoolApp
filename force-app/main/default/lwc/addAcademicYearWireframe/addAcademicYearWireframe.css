@@ -57,7 +57,7 @@ select {
   border: none;
   background-color: #ffffff;
   padding: 5px;
-  border: none;
+  /* border: none;
   border-color: none;
-  outline: none;
+  outline: none; */
 }

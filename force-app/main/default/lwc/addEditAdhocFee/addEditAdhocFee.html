@@ -1,16 +1,12 @@
 <template>
 
-    <div id="addClassRoomContainer" class="col-md-11 center-block dashboard-container">
+    <div id="addClassRoomContainer" class="col-md-11 center-block dashboard-container" >
         <!--add class main content-->
         <div id="error" class="error"> </div>
         <main class="main-content add-class-wrap">
             <div class="header row no-left-margin no-right-margin">
                 <a href="#" data-close="true">
-                    <div class="back" onclick={handleModalChange}>
-                        <lightning-icon icon-name="utility:back" size="x-small" alternative-text="Back!" title="Back">
-                        </lightning-icon>
-                        <p>Back</p>
-                    </div>
+                  
                 </a>
                 <div class="Add-c-headings">
                     <p class="add-heading-manage fivpx-mrgn-btm">
@@ -22,10 +18,10 @@
                     <p class="add-subheading-manage">{subHeadTitle}</p>
                 </div>
                 <a href="#" data-close="true">
-                    <div class="esc" onclick={handleModalChange}>
-                        <lightning-icon icon-name="utility:close" size="x-small" alternative-text="Esc!" title="Esc">
+                    <div class="back" onclick={handleModalChange}>
+                        <lightning-icon icon-name="utility:back" size="x-small" alternative-text="Back!" title="Back">
                         </lightning-icon>
-                        <p>Esc</p>
+                        <p>Back</p>
                     </div>
                 </a>
             </div>
@@ -94,7 +90,7 @@
                     </header> -->
                     <!-- <lightning-card style="background:white; padding: 0 30px;"> -->
                         <lightning-record-edit-form object-api-name="Adhoc_Fee__c">
-                            <lightning-layout multiple-rows="true">
+                            <!-- <lightning-layout multiple-rows="true">
                                 <lightning-layout-item size="6">
                                     <lightning-input-field onchange={handleInputChange} field-name="Name">
                                     </lightning-input-field>
@@ -119,20 +115,68 @@
                                     <lightning-input-field onchange={handleInputChange} field-name="Status__c">
                                     </lightning-input-field>
                                 </lightning-layout-item>
+                            </lightning-layout> -->
+                            <lightning-layout multiple-rows style="grid-row-gap: 25px;">
+                                <lightning-layout-item size="5">
+                                    <lightning-input onchange={handleInputChange} label="Fee Plan Name" field-name="Name">
+                                    </lightning-input>
+                                </lightning-layout-item>
+                                <lightning-layout-item size="2">
+        
+                                </lightning-layout-item>
+                                <lightning-layout-item size="5">
+                                    <lightning-input onchange={handleInputChange} label="Academic Year"
+                                        field-name="Academic_Year__c">
+                                    </lightning-input>
+                                </lightning-layout-item>
+                                <!-- <lightning-layout-item size="6">
+                                    <lightning-input-field onchange={handleInputChange} field-name="Plan_Type__c">
+                                    </lightning-input-field>
+                                </lightning-layout-item> -->
+                                <lightning-layout-item size="5">
+                                    <lightning-input onchange={handleInputChange} label="Billing Date" field-name="Billing_Date__c">
+                                    </lightning-input>
+                                </lightning-layout-item>
+                                <lightning-layout-item size="2">
+        
+                                </lightning-layout-item>
+                                <lightning-layout-item size="5">
+                                    <lightning-input onchange={handleInputChange} label="Due Date"
+                                        field-name="Due_Date__c">
+                                    </lightning-input>
+                                </lightning-layout-item>
+                                <lightning-layout-item size="5">
+                                    <lightning-input onchange={handleInputChange} label="Reminder" field-name="Reminder__c">
+                                    </lightning-input>
+                                </lightning-layout-item>
+                                <lightning-layout-item size="2">
+        
+                                </lightning-layout-item>
+                                <lightning-layout-item size="5">
+                                    <lightning-input onchange={handleInputChange} label="Status"
+                                        field-name="Status__c">
+                                    </lightning-input>
+                                </lightning-layout-item>
                             </lightning-layout>
-                            
+                            <lightning-card>
+                                <div style="margin-left: 60rem;
+                                margin-top: 25px;
+                                margin-bottom: -25px; display:block"> <lightning-button-icon icon-name="utility:add" alternative-text="Settings"
+                                    title="Settings" onclick={handleClick}></lightning-button-icon>
+                                <lightning-button-icon icon-name="utility:dash" alternative-text="Settings"
+                                    title="Settings" onclick={removeBtn}></lightning-button-icon></div>
                             <table>
                                 <thead>
                                     <tr>
-                                        <th>Name</th>
+                                        <th>Fee Plan Name</th>
                                         <th>Quantity</th>
                                         <th>Amount</th>
-                                        <th>Discount percentage</th>
+                                        <th>Discount(%)</th>
                                         <th>Discount Amount</th>
-                                        <th>Tax SLAB</th>
-                                        <th>Amount</th>
+                                        <th>Tax Slab(%)</th>
+                                        <!-- <th>Amount</th> -->
                                         <th>Net Amount</th>
-                                        <th>Action</th>
+                                        <!-- <th>Action</th> -->
                                     </tr>
                                 </thead>
                                 <template  for:each={payment.data} for:item="pay">
@@ -149,18 +193,19 @@
                                         <td><input onchange={onChangeHandler} name="Discount_Amount__c" value={Discount_Amount__c} />
                                         </td>
                                         <td><input onchange={onChangeHandler} name="Tax_SLAB__c" /></td>
-                                        <td><input onchange={onChangeHandler} name="Amount__c" value={Amount__c}  /></td>
+                                        <!-- <td><input onchange={onChangeHandler} name="Amount__c" value={Amount__c}  /></td> -->
                                         <td>
                                             <input onchange={onChangeHandler} name="Net_Amount__c"
                                                  value={Net_Amount__c} />
                                                 </td>
-                                        <td>
+                                        <!-- <td>
                                             <lightning-button-icon icon-name="utility:add" alternative-text="Settings"
                                                 title="Settings" onclick={handleClick}></lightning-button-icon>
                                             <lightning-button-icon icon-name="utility:dash" alternative-text="Settings"
                                                 title="Settings" onclick={removeBtn}></lightning-button-icon>
-                                        </td>
+                                        </td> -->
                                     </tr>
+                                </template>
                                     <tr key={pay.Id} style="height:50px" class="slds-border_bottom slds-border_top">
                                         <td> </td>
                                         <td></td>
@@ -170,13 +215,13 @@
                                         </td>
                                         <td>
                                         </td>
-                                        <td></td>
                                         <td>Actual Amount</td>
+                                        <!-- <td>Actual Amount</td> -->
                                         <td> <input onchange={onChangeHandler}
                                                 name="Actual_Amount_One_Quantity__c" value={Actual_Amount_One_Quantity__c}/>
     
                                         </td>
-                                        <td></td>
+                                        <!-- <td></td> -->
                                     </tr>
                                     <tr key={pay.Id} style="height:50px" class="slds-border_bottom slds-border_top">
                                         <td> </td>
@@ -187,13 +232,13 @@
                                         </td>
                                         <td>
                                         </td>
-                                        <td></td>
                                         <td>Discount(-)</td>
+                                        <!-- <td>Discount(-)</td> -->
     
                                         <td><input onchange={onChangeHandler} name="Discount_Amount__c" value={Discount_Amount__c} />
     
                                         </td>
-                                        <td></td>
+                                        <!-- <td></td> -->
                                     </tr>
                                     <tr key={pay.Id} style="height:50px" class="slds-border_bottom slds-border_top">
                                         <td> </td>
@@ -204,11 +249,11 @@
                                         </td>
                                         <td>
                                         </td>
-                                        <td></td>
-                                        <td>Total Tax(+)</td>
+                                        <td>Total Tax</td>
+                                        <!-- <td>Total Tax(+)</td> -->
     
                                         <td><input onchange={onChangeHandler} name="Amount__c" value={Amount__c} /></td>
-                                        <td></td>
+                                        <!-- <td></td> -->
                                     </tr>
                                     <tr key={pay.Id} style="height:50px" class="slds-border_bottom slds-border_top">
                                         <td> </td>
@@ -219,33 +264,26 @@
                                         </td>
                                         <td>
                                         </td>
-                                        <td></td>
                                         <td>Total payable Amount</td>
+                                        <!-- <td>Total payable Amount</td> -->
     
     
                                         <td><input onchange={onChangeHandler} name="Amount__c" /></td>
-                                        <td></td>
+                                        <!-- <td></td> -->
                                     </tr>
                                 <!-- </tbody>
                             </tr> -->
-                                </template>
+                              
                             </table>
+                        </lightning-card>
     
     
                         </lightning-record-edit-form>
     
     
-                        <div slot="footer">
-                            <div class="slds-clearfix">
-                                <div class="slds-float_right">
-                                    <lightning-button onclick={submitDetails} type="submit" variant="brand" name="submit"
-                                        label="Create">
-                                    </lightning-button>
-                                    <lightning-button class="slds-m-left_small" onclick={closeModal} type="cancel"
-                                        name="cancel" label="Cancel">
-                                    </lightning-button>
-                                </div>
-                            </div>
+                        <div class="slds-var-m-top_large slds-align_absolute-center" style="  margin-top: 15px;">
+                            <lightning-button variant="brand" type="submit" label="Add Adhoc Fee">
+                            </lightning-button>
                         </div>
             </div>
             <template if:true={isLoading}>

@@ -18,7 +18,7 @@
                 </header>
                 <lightning-card style="background:white; padding: 0 30px;">
                     <lightning-record-edit-form object-api-name="Adhoc_Fee__c">
-                        <lightning-layout multiple-rows="true">
+                        <lightning-layout multiple-rows="true" style="margin-bottom: 40px;">
                             <lightning-layout-item size="6">
                                 <lightning-input-field onchange={handleInputChange} field-name="Name">
                                 </lightning-input-field>
@@ -45,7 +45,7 @@
                             </lightning-layout-item>
                         </lightning-layout>
                         
-                        <table>
+                        <table >
                             <thead>
                                 <tr>
                                     <th>Name</th>
@@ -159,7 +159,7 @@
                     </lightning-record-edit-form>
 
 
-                    <div slot="footer">
+                    <div slot="footer" style="margin-top: 15px;">
                         <div class="slds-clearfix">
                             <div class="slds-float_right">
                                 <lightning-button onclick={submitDetails} type="submit" variant="brand" name="submit"

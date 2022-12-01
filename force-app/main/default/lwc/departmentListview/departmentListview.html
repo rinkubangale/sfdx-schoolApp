@@ -2,16 +2,16 @@
     <template if:false={isModalOpen}>
         <lightning-card style="text-transform: capitalize;" class="slds-card__header ">
 
-            <lightning-tabset active-tab-value="two">
+            <lightning-tabset active-tab-value="one">
 
-                <lightning-tab label="School app" value="one">
+                <!-- <lightning-tab label="School app" value="one">
                     <lightning-card>
 
                         <lightning-layout>
 
                             <lightning-layout-item size="4" class="slds-p-left_small slds-card__header">
 
-                                <lightning-icon icon-name="standard:record" alternative-text="Clone" title="Clone">
+                                <lightning-icon icon-name="standard:record" alternative-text="Clone" title="View School Type">
 
                                 </lightning-icon>
 
@@ -24,8 +24,7 @@
 
                             <lightning-layout-item size="4" style="margin: -12px;">
                                 <div>
-                                    <!-- <lightning-input name="Search School type" type="search" label="Search School type" placeholder="Search departments"
-                                onchange={handlesearch} value={depname}></lightning-input> -->
+          
 
                                     <template for:each={DepartmentList} for:item="Departmentobj" for:index="index">
 
@@ -49,7 +48,10 @@
 
                             </lightning-layout-item>
                         </lightning-layout>
-
+                        <div slot="footer" class="slds-clearfix slds-p-top_xxx-small ">
+                            <lightning-button label="Back" variant="brand" onclick={goBack}
+                                class="slds-var-m-left_xx-small slds-float_left"></lightning-button>
+                        </div>
 
 
                         <div style=" height: auto; ">
@@ -62,9 +64,9 @@
 
                     </lightning-card>
 
-                </lightning-tab>
+                </lightning-tab> -->
 
-                <lightning-tab label="Manage Department" title="Manage Department" value="two">
+                <lightning-tab label="Manage Department" title="Manage Department" value="one">
 
 
                     <lightning-card>

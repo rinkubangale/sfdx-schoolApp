@@ -1,19 +1,18 @@
-import { LightningElement } from 'lwc';
+import {
+  LightningElement,
+  track
+} from 'lwc';
 
 export default class AssignTeachers extends LightningElement {
-    handleModalChange() {
-        this.dispatchEvent(new CustomEvent("modalchange", {
-          detail: false
-        }));
-      }
+  @track isModalOpen = false;
 
-      headTitle = "Assign Teachers";
-      subHeadTitle = "Assign Teachers here";
+  @track headTitle = "Assign Teachers";
 
-      get btnLabel() {
-        return this.headTitle;
-      }
-      
+
+  get btnLabel() {
+    return this.headTitle;
+  }
+
   openModal() {
     this.isModalOpen = !this.isModalOpen;
   }
@@ -27,9 +26,12 @@ export default class AssignTeachers extends LightningElement {
     //Add your code to call apex method or do some processing
     this.isModalOpen = false;
   }
- handelModel(){
-    this.createmodal = !this.createmodal;
- }
- 
+  handleModalChange() {
+    this.dispatchEvent(new CustomEvent("modalchange", {
+      detail: false
+    }));
+  }
+
+
 
 }

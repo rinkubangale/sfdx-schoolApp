@@ -93,8 +93,7 @@
                 <lightning-layout>
                     <lightning-layout-item size="6" padding="around-small">
                         <div>
-                            <!-- <lightning-combobox name="Academic Year" label="Academic Year" value={Academic_Year}
-                                        options={searchOptions} onchange={handleAccountSelection}></lightning-combobox> -->
+                          
                             <lightning-input type="text" label="Branch Name" 
                                 options={searchOptions}  onchange={handleAccountSelection}
                                 class="validate" required></lightning-input>
@@ -103,7 +102,7 @@
                     <lightning-layout-item size="6" padding="around-small">
                         <div>
                             <lightning-combobox name="branchStatus" label="Status" 
-                                class="validate" options={statusOptions}
+                                class="validate" style="margin-top:5px" options={statusOptions}
                                 onchange={handleChange}>
                             </lightning-combobox>
                         </div>
@@ -120,7 +119,7 @@
                     </lightning-layout-item>
                     <lightning-layout-item size="6" padding="around-small">
                         <div>
-                            <lightning-combobox name="branchDefault" label="Default" 
+                            <lightning-combobox name="branchDefault" style="margin-top:4px" label="Default" 
                             class="validate" options={defaultOptions}
                             onchange={handleChange}>
                         </lightning-combobox>

@@ -4,9 +4,31 @@
     /* align-items: center; */
     text-align: center;
     padding: 1rem;
-    border-bottom: 1.5px solid #ccc;
+  
+  }
+
+  .mainDiv{
+    background-color: white;
+      width: fit-content;
+      margin: auto;
+  }
+
+  .trClass{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  .thClass{
+    text-align: center;
+    font-size:0.93rem;
   }
   
+  .checkboxstyle{
+    width:17px;
+    height:17px;
+  }
+
   .new-icon {
     margin-right: 6px;
   }
@@ -45,7 +67,7 @@
     margin: auto;
     border: 1px solid #ccc;
     border-radius: 6px;
-    color: initial;
+    
     background-color: white;
     /* background-color: #fff; */
   }
@@ -57,9 +79,12 @@
   }
 
   .cardcss{
-    width : fit-content;
-    margin: auto;
+    
     background-color: white;
+
+  }
+  .cardcss>table{
+    display:block;
   }
   
   .slds-form-element__label {

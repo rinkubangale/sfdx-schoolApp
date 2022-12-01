@@ -1,9 +1,16 @@
 import { LightningElement, api, track } from "lwc";
+const columns = [
+    { label: 'STUDENT NAME', fieldName: 'Name'},
+    { label: 'FROM CLASS', fieldName: 'FROM_CLASS' },
+    { label: 'FROM SECTION', fieldName: 'FROM_SECTION' },
+    { label: 'CURRENT ACADEMIC YEAR', fieldName: 'CURRENT_ACADEMIC_YEAR'},
+];
 export default class AddPromoteStudent extends LightningElement {
 
-
+    columns=columns;
   @api fields;
-  @api headTitle = 'Promote Student';
+  @api headTitle = 'Promote Students';
+  @track headTitle = 'Promote Students';
   @api objectName;
   @api subHeadTitle;
   @track allFields;

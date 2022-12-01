@@ -1,155 +1,94 @@
 <template>
-    <template if:false={createmodal}>
-    <template if:false={isAssignOpen}>
-        <lightning-card style="margin:15px; text-transform:capitalize" class="slds-card__header">
-            <div class="cardcss" style="border-radius:6px">
-                <div class="header row no-left-margin no-right-margin">
-                    <a href="#" data-close="true">
-                        <!-- <div class="back" onclick={handleModalChange}>
-                            <lightning-icon icon-name="utility:back" size="x-small" alternative-text="Back!" title="Back">
-                            </lightning-icon>
-                            <p>Back</p>
-                        </div> -->
-                    </a>
-                    <div class="Add-c-headings">
-                        <p class="add-heading-manage fivpx-mrgn-btm">
-                            <lightning-icon class="new-icon" icon-name="utility:new" size="small" alternative-text="new!"
-                                title="new">
-                            </lightning-icon>
-                            <b>{headTitle}</b>
-                        </p>
-                        <!-- <p class="add-subheading-manage">{subHeadTitle}</p> -->
-                    </div>
-                    <!-- <a href="#" data-close="true">
-                        <div class="esc" onclick={handleModalChange}>
-                            <lightning-icon icon-name="utility:close" size="x-small" alternative-text="Esc!" title="Esc">
-                            </lightning-icon>
-                            <p>Esc</p>
-                        </div>
-                    </a> -->
+    <template if:false={isModalOpen}>
 
-                    <a href="#" data-close="true">
-                        <div class="back" onclick={handleModalChange}>
-                            <lightning-icon icon-name="utility:back" size="x-small" alternative-text="Back!" title="Back">
-                            </lightning-icon>
-                            <p>Back</p>
-                        </div>
-                    </a>
+
+        <div class="mainDiv">
+
+            <div class="header row no-left-margin no-right-margin" style="border-bottom: 1px solid #e5e5e5">
+                <a href="#" data-close="true">
+
+                </a>
+                <div class="Add-c-headings">
+                    <p class="add-heading-manage fivpx-mrgn-btm">
+                        <lightning-icon class="new-icon" icon-name="utility:new" size="small" alternative-text="new!"
+                            title="new">
+                        </lightning-icon>
+                        <b style="color:black; font-size:1.1rem">Assign Teachers</b>
+                    </p>
                 </div>
+                <a href="#" data-close="true">
+                    <div class="back" onclick={handleModalChange}>
+                        <lightning-icon icon-name="utility:back" size="x-small" alternative-text="Back!" title="Back">
+                        </lightning-icon>
+                        <p>Back</p>
+                    </div>
+                </a>
+            </div>
+
+            <lightning-card>
+
+                <div class="AddTeacher slds-clearfix" style="text-decoration:underline" onclick={openModal}>
+                    <a href="#" class="slds-float_right" style="font-size: 1.05rem;">Add Teacher</a>
+
+                </div>
+                <br />
+
                 <div>
-                    <!-- <div class="slds-text-heading_large">
-                        <h1><b>Assign Teacher</b></h1>
-                    </div> -->
-                    <div class="slds-clearfix">
-                        <lightning-button class="slds-float_right" variant="brand" label="Add Teacher" onclick={handelModel}>
-
-                        </lightning-button>
-                           
-                        
-                    </div>
-                </div>
-                <div class="slds-p-horizontal_medium slds-clearfix" style="display:flex">
                     <table>
-                        <thead>
-                            <th >
-                                <div>
-                                    <h2>Teacher Name</h2>
-                                </div>
+                        <tr class="trClass" style="background-color:#cbeff7; height:2.5rem">
+                            <th class="thClass">
+                                Teacher Name
                             </th>
-                            <th> <div>
-                                <h2>Is Admin</h2>
-                            </div></th>
-                            <th>
-                                <div>
-                                    <h2>Action</h2>
-                                </div>
+                            <th class="thClass">
+                                Is Admin
                             </th>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>
-                                    <ul>
-                                        <li>
-                                            Poornima
-                                        </li>
-                                    </ul>
-                                </td>
-                                <td>
-                                    <ul>
-                                        <li>
-                                            <input type="checkbox" >
-                                            
-                                        </li>
-                                    </ul>
-                                </td>
+                            <th class="thClass">
+                                Action
+                            </th>
+                        </tr>
+                        <tr class="trClass" style="background-color:#f3f3f3; height:2rem">
+                            <td>
+                                Abhilash
+                            </td>
+                            <td>
+                                <input type="checkbox" class="checkboxstyle">
+                            </td>
 
-                                <td>
-                                    <ul>
-                                        <li>
-
-                                            <a href="#">Assign</a>
-                                        </li>
-                                    </ul>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <ul>
-                                        <li> Rajesh</li>
-                                    </ul>
-
-                                </td>
-                                <td>
-                                    <ul>
-                                        <li>
-                                            <input type="checkbox" >
-                                            
-                                        </li>
-                                    </ul>
-                                </td>
-                                <td>
-                                    <ul>
-                                        <li>
-
-                                            <a href="#">Assign</a>
-                                        </li>
-                                    </ul>
-
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <ul>
-                                        <li> Hemanth</li>
-                                    </ul>
-                                </td>
-                                <td>
-                                    <ul>
-                                        <li>
-                                            <input type="checkbox" >
-                                            
-                                        </li>
-                                    </ul>
-                                </td>
-                                <td>
-
-                                    <ul>
-                                        <li> <a href="#">Assign</a></li>
-                                    </ul>
-
-                                </td>
-                            </tr>
-
-
-                        </tbody>
+                            <td>
+                                <a href="#">Assign</a>
+                            </td>
+                        </tr>
+                        <tr class="trClass" style="height:2rem;background-color:#f3f3f3">
+                            <td>
+                                Jagadish
+                            </td>
+                            <td>
+                                <input type="checkbox" class="checkboxstyle">
+                            </td>
+                            <td>
+                                <a href="#">Assign</a>
+                            </td>
+                        </tr>
+                        <tr class="trClass" style="background-color:#f3f3f3; height:2rem">
+                            <td>
+                                Hemanth
+                            </td>
+                            <td>
+                                <input type="checkbox" class="checkboxstyle">
+                            </td>
+                            <td>
+                                <a href="#">Assign</a>
+                            </td>
+                        </tr>
                     </table>
                 </div>
-            </div>
-        </lightning-card>
+            </lightning-card>
+
+            <!-- <div class="slds-backdrop slds-backdrop_open"></div> -->
+        </div>
+
     </template>
-</template>
-<template if:true={isModalOpen}>
-    <c-teacher-Add-Wireframe onclick={handleModalChange}></c-teacher-Add-Wireframe>
-</template>
-</template>
+    <template if:true={isModalOpen}>
+        <c-teacher-add-wireframe onmodalchange={closeModal}></c-teacher-add-wireframe>
+    </template>
 </template>

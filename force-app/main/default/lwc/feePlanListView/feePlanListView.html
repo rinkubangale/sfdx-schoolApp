@@ -1,19 +1,18 @@
 <template>
     <lightning-card>
+        <template if:false={isCreateFeeOpen}>
         <div class="slds-p-horizontal_medium">
             <lightning-layout>
-                <lightning-layout-item size="4" class="slds-p-left_small">
-                    <lightning-icon icon-name="action:clone" class="slds-p-left_small  " alternative-text="Clone"
-                        title="Clone"></lightning-icon>
-                    <span class="slds-p-horizontal_small" style="font-weight: bold; color: black">Create Fee
+                <lightning-layout-item size="8" class="slds-p-left_small">
+                    <lightning-icon icon-name="action:clone" class="slds-p-left_small" alternative-text="Clone"
+                        title="Create Fee Plan"></lightning-icon>
+                    <span class="slds-p-horizontal_small" style="font-weight:bold; color: black">Fee
                         Plan</span>
                 </lightning-layout-item>
-                <lightning-layout-item size="8">
-                    <div class="slds-clearfix">
-                        <div class="slds-float_right">
-                            <c-create-fee-plan></c-create-fee-plan>
-                        </div>
-                    </div>
+                <lightning-layout-item size="4" class="slds-float_right slds-clearfix">
+                    <lightning-button variant="brand" class="slds-float_right slds-p-around_medium"
+                        icon-name="utility:adduser" title="Create Fee Plan" onclick={openCreateFeePlan}>
+                    </lightning-button>
                 </lightning-layout-item>
             </lightning-layout>
 
@@ -22,7 +21,7 @@
                 <lightning-datatable key-field="Id" data={dataList} columns={columns}
                     onrowselection={rowSelectionHandler} onrowaction={rowActionHandler} checkbox-column="true"
                     onsave={saveHandleAction} draft-values={fldsItemValues} sorted-by={sortBy}
-                    sorted-direction={sortDirection} onsort={doSorting} oncellchange={keyUpHandler}>
+                    sorted-direction={sortDirection} onsort={doSorting} oncellchange={keyUpHandler} resize-column-disabled>
                 </lightning-datatable>
 
             </div>
@@ -33,15 +32,16 @@
                 class="slds-var-m-left_xx-small slds-float_left"></lightning-button>
             <lightning-button label="Delete" variant="brand" onclick={deleteHandler}
                 class="slds-var-m-left_xx-small slds-float_right"></lightning-button>
-
-            <template if:true={deleteWindow}>
-                <c-delete-confirmation modal-value={deleteWindow} obj-name="Admission__c" records-id={delId}
-                    onmodalchange={handleModalChange}>
-                </c-delete-confirmation>
-            </template>
-
-
         </div>
+    </template>
+        <template if:true={deleteWindow}>
+            <c-delete-confirmation modal-value={deleteWindow} obj-name="Admission__c" records-id={delId}
+                onmodalchange={handleModalChange}>
+            </c-delete-confirmation>
+        </template>
+
+
+
         <template if:true={isModalOpen}>
 
             <!-- Modal/Popup Box LWC starts here -->
@@ -71,16 +71,14 @@
 
                     </div>
 
-                    <!-- Modal/Popup Box LWC body starts here -->
-
-                    <c-edit-fee-plan records-id={recordID} get-modal-value={isModalOpen}
-                        onmodalchange={handleModalChange}>
-                    </c-edit-fee-plan>
-
                 </div>
 
             </section>
             <div class="slds-backdrop slds-backdrop_open"></div>
+        </template>
+
+        <template if:true={isCreateFeeOpen}>
+            <c-add-fee-plan onmodalchange={closeCreateFeePlan}></c-add-fee-plan>
         </template>
     </lightning-card>
 

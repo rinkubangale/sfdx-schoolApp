@@ -1,31 +1,59 @@
-import { LightningElement, track, api, wire } from 'lwc';
+import {
+    LightningElement,
+    track,
+    api,
+    wire
+} from 'lwc';
 import getAdhocFeeList from "@salesforce/apex/addFeeType.getAdhocFeeList";
 import deleteRecord from '@salesforce/apex/Lookup.deleteRecord';
-import { ShowToastEvent } from 'lightning/platformShowToastEvent';
-import { refreshApex } from '@salesforce/apex'
+import {
+    ShowToastEvent
+} from 'lightning/platformShowToastEvent';
+import {
+    refreshApex
+} from '@salesforce/apex'
 
-const actions = [
-    {
-        label: 'Edit', name: 'edit', iconName: "utility:edit",
+const actions = [{
+        label: 'Edit',
+        name: 'edit',
+        iconName: "utility:edit",
         alternativeText: "Edit",
         title: "Edit"
     },
     {
-        label: 'Delete', name: 'delete', iconName: "utility:delete",
+        label: 'Delete',
+        name: 'delete',
+        iconName: "utility:delete",
         alternativeText: "Delete",
         title: "Delete"
     }
 ];
 
-const columns = [
-    { label: 'Adhoc Fee Name', fieldName: 'Name', editable: true },
-    { label: 'Last Modified By', fieldName: 'LastModifiedBy', editable: false },
-    { label: 'Last Modified Date', fieldName: 'LastModifiedDate', editable: false },
-    { type: 'action', typeAttributes: { rowActions: actions } }
+const columns = [{
+        label: 'Adhoc Fee Name',
+        fieldName: 'Name',
+        editable: true
+    },
+    {
+        label: 'Last Modified By',
+        fieldName: 'LastModifiedBy',
+        editable: false
+    },
+    {
+        label: 'Last Modified Date',
+        fieldName: 'LastModifiedDate',
+        editable: false
+    },
+    {
+        type: 'action',
+        typeAttributes: {
+            rowActions: actions
+        }
+    }
 ];
 
 export default class AdhocFeeListView extends LightningElement {
-
+    @track isAdhocFeeOpen = false;
     @track isModalOpen = false;
     @track recid = [];
     @track DelId = [];
@@ -43,6 +71,14 @@ export default class AdhocFeeListView extends LightningElement {
         // to close modal set isModalOpen tarck value as false
         this.isModalOpen = false;
     }
+
+    openAdhocFee(){
+        this.isAdhocFeeOpen = true;
+    }
+    closeAdhocFee(){
+        this.isAdhocFeeOpen = false;
+    }
+    
     submitDetails() {
         // to close modal set isModalOpen tarck value as false
         //Add your code to call apex method or do some processing
@@ -62,7 +98,10 @@ export default class AdhocFeeListView extends LightningElement {
     wiredDepartments(value) {
         this.wiredDatas = value;
         // Destructure the provisioned value 
-        const { data, error } = value;
+        const {
+            data,
+            error
+        } = value;
         if (data) {
             this.error = undefined;
             this.dataList = data.map((item) => {
@@ -96,7 +135,10 @@ export default class AdhocFeeListView extends LightningElement {
             console.log("delete");
             this.isDelete = true;
             this.recid.push(event.detail.row.Id);
-            deleteRecord({ myObject: "Adhoc_Fee__c", recordId: this.recid })
+            deleteRecord({
+                    myObject: "Adhoc_Fee__c",
+                    recordId: this.recid
+                })
                 .then((result) => {
 
                     this.dispatchEvent(

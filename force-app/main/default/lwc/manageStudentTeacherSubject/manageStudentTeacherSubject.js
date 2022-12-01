@@ -9,7 +9,7 @@ export default class ManageStudentTeacherSubject extends LightningElement {
   @track isSubjectOpen = false;
   @track isAssignTeacherOpen = false;
   @track isManageAllOpen = true;
-  @track isShowModal = false;
+  @track isShowTransfer = false;
   openModal() {
     this.isSubjectOpen = true;
     this.isManageAllOpen = false;
@@ -43,14 +43,15 @@ export default class ManageStudentTeacherSubject extends LightningElement {
   }
  
 
-  showModalBox() {  
-      this.isShowModal = true;
+  showTransfer(e) {  
+    if(e.target.value === "Transfer") {
+      this.isShowTransfer = true;
       this.isManageAllOpen = false;
-     
+    }
   }
 
   hideModalBox() {  
-      this.isShowModal = false;
+      this.isShowTransfer = false;
       this.isManageAllOpen = true;
   }
 }
