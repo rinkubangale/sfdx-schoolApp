@@ -17,8 +17,9 @@
                     </div>
                 </span>
                 <span>
-                    <div>Time Logs Adjustment</div>
-                    <p>4 Adjustments</p>
+                    <div if:true={typeLeave}>Leave Request</div>
+                    <div if:false={typeLeave}>Time Logs Adjustment</div>
+                    <p if:false={typeLeave}>4 Adjustments</p>
                 </span>
             </div>
             <div class="middlebodytable"></div>

@@ -25,25 +25,32 @@
                         </lightning-accordion-section>
                     </lightning-accordion>
                     <div class="detailedCard">
-                        <c-inbox-info-detail-card type-leave=true user={user}></c-inbox-info-detail-card>
+                        <c-inbox-info-detail-card if:true={details} type-leave=true user={user}>
+                        </c-inbox-info-detail-card>
                     </div>
                 </div>
             </lightning-tab>
             <lightning-tab label="Attendance Regularization (2)">
-                <lightning-accordion class="example-accordion" active-section-name="A">
-                    <lightning-accordion-section name="A" label="Action Required (1)">
-                        <div class="firstTabContainer">
-                            <c-inbox-info-card user='Rinku Bangale' onclick={handleViewCard}></c-inbox-info-card>
-                        </div>
-                    </lightning-accordion-section>
+                <div class="accContainer">
+                    <lightning-accordion class="example-accordion" active-section-name="A">
+                        <lightning-accordion-section name="A" label="Action Required (1)">
+                            <div class="firstTabContainer">
+                                <c-inbox-info-card user='Rinku Bangale' onclick={handleViewCard2}></c-inbox-info-card>
+                            </div>
+                        </lightning-accordion-section>
 
-                    <lightning-accordion-section name="B" label="Past Request (1)">
-                        <div class="firstTabContainer">
-                            <c-inbox-info-card user='Abilash Rao' approved=true onclick={handleViewCard}>
-                            </c-inbox-info-card>
-                        </div>
-                    </lightning-accordion-section>
-                </lightning-accordion>
+                        <lightning-accordion-section name="B" label="Past Request (1)">
+                            <div class="firstTabContainer">
+                                <c-inbox-info-card user='Abilash Rao' approved=true onclick={handleViewCard2}>
+                                </c-inbox-info-card>
+                            </div>
+                        </lightning-accordion-section>
+                    </lightning-accordion>
+                    <div class="detailedCard">
+                        <c-inbox-info-detail-card if:true={details2} user={user}>
+                        </c-inbox-info-detail-card>
+                    </div>
+                </div>
             </lightning-tab>
             <lightning-tab label="Archive"></lightning-tab>
         </lightning-tabset>

@@ -58,11 +58,11 @@ span.comments>input[type="text"] {
 }
 
 span.action {
-    width: 35%;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: flex-end;
     background: #ddd8;
-    padding: 4px;
+    padding: 4px 12px;
+    gap: 0.5rem;
 }
 
 span.action button {
@@ -111,6 +111,11 @@ span.calender>div:last-child {
 .day {
     font-size: 12px;
     padding: 0 5px 5px 5px;
+}
+
+.msg {
+    font-size: 14px;
+    color: grey;
 }
 
 .userImg {
@@ -165,3 +170,29 @@ span.calender>div:last-child {
     left: 10px;
     top: 6px;
 }
+
+/* .body::after {
+    content: "APPROVED";
+    width: 120px;
+    height: 27px;
+    background: green;
+    position: absolute;
+    padding: 2px 10px;
+    letter-spacing: 3px;
+    color: white;
+    top: 181px;
+    right: 59px;
+    transform: rotate(-20deg);
+}
+
+.body::before {
+    content: "";
+    width: 70px;
+    height: 70px;
+    background: green;
+    position: absolute;
+    top: 160px;
+    right: 84px;
+    border-radius: 50%;
+    border: 13px green double;
+} */
