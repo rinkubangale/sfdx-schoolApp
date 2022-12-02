@@ -1,0 +1,167 @@
+.container {
+    color: #444;
+}
+
+.header {
+    display: flex;
+    padding: 1rem;
+    border-bottom: 1px solid #ddd;
+}
+
+.name {
+    font-weight: 500;
+}
+
+.subHead {
+    font-size: 14px;
+    color: grey;
+}
+
+.body {
+    padding: 1rem;
+}
+
+.addDetails {
+    display: flex;
+}
+
+.nameDetail {
+    font-weight: 500;
+}
+
+.nameDetail span {
+    font-size: 14px;
+    color: grey;
+    margin-left: 16px;
+    font-weight: 400;
+}
+
+.cardFooter {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: 2rem 0 0 0;
+    border-top: 1px solid #ddd;
+}
+
+span.comments {
+    width: 65%;
+    padding: 4px;
+}
+
+span.comments>input[type="text"] {
+    line-height: normal;
+    border: none;
+    width: 100%;
+    outline: none;
+}
+
+span.action {
+    width: 35%;
+    display: flex;
+    justify-content: space-evenly;
+    background: #ddd8;
+    padding: 4px;
+}
+
+span.action button {
+    background: #00b000;
+    border: none;
+    color: white;
+    border-radius: 16px;
+    padding: 3px 10px;
+    font-size: 14px;
+}
+
+span.action button:last-child {
+    background: #ff5151;
+}
+
+.firstBody {
+    display: flex;
+    margin: 2rem 0;
+    gap: 1rem;
+}
+
+span.calender {
+    text-align: center;
+}
+
+.month {
+    background: #ddd;
+    width: 100%;
+    font-size: 14px;
+    font-weight: 500;
+    border-radius: 4px 4px 0 0;
+    padding: 2px;
+}
+
+span.calender>div:last-child {
+    border: 2px solid #ddd;
+    border-radius: 0 0 6px 6px;
+}
+
+.date {
+    font-size: 20px;
+    padding-top: 4px;
+    font-weight: 600;
+}
+
+.day {
+    font-size: 12px;
+    padding: 0 5px 5px 5px;
+}
+
+.userImg {
+    width: 50px;
+    height: 50px;
+    background: #aaa;
+    margin: 0px 10px 0 0;
+    position: relative;
+    overflow: hidden;
+    border-radius: 50%;
+}
+
+.userImg::before {
+    content: "";
+    width: 44px;
+    height: 44px;
+    background: #666;
+    position: absolute;
+    top: 30px;
+    border-radius: 50%;
+    left: 3px;
+}
+
+.userImg::after {
+    content: "";
+    width: 20px;
+    height: 20px;
+    background: #666;
+    position: absolute;
+    left: 15px;
+    top: 8px;
+    border-radius: 50%;
+}
+
+.addDetails>.userImg {
+    width: 30px;
+    height: 30px;
+}
+
+.addDetails>.userImg::before {
+    content: "";
+    width: 20px;
+    height: 20px;
+    top: 18px;
+    left: 5px;
+}
+
+.addDetails>.userImg::after {
+    content: "";
+    width: 10px;
+    height: 10px;
+    left: 10px;
+    top: 6px;
+}

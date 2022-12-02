@@ -4,6 +4,18 @@
 
 .firstTabContainer {
     display: flex;
-    justify-content: space-around;
+    justify-content: flex-start;
     flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.accContainer {
+    display: flex;
+    justify-content: space-between;
+}
+
+.detailedCard {
+    width: 50%;
+    background: #ffffff6b;
+    border: 4px solid #ddd;
 }

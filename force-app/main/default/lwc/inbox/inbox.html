@@ -6,18 +6,46 @@
             </div>
         </div>
         <lightning-tabset>
-            <lightning-tab label="Leave Request">
-                <div class="firstTabContainer">
-                    <c-inbox-info-card type-leave=true onclick={handleViewCard}></c-inbox-info-card>
-                    <c-inbox-info-card type-leave=true approved=true onclick={handleViewCard}></c-inbox-info-card>
+            <lightning-tab label="Leave Request (2)">
+                <div class="accContainer">
+                    <lightning-accordion class="example-accordion" active-section-name="A">
+                        <lightning-accordion-section name="A" label="Action Required (1)">
+                            <div class="firstTabContainer">
+                                <c-inbox-info-card type-leave=true user='Jagadish Hospet' onclick={handleViewCard}>
+                                </c-inbox-info-card>
+                            </div>
+                        </lightning-accordion-section>
+
+                        <lightning-accordion-section name="B" label="Past Request (1)">
+                            <div class="firstTabContainer">
+                                <c-inbox-info-card type-leave=true user='Srihari N' approved=true
+                                    onclick={handleViewCard}>
+                                </c-inbox-info-card>
+                            </div>
+                        </lightning-accordion-section>
+                    </lightning-accordion>
+                    <div class="detailedCard">
+                        <c-inbox-info-detail-card type-leave=true user={user}></c-inbox-info-detail-card>
+                    </div>
                 </div>
             </lightning-tab>
-            <lightning-tab label="Attendance Regularization">
-                <div class="firstTabContainer">
-                    <c-inbox-info-card onclick={handleViewCard}></c-inbox-info-card>
-                    <c-inbox-info-card approved=true onclick={handleViewCard}></c-inbox-info-card>
-                </div>
+            <lightning-tab label="Attendance Regularization (2)">
+                <lightning-accordion class="example-accordion" active-section-name="A">
+                    <lightning-accordion-section name="A" label="Action Required (1)">
+                        <div class="firstTabContainer">
+                            <c-inbox-info-card user='Rinku Bangale' onclick={handleViewCard}></c-inbox-info-card>
+                        </div>
+                    </lightning-accordion-section>
+
+                    <lightning-accordion-section name="B" label="Past Request (1)">
+                        <div class="firstTabContainer">
+                            <c-inbox-info-card user='Abilash Rao' approved=true onclick={handleViewCard}>
+                            </c-inbox-info-card>
+                        </div>
+                    </lightning-accordion-section>
+                </lightning-accordion>
             </lightning-tab>
+            <lightning-tab label="Archive"></lightning-tab>
         </lightning-tabset>
     </div>
 

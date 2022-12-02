@@ -1,0 +1,44 @@
+<template>
+    <div class="container">
+        <div class="header">
+            <div class="userImg"></div>
+            <div class="userName">
+                <div class="name">{user}</div>
+                <div class="subHead">Requested by {user} on Nov 25, 2022, 9:35 am</div>
+            </div>
+        </div>
+        <div class="body">
+            <div class="firstBody">
+                <span class="calender">
+                    <div class="month">NOV</div>
+                    <div>
+                        <div class="date">23</div>
+                        <div class="day">Wednesday</div>
+                    </div>
+                </span>
+                <span>
+                    <div>Time Logs Adjustment</div>
+                    <p>4 Adjustments</p>
+                </span>
+            </div>
+            <div class="middlebodytable"></div>
+            <div class="addDetails">
+                <div class="userImg"></div>
+                <div class="userName">
+                    <div class="nameDetail">{user} <span>Nov 25, 2022, 9:35 am</span></div>
+                    <div class="msg" if:true={typeLeave}>Christmas Eve</div>
+                    <div class="msg" if:false={typeLeave}>Please Consider</div>
+                </div>
+            </div>
+        </div>
+        <div class="cardFooter">
+            <span class="comments">
+                <input type="text" placeholder="Add Comment or reject reason here!">
+            </span>
+            <span class="action">
+                <button class="approveBtn">Approve</button>
+                <button class="rejectBtn">Reject</button>
+            </span>
+        </div>
+    </div>
+</template>
