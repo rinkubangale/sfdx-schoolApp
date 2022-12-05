@@ -1,8 +1,11 @@
-import { LightningElement, track } from "lwc";
+import { LightningElement, track, wire } from "lwc";
 import createAttendanceRecord from "@salesforce/apex/userLoginController.createAttendanceRecord";
 import getAttendanceRecord from "@salesforce/apex/userLoginController.getAttendanceRecord";
 import getUserBirthdayData from "@salesforce/apex/userLoginController.getUserBirthdayData";
 import getListOfHolidays from "@salesforce/apex/userLoginController.getListOfHolidays";
+import { getRecord } from "lightning/uiRecordApi";
+import Id from "@salesforce/user/Id";
+import ProfileId from "@salesforce/schema/User.ProfileId";
 
 export default class SchoolView extends LightningElement {
   @track clockInLabel = "Clock In";
@@ -97,7 +100,22 @@ export default class SchoolView extends LightningElement {
   get classStyleBtn() {
     return this.clockInLabel === "Clock Out" ? "brand-outline" : "brand";
   }
+
+  isTeacher;
+  @wire(getRecord, { recordId: Id, fields: [ProfileId] })
+  userDetails({ error, data }) {
+    if (data) {
+      // console.log("currProfile " + JSON.stringify(data));
+      this.isTeacher =
+        data.fields.ProfileId.value === "00e6D000000om1OQAQ" ? true : false;
+    } else if (error) {
+      this.error = error;
+    }
+  }
+
   connectedCallback() {
+    console.log("User Profile id is ", ProfileId);
+
     this.clockInterval = setInterval(() => {
       this.timer = new Date().toLocaleTimeString();
     }, 1000);

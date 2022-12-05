@@ -1,6 +1,20 @@
-import { LightningElement, track } from "lwc";
+import { LightningElement, track, wire } from "lwc";
+import { getRecord } from "lightning/uiRecordApi";
+import Id from "@salesforce/user/Id";
+import ProfileId from "@salesforce/schema/User.ProfileId";
 
 export default class VerticalNavbar extends LightningElement {
+  isTeacher;
+  @wire(getRecord, { recordId: Id, fields: [ProfileId] })
+  userDetails({ error, data }) {
+    if (data) {
+      // console.log("currProfile " + JSON.stringify(data));
+      this.isTeacher =
+        data.fields.ProfileId.value === "00e6D000000om1OQAQ" ? true : false;
+    } else if (error) {
+      this.error = error;
+    }
+  }
   toAdmission() {
     this.dispatchEvent(
       new CustomEvent("btnclick", {

@@ -32,7 +32,7 @@
                     </span>
                 </li>
 
-                <li>
+                <li if:false={isTeacher}>
                     <span onclick={toAdmission}>
                         <lightning-icon icon-name="utility:record_create" size="small"
                             alternative-text="Admission Management" title="Admission Management" class="my-icon">
@@ -41,7 +41,7 @@
                     </span>
                 </li>
 
-                <li>
+                <li if:false={isTeacher}>
                     <span onclick={toFee}>
                         <lightning-icon icon-name="utility:moneybag" size="small" alternative-text="Fee Management"
                             title="Fee Management" class="my-icon">
@@ -49,7 +49,7 @@
                         <span class={hide}>Fee Management</span>
                     </span>
                 </li>
-                <li>
+                <li if:false={isTeacher}>
                     <span onclick={toInbox}>
                         <lightning-icon icon-name="utility:inbox" size="small" alternative-text="Inbox" title="Inbox"
                             class="my-icon">
@@ -57,7 +57,7 @@
                         <span class={hide}>Inbox</span>
                     </span>
                 </li>
-                <li>
+                <li if:false={isTeacher}>
                     <span onclick={toCheckin}>
                         <lightning-icon icon-name="utility:checkin" size="small" alternative-text="CheckIns"
                             title="CheckIns" class="my-icon">
@@ -66,7 +66,7 @@
                     </span>
                 </li>
 
-                <li>
+                <li if:false={isTeacher}>
                     <span onclick={toSettings}>
                         <lightning-icon icon-name="utility:settings" size="small" alternative-text="Settings"
                             title="Settings" class="my-icon">
@@ -74,12 +74,29 @@
                         <span class={hide}>Settings</span>
                     </span>
                 </li>
-                <li>
+                <li if:false={isTeacher}>
                     <span onclick={toSuggestions}>
                         <lightning-icon icon-name="utility:news" size="small" alternative-text="Feature Request"
                             title="Feature Request" class="my-icon">
                         </lightning-icon>
                         <span class={hide}>Feature Request</span>
+                    </span>
+                </li>
+
+                <li if:true={isTeacher}>
+                    <span>
+                        <lightning-icon icon-name="utility:builder" size="small" alternative-text="My classrooms"
+                            title="My classrooms" class="my-icon">
+                        </lightning-icon>
+                        <span class={hide}>My classrooms</span>
+                    </span>
+                </li>
+                <li if:true={isTeacher}>
+                    <span>
+                        <lightning-icon icon-name="utility:notebook" size="small" alternative-text="Assignments"
+                            title="Assignments" class="my-icon">
+                        </lightning-icon>
+                        <span class={hide}>Assignments</span>
                     </span>
                 </li>
 
