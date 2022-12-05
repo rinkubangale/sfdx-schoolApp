@@ -6,17 +6,25 @@
             </div>
         </div>
         <lightning-tabset>
-            <lightning-tab label="Leave Request (2)">
+            <lightning-tab label="Leave Request (5)">
                 <div class="accContainer">
-                    <lightning-accordion class="example-accordion" active-section-name="A">
-                        <lightning-accordion-section name="A" label="Action Required (1)">
+                    <lightning-accordion class="example-accordion" allow-multiple-sections-open active-section-name="A">
+                        <lightning-accordion-section name="A" label="Action Required (5)">
                             <div class="firstTabContainer">
+                                <c-inbox-info-card type-leave=true user='Jagadish Hospet' onclick={handleViewCard}>
+                                </c-inbox-info-card>
+                                <c-inbox-info-card type-leave=true user='Jagadish Hospet' onclick={handleViewCard}>
+                                </c-inbox-info-card>
+                                <c-inbox-info-card type-leave=true user='Jagadish Hospet' onclick={handleViewCard}>
+                                </c-inbox-info-card>
+                                <c-inbox-info-card type-leave=true user='Jagadish Hospet' onclick={handleViewCard}>
+                                </c-inbox-info-card>
                                 <c-inbox-info-card type-leave=true user='Jagadish Hospet' onclick={handleViewCard}>
                                 </c-inbox-info-card>
                             </div>
                         </lightning-accordion-section>
 
-                        <lightning-accordion-section name="B" label="Past Request (1)">
+                        <lightning-accordion-section name="B" label="Past Request">
                             <div class="firstTabContainer">
                                 <c-inbox-info-card type-leave=true user='Srihari N' approved=true
                                     onclick={handleViewCard}>
@@ -24,35 +32,99 @@
                             </div>
                         </lightning-accordion-section>
                     </lightning-accordion>
-                    <div class="detailedCard">
-                        <c-inbox-info-detail-card if:true={details} type-leave=true user={user}>
+                    <div if:true={details} class="detailedCard">
+                        <c-inbox-info-detail-card type-leave=true user={user}>
                         </c-inbox-info-detail-card>
                     </div>
                 </div>
             </lightning-tab>
-            <lightning-tab label="Attendance Regularization (2)">
+            <lightning-tab label="Attendance Regularization (1)">
                 <div class="accContainer">
-                    <lightning-accordion class="example-accordion" active-section-name="A">
+                    <lightning-accordion class="example-accordion" allow-multiple-sections-open active-section-name="A">
                         <lightning-accordion-section name="A" label="Action Required (1)">
                             <div class="firstTabContainer">
                                 <c-inbox-info-card user='Rinku Bangale' onclick={handleViewCard2}></c-inbox-info-card>
                             </div>
                         </lightning-accordion-section>
 
-                        <lightning-accordion-section name="B" label="Past Request (1)">
+                        <lightning-accordion-section name="B" label="Past Request">
                             <div class="firstTabContainer">
                                 <c-inbox-info-card user='Abilash Rao' approved=true onclick={handleViewCard2}>
                                 </c-inbox-info-card>
                             </div>
                         </lightning-accordion-section>
                     </lightning-accordion>
-                    <div class="detailedCard">
-                        <c-inbox-info-detail-card if:true={details2} user={user}>
+                    <div if:true={details2} class="detailedCard">
+                        <c-inbox-info-detail-card user={user}>
                         </c-inbox-info-detail-card>
                     </div>
                 </div>
             </lightning-tab>
-            <lightning-tab label="Archive"></lightning-tab>
+            <lightning-tab label="Archive">
+                <div class="archContainer">
+                    <div class="filterSection">
+                        <span><b>Filter </b></span>
+                        <select name="Type">
+                            <option value="Attendance" selected disabled hidden>Select Type</option>
+                            <option value="Attendance">Attendance Regularization</option>
+                            <option value="Leave">Leave Request</option>
+                        </select>
+                        <select name="Status" id="">
+                            <option value="Approved" selected disabled hidden>Select Status</option>
+                            <option value="Approved">Approved</option>
+                            <option value="Rejected">Rejected</option>
+                        </select>
+                    </div>
+                    <div class="data">
+                        <div>
+                            <table>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Name</th>
+                                    <th>Date</th>
+                                    <th>Message</th>
+                                    <th>Status</th>
+                                </tr>
+                                <tr>
+                                    <td>Leave Request</td>
+                                    <td>Jagadish Hospet</td>
+                                    <td>29 Nov</td>
+                                    <td>Please Approve</td>
+                                    <td>Approved</td>
+                                </tr>
+                                <tr>
+                                    <td>Attendance Adjustments</td>
+                                    <td>Jagadish Hospet</td>
+                                    <td>26 Nov</td>
+                                    <td>Please Approve</td>
+                                    <td>Approved</td>
+                                </tr>
+                                <tr>
+                                    <td>Leave Request</td>
+                                    <td>Shubhendra Shukla</td>
+                                    <td>22 Nov</td>
+                                    <td>Please Approve</td>
+                                    <td>Approved</td>
+                                </tr>
+                                <tr>
+                                    <td>Attendance Adjustments</td>
+                                    <td>Jagadish Hospet</td>
+                                    <td>22 Nov</td>
+                                    <td>Please Approve</td>
+                                    <td>Approved</td>
+                                </tr>
+                                <tr>
+                                    <td>Attendance Adjustments</td>
+                                    <td>Rinku Bangale</td>
+                                    <td>23 Nov</td>
+                                    <td>Please Approve</td>
+                                    <td>Approved</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </lightning-tab>
         </lightning-tabset>
     </div>
 
