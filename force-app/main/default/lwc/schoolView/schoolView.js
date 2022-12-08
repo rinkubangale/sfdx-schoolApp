@@ -107,7 +107,7 @@ export default class SchoolView extends LightningElement {
     if (data) {
       // console.log("currProfile " + JSON.stringify(data));
       this.isTeacher =
-        data.fields.ProfileId.value === "00e6D000000om1OQAQ" ? true : false;
+        data.fields.ProfileId.value === "00e6D000000Ri7wQAC" ? true : false;
     } else if (error) {
       this.error = error;
     }

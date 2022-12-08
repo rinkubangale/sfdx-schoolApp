@@ -10,7 +10,7 @@ export default class VerticalNavbar extends LightningElement {
     if (data) {
       // console.log("currProfile " + JSON.stringify(data));
       this.isTeacher =
-        data.fields.ProfileId.value === "00e6D000000om1OQAQ" ? true : false;
+        data.fields.ProfileId.value === "00e6D000000Ri7wQAC" ? true : false;
     } else if (error) {
       this.error = error;
     }
@@ -127,6 +127,32 @@ export default class VerticalNavbar extends LightningElement {
           showCheckin: false,
           inbox: false,
           newFeatures: true
+        }
+      })
+    );
+  }
+
+  toMyClassrooms() {
+    this.dispatchEvent(
+      new CustomEvent("btnclick", {
+        detail: {
+          admission: false,
+          home: false,
+          fee: false,
+          settings: false,
+          subscription: false,
+          showCheckin: false,
+          inbox: false,
+          myclassroom: true
+        }
+      })
+    );
+  }
+  toAssignment() {
+    this.dispatchEvent(
+      new CustomEvent("btnclick", {
+        detail: {
+          assignment: true
         }
       })
     );

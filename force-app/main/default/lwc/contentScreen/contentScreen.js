@@ -9,5 +9,7 @@ export default class ContentScreen extends LightningElement {
   @api showCheckin;
   @api showInbox;
   @api showFeatures;
+  @api showMyClassroom;
+  @api showAssignment;
   @api goBack;
 }

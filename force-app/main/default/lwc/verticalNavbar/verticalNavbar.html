@@ -84,7 +84,7 @@
                 </li>
 
                 <li if:true={isTeacher}>
-                    <span>
+                    <span onclick={toMyClassrooms}>
                         <lightning-icon icon-name="utility:builder" size="small" alternative-text="My classrooms"
                             title="My classrooms" class="my-icon">
                         </lightning-icon>
@@ -92,7 +92,7 @@
                     </span>
                 </li>
                 <li if:true={isTeacher}>
-                    <span>
+                    <span onclick={toAssignment}>
                         <lightning-icon icon-name="utility:notebook" size="small" alternative-text="Assignments"
                             title="Assignments" class="my-icon">
                         </lightning-icon>
