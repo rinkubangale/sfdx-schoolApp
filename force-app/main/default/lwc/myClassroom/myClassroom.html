@@ -1,3 +1,164 @@
 <template>
-    
+    <div class="container">
+        <div class="topContainer">
+            <div class="searchBar slds-align_absolute-center">
+                <input type="text" placeholder="Search Classroom" />
+            </div>
+        </div>
+        <div class="midContainer">
+            <lightning-tabset>
+                <lightning-tab label="Classrooms">
+                    <div class="clsContent">
+                        <span class="class">
+                            <span class="section">LKG - A</span>
+                        </span>
+                        <span class="class">
+                            <span class="section">UKG - A</span>
+                        </span>
+                        <span class="class">
+                            <span class="section">UKG - B</span>
+                        </span>
+                    </div>
+                </lightning-tab>
+            </lightning-tabset>
+        </div>
+        <div class="bottomContainer">
+            <lightning-tabset>
+                <lightning-tab label="Overview">
+                    <div class="overviewContent">
+                        <div class=attendance>
+                            <div class="attendanceClass">
+                                <div>Class Name <span>LKG A</span></div>
+                                <div>Admin Teacher <span>Sumathy</span></div>
+                            </div>
+                            <div class="atndBtn">
+                                <span>Attendance</span>
+                            </div>
+                        </div>
+
+                        <div class=students>
+                            <span>No. of Students</span>
+                            <span>35</span>
+                            <span>Boys</span>
+                            <span>15</span>
+                            <span>Girls</span>
+                            <span>20</span>
+                        </div>
+
+                        <div class=performance>
+                            <div>Performance</div>
+                            <div>
+                                <span>
+                                    <div>Academics</div>
+                                    <div>80%</div>
+                                </span>
+                                <span>
+                                    <div>Sports</div>
+                                    <div>90%</div>
+                                </span>
+                                <span>
+                                    <div>Attendance</div>
+                                    <div>80%</div>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </lightning-tab>
+                <lightning-tab label="Timetable">
+                    <div if:false={isTimetable} class="timetable">
+                        <span class="span">Timetable Schedule +</span>
+                    </div>
+                    <div if:true={isTimetable} class="timetableClicked">
+                        <div class="chooseDays">
+                            <label for="chooseDays">Choose days</label>
+                            <span id="chooseDays">
+                                <ul>
+                                    <li>Sun</li>
+                                    <li>Mon</li>
+                                    <li>Tue</li>
+                                    <li>Wed</li>
+                                    <li>Thu</li>
+                                    <li>Fri</li>
+                                    <li>Sat</li>
+                                </ul>
+                            </span>
+                        </div>
+                        <div class="chooseTime">
+                            <span>
+                                <label for="strTime">Start Time</label>
+                                <input type="time" id="strTime" />
+                            </span>
+                            <span>
+                                <label for="endTime">End Time</label>
+                                <input type="time" id="endTime" />
+                            </span>
+                            <span>
+                                <label for="numb">No. of Periods</label>
+                                <input type="number" id="numb" min='3' max='10' onchange={handleNoColumn} />
+                            </span>
+                        </div>
+                        <div if:true={columns} class="calenderView">
+                            <div>
+                                <table>
+                                    <tr>
+                                        <th>Time</th>
+                                        <th for:each={columns} for:item="time" key={time}>
+                                            <input type="time" /> <input type="time" />
+                                        </th>
+                                    </tr>
+                                    <tr>
+                                        <td>Mon</td>
+                                        <th for:each={columns} for:item="time" key={time}>
+                                            <input type="text" />
+                                        </th>
+                                    </tr>
+                                    <tr>
+                                        <td>Tue</td>
+                                        <th for:each={columns} for:item="time" key={time}>
+                                            <input type="text" />
+                                        </th>
+                                    </tr>
+                                    <tr>
+                                        <td>Wed</td>
+                                        <th for:each={columns} for:item="time" key={time}>
+                                            <input type="text" />
+                                        </th>
+                                    </tr>
+                                    <tr>
+                                        <td>Thu</td>
+                                        <th for:each={columns} for:item="time" key={time}>
+                                            <input type="text" />
+                                        </th>
+                                    </tr>
+                                    <tr>
+                                        <td>Fri</td>
+                                        <th for:each={columns} for:item="time" key={time}>
+                                            <input type="text" />
+                                        </th>
+                                    </tr>
+                                    <tr>
+                                        <td>Sat</td>
+                                        <th for:each={columns} for:item="time" key={time}>
+                                            <input type="text" />
+                                        </th>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </lightning-tab>
+
+
+                <lightning-tab label="Students">
+                    Three Content !
+                </lightning-tab>
+                <lightning-tab label="Curriculum">
+                    Four Content !
+                </lightning-tab>
+                <lightning-tab label="Attendance Report">
+                    Five Content !
+                </lightning-tab>
+            </lightning-tabset>
+        </div>
+    </div>
 </template>

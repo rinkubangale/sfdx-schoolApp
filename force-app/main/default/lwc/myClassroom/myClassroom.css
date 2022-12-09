@@ -1,3 +1,145 @@
 div {
     color: #444;
 }
+
+.clsContent {
+    margin: 2rem 0;
+}
+
+span.class {
+    background: #fff;
+    color: #444;
+    padding: 10px;
+    margin: 1rem;
+    border: 3px solid #0176d3;
+    border-radius: 60px;
+    cursor: pointer;
+}
+
+.searchBar {
+    padding: 1rem;
+}
+
+.attendance {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.75rem;
+}
+
+.atndBtn>span {
+    padding: 0.75rem;
+    background: #0176d3cc;
+    color: #fff;
+}
+
+
+.attendance>div>div>span {
+    background: #80808033;
+    padding: 0rem 1rem;
+}
+
+.attendance>div>div {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.75rem 0;
+}
+
+.attendanceClass {
+    width: 30%;
+}
+
+.students {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.75rem;
+}
+
+.performance>div {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.75rem;
+    text-align: center;
+}
+
+.performance>div>span {
+    background: #0176d333;
+    padding: 0.75rem 2rem;
+}
+
+.students>span:nth-child(even) {
+    background: #80808033;
+    padding: 0 2rem;
+}
+
+.timetable {
+    height: 15rem;
+    background: #0176d324;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.timetable>span {
+    color: #777;
+    font-size: 1.3rem;
+    cursor: pointer;
+}
+
+.chooseDays {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.75rem;
+}
+
+.chooseDays>span {
+    display: flex;
+    width: 80%;
+}
+
+.chooseDays>span ul {
+    display: flex;
+    justify-content: space-around;
+    width: 102%;
+}
+
+.chooseTime {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.75rem;
+}
+
+.chooseTime label {
+    margin-right: 0.75rem;
+}
+
+.calenderView {
+    overflow: auto;
+    padding: 0.75rem;
+}
+
+.calenderView input,
+.calenderView th,
+.calenderView td {
+    margin: 2px;
+    border: none;
+    outline: none;
+    font-size: 12px;
+    background: transparent;
+}
+
+.calenderView input {
+    border: 1px solid #0176d3;
+    outline: 1px solid #0176d3;
+}
+
+.calenderView table th:first-child,
+.calenderView table td:last-child {
+    padding-right: 0.75rem;
+}
+
+.calenderView>div {
+    overflow: auto;
+    padding: 0.75rem;
+    background: #0176d322;
+}
