@@ -143,3 +143,25 @@ span.class {
     padding: 0.75rem;
     background: #0176d322;
 }
+
+.chooseDays>span ul>li {
+    background: #d6e8f6;
+    cursor: pointer;
+    padding: 0 0.75rem;
+}
+
+.chooseDays>span ul>li:last-child,
+.chooseDays>span ul>li:first-child {
+    background: #c9c7c5;
+}
+
+.chooseDays>span ul>li:last-child:hover,
+.chooseDays>span ul>li:first-child:hover {
+    background: #c9c7c5;
+    color: #444;
+}
+
+.chooseDays>span ul>li:hover {
+    background: #0176d3;
+    color: #fff;
+}
