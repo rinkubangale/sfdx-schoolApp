@@ -1,17 +1,38 @@
 select {
-    border: none;
-    background-color: #ffffff;
-    padding: 5px;
-    border: none;
-    border-color: none;
-    outline: none;
-  }
-  :host{
+  border: none;
+  background-color: #ffffff;
+  border: #c9bebe;
+  border-style: solid;
+  border-width: 1px
+}
 
-    --slds-c-card-color-background:white;
+:host {
+  --slds-c-card-color-background: white;
 
-    --slds-c-card-color-border:#c9c9c9;
+  --slds-c-card-color-border: #c9c9c9;
 
-    --slds-c-card-footer-color-border:#c9c9c9;
+  --slds-c-card-footer-color-border: #c9c9c9;
+}
 
+.container {
+  display: block;
+  padding: 16px;
+}
+.mySearchBar > input[type="text"] {
+  color: #333;
+  border: none;
+  outline: none;
+  margin-left: 4px;
+}
+
+.mySearchBar > input[type="text"]:hover,
+.mySearchBar > input[type="text"]:focus {
+  font-size: 1rem;
+}
+
+.mySearchBar {
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 3px;
+  display: flex;
+  align-items: center;
 }
