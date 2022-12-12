@@ -144,6 +144,14 @@
                 </lightning-layout-item>
                 <lightning-layout-item flexibility="auto" padding="around-small"
                     class="slds-size_1-of-1 slds-medium-size_6-of-12 slds-large-size_4-of-12">
+                    <span onclick={defaultNotSet} data-name="listClass">
+                        <c-default-card obj-api-name='ContactStudent' header="Manage Subjects" step="STEP 3"
+                            header-line="Add Subjects" example-tag="[for eg: English, Maths, Science, etc]">
+                        </c-default-card>
+                    </span>
+                </lightning-layout-item>
+                <lightning-layout-item flexibility="auto" padding="around-small"
+                    class="slds-size_1-of-1 slds-medium-size_6-of-12 slds-large-size_4-of-12">
                     <span onclick={openCard} data-name="listClass">
                         <c-default-card obj-api-name='Class__c' header="Manage Class/Sections" step="STEP 4"
                             header-line="Add Your Class Names as per your standards"

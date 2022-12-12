@@ -1,0 +1,146 @@
+<template>
+    <div class="studentContainer">
+        <div class="cHeader">
+            <div class="searchInfo">
+                <div class="searchBar">
+                    <input type="text" placeholder="Search Student by Name, Roll no" />
+                </div>
+                <div class="info">
+                    <span>P : 3</span>
+                    <span>A : 1</span>
+                    <span>L : 1</span>
+                    <span>Total : 5</span>
+                </div>
+            </div>
+            <div class="notDate">
+                <div class="notation">
+                    <div><b>P</b>-Present</div>
+                    <div><b>A</b>-Absent</div>
+                    <div><b>L</b>-Late</div>
+                </div>
+                <div class="today">
+                    <b>Date</b>: <span>12/8/2022</span>
+                </div>
+            </div>
+            <div class="closePop">
+                <lightning-icon icon-name="utility:close" onclick={closeStudentPopup} alternative-text="Close"
+                    size="small" title="Close">
+                </lightning-icon>
+            </div>
+        </div>
+        <div class="cBody">
+            <table>
+                <tr>
+                    <th>Student Name</th>
+                    <th>Status</th>
+                    <th>Time</th>
+                    <th>Action</th>
+                </tr>
+                <tr>
+                    <td>Hari</td>
+                    <td>Present</td>
+                    <td>9:45</td>
+                    <td>
+                        <div>
+                            <lightning-icon icon-name="action:approval" alternative-text="Present" size="xx-small"
+                                title="Present">
+                            </lightning-icon>
+                            <span style="margin:3px"></span>
+                            <lightning-icon class="my-icon" icon-name="action:defer" alternative-text="Late"
+                                size="xx-small" title="Late">
+                            </lightning-icon>
+                            <span style="margin:3px"></span>
+                            <lightning-icon icon-name="action:close" alternative-text="Absent" size="xx-small"
+                                title="Absent">
+                            </lightning-icon>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Neil</td>
+                    <td>Present</td>
+                    <td>9:45</td>
+                    <td>
+                        <div>
+                            <lightning-icon icon-name="action:approval" alternative-text="Present" size="xx-small"
+                                title="Present">
+                            </lightning-icon>
+                            <span style="margin:3px"></span>
+                            <lightning-icon class="my-icon" icon-name="action:defer" alternative-text="Late"
+                                size="xx-small" title="Late">
+                            </lightning-icon>
+                            <span style="margin:3px"></span>
+                            <lightning-icon icon-name="action:close" alternative-text="Absent" size="xx-small"
+                                title="Absent">
+                            </lightning-icon>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Samuel</td>
+                    <td>Absent</td>
+                    <td>NA</td>
+                    <td>
+                        <div>
+                            <lightning-icon icon-name="action:approval" alternative-text="Present" size="xx-small"
+                                title="Present">
+                            </lightning-icon>
+                            <span style="margin:3px"></span>
+                            <lightning-icon class="my-icon" icon-name="action:defer" alternative-text="Late"
+                                size="xx-small" title="Late">
+                            </lightning-icon>
+                            <span style="margin:3px"></span>
+                            <lightning-icon icon-name="action:close" alternative-text="Absent" size="xx-small"
+                                title="Absent">
+                            </lightning-icon>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Nirosha</td>
+                    <td>Late</td>
+                    <td>12:05</td>
+                    <td>
+                        <div>
+                            <lightning-icon icon-name="action:approval" alternative-text="Present" size="xx-small"
+                                title="Present">
+                            </lightning-icon>
+                            <span style="margin:3px"></span>
+                            <lightning-icon class="my-icon" icon-name="action:defer" alternative-text="Late"
+                                size="xx-small" title="Late">
+                            </lightning-icon>
+                            <span style="margin:3px"></span>
+                            <lightning-icon icon-name="action:close" alternative-text="Absent" size="xx-small"
+                                title="Absent">
+                            </lightning-icon>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Priya</td>
+                    <td>Present</td>
+                    <td>9:45</td>
+                    <td>
+                        <div>
+                            <lightning-icon icon-name="action:approval" alternative-text="Present" size="xx-small"
+                                title="Present">
+                            </lightning-icon>
+                            <span style="margin:3px"></span>
+                            <lightning-icon class="my-icon" icon-name="action:defer" alternative-text="Late"
+                                size="xx-small" title="Late">
+                            </lightning-icon>
+                            <span style="margin:3px"></span>
+                            <lightning-icon icon-name="action:close" alternative-text="Absent" size="xx-small"
+                                title="Absent">
+                            </lightning-icon>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="cFooter slds-clearfix">
+            <lightning-button variant="brand" label="Submit" title="Submit Attendance" onclick={a}
+                class="slds-m-left_x-small slds-float_right"></lightning-button>
+        </div>
+    </div>
+</template>

@@ -31,7 +31,7 @@
                                 <div>Class Name <span>LKG A</span></div>
                                 <div>Admin Teacher <span>Sumathy</span></div>
                             </div>
-                            <div class="atndBtn">
+                            <div class="atndBtn" onclick={togglePopup}>
                                 <span>Attendance</span>
                             </div>
                         </div>
@@ -46,7 +46,7 @@
                         </div>
 
                         <div class=performance>
-                            <div>Performance</div>
+                            <div onclick={showClassPerformance}>Class Performance</div>
                             <div>
                                 <span>
                                     <div>Academics</div>
@@ -161,4 +161,5 @@
             </lightning-tabset>
         </div>
     </div>
+    <c-student-attendance if:true={showPopup} onclose={togglePopup}></c-student-attendance>
 </template>

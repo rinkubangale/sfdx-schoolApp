@@ -1,0 +1,58 @@
+div {
+    color: #444;
+}
+
+.studentContainer {
+    background: #fff;
+    position: inherit;
+    top: inherit;
+    right: inherit;
+    width: 40%;
+    height: 100vh;
+    padding: 1rem;
+}
+
+.cHeader {
+    display: flex;
+    justify-content: space-between;
+}
+
+.cFooter {
+    padding: 1rem;
+}
+
+.searchInfo,
+.notDate,
+.closePop {
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+th {
+    background: #80808033;
+}
+
+th,
+td {
+    padding: 8px 1rem;
+}
+
+th:last-child,
+td:last-child {
+    text-align: center;
+}
+
+.info {
+    display: flex;
+    justify-content: space-between;
+}
+
+.my-icon {
+    --sds-c-icon-color-background: #ffa500aa;
+}
+
+.closePop lightning-icon {
+    cursor: pointer;
+}

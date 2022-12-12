@@ -2,6 +2,7 @@ import { LightningElement, track } from "lwc";
 
 export default class MyClassroom extends LightningElement {
   @track isTimetable = false;
+  @track showPopup = false;
   @track columns = [0, 0, 0, 0, 0];
   handleNoColumn(e) {
     this.columns = new Array(+e.target.value).fill(0);
@@ -9,5 +10,9 @@ export default class MyClassroom extends LightningElement {
   }
   showTimetable() {
     this.isTimetable = true;
+  }
+
+  togglePopup() {
+    this.showPopup = !this.showPopup;
   }
 }

@@ -31,6 +31,7 @@ span.class {
     padding: 0.75rem;
     background: #0176d3cc;
     color: #fff;
+    cursor: pointer;
 }
 
 
@@ -121,17 +122,17 @@ span.class {
 .calenderView input,
 .calenderView th,
 .calenderView td {
-    margin: 2px;
+    margin: 8px;
     border: none;
     outline: none;
-    font-size: 12px;
+    /* font-size: 12px; */
     background: transparent;
 }
 
-.calenderView input {
+/* .calenderView input {
     border: 1px solid #0176d3;
     outline: 1px solid #0176d3;
-}
+} */
 
 .calenderView table th:first-child,
 .calenderView table td:last-child {
@@ -141,7 +142,7 @@ span.class {
 .calenderView>div {
     overflow: auto;
     padding: 0.75rem;
-    background: #0176d322;
+    /* background: #0176d322; */
 }
 
 .chooseDays>span ul>li {
@@ -164,4 +165,20 @@ span.class {
 .chooseDays>span ul>li:hover {
     background: #0176d3;
     color: #fff;
+}
+
+table input[type='text'] {
+    border-bottom: 1px solid #cacaca88 !important;
+    font-weight: 400;
+    text-align: center;
+}
+
+c-student-attendance {
+    position: absolute;
+    top: 0;
+    z-index: 999;
+    background: #4448;
+    right: 0;
+    width: 100%;
+    height: 100vh;
 }
