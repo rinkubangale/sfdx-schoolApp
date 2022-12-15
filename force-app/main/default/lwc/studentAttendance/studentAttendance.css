@@ -3,13 +3,22 @@ div {
 }
 
 .studentContainer {
-    background: #fff;
+    /* background: #fff;
     position: inherit;
     top: inherit;
     right: inherit;
     width: 40%;
     height: 100vh;
+    padding: 1rem; */
+
+    background: #fff;
+    position: inherit;
+    top: 10%;
+    left: 10%;
+    width: 80%;
+    height: 80%;
     padding: 1rem;
+    border-radius: 8px;
 }
 
 .cHeader {
@@ -21,6 +30,24 @@ div {
     padding: 1rem;
 }
 
+.cBody {
+    /* max-height: 500px; */
+    max-height: 70%;
+    overflow-y: auto;
+}
+
+table {
+    text-align: center;
+    position: relative;
+    width: 100%;
+}
+
+th {
+    top: 0;
+    position: sticky;
+    background: #f1f1f1;
+}
+
 .searchInfo,
 .notDate,
 .closePop {
@@ -28,10 +55,6 @@ div {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-}
-
-th {
-    background: #80808033;
 }
 
 th,

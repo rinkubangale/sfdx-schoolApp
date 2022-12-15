@@ -2,6 +2,10 @@ import { LightningElement, track } from "lwc";
 
 export default class MyClassroom extends LightningElement {
   @track isTimetable = false;
+  @track showPerformance = false;
+  @track showAcademics = false;
+  @track showCurricular = false;
+  @track showAttendance = false;
   @track showPopup = false;
   @track columns = [0, 0, 0, 0, 0];
   handleNoColumn(e) {
@@ -14,5 +18,23 @@ export default class MyClassroom extends LightningElement {
 
   togglePopup() {
     this.showPopup = !this.showPopup;
+  }
+  togglePerformance() {
+    this.showPerformance = !this.showPerformance;
+  }
+  toggleAcademics() {
+    this.showAcademics = true;
+    this.showCurricular = false;
+    this.showAttendance = false;
+  }
+  toggleCurricular() {
+    this.showCurricular = true;
+    this.showAcademics = false;
+    this.showAttendance = false;
+  }
+  toggleAttend() {
+    this.showAttendance = true;
+    this.showCurricular = false;
+    this.showAcademics = false;
   }
 }

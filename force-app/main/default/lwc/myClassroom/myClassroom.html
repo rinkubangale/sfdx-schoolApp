@@ -53,13 +53,16 @@
                                     <div>80%</div>
                                 </span>
                                 <span>
-                                    <div>Sports</div>
+                                    <div>Co-curricular</div>
                                     <div>90%</div>
                                 </span>
                                 <span>
                                     <div>Attendance</div>
                                     <div>80%</div>
                                 </span>
+                                <div class="prfoBtn" onclick={togglePerformance}>
+                                    <span>Class Performance</span>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -149,10 +152,10 @@
                 </lightning-tab>
 
 
-                <lightning-tab label="Students">
+                <lightning-tab label="Curriculum">
                     Three Content !
                 </lightning-tab>
-                <lightning-tab label="Curriculum">
+                <lightning-tab label="Assignments">
                     Four Content !
                 </lightning-tab>
                 <lightning-tab label="Attendance Report">
@@ -162,4 +165,305 @@
         </div>
     </div>
     <c-student-attendance if:true={showPopup} onclose={togglePopup}></c-student-attendance>
+    <template if:true={showPerformance}>
+        <div class="popupGreyout">
+            <div class="showPerform slds-clearfix">
+                <lightning-icon class="slds-float_right" icon-name="utility:close" onclick={togglePerformance}
+                    alternative-text="Close" size="small" title="Close"></lightning-icon>
+                <lightning-tabset>
+                    <lightning-tab label="Student Wise">
+                        <div class="studentwise">
+                            <div class="sortFunc">
+                                <div>
+                                    <label for="term">Terms</label>
+                                    <select name="term" id="term">
+                                        <option value="Term 1">Term 1</option>
+                                        <option value="Term 2">Term 2</option>
+                                        <option value="Term 3">Term 3</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <span>Grade Settings</span>
+                                </div>
+                            </div>
+                            <div class="tabledata">
+                                <table>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th onclick={toggleAcademics}>Academics</th>
+                                        <th onclick={toggleCurricular}>Curricular Activities</th>
+                                        <th onclick={toggleAttend}>Attendance</th>
+                                    </tr>
+                                    <tr>
+                                        <td>Hari</td>
+                                        <td>A+</td>
+                                        <td>A</td>
+                                        <td>B</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Neel</td>
+                                        <td>A</td>
+                                        <td>A</td>
+                                        <td>B</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Samuel</td>
+                                        <td>A+</td>
+                                        <td>A</td>
+                                        <td>B</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Nirosha</td>
+                                        <td>A</td>
+                                        <td>A</td>
+                                        <td>B</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Priya</td>
+                                        <td>B</td>
+                                        <td>A</td>
+                                        <td>B</td>
+                                    </tr>
+                                </table>
+
+                                <template if:true={showAcademics}>
+                                    <table>
+                                        <tr>
+                                            <th>Name</th>
+                                            <th>English</th>
+                                            <th>Tamil</th>
+                                            <th>Hindi</th>
+                                            <th>EVS</th>
+                                            <th>CSC</th>
+                                            <th>Total</th>
+                                            <th>Action</th>
+                                        </tr>
+                                        <tr>
+                                            <td>Hari</td>
+                                            <td>A+</td>
+                                            <td>A</td>
+                                            <td>B</td>
+                                            <td>A+</td>
+                                            <td>A</td>
+                                            <td>B</td>
+                                            <td>
+                                                <a>View</a>/
+                                                <a>Edit</a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Neel</td>
+                                            <td>A</td>
+                                            <td>A</td>
+                                            <td>B</td>
+                                            <td>A+</td>
+                                            <td>A</td>
+                                            <td>B</td>
+                                            <td>
+                                                <a>View</a>/
+                                                <a>Edit</a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Samuel</td>
+                                            <td>A+</td>
+                                            <td>A</td>
+                                            <td>B</td>
+                                            <td>A+</td>
+                                            <td>A</td>
+                                            <td>B</td>
+                                            <td>
+                                                <a>View</a>/
+                                                <a>Edit</a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Nirosha</td>
+                                            <td>A</td>
+                                            <td>A</td>
+                                            <td>B</td>
+                                            <td>A+</td>
+                                            <td>A</td>
+                                            <td>B</td>
+                                            <td>
+                                                <a>View</a>/
+                                                <a>Edit</a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Priya</td>
+                                            <td>B</td>
+                                            <td>A</td>
+                                            <td>B</td>
+                                            <td>A+</td>
+                                            <td>A</td>
+                                            <td>B</td>
+                                            <td>
+                                                <a>View</a>/
+                                                <a>Edit</a>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </template>
+                                <template if:true={showCurricular}>
+                                    <table>
+                                        <tr>
+                                            <th>Name</th>
+                                            <th>Games</th>
+                                            <th>Arts/Craft</th>
+                                            <th>Health</th>
+                                            <th>Discipline</th>
+                                            <th>Total</th>
+                                            <th>Action</th>
+                                        </tr>
+                                        <tr>
+                                            <td>Hari</td>
+                                            <td>A+</td>
+                                            <td>A</td>
+                                            <td>B</td>
+                                            <td>A+</td>
+                                            <td>B</td>
+                                            <td>
+                                                <a>View</a>/
+                                                <a>Edit</a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Neel</td>
+                                            <td>A</td>
+                                            <td>A</td>
+                                            <td>B</td>
+                                            <td>A</td>
+                                            <td>B</td>
+                                            <td>
+                                                <a>View</a>/
+                                                <a>Edit</a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Samuel</td>
+                                            <td>A+</td>
+                                            <td>A</td>
+                                            <td>A+</td>
+                                            <td>A</td>
+                                            <td>B</td>
+                                            <td>
+                                                <a>View</a>/
+                                                <a>Edit</a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Nirosha</td>
+                                            <td>A</td>
+                                            <td>A</td>
+                                            <td>B</td>
+                                            <td>A+</td>
+                                            <td>A</td>
+                                            <td>
+                                                <a>View</a>/
+                                                <a>Edit</a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Priya</td>
+                                            <td>B</td>
+                                            <td>B</td>
+                                            <td>A+</td>
+                                            <td>A</td>
+                                            <td>B</td>
+                                            <td>
+                                                <a>View</a>/
+                                                <a>Edit</a>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </template>
+                                <template if:true={showAttendance}>
+                                    <table>
+                                        <tr>
+                                            <th>Name</th>
+                                            <th>Term 1
+                                                <p>68</p>
+                                            </th>
+                                            <th>Term 2
+                                                <p>75</p>
+                                            </th>
+                                            <th>Term 3
+                                                <p>80</p>
+                                            </th>
+                                            <th>Total
+                                                <p>223</p>
+                                            </th>
+                                            <th>Grading</th>
+                                            <th>Action</th>
+                                        </tr>
+                                        <tr>
+                                            <td>Hari</td>
+                                            <td>65</td>
+                                            <td>69</td>
+                                            <td>80</td>
+                                            <td>96%</td>
+                                            <td>A+</td>
+                                            <td>
+                                                <a>View</a>/
+                                                <a>Edit</a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Neel</td>
+                                            <td>65</td>
+                                            <td>69</td>
+                                            <td>80</td>
+                                            <td>96%</td>
+                                            <td>A+</td>
+                                            <td>
+                                                <a>View</a>/
+                                                <a>Edit</a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Samuel</td>
+                                            <td>65</td>
+                                            <td>69</td>
+                                            <td>80</td>
+                                            <td>96%</td>
+                                            <td>A+</td>
+                                            <td>
+                                                <a>View</a>/
+                                                <a>Edit</a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Nirosha</td>
+                                            <td>65</td>
+                                            <td>69</td>
+                                            <td>80</td>
+                                            <td>96%</td>
+                                            <td>A+</td>
+                                            <td>
+                                                <a>View</a>/
+                                                <a>Edit</a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Priya</td>
+                                            <td>65</td>
+                                            <td>69</td>
+                                            <td>80</td>
+                                            <td>96%</td>
+                                            <td>A+</td>
+                                            <td>
+                                                <a>View</a>/
+                                                <a>Edit</a>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </template>
+                            </div>
+                        </div>
+                    </lightning-tab>
+                </lightning-tabset>
+            </div>
+        </div>
+    </template>
 </template>
