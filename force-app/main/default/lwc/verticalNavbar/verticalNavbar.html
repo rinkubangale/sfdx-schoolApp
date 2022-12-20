@@ -99,6 +99,14 @@
                         <span class={hide}>Assignments</span>
                     </span>
                 </li>
+                <li if:true={isTeacher}>
+                    <span onclick={toTeacherSettings}>
+                        <lightning-icon icon-name="utility:settings" size="small" alternative-text="Settings"
+                            title="Settings" class="my-icon">
+                        </lightning-icon>
+                        <span class={hide}>Settings</span>
+                    </span>
+                </li>
 
 
                 <!-- <li>

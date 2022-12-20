@@ -2,6 +2,10 @@ div {
     color: #444;
 }
 
+.searchBar input {
+    min-width: 300px;
+}
+
 .studentContainer {
     /* background: #fff;
     position: inherit;
@@ -13,10 +17,10 @@ div {
 
     background: #fff;
     position: inherit;
-    top: 10%;
-    left: 10%;
-    width: 80%;
-    height: 80%;
+    top: 5%;
+    left: 5%;
+    width: 90%;
+    height: 90%;
     padding: 1rem;
     border-radius: 8px;
 }
@@ -49,12 +53,20 @@ th {
 }
 
 .searchInfo,
-.notDate,
 .closePop {
     padding: 1rem;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+}
+
+.notDate {
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    flex-direction: row !important;
+    justify-content: space-evenly !important;
+    width: -webkit-fill-available;
 }
 
 th,

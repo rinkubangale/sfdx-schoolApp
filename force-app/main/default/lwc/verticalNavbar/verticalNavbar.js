@@ -158,6 +158,16 @@ export default class VerticalNavbar extends LightningElement {
     );
   }
 
+  toTeacherSettings() {
+    this.dispatchEvent(
+      new CustomEvent("btnclick", {
+        detail: {
+          teacherSettings: true
+        }
+      })
+    );
+  }
+
   get hide() {
     return this.toggle ? "" : "iconTile";
   }

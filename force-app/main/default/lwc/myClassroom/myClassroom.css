@@ -2,6 +2,10 @@ div {
     color: #444;
 }
 
+.topContainer {
+    display: none;
+}
+
 .clsContent {
     margin: 2rem 0;
 }
@@ -193,11 +197,32 @@ table input[type='text'] {
     cursor: pointer;
 }
 
+.gradeSetup {
+    display: flex;
+    justify-content: space-between;
+}
+
+.closeGradeSetup {
+    background-color: #ff4570;
+    color: #fff;
+    cursor: pointer;
+    padding: 0 8px;
+    border-radius: 4px;
+}
 
 .tabledata {
     padding: 1rem 2rem;
-    height: 470px;
+    height: 65vh;
     overflow: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.tabledata>div:first-child {
+    width: -webkit-fill-available;
+    /* display: grid; */
+    margin-right: 1rem;
 }
 
 .tabledata td,
@@ -224,8 +249,17 @@ table input[type='text'] {
     text-align: left;
 }
 
-.tabledata table:last-child {
-    margin: 4rem 0;
+.tabledata>div:first-child>table:last-child {
+    margin-top: 4rem;
+}
+
+.tabledata>div:nth-child(2) table {
+    margin: 8px 0 4rem 0;
+}
+
+.tabledata>div:nth-child(2) {
+    height: 100%;
+    overflow: auto;
 }
 
 .showPerform>lightning-icon {
@@ -254,10 +288,15 @@ c-student-attendance,
 
     background: #fff;
     position: inherit;
-    top: 10%;
-    left: 10%;
-    width: 80%;
-    height: 80%;
+    top: 5%;
+    left: 5%;
+    width: 90%;
+    height: 90%;
     padding: 1rem;
     border-radius: 8px;
+}
+
+.tableHeaderLink {
+    text-decoration: underline;
+    color: #0176d3;
 }

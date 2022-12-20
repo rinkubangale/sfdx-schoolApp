@@ -8,6 +8,10 @@ export default class MyClassroom extends LightningElement {
   @track showAttendance = false;
   @track showPopup = false;
   @track columns = [0, 0, 0, 0, 0];
+  @track gradeSetup = false;
+  handleGradeSetup() {
+    this.gradeSetup = !this.gradeSetup;
+  }
   handleNoColumn(e) {
     this.columns = new Array(+e.target.value).fill(0);
     console.log(this.columns, e.target.value);
