@@ -1,5 +1,55 @@
 import { LightningElement, track } from "lwc";
 
+const actions = [
+  {
+    label: "edit",
+    name: "edit",
+    iconName: "utility:edit",
+    alternativeText: "edit",
+    title: "edit"
+  },
+  {
+    label: "Delete",
+    name: "delete",
+    iconName: "utility:delete",
+    alternativeText: "Delete",
+    title: "Delete"
+  }
+];
+
+const columns = [
+  {
+    label: "Name",
+    fieldName: "Name"
+  },
+  {
+    label: "Class",
+    fieldName: "Class"
+  },
+  {
+    label: "Subject",
+    fieldName: "Subject"
+  },
+  {
+    label: "Start Date",
+    fieldName: "StartDate"
+  },
+  {
+    label: "Submission Date",
+    fieldName: "SubmissionDate"
+  },
+  {
+    label: "Status",
+    fieldName: "Status"
+  },
+  {
+    type: "action",
+    typeAttributes: {
+      rowActions: actions
+    }
+  }
+];
+
 export default class MyClassroom extends LightningElement {
   @track isTimetable = false;
   @track showPerformance = false;
@@ -9,6 +59,19 @@ export default class MyClassroom extends LightningElement {
   @track showPopup = false;
   @track columns = [0, 0, 0, 0, 0];
   @track gradeSetup = false;
+
+  @track
+  dataList = [
+    {
+      Name: "Srihari N",
+      Class: "LKG-A",
+      Subject: "Science",
+      StartDate: "22-Jan-2022",
+      SubmissionDate: "11-Feb-2022",
+      Status: "Completed"
+    }
+  ];
+  column = columns;
   handleGradeSetup() {
     this.gradeSetup = !this.gradeSetup;
   }
@@ -40,5 +103,9 @@ export default class MyClassroom extends LightningElement {
     this.showAttendance = true;
     this.showCurricular = false;
     this.showAcademics = false;
+  }
+  calendarView = false;
+  openCalendar() {
+    this.calendarView = !this.calendarView;
   }
 }

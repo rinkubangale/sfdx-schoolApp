@@ -52,7 +52,7 @@ export default class FullCalendarJs extends LightningElement {
       header: {
         left: "prev,next today",
         center: "title",
-        right: "month,agendaWeek,agendaDay"
+        right: "list,month,agendaWeek,agendaDay"
       },
       defaultDate: new Date(), // default day is today - to show the current date
       defaultView: "month", //To display the default view - as of now it is set to month view

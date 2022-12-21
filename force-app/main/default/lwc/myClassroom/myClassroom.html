@@ -156,7 +156,20 @@
                     Three Content !
                 </lightning-tab>
                 <lightning-tab label="Assignments">
-                    Four Content !
+                    <!-- Four Content ! -->
+                    <div class="slds-clearfix">
+                        <div class="prfoBtn slds-float_right" onclick={openCalendar}>
+                            <span>
+                                <lightning-icon icon-name="utility:event" alternative-text="Calendar" variant="inverse"
+                                    size="small" title="Calendar">
+                                </lightning-icon>
+                                Calendar
+                            </span>
+                        </div>
+                    </div>
+                    <lightning-datatable key-field="Id" data={dataList} columns={column} onrowaction={rowActionHandler}
+                        resize-column-disabled suppress-bottom-bar>
+                    </lightning-datatable>
                 </lightning-tab>
                 <lightning-tab label="Attendance Report">
                     Five Content !
@@ -562,6 +575,18 @@
                         </div>
                     </lightning-tab>
                 </lightning-tabset>
+            </div>
+        </div>
+    </template>
+
+    <template if:true={calendarView}>
+        <div class="popupGreyout">
+            <div class="showPerform slds-clearfix">
+                <lightning-icon class="slds-float_right" icon-name="utility:close" onclick={openCalendar}
+                    alternative-text="Close" size="small" title="Close"></lightning-icon>
+                <div style="height:auto" if:true={calendarView}>
+                    <c-full-calendar-js></c-full-calendar-js>
+                </div>
             </div>
         </div>
     </template>

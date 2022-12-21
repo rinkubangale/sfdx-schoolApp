@@ -1,5 +1,4 @@
 <template>
-    <!-- <template if:false={isModalOpen}> -->
     <template if:false={isModalOpen}>
         <lightning-card style="margin:15px; text-transform:capitalize;" class="slds-card__header ">
             <lightning-layout>
@@ -7,7 +6,7 @@
                     <lightning-icon icon-name="standard:record" alternative-text="Clone" title="View Assignments">
                     </lightning-icon>
 
-                    <span style="font-weight:bold; font-size:larger; color: black"
+                    <span style="font-weight:bold; font-size:larger; color:black"
                         class=" slds-p-around_small ">Assignments
                     </span>
                 </lightning-layout-item>
@@ -41,9 +40,8 @@
             </template>
 
             <div style="height:auto" if:false={calendarView}>
-
                 <lightning-datatable key-field="Id" data={dataList} columns={columns} onrowaction={rowActionHandler}
-                    column-widths-mode=auto resize-column-disabled suppress-bottom-bar>
+                    resize-column-disabled suppress-bottom-bar>
                 </lightning-datatable>
 
             </div>
@@ -54,17 +52,14 @@
 
 
             <div slot="footer" class="slds-clearfix slds-p-top_xxx-small ">
-                <lightning-button label="Back" variant="brand" onclick={goBack}
-                    class="slds-var-m-left_xx-small slds-float_left"></lightning-button>
+
                 <lightning-button label="Delete" onclick={getSelectedRec} variant="brand"
                     class="slds-var-m-left_xx-small slds-float_right"></lightning-button>
             </div>
         </lightning-card>
-
-
-
     </template>
+
     <template if:true={isModalOpen}>
-        <c-add-academic-year-wireframe onmodalchange={closeModal}></c-add-academic-year-wireframe>
+        <c-add-assignments onclose={openModal}></c-add-assignments>
     </template>
 </template>

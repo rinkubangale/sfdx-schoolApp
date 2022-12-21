@@ -1,0 +1,21 @@
+<template>
+    <template if:true={clicked}>
+        <template if:true={gradeListView}>
+            <c-alerts-list-view onbackbtn={handleBack}></c-alerts-list-view>
+        </template>
+    </template>
+
+    <template if:false={clicked}>
+        <lightning-card class="removeBg">
+            <lightning-layout class="resScreen" multiple-rows>
+                <lightning-layout-item flexibility="auto" padding="around-small">
+                    <span onclick={openCard} data-name="gradeListView">
+                        <c-default-card obj-api-name='Leave__c' header="Grades Setup" step="STEP 1"
+                            header-line="Marks & Grades Setup" example-tag="">
+                        </c-default-card>
+                    </span>
+                </lightning-layout-item>
+            </lightning-layout>
+        </lightning-card>
+    </template>
+</template>

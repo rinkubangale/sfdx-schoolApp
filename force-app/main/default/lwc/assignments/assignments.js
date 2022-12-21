@@ -52,9 +52,9 @@ const columns = [
 ];
 export default class Assignments extends LightningElement {
   @track isModalOpen = false;
-  @track dataList;
   @track calendarView = true;
 
+  @track
   dataList = [
     {
       Name: "Srihari N",
@@ -71,10 +71,6 @@ export default class Assignments extends LightningElement {
   }
 
   closeModal() {
-    this.isModalOpen = false;
-  }
-
-  submitDetails() {
     this.isModalOpen = false;
   }
 

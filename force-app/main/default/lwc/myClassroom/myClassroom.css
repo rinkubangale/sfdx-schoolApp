@@ -37,6 +37,8 @@ span.class {
     background: #0176d3cc;
     color: #fff;
     cursor: pointer;
+    display: flex;
+    gap: 0.5rem;
 }
 
 
@@ -294,6 +296,7 @@ c-student-attendance,
     height: 90%;
     padding: 1rem;
     border-radius: 8px;
+    overflow: auto;
 }
 
 .tableHeaderLink {

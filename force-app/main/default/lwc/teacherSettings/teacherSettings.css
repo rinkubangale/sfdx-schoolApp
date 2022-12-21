@@ -1,0 +1,28 @@
+.resScreen {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    padding-right: 18px;
+}
+
+:host {
+    --slds-c-card-color-background: transparent;
+    --slds-c-card-color-border: transparent;
+    --slds-c-card-text-color: #000;
+    --slds-c-card-shadow: none;
+}
+
+@media (max-width: 720px) {
+    .resScreen {
+        display: grid;
+        grid-template-columns: 1fr;
+        align-items: center;
+    }
+}
+
+@media (min-width: 720px) and (max-width: 1080px) {
+    .resScreen {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        align-items: center;
+    }
+}
