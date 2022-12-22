@@ -41,6 +41,11 @@ span.class {
     gap: 0.5rem;
 }
 
+.setupTT>span {
+    color: #0176d3cc;
+    cursor: pointer;
+}
+
 
 .attendance>div>div>span {
     background: #80808033;
@@ -123,8 +128,19 @@ span.class {
 }
 
 .calenderView {
+    clear: both;
     overflow: auto;
-    padding: 0.75rem;
+    padding: 0 0.75rem;
+}
+
+p.srNo {
+    margin: auto;
+    height: 24px;
+    background-color: #318fdc;
+    width: 24px;
+    color: #fff;
+    border-radius: 50%;
+    text-align: center;
 }
 
 .calenderView input,
@@ -133,8 +149,8 @@ span.class {
     margin: 8px;
     border: none;
     outline: none;
-    /* font-size: 12px; */
     background: transparent;
+    text-align: center;
 }
 
 /* .calenderView input {
@@ -147,11 +163,9 @@ span.class {
     padding-right: 0.75rem;
 }
 
-.calenderView>div {
+/* .calenderView>div {
     overflow: auto;
-    padding: 0.75rem;
-    /* background: #0176d322; */
-}
+} */
 
 .chooseDays>span ul>li {
     background: #d6e8f6;

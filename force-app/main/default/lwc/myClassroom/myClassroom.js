@@ -57,7 +57,7 @@ export default class MyClassroom extends LightningElement {
   @track showCurricular = false;
   @track showAttendance = false;
   @track showPopup = false;
-  @track columns = [0, 0, 0, 0, 0];
+  @track columns = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
   @track gradeSetup = false;
 
   @track
@@ -72,6 +72,10 @@ export default class MyClassroom extends LightningElement {
     }
   ];
   column = columns;
+  @track showTTSetup = false;
+  handleTTSetup() {
+    this.showTTSetup = !this.showTTSetup;
+  }
   handleGradeSetup() {
     this.gradeSetup = !this.gradeSetup;
   }
