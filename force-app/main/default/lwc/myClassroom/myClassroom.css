@@ -133,6 +133,10 @@ span.class {
     padding: 0 0.75rem;
 }
 
+.calenderView tr {
+    height: 4rem;
+}
+
 p.srNo {
     margin: auto;
     height: 24px;
