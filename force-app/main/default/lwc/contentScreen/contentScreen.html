@@ -16,6 +16,10 @@
         <c-home-default clicked={goBack}></c-home-default>
     </template>
 
+    <template if:true={showAcademic} class="academicContainer">
+        <c-academic-management></c-academic-management>
+    </template>
+
     <template if:true={showSetting}>
         <!-- <div>Settings Component In-Progress</div> -->
         <c-setting-screen-view></c-setting-screen-view>

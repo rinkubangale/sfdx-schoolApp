@@ -2,6 +2,7 @@ import { LightningElement, track, api } from "lwc";
 
 export default class ContentScreen extends LightningElement {
   @api showAdmission;
+  @api showAcademic;
   @api showHome;
   @api showFee;
   @api showSetting;

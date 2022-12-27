@@ -42,6 +42,15 @@
                 </li>
 
                 <li if:false={isTeacher}>
+                    <span onclick={toAcademic}>
+                        <lightning-icon icon-name="utility:collection" size="small"
+                            alternative-text="Academic Management" title="Academic Management" class="my-icon">
+                        </lightning-icon>
+                        <span class={hide}>Academic Management</span>
+                    </span>
+                </li>
+
+                <li if:false={isTeacher}>
                     <span onclick={toFee}>
                         <lightning-icon icon-name="utility:moneybag" size="small" alternative-text="Fee Management"
                             title="Fee Management" class="my-icon">

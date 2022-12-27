@@ -1,0 +1,331 @@
+div {
+    color: #444;
+}
+
+.topContainer {
+    display: none;
+}
+
+.clsContent {
+    margin: 2rem 0;
+}
+
+span.class {
+    background: #fff;
+    color: #444;
+    padding: 10px;
+    margin: 1rem;
+    border: 3px solid #0176d3;
+    border-radius: 60px;
+    cursor: pointer;
+}
+
+.searchBar {
+    padding: 1rem;
+}
+
+.attendance {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.75rem;
+}
+
+.atndBtn>span,
+.prfoBtn>span {
+    padding: 0.75rem;
+    background: #0176d3cc;
+    color: #fff;
+    cursor: pointer;
+    display: flex;
+    gap: 0.5rem;
+}
+
+.setupTT>span {
+    color: #0176d3cc;
+    cursor: pointer;
+}
+
+
+.attendance>div>div>span {
+    background: #80808033;
+    padding: 0rem 1rem;
+}
+
+.attendance>div>div {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.75rem 0;
+}
+
+.attendanceClass {
+    width: 30%;
+}
+
+.students {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.75rem;
+}
+
+.performance>div {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.75rem;
+    text-align: center;
+    align-items: center;
+}
+
+.performance>div>span {
+    background: #0176d333;
+    padding: 0.75rem 2rem;
+}
+
+.students>span:nth-child(even) {
+    background: #80808033;
+    padding: 0 2rem;
+}
+
+.timetable {
+    height: 15rem;
+    background: #0176d324;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.timetable>span {
+    color: #777;
+    font-size: 1.3rem;
+    cursor: pointer;
+}
+
+.chooseDays {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.75rem;
+}
+
+.chooseDays>span {
+    display: flex;
+    width: 80%;
+}
+
+.chooseDays>span ul {
+    display: flex;
+    justify-content: space-around;
+    width: 102%;
+}
+
+.chooseTime {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.75rem;
+}
+
+.chooseTime label {
+    margin-right: 0.75rem;
+}
+
+.calenderView {
+    clear: both;
+    overflow: auto;
+    padding: 0 0.75rem;
+}
+
+.calenderView tr {
+    height: 4rem;
+}
+
+.calenderView tr:first-child {
+    background-color: #d6d6d6 !important;
+}
+
+.calenderView tr:nth-child(odd) {
+    background-color: #efefef;
+}
+
+p.srNo {
+    margin: auto;
+    height: 24px;
+    background-color: #318fdc;
+    width: 24px;
+    color: #fff;
+    border-radius: 50%;
+    text-align: center;
+}
+
+.calenderView input,
+.calenderView th,
+.calenderView td {
+    margin: 8px;
+    border: none;
+    outline: none;
+    background: transparent;
+    text-align: center;
+}
+
+/* .calenderView input {
+    border: 1px solid #0176d3;
+    outline: 1px solid #0176d3;
+} */
+
+.calenderView table th:first-child,
+.calenderView table td:last-child {
+    padding-right: 0.75rem;
+}
+
+/* .calenderView>div {
+    overflow: auto;
+} */
+
+.chooseDays>span ul>li {
+    background: #d6e8f6;
+    cursor: pointer;
+    padding: 0 0.75rem;
+}
+
+.chooseDays>span ul>li:last-child,
+.chooseDays>span ul>li:first-child {
+    background: #c9c7c5;
+}
+
+.chooseDays>span ul>li:last-child:hover,
+.chooseDays>span ul>li:first-child:hover {
+    background: #c9c7c5;
+    color: #444;
+}
+
+.chooseDays>span ul>li:hover {
+    background: #0176d3;
+    color: #fff;
+}
+
+table input[type='text'] {
+    border-bottom: 1px solid #cacaca88 !important;
+    font-weight: 400;
+    text-align: center;
+}
+
+.sortFunc {
+    display: flex;
+    justify-content: space-around;
+    padding: 1rem 0;
+}
+
+.sortFunc label {
+    margin-right: 8px;
+}
+
+.sortFunc>div:last-child {
+    background: #0176d3cc;
+    padding: 8px;
+    color: #fff;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.gradeSetup {
+    display: flex;
+    justify-content: space-between;
+}
+
+.closeGradeSetup {
+    background-color: #ff4570;
+    color: #fff;
+    cursor: pointer;
+    padding: 0 8px;
+    border-radius: 4px;
+}
+
+.tabledata {
+    padding: 1rem 2rem;
+    height: 65vh;
+    overflow: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.tabledata>div:first-child {
+    width: -webkit-fill-available;
+    /* display: grid; */
+    margin-right: 1rem;
+}
+
+.tabledata td,
+.tabledata th {
+    text-align: center;
+    padding: 8px;
+}
+
+.tabledata th {
+    background-color: #d5d5d5;
+    cursor: pointer;
+}
+
+.tabledata th:first-child {
+    cursor: default !important;
+}
+
+.tabledata tr:nth-child(odd) {
+    background-color: #f5f5f5
+}
+
+.tabledata td:first-child,
+.tabledata th:first-child {
+    text-align: left;
+}
+
+.tabledata>div:first-child>table:last-child {
+    margin-top: 4rem;
+}
+
+.tabledata>div:nth-child(2) table {
+    margin: 8px 0 4rem 0;
+}
+
+.tabledata>div:nth-child(2) {
+    height: 100%;
+    overflow: auto;
+}
+
+.showPerform>lightning-icon {
+    cursor: pointer;
+}
+
+c-student-attendance,
+.popupGreyout {
+    position: absolute;
+    top: 0;
+    z-index: 999;
+    background: #4448;
+    right: 0;
+    width: 100%;
+    height: 100vh;
+}
+
+.showPerform {
+    /* background: #fff;
+    position: inherit;
+    top: inherit;
+    right: inherit;
+    width: 40%;
+    height: 100vh;
+    padding: 1rem; */
+
+    background: #fff;
+    position: inherit;
+    top: 5%;
+    left: 5%;
+    width: 90%;
+    height: 90%;
+    padding: 1rem;
+    border-radius: 8px;
+    overflow: auto;
+}
+
+.tableHeaderLink {
+    text-decoration: underline;
+    color: #0176d3;
+}

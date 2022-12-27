@@ -148,11 +148,22 @@ export default class VerticalNavbar extends LightningElement {
       })
     );
   }
+
   toAssignment() {
     this.dispatchEvent(
       new CustomEvent("btnclick", {
         detail: {
           assignment: true
+        }
+      })
+    );
+  }
+
+  toAcademic() {
+    this.dispatchEvent(
+      new CustomEvent("btnclick", {
+        detail: {
+          academic: true
         }
       })
     );

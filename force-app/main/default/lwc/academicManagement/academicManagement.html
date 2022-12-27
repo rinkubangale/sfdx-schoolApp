@@ -1,0 +1,587 @@
+<template>
+    <div class="container">
+        <div class="topContainer">
+            <div class="searchBar slds-align_absolute-center">
+                <input type="text" placeholder="Search Classroom" />
+            </div>
+        </div>
+        <div class="midContainer">
+            <lightning-tabset>
+                <lightning-tab label="Class">
+                    <div class="clsContent">
+                        <span class="class">
+                            <span class="section">LKG</span>
+                        </span>
+                        <span class="class">
+                            <span class="section">UKG</span>
+                        </span>
+                        <span class="class">
+                            <span class="section">1st</span>
+                        </span>
+                        <span class="class">
+                            <span class="section">2nd</span>
+                        </span>
+                    </div>
+                </lightning-tab>
+                <lightning-tab label="Classrooms">
+                    <div class="clsContent">
+                        <span class="class">
+                            <span class="section">LKG - A</span>
+                        </span>
+                        <span class="class">
+                            <span class="section">UKG - A</span>
+                        </span>
+                        <span class="class">
+                            <span class="section">UKG - B</span>
+                        </span>
+                    </div>
+                </lightning-tab>
+            </lightning-tabset>
+        </div>
+        <div class="bottomContainer">
+            <lightning-tabset>
+                <lightning-tab label="Overview">
+                    <div class="overviewContent">
+                        <div class=attendance>
+                            <div class="attendanceClass">
+                                <div>Class Name <span>LKG</span></div>
+                                <div>Admin Teacher <span>Sumathy</span></div>
+                            </div>
+                            <div class="atndBtn" onclick={togglePopup}>
+                                <span>Assign Teacher</span>
+                            </div>
+                        </div>
+
+                        <div class=students>
+                            <span>No. of Students</span>
+                            <span>120</span>
+                            <span>Boys</span>
+                            <span>70</span>
+                            <span>Girls</span>
+                            <span>50</span>
+                        </div>
+
+                        <div class=performance>
+                            <div onclick={showClassPerformance}>Class Performance</div>
+                            <div>
+                                <span>
+                                    <div>Academics</div>
+                                    <div>80%</div>
+                                </span>
+                                <span>
+                                    <div>Co-curricular</div>
+                                    <div>90%</div>
+                                </span>
+                                <span>
+                                    <div>Attendance</div>
+                                    <div>80%</div>
+                                </span>
+                                <div class="prfoBtn" onclick={togglePerformance}>
+                                    <span>Class Performance</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </lightning-tab>
+                <lightning-tab label="Timetable">
+                    <div if:false={isTimetable} class="timetable">
+                        <span class="span" onclick={showTimetable}>Timetable Schedule +</span>
+                    </div>
+                    <div if:true={isTimetable} class="slds-clearfix timetableClicked">
+                        <div if:true={columns} class="calenderView">
+                            <div>
+                                <table>
+                                    <tr>
+                                        <th>
+                                            <span>Time</span>
+                                            <p>Periods</p>
+                                        </th>
+                                        <th for:each={columns} for:item="time" key={time}>
+                                            <span>{time.strtime}</span> - <span>{time.endtime}</span>
+                                            <p>{time.sr}</p>
+                                        </th>
+                                    </tr>
+                                    <tr>
+                                        <td>Mon</td>
+                                        <td for:each={columns} for:item="time" key={time}>
+                                            <span>{time.subject}</span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Tue</td>
+                                        <td for:each={columns} for:item="time" key={time}>
+                                            <span>{time.subject}</span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Wed</td>
+                                        <td for:each={columns} for:item="time" key={time}>
+                                            <span>{time.subject}</span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Thu</td>
+                                        <td for:each={columns} for:item="time" key={time}>
+                                            <span>{time.subject}</span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Fri</td>
+                                        <td for:each={columns} for:item="time" key={time}>
+                                            <span>{time.subject}</span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Sat</td>
+                                        <td for:each={columns} for:item="time" key={time}>
+                                            <span>{time.subject}</span>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </lightning-tab>
+
+
+                <lightning-tab label="Curriculum">
+                    Three Content !
+                </lightning-tab>
+                <lightning-tab label="Assignments">
+                    <!-- Four Content ! -->
+                    <div class="slds-clearfix">
+                        <div class="prfoBtn slds-float_right" onclick={openCalendar}>
+                            <span>
+                                <lightning-icon icon-name="utility:event" alternative-text="Calendar" variant="inverse"
+                                    size="small" title="Calendar">
+                                </lightning-icon>
+                                Calendar
+                            </span>
+                        </div>
+                    </div>
+                    <lightning-datatable key-field="Id" data={dataList} columns={column} onrowaction={rowActionHandler}
+                        resize-column-disabled suppress-bottom-bar>
+                    </lightning-datatable>
+                </lightning-tab>
+                <lightning-tab label="Exam Schedule">
+                    <div class="timetable">
+                        <span class="span">Create Exam Schedule +</span>
+                    </div>
+                </lightning-tab>
+            </lightning-tabset>
+        </div>
+    </div>
+    <!-- <c-student-attendance if:true={showPopup} onclose={togglePopup}></c-student-attendance> -->
+    <template if:true={showPerformance}>
+        <div class="popupGreyout">
+            <div class="showPerform slds-clearfix">
+                <lightning-icon class="slds-float_right" icon-name="utility:close" onclick={togglePerformance}
+                    alternative-text="Close" size="small" title="Close"></lightning-icon>
+                <lightning-tabset>
+                    <lightning-tab label="Student Wise">
+                        <div class="studentwise">
+                            <div class="sortFunc">
+                                <div>
+                                    <label for="term">Terms</label>
+                                    <select name="term" id="term">
+                                        <option value="Term 1">Term 1</option>
+                                        <option value="Term 2">Term 2</option>
+                                        <option value="Term 3">Term 3</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <span onclick={handleGradeSetup}>Grade Settings</span>
+                                </div>
+                            </div>
+                            <div class="tabledata">
+                                <div>
+                                    <table>
+                                        <tr>
+                                            <th>Name</th>
+                                            <th class="tableHeaderLink" onclick={toggleAcademics}>Academics</th>
+                                            <th class="tableHeaderLink" onclick={toggleCurricular}>Curricular Activities
+                                            </th>
+                                            <th class="tableHeaderLink" onclick={toggleAttend}>Attendance</th>
+                                        </tr>
+                                        <tr>
+                                            <td>Hari</td>
+                                            <td>A+</td>
+                                            <td>A</td>
+                                            <td>B</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Neel</td>
+                                            <td>A</td>
+                                            <td>A</td>
+                                            <td>B</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Samuel</td>
+                                            <td>A+</td>
+                                            <td>A</td>
+                                            <td>B</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Nirosha</td>
+                                            <td>A</td>
+                                            <td>A</td>
+                                            <td>B</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Priya</td>
+                                            <td>B</td>
+                                            <td>A</td>
+                                            <td>B</td>
+                                        </tr>
+                                    </table>
+
+                                    <template if:true={showAcademics}>
+                                        <table>
+                                            <tr>
+                                                <th>Name</th>
+                                                <th>English</th>
+                                                <th>Tamil</th>
+                                                <th>Hindi</th>
+                                                <th>EVS</th>
+                                                <th>CSC</th>
+                                                <th>Total</th>
+                                                <th>Action</th>
+                                            </tr>
+                                            <tr>
+                                                <td>Hari</td>
+                                                <td>A+</td>
+                                                <td>A</td>
+                                                <td>B</td>
+                                                <td>A+</td>
+                                                <td>A</td>
+                                                <td>B</td>
+                                                <td>
+                                                    <a>View</a>/
+                                                    <a>Edit</a>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>Neel</td>
+                                                <td>A</td>
+                                                <td>A</td>
+                                                <td>B</td>
+                                                <td>A+</td>
+                                                <td>A</td>
+                                                <td>B</td>
+                                                <td>
+                                                    <a>View</a>/
+                                                    <a>Edit</a>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>Samuel</td>
+                                                <td>A+</td>
+                                                <td>A</td>
+                                                <td>B</td>
+                                                <td>A+</td>
+                                                <td>A</td>
+                                                <td>B</td>
+                                                <td>
+                                                    <a>View</a>/
+                                                    <a>Edit</a>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>Nirosha</td>
+                                                <td>A</td>
+                                                <td>A</td>
+                                                <td>B</td>
+                                                <td>A+</td>
+                                                <td>A</td>
+                                                <td>B</td>
+                                                <td>
+                                                    <a>View</a>/
+                                                    <a>Edit</a>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>Priya</td>
+                                                <td>B</td>
+                                                <td>A</td>
+                                                <td>B</td>
+                                                <td>A+</td>
+                                                <td>A</td>
+                                                <td>B</td>
+                                                <td>
+                                                    <a>View</a>/
+                                                    <a>Edit</a>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </template>
+                                    <template if:true={showCurricular}>
+                                        <table>
+                                            <tr>
+                                                <th>Name</th>
+                                                <th>Games</th>
+                                                <th>Arts/Craft</th>
+                                                <th>Health</th>
+                                                <th>Discipline</th>
+                                                <th>Total</th>
+                                                <th>Action</th>
+                                            </tr>
+                                            <tr>
+                                                <td>Hari</td>
+                                                <td>A+</td>
+                                                <td>A</td>
+                                                <td>B</td>
+                                                <td>A+</td>
+                                                <td>B</td>
+                                                <td>
+                                                    <a>View</a>/
+                                                    <a>Edit</a>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>Neel</td>
+                                                <td>A</td>
+                                                <td>A</td>
+                                                <td>B</td>
+                                                <td>A</td>
+                                                <td>B</td>
+                                                <td>
+                                                    <a>View</a>/
+                                                    <a>Edit</a>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>Samuel</td>
+                                                <td>A+</td>
+                                                <td>A</td>
+                                                <td>A+</td>
+                                                <td>A</td>
+                                                <td>B</td>
+                                                <td>
+                                                    <a>View</a>/
+                                                    <a>Edit</a>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>Nirosha</td>
+                                                <td>A</td>
+                                                <td>A</td>
+                                                <td>B</td>
+                                                <td>A+</td>
+                                                <td>A</td>
+                                                <td>
+                                                    <a>View</a>/
+                                                    <a>Edit</a>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>Priya</td>
+                                                <td>B</td>
+                                                <td>B</td>
+                                                <td>A+</td>
+                                                <td>A</td>
+                                                <td>B</td>
+                                                <td>
+                                                    <a>View</a>/
+                                                    <a>Edit</a>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </template>
+                                    <template if:true={showAttendance}>
+                                        <table>
+                                            <tr>
+                                                <th>Name</th>
+                                                <th>Term 1
+                                                    <p>68</p>
+                                                </th>
+                                                <th>Term 2
+                                                    <p>75</p>
+                                                </th>
+                                                <th>Term 3
+                                                    <p>80</p>
+                                                </th>
+                                                <th>Total
+                                                    <p>223</p>
+                                                </th>
+                                                <th>Grading</th>
+                                                <th>Action</th>
+                                            </tr>
+                                            <tr>
+                                                <td>Hari</td>
+                                                <td>65</td>
+                                                <td>69</td>
+                                                <td>80</td>
+                                                <td>96%</td>
+                                                <td>A+</td>
+                                                <td>
+                                                    <a>View</a>/
+                                                    <a>Edit</a>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>Neel</td>
+                                                <td>65</td>
+                                                <td>69</td>
+                                                <td>80</td>
+                                                <td>96%</td>
+                                                <td>A+</td>
+                                                <td>
+                                                    <a>View</a>/
+                                                    <a>Edit</a>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>Samuel</td>
+                                                <td>65</td>
+                                                <td>69</td>
+                                                <td>80</td>
+                                                <td>96%</td>
+                                                <td>A+</td>
+                                                <td>
+                                                    <a>View</a>/
+                                                    <a>Edit</a>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>Nirosha</td>
+                                                <td>65</td>
+                                                <td>69</td>
+                                                <td>80</td>
+                                                <td>96%</td>
+                                                <td>A+</td>
+                                                <td>
+                                                    <a>View</a>/
+                                                    <a>Edit</a>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>Priya</td>
+                                                <td>65</td>
+                                                <td>69</td>
+                                                <td>80</td>
+                                                <td>96%</td>
+                                                <td>A+</td>
+                                                <td>
+                                                    <a>View</a>/
+                                                    <a>Edit</a>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </template>
+                                </div>
+                                <div if:true={gradeSetup}>
+                                    <div class="gradeSetup">
+                                        <span> <b>GRADE SETUP</b> </span>
+                                        <span class="closeGradeSetup" onclick={handleGradeSetup}>Close</span>
+                                    </div>
+                                    <div>
+                                        <table>
+                                            <tr>
+                                                <th>MARKS RANGE</th>
+                                                <th>GRADE</th>
+                                            </tr>
+                                            <tr>
+                                                <td>91 - 100</td>
+                                                <td>A1</td>
+                                            </tr>
+                                            <tr>
+                                                <td>81 - 90</td>
+                                                <td>A2</td>
+                                            </tr>
+                                            <tr>
+                                                <td>71 - 80</td>
+                                                <td>B1</td>
+                                            </tr>
+                                            <tr>
+                                                <td>61 - 70</td>
+                                                <td>B2</td>
+                                            </tr>
+                                            <tr>
+                                                <td>51 - 60</td>
+                                                <td>C1</td>
+                                            </tr>
+                                            <tr>
+                                                <td>41 - 50 <br> 31 - 40</td>
+                                                <td>C2</td>
+                                            </tr>
+                                            <tr>
+                                                <td>33 - 40</td>
+                                                <td>D</td>
+                                            </tr>
+                                            <tr>
+                                                <td>32 & Below</td>
+                                                <td>E (Needs Improvements)</td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                    <div>
+                                        <span><b>Grading Scale for others</b></span>
+                                        <table>
+                                            <tr>
+                                                <th>MARKS RANGE</th>
+                                                <th>GRADE</th>
+                                            </tr>
+                                            <tr>
+                                                <td>Outstanding</td>
+                                                <td>A</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Very Good</td>
+                                                <td>B</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Fair</td>
+                                                <td>C</td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                    <div>
+                                        <span><b>Attendance Grading Scale</b></span>
+                                        <table>
+                                            <tr>
+                                                <th>MARKS RANGE</th>
+                                                <th>GRADE</th>
+                                            </tr>
+                                            <tr>
+                                                <td>91-100</td>
+                                                <td>A1</td>
+                                            </tr>
+                                            <tr>
+                                                <td>81-90</td>
+                                                <td>A2</td>
+                                            </tr>
+                                            <tr>
+                                                <td>71-80</td>
+                                                <td>B1</td>
+                                            </tr>
+                                            <tr>
+                                                <td>61-70</td>
+                                                <td>B2</td>
+                                            </tr>
+                                            <tr>
+                                                <td>51-60</td>
+                                                <td>C1</td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </lightning-tab>
+                </lightning-tabset>
+            </div>
+        </div>
+    </template>
+
+    <template if:true={calendarView}>
+        <div class="popupGreyout">
+            <div class="showPerform slds-clearfix">
+                <lightning-icon class="slds-float_right" icon-name="utility:close" onclick={openCalendar}
+                    alternative-text="Close" size="small" title="Close"></lightning-icon>
+                <div style="height:auto" if:true={calendarView}>
+                    <c-full-calendar-js></c-full-calendar-js>
+                </div>
+            </div>
+        </div>
+    </template>
+</template>
