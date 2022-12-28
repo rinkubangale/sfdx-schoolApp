@@ -145,7 +145,45 @@
 
 
                 <lightning-tab label="Curriculum">
-                    Three Content !
+                    <div class="curriculumSetup">
+                        <div class="setupHeader">
+                            No of terms: <input type="number" placeholder="3" />
+                        </div>
+                        <div class="setupBody">
+                            <table>
+                                <tr>
+                                    <th>Terms</th>
+                                    <th>Start Date</th>
+                                    <th>End Date</th>
+                                    <th>Duration in months</th>
+                                </tr>
+                                <tr>
+                                    <td>Term 1</td>
+                                    <td>27/12/2022</td>
+                                    <td>27/12/2022</td>
+                                    <td>3</td>
+                                </tr>
+                                <tr>
+                                    <td>Term 2</td>
+                                    <td>27/12/2022</td>
+                                    <td>27/12/2022</td>
+                                    <td>4</td>
+                                </tr>
+                                <tr>
+                                    <td>Term 3</td>
+                                    <td>27/12/2022</td>
+                                    <td>27/12/2022</td>
+                                    <td>4</td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="setupFooter slds-clearfix">
+                            <lightning-button label="Cancel" title="Cancel" onclick={handleCancel}
+                                class="slds-m-left_x-small slds-float_right"></lightning-button>
+                            <lightning-button variant="brand" label="Save" title="Save" onclick={handleSave}
+                                class="slds-m-left_x-small slds-float_right"></lightning-button>
+                        </div>
+                    </div>
                 </lightning-tab>
                 <lightning-tab label="Assignments">
                     <!-- Four Content ! -->
@@ -163,9 +201,127 @@
                         resize-column-disabled suppress-bottom-bar>
                     </lightning-datatable>
                 </lightning-tab>
-                <lightning-tab label="Exam Schedule">
-                    <div class="timetable">
-                        <span class="span">Create Exam Schedule +</span>
+                <lightning-tab label="Exam Result">
+                    <div if:false={showResultTB}>
+                        <div class="filterResult">
+                            <div class="resultDivClass">
+                                <div class="exResult">Exam Term <span>Term 1</span></div>
+                                <div class="exResult">Select Class <span>LKG</span></div>
+                            </div>
+                            <div class="resultDivClass">
+                                <div>
+                                    <label for="subjectLabels">Subjects</label>
+                                    <select name="subjects" id="subjectLabels">
+                                        <option value="English">English</option>
+                                        <option value="Hindi">Hindi</option>
+                                        <option value="Tamil">Tamil</option>
+                                        <option value="Physics">Physics</option>
+                                    </select>
+                                </div>
+                                <div class="filterBtn" onclick={togglePopup}>
+                                    <span>Apply</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="showResultTb">
+                            <table>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Name</th>
+                                    <th>Date</th>
+                                    <th>Status</th>
+                                    <th>Action</th>
+                                </tr>
+                                <tr>
+                                    <td>1</td>
+                                    <td>English</td>
+                                    <td>12/27/2022</td>
+                                    <td>
+                                        <select>
+                                            <option value="Pending">Pending</option>
+                                            <option value="Done">Done</option>
+                                        </select>
+                                    </td>
+                                    <td>
+                                        <span>
+                                            <span class="tbtn" onclick={handleShowResult}>Result</span>
+                                            <span class="tbtn">Delete</span>
+                                        </span>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                    <div if:true={showResultTB}>
+                        <div class="resHeader">
+                            <div class="backBtnDiv" onclick={handleShowResult}>
+                                <a>
+                                    <lightning-icon icon-name="utility:back" alternative-text="Back" title="Back"
+                                        size="x-small"></lightning-icon>
+                                    <p>Back</p>
+                                </a>
+                            </div>
+                            <div>
+                                <input type="text" placeholder="Search Students" />
+                            </div>
+                            <div>
+                                <div class="btnGrp">
+                                    <span>Contribution</span>
+                                    <span>Calculate</span>
+                                    <span>Publish</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="resBody">
+                            <table>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Student Name</th>
+                                    <th>Grade</th>
+                                    <th>%</th>
+                                    <th>Ranks</th>
+                                    <th>Marks</th>
+                                    <th>Absent/Present</th>
+                                    <th>Comments</th>
+                                </tr>
+                                <tr>
+                                    <td>1</td>
+                                    <td>Ramsath D</td>
+                                    <td>auto</td>
+                                    <td>auto</td>
+                                    <td>auto</td>
+                                    <td>
+                                        <input type="number" />
+                                    </td>
+                                    <td>
+                                        <span class="atnp">P</span>
+                                        <span class="atnp">A</span>
+                                    </td>
+                                    <td>
+                                        <textarea></textarea>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td>Pravna d</td>
+                                    <td>auto</td>
+                                    <td>auto</td>
+                                    <td>auto</td>
+                                    <td>
+                                        <input type="number" />
+                                    </td>
+                                    <td>
+                                        <span class="atnp">P</span>
+                                        <span class="atnp">A</span>
+                                    </td>
+                                    <td>
+                                        <textarea></textarea>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="resFooter"></div>
                     </div>
                 </lightning-tab>
             </lightning-tabset>

@@ -329,3 +329,125 @@ c-student-attendance,
     text-decoration: underline;
     color: #0176d3;
 }
+
+.resultDivClass {
+    display: flex;
+    justify-content: space-between;
+}
+
+.filterResult {
+    width: 50%;
+}
+
+.resultDivClass {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 12px;
+}
+
+.filterBtn {
+    padding: 8px;
+    background-color: #0176d3cc;
+    width: fit-content;
+    color: white;
+    cursor: pointer;
+}
+
+.exResult>span {
+    background: #80808033;
+    margin-left: 12px;
+    padding: 4px 16px;
+}
+
+.resultDivClass label {
+    margin-right: 12px;
+}
+
+.showResultTb table th,
+.showResultTb table td,
+.resBody table th,
+.resBody table td,
+.setupBody table th,
+.setupBody table td {
+    padding: 12px;
+    text-align: center;
+}
+
+.showResultTb table tr:first-child,
+.resBody table tr:first-child,
+.setupBody table tr:first-child {
+    background-color: #80808033;
+}
+
+span.tbtn {
+    padding: 8px;
+    background-color: #ff0021;
+    color: white;
+    font-weight: 400;
+    cursor: pointer;
+}
+
+span.tbtn:first-child {
+    background-color: #21bb21;
+    margin-right: 8px;
+}
+
+span.atnp {
+    background-color: #21bb21;
+    padding: 8px 16px;
+    margin-right: 4px;
+    color: white;
+    cursor: pointer;
+}
+
+span.atnp:last-child {
+    background-color: #ff0021;
+}
+
+.resHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 0;
+}
+
+.backBtnDiv>a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.btnGrp>span:first-child {
+    background-color: #0176d3
+}
+
+.btnGrp>span:last-child {
+    background-color: #0176d3;
+}
+
+.btnGrp>span {
+    padding: 8px 12px;
+    margin-right: 8px;
+    background: #0176d3;
+    color: white;
+    cursor: pointer;
+}
+
+.resBody table input[type="number"] {
+    width: 5rem;
+    text-align: center;
+}
+
+.setupHeader {
+    padding: 1rem 0;
+}
+
+.setupHeader input {
+    border: none;
+    outline: none;
+    margin-left: 16px;
+    padding: 8px;
+    width: 50px;
+    background-color: #dde0e2;
+}

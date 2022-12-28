@@ -167,4 +167,9 @@ export default class AcademicManagement extends LightningElement {
   openCalendar() {
     this.calendarView = !this.calendarView;
   }
+
+  @track showResultTB;
+  handleShowResult() {
+    this.showResultTB = !this.showResultTB;
+  }
 }
