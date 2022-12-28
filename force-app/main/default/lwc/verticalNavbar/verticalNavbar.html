@@ -58,6 +58,16 @@
                         <span class={hide}>Fee Management</span>
                     </span>
                 </li>
+
+                <li if:false={isTeacher}>
+                    <span onclick={toExamScheduler}>
+                        <lightning-icon icon-name="utility:edit_form" size="small" alternative-text="Exam Schedule"
+                            title="Exam Schedule" class="my-icon">
+                        </lightning-icon>
+                        <span class={hide}>Exam Schedule</span>
+                    </span>
+                </li>
+
                 <li if:false={isTeacher}>
                     <span onclick={toInbox}>
                         <lightning-icon icon-name="utility:inbox" size="small" alternative-text="Inbox" title="Inbox"

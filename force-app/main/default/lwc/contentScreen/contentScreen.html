@@ -20,6 +20,11 @@
         <c-academic-management></c-academic-management>
     </template>
 
+    <template if:true={showExam} class="ExamContainer">
+        Exam Scheduler
+        <!-- <c-exam-scheduler></c-exam-scheduler> -->
+    </template>
+
     <template if:true={showSetting}>
         <!-- <div>Settings Component In-Progress</div> -->
         <c-setting-screen-view></c-setting-screen-view>

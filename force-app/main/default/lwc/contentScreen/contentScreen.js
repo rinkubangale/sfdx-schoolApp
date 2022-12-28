@@ -12,6 +12,7 @@ export default class ContentScreen extends LightningElement {
   @api showFeatures;
   @api showMyClassroom;
   @api showAssignment;
+  @api showExam;
   @api showTeacherSetting;
   @api goBack;
 }
