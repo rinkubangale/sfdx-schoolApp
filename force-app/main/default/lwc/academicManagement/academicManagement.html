@@ -88,66 +88,155 @@
                         <span class="span" onclick={showTimetable}>Timetable Schedule +</span>
                     </div>
                     <div if:true={isTimetable} class="slds-clearfix timetableClicked">
-                        <div if:true={columns} class="calenderView">
-                            <div>
-                                <table>
-                                    <tr>
-                                        <th>
-                                            <span>Time</span>
-                                            <p>Periods</p>
-                                        </th>
-                                        <th for:each={columns} for:item="time" key={time}>
-                                            <span>{time.strtime}</span> - <span>{time.endtime}</span>
-                                            <p>{time.sr}</p>
-                                        </th>
-                                    </tr>
-                                    <tr>
-                                        <td>Mon</td>
-                                        <td for:each={columns} for:item="time" key={time}>
-                                            <span>{time.subject}</span>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Tue</td>
-                                        <td for:each={columns} for:item="time" key={time}>
-                                            <span>{time.subject}</span>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Wed</td>
-                                        <td for:each={columns} for:item="time" key={time}>
-                                            <span>{time.subject}</span>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Thu</td>
-                                        <td for:each={columns} for:item="time" key={time}>
-                                            <span>{time.subject}</span>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Fri</td>
-                                        <td for:each={columns} for:item="time" key={time}>
-                                            <span>{time.subject}</span>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Sat</td>
-                                        <td for:each={columns} for:item="time" key={time}>
-                                            <span>{time.subject}</span>
-                                        </td>
-                                    </tr>
-                                </table>
+                        <div class="slds-clearfix">
+                            <span class="slds-float_right" onclick={handlePublish}><a>Publish</a></span>
+                            <span class="slds-float_right" onclick={handleCreateEdit}><a>Create</a>/<a>Edit</a></span>
+                        </div>
+                        <div if:true={createEditTT}>
+                            <div class="slds-float_right setupTT">
+                                <span if:false={showTTSetup} onclick={handleTTSetup}>SETUP TIMETABLE</span>
+                                <span if:true={showTTSetup} onclick={handleTTSetup}>Close</span>
+                            </div>
+                            <div if:true={showTTSetup} class="chooseDays">
+                                <label for="chooseDays">Choose days</label>
+                                <span id="chooseDays">
+                                    <ul>
+                                        <li>Sun</li>
+                                        <li>Mon</li>
+                                        <li>Tue</li>
+                                        <li>Wed</li>
+                                        <li>Thu</li>
+                                        <li>Fri</li>
+                                        <li>Sat</li>
+                                    </ul>
+                                </span>
+                            </div>
+                            <div if:true={showTTSetup} class="chooseTime">
+                                <span>
+                                    <label for="strTime">Start Time</label>
+                                    <input type="time" id="strTime" />
+                                </span>
+                                <span>
+                                    <label for="endTime">End Time</label>
+                                    <input type="time" id="endTime" />
+                                </span>
+                                <span>
+                                    <label for="numb">No. of Periods</label>
+                                    <input type="number" id="numb" min='3' max='10' value="10"
+                                        onchange={handleNoColumn} />
+                                </span>
+                            </div>
+                            <div if:true={columns} class="calenderView">
+                                <div>
+                                    <table>
+                                        <tr>
+                                            <th>Time</th>
+                                            <th for:each={columns} for:item="time" key={time}>
+                                                <input type="time" /> <input type="time" />
+                                                <p class="srNo">{time}</p>
+                                            </th>
+                                        </tr>
+                                        <tr>
+                                            <td>Mon</td>
+                                            <th for:each={columns} for:item="time" key={time}>
+                                                <input type="text" />
+                                            </th>
+                                        </tr>
+                                        <tr>
+                                            <td>Tue</td>
+                                            <th for:each={columns} for:item="time" key={time}>
+                                                <input type="text" />
+                                            </th>
+                                        </tr>
+                                        <tr>
+                                            <td>Wed</td>
+                                            <th for:each={columns} for:item="time" key={time}>
+                                                <input type="text" />
+                                            </th>
+                                        </tr>
+                                        <tr>
+                                            <td>Thu</td>
+                                            <th for:each={columns} for:item="time" key={time}>
+                                                <input type="text" />
+                                            </th>
+                                        </tr>
+                                        <tr>
+                                            <td>Fri</td>
+                                            <th for:each={columns} for:item="time" key={time}>
+                                                <input type="text" />
+                                            </th>
+                                        </tr>
+                                        <tr>
+                                            <td>Sat</td>
+                                            <th for:each={columns} for:item="time" key={time}>
+                                                <input type="text" />
+                                            </th>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <div if:false={createEditTT}>
+                            <div if:true={col} class="calenderView">
+                                <div>
+                                    <table>
+                                        <tr>
+                                            <th>
+                                                <span>Time</span>
+                                                <p>Periods</p>
+                                            </th>
+                                            <th for:each={col} for:item="time" key={time}>
+                                                <span>{time.strtime}</span> - <span>{time.endtime}</span>
+                                                <p>{time.sr}</p>
+                                            </th>
+                                        </tr>
+                                        <tr>
+                                            <td>Mon</td>
+                                            <td for:each={col} for:item="time" key={time}>
+                                                <span>{time.subject}</span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Tue</td>
+                                            <td for:each={col} for:item="time" key={time}>
+                                                <span>{time.subject}</span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Wed</td>
+                                            <td for:each={col} for:item="time" key={time}>
+                                                <span>{time.subject}</span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Thu</td>
+                                            <td for:each={col} for:item="time" key={time}>
+                                                <span>{time.subject}</span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Fri</td>
+                                            <td for:each={col} for:item="time" key={time}>
+                                                <span>{time.subject}</span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Sat</td>
+                                            <td for:each={col} for:item="time" key={time}>
+                                                <span>{time.subject}</span>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </lightning-tab>
 
-
                 <lightning-tab label="Curriculum">
-                    <div class="curriculumSetup">
+                    <div if:true={viewCurrSetup} class="curriculumSetup">
                         <div class="setupHeader">
-                            No of terms: <input type="number" placeholder="3" />
+                            No of terms: <input type="number" value="3" />
                         </div>
                         <div class="setupBody">
                             <table>
@@ -159,29 +248,278 @@
                                 </tr>
                                 <tr>
                                     <td>Term 1</td>
-                                    <td>27/12/2022</td>
-                                    <td>27/12/2022</td>
-                                    <td>3</td>
+                                    <td>
+                                        <input type="date" value="2022-12-27" />
+                                    </td>
+                                    <td>
+                                        <input type="date" value="2022-12-27" />
+                                    </td>
+                                    <td>
+                                        <input type="number" value="3" />
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td>Term 2</td>
-                                    <td>27/12/2022</td>
-                                    <td>27/12/2022</td>
-                                    <td>4</td>
+                                    <td>
+                                        <input type="date" value="2022-12-27" />
+                                    </td>
+                                    <td>
+                                        <input type="date" value="2022-12-27" />
+                                    </td>
+                                    <td>
+                                        <input type="number" value="3" />
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td>Term 3</td>
-                                    <td>27/12/2022</td>
-                                    <td>27/12/2022</td>
-                                    <td>4</td>
+                                    <td>
+                                        <input type="date" value="2022-12-27" />
+                                    </td>
+                                    <td>
+                                        <input type="date" value="2022-12-27" />
+                                    </td>
+                                    <td>
+                                        <input type="number" value="3" />
+                                    </td>
                                 </tr>
                             </table>
                         </div>
                         <div class="setupFooter slds-clearfix">
-                            <lightning-button label="Cancel" title="Cancel" onclick={handleCancel}
-                                class="slds-m-left_x-small slds-float_right"></lightning-button>
+                            <lightning-button label="Cancel" title="Cancel" onclick={handleCurrSetup}
+                                class="slds-m-left_x-small slds-float_right btnLight"></lightning-button>
                             <lightning-button variant="brand" label="Save" title="Save" onclick={handleSave}
-                                class="slds-m-left_x-small slds-float_right"></lightning-button>
+                                class="slds-m-left_x-small slds-float_right btnLight"></lightning-button>
+                        </div>
+                    </div>
+
+                    <div if:false={viewCurrSetup} class="curr">
+                        <div class="currHeader">
+                            <div class="termSelect">
+                                Terms: <select>
+                                    <option value="Term 1">Term 1</option>
+                                    <option value="Term 2">Term 2</option>
+                                    <option value="Term 3">Term 3</option>
+                                </select>
+                            </div>
+                            <div class="currSetupBtn" onclick={handleCurrSetup}>
+                                <span>Curriculum Setup</span>
+                            </div>
+                        </div>
+                        <div class="currBody">
+                            <div class="currListView">
+                                <table>
+                                    <tr>
+                                        <th>Term</th>
+                                        <th>Subject</th>
+                                        <th>Topics</th>
+                                        <th>No of Classes</th>
+                                        <th>Status</th>
+                                        <th>From Date</th>
+                                        <th>To Date</th>
+                                        <th>Action</th>
+                                        <th></th>
+                                    </tr>
+                                    <tr>
+                                        <td>Term 1</td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td>4/1/2022</td>
+                                        <td>9/30/2022</td>
+                                        <td>
+                                            <!-- <a>View</a>/<a>Edit</a> -->
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td>English</td>
+                                        <td if:true={viewEngLesson}></td>
+                                        <td if:true={viewEngLesson}></td>
+                                        <td if:true={viewEngLesson}></td>
+                                        <td if:true={viewEngLesson}></td>
+                                        <td if:true={viewEngLesson}></td>
+                                        <td if:false={viewEngLesson}>Lesson 1</td>
+                                        <td if:false={viewEngLesson}>10</td>
+                                        <td if:false={viewEngLesson}>Not Started</td>
+                                        <td if:false={viewEngLesson}>12/27/2022</td>
+                                        <td if:false={viewEngLesson}>12/27/2022</td>
+                                        <td>
+                                            <a>Add</a>/<a>Del</a>
+                                        </td>
+                                        <td>
+                                            <lightning-icon class={rotateIconEng} icon-name="utility:chevronright"
+                                                onclick={handleShowLesson} name="english" alternative-text="show more!"
+                                                size="x-small" title="show more">
+                                            </lightning-icon>
+                                        </td>
+                                    </tr>
+                                    <tr if:true={viewEngLesson} for:each={arrLessons} for:item="subject" key={subject}>
+                                        <td></td>
+                                        <td></td>
+                                        <td>{subject.lesson}</td>
+                                        <td>{subject.noClass}</td>
+                                        <td>{subject.status}</td>
+                                        <td>{subject.sDate}</td>
+                                        <td>{subject.eDate}</td>
+                                        <td>
+                                            <a>Materials</a>/<a>View</a>/<a>Edit</a>
+                                        </td>
+                                        <td>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td>Hindi</td>
+                                        <td if:true={viewHindiLesson}></td>
+                                        <td if:true={viewHindiLesson}></td>
+                                        <td if:true={viewHindiLesson}></td>
+                                        <td if:true={viewHindiLesson}></td>
+                                        <td if:true={viewHindiLesson}></td>
+                                        <td if:false={viewHindiLesson}>Lesson 1</td>
+                                        <td if:false={viewHindiLesson}>10</td>
+                                        <td if:false={viewHindiLesson}>Not Started</td>
+                                        <td if:false={viewHindiLesson}>12/27/2022</td>
+                                        <td if:false={viewHindiLesson}>12/27/2022</td>
+                                        <td>
+                                            <a>Add</a>/<a>Del</a>
+                                        </td>
+                                        <td>
+                                            <lightning-icon class={rotateIconHin} icon-name="utility:chevronright"
+                                                onclick={handleShowLesson} name="hindi" alternative-text="show more!"
+                                                size="x-small" title="show more">
+                                            </lightning-icon>
+                                        </td>
+                                    </tr>
+                                    <tr if:true={viewHindiLesson} for:each={arrLessons} for:item="subject"
+                                        key={subject}>
+                                        <td></td>
+                                        <td></td>
+                                        <td>{subject.lesson}</td>
+                                        <td>{subject.noClass}</td>
+                                        <td>{subject.status}</td>
+                                        <td>{subject.sDate}</td>
+                                        <td>{subject.eDate}</td>
+                                        <td>
+                                            <a>Materials</a>/<a>View</a>/<a>Edit</a>
+                                        </td>
+                                        <td>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td>Tamil</td>
+                                        <td if:true={viewTamilLesson}></td>
+                                        <td if:true={viewTamilLesson}></td>
+                                        <td if:true={viewTamilLesson}></td>
+                                        <td if:true={viewTamilLesson}></td>
+                                        <td if:true={viewTamilLesson}></td>
+                                        <td if:false={viewTamilLesson}>Lesson 1</td>
+                                        <td if:false={viewTamilLesson}>10</td>
+                                        <td if:false={viewTamilLesson}>Not Started</td>
+                                        <td if:false={viewTamilLesson}>12/27/2022</td>
+                                        <td if:false={viewTamilLesson}>12/27/2022</td>
+                                        <td>
+                                            <a>Add</a>/<a>Del</a>
+                                        </td>
+                                        <td>
+                                            <lightning-icon class={rotateIconTam} icon-name="utility:chevronright"
+                                                onclick={handleShowLesson} name="tamil" alternative-text="show more!"
+                                                size="x-small" title="show more">
+                                            </lightning-icon>
+                                        </td>
+                                    </tr>
+                                    <tr if:true={viewTamilLesson} for:each={arrLessons} for:item="subject"
+                                        key={subject}>
+                                        <td></td>
+                                        <td></td>
+                                        <td>{subject.lesson}</td>
+                                        <td>{subject.noClass}</td>
+                                        <td>{subject.status}</td>
+                                        <td>{subject.sDate}</td>
+                                        <td>{subject.eDate}</td>
+                                        <td>
+                                            <a>Materials</a>/<a>View</a>/<a>Edit</a>
+                                        </td>
+                                        <td>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td>EVS</td>
+                                        <td if:true={viewEvsLesson}></td>
+                                        <td if:true={viewEvsLesson}></td>
+                                        <td if:true={viewEvsLesson}></td>
+                                        <td if:true={viewEvsLesson}></td>
+                                        <td if:true={viewEvsLesson}></td>
+                                        <td if:false={viewEvsLesson}>Lesson 1</td>
+                                        <td if:false={viewEvsLesson}>10</td>
+                                        <td if:false={viewEvsLesson}>Not Started</td>
+                                        <td if:false={viewEvsLesson}>12/27/2022</td>
+                                        <td if:false={viewEvsLesson}>12/27/2022</td>
+                                        <td>
+                                            <a>Add</a>/<a>Del</a>
+                                        </td>
+                                        <td>
+                                            <lightning-icon class={rotateIconEVS} icon-name="utility:chevronright"
+                                                onclick={handleShowLesson} name="evs" alternative-text="show more!"
+                                                size="x-small" title="show more">
+                                            </lightning-icon>
+                                        </td>
+                                    </tr>
+                                    <tr if:true={viewEvsLesson} for:each={arrLessons} for:item="subject" key={subject}>
+                                        <td></td>
+                                        <td></td>
+                                        <td>{subject.lesson}</td>
+                                        <td>{subject.noClass}</td>
+                                        <td>{subject.status}</td>
+                                        <td>{subject.sDate}</td>
+                                        <td>{subject.eDate}</td>
+                                        <td>
+                                            <a>Materials</a>/<a>View</a>/<a>Edit</a>
+                                        </td>
+                                        <td>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td>Computer Science</td>
+                                        <td if:true={viewCsLesson}></td>
+                                        <td if:true={viewCsLesson}></td>
+                                        <td if:true={viewCsLesson}></td>
+                                        <td if:true={viewCsLesson}></td>
+                                        <td if:true={viewCsLesson}></td>
+                                        <td if:false={viewCsLesson}>Lesson 1</td>
+                                        <td if:false={viewCsLesson}>10</td>
+                                        <td if:false={viewCsLesson}>Not Started</td>
+                                        <td if:false={viewCsLesson}>12/27/2022</td>
+                                        <td if:false={viewCsLesson}>12/27/2022</td>
+                                        <td>
+                                            <a>Add</a>/<a>Del</a>
+                                        </td>
+                                        <td>
+                                            <lightning-icon class={rotateIconCS} icon-name="utility:chevronright"
+                                                onclick={handleShowLesson} name="cs" alternative-text="show more!"
+                                                size="x-small" title="show more">
+                                            </lightning-icon>
+                                        </td>
+                                    </tr>
+                                    <tr if:true={viewCsLesson} for:each={arrLessons} for:item="subject" key={subject}>
+                                        <td></td>
+                                        <td></td>
+                                        <td>{subject.lesson}</td>
+                                        <td>{subject.noClass}</td>
+                                        <td>{subject.status}</td>
+                                        <td>{subject.sDate}</td>
+                                        <td>{subject.eDate}</td>
+                                        <td>
+                                            <a>Materials</a>/<a>View</a>/<a>Edit</a>
+                                        </td>
+                                        <td>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
                         </div>
                     </div>
                 </lightning-tab>
@@ -206,9 +544,6 @@
                         <div class="filterResult">
                             <div class="resultDivClass">
                                 <div class="exResult">Exam Term <span>Term 1</span></div>
-                                <div class="exResult">Select Class <span>LKG</span></div>
-                            </div>
-                            <div class="resultDivClass">
                                 <div>
                                     <label for="subjectLabels">Subjects</label>
                                     <select name="subjects" id="subjectLabels">
@@ -217,9 +552,6 @@
                                         <option value="Tamil">Tamil</option>
                                         <option value="Physics">Physics</option>
                                     </select>
-                                </div>
-                                <div class="filterBtn" onclick={togglePopup}>
-                                    <span>Apply</span>
                                 </div>
                             </div>
                         </div>

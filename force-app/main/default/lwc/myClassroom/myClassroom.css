@@ -27,8 +27,9 @@ span.class {
 .attendance {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: end;
     padding: 0.75rem;
+    width: 30%;
 }
 
 .atndBtn>span,
@@ -44,6 +45,8 @@ span.class {
 .setupTT>span {
     color: #0176d3cc;
     cursor: pointer;
+    padding: 8px;
+    display: block;
 }
 
 
@@ -59,13 +62,18 @@ span.class {
 }
 
 .attendanceClass {
-    width: 30%;
+    width: 60%;
 }
 
 .students {
     display: flex;
-    justify-content: space-between;
+    /* justify-content: space-between; */
     padding: 0.75rem;
+    gap: 1rem;
+}
+
+.performance {
+    width: fit-content;
 }
 
 .performance>div {
@@ -74,6 +82,7 @@ span.class {
     padding: 0.75rem;
     text-align: center;
     align-items: center;
+    gap: 1rem;
 }
 
 .performance>div>span {
@@ -137,6 +146,14 @@ span.class {
     height: 4rem;
 }
 
+.calenderView tr:first-child {
+    background-color: #d6d6d6 !important;
+}
+
+.calenderView tr:nth-child(odd) {
+    background-color: #efefef;
+}
+
 p.srNo {
     margin: auto;
     height: 24px;
@@ -169,7 +186,14 @@ p.srNo {
 
 /* .calenderView>div {
     overflow: auto;
-} */
+}*/
+
+.timetableClicked>div>span {
+    padding: 8px;
+    border: 1px solid #4e76d6;
+    border-radius: 4px;
+    margin: 1rem;
+}
 
 .chooseDays>span ul>li {
     background: #d6e8f6;
@@ -320,4 +344,171 @@ c-student-attendance,
 .tableHeaderLink {
     text-decoration: underline;
     color: #0176d3;
+}
+
+.resultDivClass {
+    display: flex;
+    justify-content: space-between;
+}
+
+.filterResult {
+    width: 50%;
+}
+
+.resultDivClass {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 12px;
+}
+
+.filterBtn {
+    padding: 8px;
+    background-color: #0176d3cc;
+    width: fit-content;
+    color: white;
+    cursor: pointer;
+}
+
+.exResult>span {
+    background: #80808033;
+    margin-left: 12px;
+    padding: 4px 16px;
+}
+
+.resultDivClass label {
+    margin-right: 12px;
+}
+
+.showResultTb table th,
+.showResultTb table td,
+.resBody table th,
+.resBody table td,
+.setupBody table th,
+.setupBody table td,
+.currListView table th,
+.currListView table td {
+    padding: 12px;
+    text-align: center;
+}
+
+.showResultTb table tr:first-child,
+.resBody table tr:first-child,
+.setupBody table tr:first-child,
+.currListView table tr:first-child {
+    background-color: #80808033;
+}
+
+span.tbtn {
+    padding: 8px;
+    background-color: #ff0021;
+    color: white;
+    font-weight: 400;
+    cursor: pointer;
+}
+
+span.tbtn:first-child {
+    background-color: #21bb21;
+    margin-right: 8px;
+}
+
+span.atnp {
+    background-color: #21bb21;
+    padding: 8px 16px;
+    margin-right: 4px;
+    color: white;
+    cursor: pointer;
+}
+
+span.atnp:last-child {
+    background-color: #ff0021;
+}
+
+.resHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 0;
+}
+
+.backBtnDiv>a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.btnGrp>span:first-child {
+    background-color: #0176d3
+}
+
+.btnGrp>span:last-child {
+    background-color: #0176d3;
+}
+
+.btnGrp>span {
+    padding: 8px 12px;
+    margin-right: 8px;
+    background: #0176d3;
+    color: white;
+    cursor: pointer;
+}
+
+.resBody table input[type="number"] {
+    width: 5rem;
+    text-align: center;
+}
+
+.setupHeader {
+    padding: 1rem 0;
+}
+
+.setupHeader input {
+    border: none;
+    outline: none;
+    margin-left: 16px;
+    padding: 8px;
+    width: 50px;
+    background-color: #dde0e2;
+}
+
+
+.breadcrumIcon {
+    transform: rotate(0deg);
+    transition: all 0.5s;
+    cursor: pointer;
+}
+
+.rotateIcon {
+    transform: rotate(90deg);
+    transition: all 0.5s;
+    cursor: pointer;
+}
+
+.currHeader {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem 0;
+}
+
+.termSelect select {
+    margin-left: 16px;
+    outline: none;
+    border: none;
+    background-color: #dcdfe1;
+    padding: 4px;
+}
+
+.currSetupBtn {
+    padding: 0.75rem;
+    background: #0176d3cc;
+    color: #fff !important;
+    cursor: pointer;
+}
+
+.setupFooter.slds-clearfix {
+    padding: 12px;
+}
+
+.btnLight {
+    --slds-c-button-radius-border: 0 !important;
 }
