@@ -1,6 +1,22 @@
-import { LightningElement, track, api } from "lwc";
+import { LightningElement, wire, api } from "lwc";
+import { getRecord } from "lightning/uiRecordApi";
+import Id from "@salesforce/user/Id";
+import ProfileId from "@salesforce/schema/User.ProfileId";
 
 export default class ContentScreen extends LightningElement {
+  isTeacher;
+  isParent;
+  @wire(getRecord, { recordId: Id, fields: [ProfileId] })
+  userDetails({ error, data }) {
+    if (data) {
+      this.isTeacher =
+        data.fields.ProfileId.value === "00e6D000000Ri7wQAC" ? true : false;
+      this.isParent =
+        data.fields.ProfileId.value === "00e6D000000Rj45QAC" ? true : false;
+    } else if (error) {
+      this.error = error;
+    }
+  }
   @api showAdmission;
   @api showAcademic;
   @api showHome;
@@ -14,5 +30,7 @@ export default class ContentScreen extends LightningElement {
   @api showAssignment;
   @api showExam;
   @api showTeacherSetting;
+  @api showFacility;
+  @api showCertificate;
   @api goBack;
 }

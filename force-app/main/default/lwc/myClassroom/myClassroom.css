@@ -420,8 +420,12 @@ span.atnp {
     cursor: pointer;
 }
 
-span.atnp:last-child {
+span.atna {
     background-color: #ff0021;
+    padding: 8px 16px;
+    margin-right: 4px;
+    color: white;
+    cursor: pointer;
 }
 
 .resHeader {

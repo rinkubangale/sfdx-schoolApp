@@ -5,12 +5,15 @@ import ProfileId from "@salesforce/schema/User.ProfileId";
 
 export default class VerticalNavbar extends LightningElement {
   isTeacher;
+  isParent;
   @wire(getRecord, { recordId: Id, fields: [ProfileId] })
   userDetails({ error, data }) {
     if (data) {
       // console.log("currProfile " + JSON.stringify(data));
       this.isTeacher =
         data.fields.ProfileId.value === "00e6D000000Ri7wQAC" ? true : false;
+      this.isParent =
+        data.fields.ProfileId.value === "00e6D000000Rj45QAC" ? true : false;
     } else if (error) {
       this.error = error;
     }
@@ -184,6 +187,26 @@ export default class VerticalNavbar extends LightningElement {
       new CustomEvent("btnclick", {
         detail: {
           teacherSettings: true
+        }
+      })
+    );
+  }
+
+  toStudentFacility() {
+    this.dispatchEvent(
+      new CustomEvent("btnclick", {
+        detail: {
+          studentFacility: true
+        }
+      })
+    );
+  }
+
+  toStudentCertificate() {
+    this.dispatchEvent(
+      new CustomEvent("btnclick", {
+        detail: {
+          studentCertificate: true
         }
       })
     );

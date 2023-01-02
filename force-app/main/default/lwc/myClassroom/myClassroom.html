@@ -509,7 +509,7 @@
                 </lightning-tab>
                 <lightning-tab label="Assignments">
                     <!-- Four Content ! -->
-                    <div class="slds-clearfix">
+                    <!-- <div class="slds-clearfix">
                         <div class="prfoBtn slds-float_right" onclick={openCalendar}>
                             <span>
                                 <lightning-icon icon-name="utility:event" alternative-text="Calendar" variant="inverse"
@@ -521,7 +521,10 @@
                     </div>
                     <lightning-datatable key-field="Id" data={dataList} columns={column} onrowaction={rowActionHandler}
                         resize-column-disabled suppress-bottom-bar>
-                    </lightning-datatable>
+                    </lightning-datatable> -->
+                    <c-assignments></c-assignments>
+
+
                 </lightning-tab>
                 <lightning-tab label="Exam Result">
                     <div if:false={showResultTB}>
@@ -612,7 +615,7 @@
                                     </td>
                                     <td>
                                         <span class="atnp">P</span>
-                                        <span class="atnp">A</span>
+                                        <!-- <span class="atnp">A</span> -->
                                     </td>
                                     <td>
                                         <textarea></textarea>
@@ -628,8 +631,8 @@
                                         <input type="number" />
                                     </td>
                                     <td>
-                                        <span class="atnp">P</span>
-                                        <span class="atnp">A</span>
+                                        <!-- <span class="atnp">P</span> -->
+                                        <span class="atna">A</span>
                                     </td>
                                     <td>
                                         <textarea></textarea>

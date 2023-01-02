@@ -14,148 +14,163 @@
                     </span>
                 </li>
 
-                <li>
-                    <span onclick={toHome}>
-                        <lightning-icon icon-name="utility:home" size="small" alternative-text="Home" title="Home"
-                            class="my-icon">
-                        </lightning-icon>
-                        <span class={hide}>Home</span>
-                    </span>
-                </li>
+                <template if:false={isParent}>
+                    <li>
+                        <span onclick={toHome}>
+                            <lightning-icon icon-name="utility:home" size="small" alternative-text="Home" title="Home"
+                                class="my-icon">
+                            </lightning-icon>
+                            <span class={hide}>Home</span>
+                        </span>
+                    </li>
 
-                <li>
-                    <span onclick={toSubscription}>
-                        <lightning-icon icon-name="utility:alert" size="small" alternative-text="Notifications"
-                            title="Notifications" class="my-icon">
-                        </lightning-icon>
-                        <span class={hide}>Alerts & Messages</span>
-                    </span>
-                </li>
+                    <li>
+                        <span onclick={toSubscription}>
+                            <lightning-icon icon-name="utility:alert" size="small" alternative-text="Notifications"
+                                title="Notifications" class="my-icon">
+                            </lightning-icon>
+                            <span class={hide}>Alerts & Messages</span>
+                        </span>
+                    </li>
 
-                <li if:false={isTeacher}>
-                    <span onclick={toAdmission}>
-                        <lightning-icon icon-name="utility:record_create" size="small"
-                            alternative-text="Admission Management" title="Admission Management" class="my-icon">
-                        </lightning-icon>
-                        <span class={hide}>Admission Management</span>
-                    </span>
-                </li>
+                    <li if:false={isTeacher}>
+                        <span onclick={toAdmission}>
+                            <lightning-icon icon-name="utility:record_create" size="small"
+                                alternative-text="Admission Management" title="Admission Management" class="my-icon">
+                            </lightning-icon>
+                            <span class={hide}>Admission Management</span>
+                        </span>
+                    </li>
 
-                <li if:false={isTeacher}>
-                    <span onclick={toAcademic}>
-                        <lightning-icon icon-name="utility:collection" size="small"
-                            alternative-text="Academic Management" title="Academic Management" class="my-icon">
-                        </lightning-icon>
-                        <span class={hide}>Academic Management</span>
-                    </span>
-                </li>
+                    <li if:false={isTeacher}>
+                        <span onclick={toAcademic}>
+                            <lightning-icon icon-name="utility:collection" size="small"
+                                alternative-text="Academic Management" title="Academic Management" class="my-icon">
+                            </lightning-icon>
+                            <span class={hide}>Academic Management</span>
+                        </span>
+                    </li>
 
-                <li if:false={isTeacher}>
-                    <span onclick={toFee}>
-                        <lightning-icon icon-name="utility:moneybag" size="small" alternative-text="Fee Management"
-                            title="Fee Management" class="my-icon">
-                        </lightning-icon>
-                        <span class={hide}>Fee Management</span>
-                    </span>
-                </li>
+                    <li if:false={isTeacher}>
+                        <span onclick={toFee}>
+                            <lightning-icon icon-name="utility:moneybag" size="small" alternative-text="Fee Management"
+                                title="Fee Management" class="my-icon">
+                            </lightning-icon>
+                            <span class={hide}>Fee Management</span>
+                        </span>
+                    </li>
 
-                <li if:false={isTeacher}>
-                    <span onclick={toExamScheduler}>
-                        <lightning-icon icon-name="utility:edit_form" size="small" alternative-text="Exam Schedule"
-                            title="Exam Schedule" class="my-icon">
-                        </lightning-icon>
-                        <span class={hide}>Exam Schedule</span>
-                    </span>
-                </li>
+                    <li if:false={isTeacher}>
+                        <span onclick={toExamScheduler}>
+                            <lightning-icon icon-name="utility:edit_form" size="small" alternative-text="Exam Schedule"
+                                title="Exam Schedule" class="my-icon">
+                            </lightning-icon>
+                            <span class={hide}>Exam Schedule</span>
+                        </span>
+                    </li>
 
-                <li if:false={isTeacher}>
-                    <span onclick={toInbox}>
-                        <lightning-icon icon-name="utility:inbox" size="small" alternative-text="Inbox" title="Inbox"
-                            class="my-icon">
-                        </lightning-icon>
-                        <span class={hide}>Inbox</span>
-                    </span>
-                </li>
-                <li if:false={isTeacher}>
-                    <span onclick={toCheckin}>
-                        <lightning-icon icon-name="utility:checkin" size="small" alternative-text="CheckIns"
-                            title="CheckIns" class="my-icon">
-                        </lightning-icon>
-                        <span class={hide}>CheckIns</span>
-                    </span>
-                </li>
+                    <li if:false={isTeacher}>
+                        <span onclick={toInbox}>
+                            <lightning-icon icon-name="utility:inbox" size="small" alternative-text="Inbox"
+                                title="Inbox" class="my-icon">
+                            </lightning-icon>
+                            <span class={hide}>Inbox</span>
+                        </span>
+                    </li>
+                    <li if:false={isTeacher}>
+                        <span onclick={toCheckin}>
+                            <lightning-icon icon-name="utility:checkin" size="small" alternative-text="CheckIns"
+                                title="CheckIns" class="my-icon">
+                            </lightning-icon>
+                            <span class={hide}>CheckIns</span>
+                        </span>
+                    </li>
 
-                <li if:false={isTeacher}>
-                    <span onclick={toSettings}>
-                        <lightning-icon icon-name="utility:settings" size="small" alternative-text="Settings"
-                            title="Settings" class="my-icon">
-                        </lightning-icon>
-                        <span class={hide}>Settings</span>
-                    </span>
-                </li>
-                <li if:false={isTeacher}>
-                    <span onclick={toSuggestions}>
-                        <lightning-icon icon-name="utility:news" size="small" alternative-text="Feature Request"
-                            title="Feature Request" class="my-icon">
-                        </lightning-icon>
-                        <span class={hide}>Feature Request</span>
-                    </span>
-                </li>
+                    <li if:false={isTeacher}>
+                        <span onclick={toSettings}>
+                            <lightning-icon icon-name="utility:settings" size="small" alternative-text="Settings"
+                                title="Settings" class="my-icon">
+                            </lightning-icon>
+                            <span class={hide}>Settings</span>
+                        </span>
+                    </li>
+                    <li if:false={isTeacher}>
+                        <span onclick={toSuggestions}>
+                            <lightning-icon icon-name="utility:news" size="small" alternative-text="Feature Request"
+                                title="Feature Request" class="my-icon">
+                            </lightning-icon>
+                            <span class={hide}>Feature Request</span>
+                        </span>
+                    </li>
 
-                <li if:true={isTeacher}>
-                    <span onclick={toMyClassrooms}>
-                        <lightning-icon icon-name="utility:builder" size="small" alternative-text="My classrooms"
-                            title="My classrooms" class="my-icon">
-                        </lightning-icon>
-                        <span class={hide}>My classrooms</span>
-                    </span>
-                </li>
-                <li if:true={isTeacher}>
-                    <span onclick={toAssignment}>
-                        <lightning-icon icon-name="utility:notebook" size="small" alternative-text="Assignments"
-                            title="Assignments" class="my-icon">
-                        </lightning-icon>
-                        <span class={hide}>Assignments</span>
-                    </span>
-                </li>
-                <li if:true={isTeacher}>
-                    <span onclick={toTeacherSettings}>
-                        <lightning-icon icon-name="utility:settings" size="small" alternative-text="Settings"
-                            title="Settings" class="my-icon">
-                        </lightning-icon>
-                        <span class={hide}>Settings</span>
-                    </span>
-                </li>
+                    <li if:true={isTeacher}>
+                        <span onclick={toMyClassrooms}>
+                            <lightning-icon icon-name="utility:builder" size="small" alternative-text="My classrooms"
+                                title="My classrooms" class="my-icon">
+                            </lightning-icon>
+                            <span class={hide}>My classrooms</span>
+                        </span>
+                    </li>
+                    <li if:true={isTeacher}>
+                        <span onclick={toAssignment}>
+                            <lightning-icon icon-name="utility:notebook" size="small" alternative-text="Assignments"
+                                title="Assignments" class="my-icon">
+                            </lightning-icon>
+                            <span class={hide}>Assignments</span>
+                        </span>
+                    </li>
+                    <li if:true={isTeacher}>
+                        <span onclick={toTeacherSettings}>
+                            <lightning-icon icon-name="utility:settings" size="small" alternative-text="Settings"
+                                title="Settings" class="my-icon">
+                            </lightning-icon>
+                            <span class={hide}>Settings</span>
+                        </span>
+                    </li>
+                </template>
 
-
-                <!-- <li>
-                    <a href="https://sedin2019--vidhyaan.lightning.force.com/lightning/n/Promote_Students"
-                        target="_blank">
-                        <lightning-icon icon-name="utility:promotion_segments" alternative-text="Promote Student"
-                            title="Promote Student" class="my-icon">
-                        </lightning-icon>
-                        <span class={hide}>Promote Student</span>
-                    </a>
-                </li>
-
-                <li>
-                    <a href="https://sedin2019--vidhyaan.lightning.force.com/lightning/n/Invoice" target="_blank">
-                        <lightning-icon icon-name="utility:file" alternative-text="Invoice" title="Invoice"
-                            class="my-icon">
-                        </lightning-icon>
-                        <span class={hide}>Invoice</span>
-                    </a>
-                </li>
-
-                <li>
-                    <a href="https://sedin2019--vidhyaan.lightning.force.com/lightning/o/Attendance__c/home"
-                        target="_blank">
-                        <lightning-icon icon-name="utility:shift_pattern" alternative-text="Attendence"
-                            title="Attendence" class="my-icon">
-                        </lightning-icon>
-                        <span class={hide}>Attendence</span>
-                    </a>
-                </li> -->
+                <template if:true={isParent}>
+                    <li>
+                        <span onclick={toHome}>
+                            <lightning-icon icon-name="utility:home" size="small" alternative-text="Home" title="Home"
+                                class="my-icon">
+                            </lightning-icon>
+                            <span class={hide}>Home</span>
+                        </span>
+                    </li>
+                    <li>
+                        <span onclick={toAcademic}>
+                            <lightning-icon icon-name="utility:collection" size="small"
+                                alternative-text="Academic Management" title="Academic Management" class="my-icon">
+                            </lightning-icon>
+                            <span class={hide}>Academic Management</span>
+                        </span>
+                    </li>
+                    <li>
+                        <span onclick={toFee}>
+                            <lightning-icon icon-name="utility:moneybag" size="small" alternative-text="Fee Payment"
+                                title="Fee Payment" class="my-icon">
+                            </lightning-icon>
+                            <span class={hide}>Fee Payment</span>
+                        </span>
+                    </li>
+                    <li>
+                        <span onclick={toStudentFacility}>
+                            <lightning-icon icon-name="utility:side_list" size="small"
+                                alternative-text="Facility Management" title="Facility Management" class="my-icon">
+                            </lightning-icon>
+                            <span class={hide}>Facility Management</span>
+                        </span>
+                    </li>
+                    <li>
+                        <span onclick={toStudentCertificate}>
+                            <lightning-icon icon-name="utility:contract_doc" size="small"
+                                alternative-text="Certificate Request" title="Certificate Request" class="my-icon">
+                            </lightning-icon>
+                            <span class={hide}>Certificate Request</span>
+                        </span>
+                    </li>
+                </template>
             </ul>
         </div>
     </nav>

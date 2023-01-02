@@ -1,15 +1,22 @@
 <template>
     <template if:true={showHome} class="homeContainer">
-        <!-- <div class="leftContainer">
-        </div>
-        <div class="rightContainer"></div> -->
-        <c-school-view></c-school-view>
+        <template if:true={isParent}>
+            <c-parent-home></c-parent-home>
+        </template>
+        <template if:false={isParent}>
+            <c-school-view></c-school-view>
+        </template>
 
     </template>
 
     <template if:true={showFee}>
-        <!-- <div>Fee Management Component In-Progress</div> -->
-        <c-fee-mangement></c-fee-mangement>
+        <template if:true={isParent}>
+
+        </template>
+        <template if:false={isParent}>
+            <!-- <div>Fee Management Component In-Progress</div> -->
+            <c-fee-mangement></c-fee-mangement>
+        </template>
     </template>
 
     <template if:true={showAdmission} class="admissionContainer">
@@ -17,7 +24,12 @@
     </template>
 
     <template if:true={showAcademic} class="academicContainer">
-        <c-academic-management></c-academic-management>
+        <template if:true={isParent}>
+
+        </template>
+        <template if:false={isParent}>
+            <c-academic-management></c-academic-management>
+        </template>
     </template>
 
     <template if:true={showExam} class="ExamContainer">
