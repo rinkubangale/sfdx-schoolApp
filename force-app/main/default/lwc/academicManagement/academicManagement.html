@@ -62,8 +62,12 @@
                         </div>
 
                         <div class=performance>
-                            <div onclick={showClassPerformance}>Class Performance</div>
-                            <div>
+                            <div onclick={showClassPerformance}>Class Performance
+                                <div class="prfoBtn" onclick={togglePerformance}>
+                                    <span>Class Performance</span>
+                                </div>
+                            </div>
+                            <div style="width: 50%;">
                                 <span>
                                     <div>Academics</div>
                                     <div>80%</div>
@@ -76,9 +80,6 @@
                                     <div>Attendance</div>
                                     <div>80%</div>
                                 </span>
-                                <div class="prfoBtn" onclick={togglePerformance}>
-                                    <span>Class Performance</span>
-                                </div>
                             </div>
                         </div>
                     </div>

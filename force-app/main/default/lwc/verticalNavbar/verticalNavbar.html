@@ -1,8 +1,9 @@
 <template>
-    <nav>
+    <nav onmouseover={handleToggle} onmouseout={handleToggle}>
+        <!-- <nav> -->
         <div>
             <ul>
-                <li>
+                <!-- <li>
                     <span onclick={handleToggle}>
                         <lightning-icon if:false={toggle} icon-name="utility:rows" size="small"
                             alternative-text="Toggle" title="toggle" class="my-icon">
@@ -12,7 +13,7 @@
                         </lightning-icon>
                         <span class={hide}></span>
                     </span>
-                </li>
+                </li> -->
 
                 <template if:false={isParent}>
                     <li>
@@ -42,13 +43,55 @@
                         </span>
                     </li>
 
-                    <li if:false={isTeacher}>
-                        <span onclick={toAcademic}>
+                    <li if:false={isTeacher} style="position:relative;" class="AcList">
+                        <span>
                             <lightning-icon icon-name="utility:collection" size="small"
                                 alternative-text="Academic Management" title="Academic Management" class="my-icon">
                             </lightning-icon>
                             <span class={hide}>Academic Management</span>
                         </span>
+                        <div class="listmenu">
+                            <ul>
+                                <li class="AcClass">
+                                    <span
+                                        style="display: flex; justify-content: space-between; align-content: center;width: 100%;">
+                                        <span>Class</span>
+                                        <lightning-icon icon-name="utility:chevronright" size="xx-small"
+                                            class="nav-icon">
+                                        </lightning-icon>
+                                    </span>
+                                    <div class="listClass">
+                                        <ul>
+                                            <li onclick={toAcademic}>LKG</li>
+                                            <li onclick={toAcademic}>UKG</li>
+                                            <li onclick={toAcademic}>1st</li>
+                                            <li onclick={toAcademic}>2nd</li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li class="AcClassroom">
+                                    <span
+                                        style="display: flex; justify-content: space-between; align-content: center;width: 100%;">
+                                        <span>Classroom</span>
+                                        <lightning-icon icon-name="utility:chevronright" size="xx-small"
+                                            class="nav-icon">
+                                        </lightning-icon>
+                                    </span>
+                                    <div class="listClassroom">
+                                        <ul>
+                                            <li onclick={toAcademic}>LKG A</li>
+                                            <li onclick={toAcademic}>LKG B</li>
+                                            <li onclick={toAcademic}>UKG A</li>
+                                            <li onclick={toAcademic}>UKG B</li>
+                                            <li onclick={toAcademic}>1st A</li>
+                                            <li onclick={toAcademic}>1st B</li>
+                                            <li onclick={toAcademic}>2nd A</li>
+                                            <li onclick={toAcademic}>2nd B</li>
+                                        </ul>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
                     </li>
 
                     <li if:false={isTeacher}>

@@ -226,4 +226,18 @@ export default class VerticalNavbar extends LightningElement {
     console.log("toggle");
     this.toggle = !this.toggle;
   }
+
+  @track classList;
+  @track classroomList;
+  handleNavClick(e) {
+    this.classList =
+      e.currentTarget.dataset.name === "listClass" ? true : false;
+    this.classroomList =
+      e.currentTarget.dataset.name === "listClassroom" ? true : false;
+  }
+
+  @track academicList;
+  handleAcList() {
+    this.academicList = !this.academicList;
+  }
 }

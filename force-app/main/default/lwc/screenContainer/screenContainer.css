@@ -24,9 +24,13 @@
 .yContainerLeft {
   /* background-color: #005fb2; */
   background-color: #0176d3;
-  width: fit-content !important;
+  width: 63px;
   min-height: 100%;
-  /* transition: all 0.3s !important; */
+  transition: all 0.3s !important;
+}
+
+.toggle {
+  width: 300px !important;
 }
 
 .yContainerRight {

@@ -2,6 +2,10 @@ div {
     color: #444;
 }
 
+.midContainer {
+    display: none;
+}
+
 .topContainer {
     display: none;
 }
@@ -567,11 +571,12 @@ span.class {
     /* justify-content: space-between; */
     padding: 0.75rem;
     gap: 1rem;
-}
-
-.performance {
     width: fit-content;
 }
+
+/* .performance {
+    width: fit-content;
+} */
 
 .performance>div {
     display: flex;

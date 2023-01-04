@@ -47,3 +47,45 @@ ul>li>span>span {
 .iconTile {
   display: none;
 }
+
+/* /////////////////// */
+.listmenu {
+  display: none;
+}
+
+.listmenu {
+  position: absolute;
+  right: -120px;
+  top: 0;
+  width: 120px;
+  background-color: #0176d3;
+  z-index: 999;
+}
+
+.listClass,
+.listClassroom {
+  position: absolute;
+  right: -95px;
+  top: 0;
+  width: 95px;
+  background-color: #0176d3;
+  display: none;
+}
+
+.AcList:hover>.listmenu {
+  display: block;
+}
+
+.AcClass,
+.AcClassroom {
+  position: relative;
+}
+
+.AcClass:hover>div,
+.AcClassroom:hover>div {
+  display: block;
+}
+
+.nav-icon {
+  --sds-c-icon-color-foreground-default: #008eff;
+}
