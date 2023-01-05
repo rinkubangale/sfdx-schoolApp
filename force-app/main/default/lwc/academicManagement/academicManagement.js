@@ -345,4 +345,18 @@ export default class AcademicManagement extends LightningElement {
   handleCurrSetup() {
     this.viewCurrSetup = !this.viewCurrSetup;
   }
+
+  @track isClass;
+  @track isClassroom;
+  handleClassSelect(e) {
+    let value = e.target.value;
+    if (value === "Class") {
+      this.isClass = true;
+      this.isClassroom = false;
+    }
+    if (value === "Classroom") {
+      this.isClass = false;
+      this.isClassroom = true;
+    }
+  }
 }

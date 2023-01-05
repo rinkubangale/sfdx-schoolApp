@@ -6,7 +6,7 @@
             </div>
         </div>
         <div class="midContainer">
-            <lightning-tabset>
+            <!-- <lightning-tabset>
                 <lightning-tab label="Class">
                     <div class="clsContent">
                         <span class="class">
@@ -36,7 +36,26 @@
                         </span>
                     </div>
                 </lightning-tab>
-            </lightning-tabset>
+            </lightning-tabset> -->
+            <select onchange={handleClassSelect}>
+                <option value="Class">Class</option>
+                <option value="Classroom">Classroom</option>
+            </select>
+            <select>
+                <template if:true={isClass}>
+                    <option value="LKG">LKG</option>
+                    <option value="UKG">UKG</option>
+                    <option value="PreKG">PreKG</option>
+                </template>
+                <template if:true={isClassroom}>
+                    <option value="LKG">LKG A</option>
+                    <option value="LKG">LKG B</option>
+                    <option value="UKG">UKG A</option>
+                    <option value="UKG">UKG B</option>
+                    <option value="PreKG">PreKG A</option>
+                    <option value="PreKG">PreKG B</option>
+                </template>
+            </select>
         </div>
         <div class="bottomContainer">
             <lightning-tabset>

@@ -44,13 +44,13 @@
                     </li>
 
                     <li if:false={isTeacher} style="position:relative;" class="AcList">
-                        <span>
+                        <span onclick={toAcademic}>
                             <lightning-icon icon-name="utility:collection" size="small"
                                 alternative-text="Academic Management" title="Academic Management" class="my-icon">
                             </lightning-icon>
                             <span class={hide}>Academic Management</span>
                         </span>
-                        <div class="listmenu">
+                        <!-- <div class="listmenu">
                             <ul>
                                 <li class="AcClass">
                                     <span
@@ -91,7 +91,7 @@
                                     </div>
                                 </li>
                             </ul>
-                        </div>
+                        </div> -->
                     </li>
 
                     <li if:false={isTeacher}>
