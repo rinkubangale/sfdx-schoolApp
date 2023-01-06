@@ -416,8 +416,12 @@ span.atnp {
     cursor: pointer;
 }
 
-span.atnp:last-child {
+span.atna {
     background-color: #ff0021;
+    padding: 8px 16px;
+    margin-right: 4px;
+    color: white;
+    cursor: pointer;
 }
 
 .resHeader {
@@ -922,7 +926,7 @@ span.tbtn:first-child {
     margin-right: 8px;
 }
 
-span.atnp {
+/* span.atnp {
     background-color: #21bb21;
     padding: 8px 16px;
     margin-right: 4px;
@@ -932,7 +936,7 @@ span.atnp {
 
 span.atnp:last-child {
     background-color: #ff0021;
-}
+} */
 
 .resHeader {
     display: flex;

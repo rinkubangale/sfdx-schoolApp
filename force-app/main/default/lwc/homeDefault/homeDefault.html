@@ -45,6 +45,9 @@
         <template if:true={promoteStudents}>
             <c-add-promote-student onbackbtn={closeModal}></c-add-promote-student>
         </template>
+        <template if:true={onlineAdmission}>
+            <c-online-admission onbackbtn={closeModal}></c-online-admission>
+        </template>
     </template>
 
     <template if:false={clicked}>

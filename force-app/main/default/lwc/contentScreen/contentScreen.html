@@ -11,11 +11,23 @@
 
     <template if:true={showFee}>
         <template if:true={isParent}>
-
+            <c-parent-fee-management></c-parent-fee-management>
         </template>
         <template if:false={isParent}>
             <!-- <div>Fee Management Component In-Progress</div> -->
             <c-fee-mangement></c-fee-mangement>
+        </template>
+    </template>
+
+    <template if:true={showFacility}>
+        <template if:true={isParent}>
+            <c-parent-facility-management></c-parent-facility-management>
+        </template>
+    </template>
+
+    <template if:true={showCertificate}>
+        <template if:true={isParent}>
+            <c-parent-certificate-request></c-parent-certificate-request>
         </template>
     </template>
 
@@ -25,7 +37,7 @@
 
     <template if:true={showAcademic} class="academicContainer">
         <template if:true={isParent}>
-
+            <c-parent-academic-management></c-parent-academic-management>
         </template>
         <template if:false={isParent}>
             <c-academic-management></c-academic-management>

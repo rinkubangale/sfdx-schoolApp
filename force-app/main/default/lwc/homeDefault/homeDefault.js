@@ -18,6 +18,7 @@ export default class HomeDefault extends NavigationMixin(LightningElement) {
   @track schoolBranch;
   @track previewSchool;
   @track promoteStudents;
+  @track onlineAdmission;
 
   connectedCallback() {
     console.log("Home Page Loaded");
@@ -52,6 +53,7 @@ export default class HomeDefault extends NavigationMixin(LightningElement) {
     this.schoolBranch = false;
     this.previewSchool = false;
     this.promoteStudents = false;
+    this.onlineAdmission = false;
 
     switch (event.currentTarget.dataset.name) {
       case "schoolSetting":
@@ -94,9 +96,12 @@ export default class HomeDefault extends NavigationMixin(LightningElement) {
       case "invoiceListView":
         this.invoiceListView = true;
         break;
-        case "promoteStudents":
-          this.promoteStudents = true;
-          break;
+      case "promoteStudents":
+        this.promoteStudents = true;
+        break;
+      case "onlineAdmission":
+        this.onlineAdmission = true;
+        break;
       default:
         console.log("Sorry, we are out of data.");
     }
