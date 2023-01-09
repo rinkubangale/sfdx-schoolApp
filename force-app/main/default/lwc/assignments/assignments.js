@@ -1,7 +1,17 @@
 import CompletedDateTime from "@salesforce/schema/Task.CompletedDateTime";
-import { LightningElement, track } from "lwc";
+import {
+  LightningElement,
+  track,
+  api
+} from "lwc";
 
-const actions = [
+const actions = [{
+    label: "Evaluate",
+    name: "evaluate",
+    iconName: "utility:asset_audit",
+    alternativeText: "evaluate",
+    title: "evaluate"
+  },
   {
     label: "edit",
     name: "edit",
@@ -18,30 +28,37 @@ const actions = [
   }
 ];
 
-const columns = [
-  {
-    label: "Name",
-    fieldName: "Name"
+const columns = [{
+    label: "Assignment Name",
+    fieldName: "Name",
+    type: 'button',
+    typeAttributes: {
+      label: {
+        fieldName: 'Name'
+      },
+      variant: 'base'
+    },
+    wrapText: true
   },
   {
-    label: "Class",
-    fieldName: "Class"
+    label: "Submitted",
+    fieldName: "submitted"
   },
   {
-    label: "Subject",
-    fieldName: "Subject"
+    label: "Due",
+    fieldName: "due"
   },
   {
-    label: "Start Date",
-    fieldName: "StartDate"
+    label: "Completed",
+    fieldName: "completed"
   },
   {
-    label: "Submission Date",
-    fieldName: "SubmissionDate"
+    label: "Submit Date",
+    fieldName: "submitDate"
   },
   {
-    label: "Status",
-    fieldName: "Status"
+    label: "Due Date",
+    fieldName: "dueDate"
   },
   {
     type: "action",
@@ -53,26 +70,24 @@ const columns = [
 export default class Assignments extends LightningElement {
   @track isModalOpen = false;
   @track calendarView = true;
+  @api headTitle = 'View Assignment';
+  @track viewPage = false;
+  @track evaluatePage = false;
 
-  @track
-  dataList = [
-    {
-      Name: "Srihari N",
-      Class: "LKG-A",
-      Subject: "Science",
-      StartDate: "22-Jan-2022",
-      SubmissionDate: "11-Feb-2022",
-      Status: "Completed"
-    }
-  ];
+  dataList = [{
+    Name: "English",
+    submitted: "18",
+    due: "11",
+    completed: "7",
+    submitDate: "22-Jan-2022",
+    dueDate: "11-Feb-2022",
+  }];
 
   openModal() {
     this.isModalOpen = !this.isModalOpen;
   }
 
-  closeModal() {
-    this.isModalOpen = false;
-  }
+
 
   columns = columns;
 
@@ -91,5 +106,22 @@ export default class Assignments extends LightningElement {
 
   handleView() {
     this.calendarView = !this.calendarView;
+  }
+
+  backToListView() {
+    this.viewPage = false;
+  }
+
+  goBack() {
+    this.evaluatePage = false;
+  }
+
+  rowActionHandler(e) {
+    if (e.detail.action.name == "evaluate") {
+      this.evaluatePage = true;
+      this.viewPage = false;
+    } else {
+      this.viewPage = true;
+    }
   }
 }

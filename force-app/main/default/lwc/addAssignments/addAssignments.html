@@ -1,0 +1,182 @@
+<template>
+    <div>
+
+        <div>
+            <div class="popup-overlay" onclick={popupoverlay}>
+                <div class="main-popup">
+                    <div class="popup-content">
+                        <span class="close-btn" onclick={closebtn}>&times;</span>
+                        <div style="padding:30px 0px 30px 92px; display:block; font-weight:500">
+                            <strong style="font-size:14px; color: black">Assignment Summary</strong>
+                        </div>
+                        <div style="display:block; padding: 0px 15px;">
+                            <span style="padding: 0px 90px;
+                            text-decoration: underline">Add Assignment</span>
+                            <form>
+                                <input type="hidden" name="homeWorkId" id="homeWorkId" value="">
+                                <table>
+                                    <tbody>
+                                        <tr>
+                                            <td>Subjects:</td>
+                                            <td style="padding:20px 0px 10px 8px">
+                                                <ul>
+                                                    <li>
+                                                        <input type="text" style="padding:5px; border-radius: 5px;
+                                                        border: 1px solid #6a6969;" placeholder="Select Subjects">
+                                                    </li>
+                                                </ul>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Assignment Title:</td>
+                                            <td style="padding:8px">
+                                                <ul>
+                                                    <li>
+                                                        <input type="text" style="padding:5px; border-radius: 5px;
+                                                        border: 1px solid #6a6969;" placeholder="Assignment Name">
+                                                    </li>
+                                                </ul>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Description:</td>
+                                            <td style="padding:8px">
+                                                <ul>
+                                                    <li>
+                                                        <input type="text" style="padding:20px 0px; width: 13rem; border-radius: 5px;
+                                                        border: 1px solid #6a6969;" placeholder="Description">
+                                                    </li>
+                                                </ul>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Assignment Type:</td>
+                                            <td style="padding:10px 0px 20px 8px">
+                                                <ul>
+                                                    <li>
+                                                        <input type="text" style="padding:5px; border-radius: 5px;
+                                                        border: 1px solid #6a6969;" placeholder="Assignment Type">
+                                                    </li>
+                                                </ul>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td rowspan="4" class="formLable" style="align-items: center;">Submission
+                                                Type:</td>
+                                            <td>
+                                                <ul>
+                                                    <li style="padding-left: 10px">
+                                                        <input type="radio" name="submission">
+                                                        <label style="display: inline">Soft File Submit</label>
+                                                    </li>
+                                                </ul>
+                                            </td>
+                                        </tr>
+                                        <tr>
+
+                                            <td>
+                                                <ul>
+                                                    <li style="padding-left: 10px">
+                                                        <input type="radio" name="submission">
+                                                        <label style="display: inline">Hard Copy Submit</label>
+                                                    </li>
+                                                </ul>
+                                            </td>
+                                        </tr>
+                                        <tr>
+
+                                            <td>
+                                                <ul>
+                                                    <li style="padding-left: 10px">
+                                                        <input type="radio" name="submission">
+                                                        <label style="display: inline">Url/Youtube Submit</label>
+                                                    </li>
+                                                </ul>
+                                            </td>
+                                        </tr>
+                                        <tr>
+
+                                            <td>
+                                                <ul>
+                                                    <li style="padding-left: 10px">
+                                                        <input type="radio" name="submission">
+                                                        <label style="display: inline">Google docs Submit</label>
+                                                    </li>
+                                                </ul>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Start Date:</td>
+                                            <td style="padding:20px 0px 10px 8px">
+                                                <ul>
+                                                    <li>
+                                                        <input type="date" style="padding:5px; width:13rem; border-radius: 5px;
+                                                        border: 1px solid #6a6969;" placeholder="mm-dd-yyyy">
+                                                    </li>
+                                                </ul>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Submit Date:</td>
+                                            <td style="padding:8px">
+                                                <ul>
+                                                    <li>
+                                                        <input type="date" style="padding:5px; width:13rem; border-radius: 5px;
+                                                        border: 1px solid #6a6969;" placeholder="mm-dd-yyyy">
+                                                    </li>
+                                                </ul>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Marks:</td>
+                                            <td style="padding:8px">
+                                                <ul>
+                                                    <li>
+                                                        <input type="number" style="padding:5px; border-radius: 5px;
+                                                        border: 1px solid #6a6969;" placeholder="Marks">
+                                                    </li>
+                                                </ul>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td rowspan="2">References:</td>
+                                            <td style="padding:10px 0px 0px 8px">
+                                                <ul>
+                                                    <li>
+                                                        <input type="text" style="padding:5px; border-radius: 5px;
+                                                        border: 1px solid #6a6969;" placeholder="Web reference">
+                                                    </li>
+                                                </ul>
+                                            </td>
+                                        </tr>
+                                        <tr>
+
+                                            <td style="padding:0px 0px 0px 8px">
+                                                <ul>
+                                                    <li>
+
+                                                        Add Reference
+                                                    </li>
+                                                </ul>
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td style="padding: 40px 0px 25px 58px;">
+                                                <button type="button" style="width:200%; padding: 2px 0px; border-radius: 5px;
+                                                border: 1px solid #6a6969; background-color:#b1e7ed">Add
+                                                    Assignment</button>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</template>

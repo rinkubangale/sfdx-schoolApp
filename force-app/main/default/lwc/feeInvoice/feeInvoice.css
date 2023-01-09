@@ -1,0 +1,51 @@
+.headerCard {
+  --slds-c-card-color-background: white
+}
+
+table th {
+  background-color: #8199af42;
+
+  min-width: 8rem;
+  column-gap: 30px;
+}
+
+table th:first-child {
+
+  max-width: fit-content;
+}
+
+tr {
+  height: 3rem;
+}
+
+table td {
+  text-align: justify;
+  column-gap: 20px;
+}
+
+table tr:nth-child(odd) {
+  background: #0176d312;
+
+}
+
+table td,
+th {
+  padding: 0.75rem;
+  font-size: 14px;
+}
+
+/* .THIS .wrapped-header-datatable  {
+ 
+  width: 100px;
+} */
+.THIS div.slds-scrollable_y {
+  height: 100% !important;
+}
+
+.wrapped-header-datatable .slds-table .slds-th__action .slds-truncate {
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: unset;
+  white-space: pre-line;
+  /* word-wrap: break-word; */
+}

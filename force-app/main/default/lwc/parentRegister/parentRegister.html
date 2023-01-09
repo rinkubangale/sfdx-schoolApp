@@ -1,0 +1,151 @@
+<template>
+    
+    <div id="addClassRoomContainer" class="col-md-11 center-block dashboard-container">
+        <!--add class main content-->
+        <div id="error" class="error"> </div>
+        <main class="main-content add-class-wrap">
+            <div class="header row no-left-margin no-right-margin">
+                <a href="#" data-close="true">
+                    <div class="back" onclick={closeModal}>
+                        <lightning-icon icon-name="utility:back" size="x-small" alternative-text="Back!" title="Back">
+                        </lightning-icon>
+                        <p>Back</p>
+                    </div>
+                </a>
+                <div class="Add-c-headings">
+                    <p class="add-heading-manage fivpx-mrgn-btm">
+                        <lightning-icon class="new-icon" icon-name="utility:new" size="small" alternative-text="new!"
+                            title="new">
+                        </lightning-icon>
+                        <b>{headTitle}</b>
+                    </p>
+                    <p class="add-subheading-manage">{subHeadTitle}</p>
+                </div>
+                <a href="#" data-close="true">
+                    <div class="esc" onclick={handleModalChange}>
+                        <lightning-icon  icon-name="standard:education">
+                        </lightning-icon>
+                        
+                    </div>
+                </a>
+            </div>
+            <!--/add-class-header-->
+
+            <div class="add-class-body">
+                <!-- <form data-parsley-validate="">
+                    <div class="form-group">
+                        <div class="row no-left-margin no-right-margin">
+                            <div class="col-sm-12 mt">
+                                <div class="row easyoption-section selectable-div active" id="select_option_first1">
+                                    <div id="branchesTab"
+                                        style="margin-bottom: 1.5rem;display: inline-block;width: 100%;">
+                                        <label class="col-md-12">Select branches</label>
+                                        <div class="col-sm-12 mt add-classroom-tags remove-border-css">
+                                            <select class="ac_select branches select2-hidden-accessible"
+                                                id="branchesList" data-select2-id="branchesList" tabindex="-1"
+                                                aria-hidden="true">
+                                                <option value="" data-select2-id="18">Select branches</option>
+                                                <option value="249200">Main Branch</option>
+                                                <option value="1250655">Second Branch</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <label class="col-md-12">Please enter name and add a comma or press enter.</label>
+                                    <div class="col-sm-12 mt add-classroom-tags remove-border-css classroom-uppercase">
+                                        <div class="form-group bigger-taginput">
+                                            <div class="bootstrap-tagsinput" style="padding:0px;">
+                                                <div class="bootstrap-tagsinput" style=""><input type="text"
+                                                        placeholder=""></div><input type="text" value=""
+                                                    class="form-control" data-role="tagsinput" id="addClassroomTag"
+                                                    style="display: none;">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                    <div class="form-group text-center col-md-12">
+                                        <button class="btn btn-default btn-lg button btn-edit-details ladda-button"
+                                            data-color="green" data-style="expand-right" type="submit"> <span
+                                                class="ladda-label">Add Classroom
+                                            </span> </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form> -->
+                <lightning-record-edit-form object-api-name={objectName} onload={handleLoading}>
+                    <lightning-layout class="school" style="row-gap: 15px;">
+                    <lightning-layout-item size="5">
+                        <lightning-input style="    width: 18rem;" onchange={handleInputChange} label="First Name"
+                            field-name="Due_Date__c" required>
+                        </lightning-input>
+                    </lightning-layout-item>
+                    <lightning-layout-item size="2">
+                    </lightning-layout-item>
+                    <lightning-layout-item size="5">
+                        <lightning-input style="    width: 18rem;" onchange={handleInputChange} label="Last Name" field-name="Reminder__c" required>
+                        </lightning-input>
+
+                    </lightning-layout-item>
+                    <lightning-layout-item size="5">
+                        <lightning-input style="    width: 18rem;" onchange={handleInputChange} label="Email"
+                            field-name="Due_Date__c" required>
+                        </lightning-input>
+                    </lightning-layout-item>
+                    <lightning-layout-item size="2">
+                    </lightning-layout-item>
+                    <lightning-layout-item size="5">
+                        <lightning-input style="    width: 18rem;" onchange={handleInputChange} label="Mobile" field-name="Reminder__c" required>
+                        </lightning-input>
+
+                    </lightning-layout-item>
+                    <lightning-layout-item size="5" style="
+                    width: 18rem;">
+                        <lightning-combobox
+                        name="progress"
+                        label="Gender"
+                        value={value}
+                        options={options}
+                        onchange={handleChange}
+                        required ></lightning-combobox>
+                    </lightning-layout-item>
+                    <lightning-layout-item size="2">
+                    </lightning-layout-item>
+                    <lightning-layout-item size="5">
+                        <lightning-input style="    width: 18rem;" onchange={handleInputChange} label="Password" field-name="Reminder__c" required>
+                        </lightning-input>
+
+                    </lightning-layout-item>
+                    <lightning-layout-item size="5">
+                        <lightning-input style="    width: 18rem;" onchange={handleInputChange} label="Confirm Password"
+                            field-name="Due_Date__c" required>
+                        </lightning-input>
+                    </lightning-layout-item>
+                    <lightning-layout-item size="2">
+                    </lightning-layout-item>
+                    <lightning-layout-item size="5">
+                        
+                    </lightning-layout-item>
+                    <div><label class="container">I accept <span class="create">Terms and Conditions</span> & <span class="create">Privacy Policy</span>
+                        <input type="checkbox">
+                        <span class="checkmark"></span>
+                      </label></div>
+            </lightning-layout>
+        
+                </lightning-record-edit-form>
+                    <div class="slds-var-m-top_large slds-align_absolute-center" style="margin: 4px;column-gap: 10px;">
+                        <lightning-button variant="brand" type="submit" label='Register'>
+                        </lightning-button>
+                        <lightning-button variant="brand" type="reset"
+                        onclick={handleCancel} label='Reset'>
+                        </lightning-button>
+                    </div>
+            </div>
+            <template if:true={isLoading}>
+                <lightning-spinner alternative-text="Loading" variant="brand" style="background:transparent;">
+                </lightning-spinner>
+            </template>
+        </main>
+    </div>
+
+</template>

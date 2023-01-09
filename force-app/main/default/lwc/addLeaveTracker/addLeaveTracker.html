@@ -1,0 +1,98 @@
+<template>
+    <div id="addClassRoomContainer" class="col-md-11 center-block dashboard-container">
+        <!--add class main content-->
+        <div id="error" class="error"> </div>
+        <main class="main-content add-class-wrap">
+            <div class="header row no-left-margin no-right-margin">
+                <a href="#" data-close="true">
+
+                </a>
+                <div class="Add-c-headings">
+                    <p class="add-heading-manage fivpx-mrgn-btm">
+                        <lightning-icon class="new-icon" icon-name="utility:new" size="small" alternative-text="new!"
+                            title="new">
+                        </lightning-icon>
+                        <b>{headTitle}</b>
+                    </p>
+
+                </div>
+                <a href="#" data-close="true">
+                    <div class="back" onclick={handleModalChange}>
+                        <lightning-icon icon-name="utility:back" size="x-small" alternative-text="Back!" title="Back">
+                        </lightning-icon>
+                        <p>Back</p>
+                    </div>
+                </a>
+            </div>
+            <div class="add-class-body">
+
+                <lightning-record-edit-form onsuccess={showSuccessToast} object-api-name="Leave__c"
+                    record-id={recordId}>
+                    <lightning-layout multiple-rows class="slds-p-around_medium">
+                        <lightning-layout-item size="5" class="slds-p-around_small slds-p-top_none ">
+                            <lightning-input-field field-name="Name" onchange={handleName}>
+                            </lightning-input-field>
+                        </lightning-layout-item>
+                        <lightning-layout-item size="2" class="slds-p-around_small slds-p-top_none">
+
+                        </lightning-layout-item>
+                        <lightning-layout-item size="5" class="slds-p-around_small slds-p-top_none ">
+                            <lightning-input-field field-name="Leave_Date__c" onchange={handleDate}>
+                            </lightning-input-field>
+                        </lightning-layout-item>
+
+                        <lightning-layout-item size="5" class="slds-p-around_small slds-p-top_none ">
+                            <lightning-input-field field-name="Applicable_For__c" onchange={handleLocation}>
+                            </lightning-input-field>
+                        </lightning-layout-item>
+                        <lightning-layout-item size="2" class="slds-p-around_small slds-p-top_none">
+
+                        </lightning-layout-item>
+                        <lightning-layout-item size="5" class="slds-p-around_small slds-p-top_none ">
+                            <lightning-input-field field-name="Leave_Description__c" onchange={handleDescription}>
+                            </lightning-input-field>
+                        </lightning-layout-item>
+
+                        <lightning-layout-item size="3" class="slds-p-around_small slds-p-top_none">
+                            <h3 style="font-size:12px">No. of days before which the reminder should be sent</h3>
+                        </lightning-layout-item>
+                        <lightning-layout-item size="2" style="margin-top:-1em"
+                            class="slds-p-around_small slds-p-top_none ">
+                            <lightning-combobox type="number" name="progress" value={value}
+                                placeholder="Select" options={options5} onchange={handleReminder}>
+                            </lightning-combobox>
+                        </lightning-layout-item>
+                        <lightning-layout-item size="2" class="slds-p-around_small slds-p-top_none">
+
+                        </lightning-layout-item>
+                        <lightning-layout-item size="5" class="slds-p-around_small slds-p-top_none ">
+                            <lightning-input-field field-name="Image_Address__c" onchange={handleImageAddress}>
+                            </lightning-input-field>
+                        </lightning-layout-item>
+                        <br />
+                        <lightning-layout-item size="1" class="slds-p-around_small slds-p-top_none"
+                            style="margin-top:0.6rem">
+                            <input type="checkbox" name="options" id="checkbox-unique-id-81"
+                                value="checkbox-unique-id-81" checked="" />
+                        </lightning-layout-item>
+                        <lightning-layout-item size="4" class="slds-p-around_small slds-p-top_none"
+                            style="margin-top:0.6rem">
+                            <h3 style="font-size:12px">Notify Applicable Employees</h3>
+                        </lightning-layout-item>
+
+                    </lightning-layout>
+
+                </lightning-record-edit-form>
+
+                <div class="slds-var-m-top_large slds-align_absolute-center" style="  margin-top: 15px;">
+                    <lightning-button variant="brand" type="submit" label="Add Holiday">
+                    </lightning-button>
+                </div>
+            </div>
+            <template if:true={isLoading}>
+                <lightning-spinner alternative-text="Loading" variant="brand" style="background:transparent;">
+                </lightning-spinner>
+            </template>
+        </main>
+    </div>
+</template>

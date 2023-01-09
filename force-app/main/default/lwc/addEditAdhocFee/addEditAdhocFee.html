@@ -117,43 +117,43 @@
                                 </lightning-layout-item>
                             </lightning-layout> -->
                             <lightning-layout multiple-rows style="grid-row-gap: 25px;">
-                                <lightning-layout-item size="5">
-                                    <lightning-input onchange={handleInputChange} label="Fee Plan Name" field-name="Name">
+                                <lightning-layout-item size="4">
+                                    <lightning-input style="    width: 18rem;" onchange={handleInputChange} label="Fee Plan Name" field-name="Name">
                                     </lightning-input>
                                 </lightning-layout-item>
-                                <lightning-layout-item size="2">
+                                <!-- <lightning-layout-item size="2">
         
-                                </lightning-layout-item>
-                                <lightning-layout-item size="5">
+                                </lightning-layout-item> -->
+                                <!-- <lightning-layout-item size="4">
                                     <lightning-input onchange={handleInputChange} label="Academic Year"
                                         field-name="Academic_Year__c">
                                     </lightning-input>
-                                </lightning-layout-item>
+                                </lightning-layout-item> -->
                                 <!-- <lightning-layout-item size="6">
                                     <lightning-input-field onchange={handleInputChange} field-name="Plan_Type__c">
                                     </lightning-input-field>
                                 </lightning-layout-item> -->
-                                <lightning-layout-item size="5">
-                                    <lightning-input onchange={handleInputChange} label="Billing Date" field-name="Billing_Date__c">
+                                <lightning-layout-item size="4">
+                                    <lightning-input style="    width: 18rem;" onchange={handleInputChange} label="Billing Date" field-name="Billing_Date__c">
                                     </lightning-input>
                                 </lightning-layout-item>
-                                <lightning-layout-item size="2">
+                                <!-- <lightning-layout-item size="2">
         
-                                </lightning-layout-item>
-                                <lightning-layout-item size="5">
-                                    <lightning-input onchange={handleInputChange} label="Due Date"
+                                </lightning-layout-item> -->
+                                <lightning-layout-item size="4">
+                                    <lightning-input style="    width: 18rem;" onchange={handleInputChange} label="Due Date"
                                         field-name="Due_Date__c">
                                     </lightning-input>
                                 </lightning-layout-item>
-                                <lightning-layout-item size="5">
-                                    <lightning-input onchange={handleInputChange} label="Reminder" field-name="Reminder__c">
+                                <lightning-layout-item size="4">
+                                    <lightning-input style="    width: 18rem;" onchange={handleInputChange} label="Reminder" field-name="Reminder__c">
                                     </lightning-input>
                                 </lightning-layout-item>
-                                <lightning-layout-item size="2">
+                                <!-- <lightning-layout-item size="2">
         
-                                </lightning-layout-item>
-                                <lightning-layout-item size="5">
-                                    <lightning-input onchange={handleInputChange} label="Status"
+                                </lightning-layout-item> -->
+                                <lightning-layout-item size="4">
+                                    <lightning-input style="    width: 18rem;" onchange={handleInputChange} label="Status"
                                         field-name="Status__c">
                                     </lightning-input>
                                 </lightning-layout-item>
@@ -183,7 +183,7 @@
                                     <tr key={pay.Id} style="height:50px" class="slds-border_bottom slds-border_top">
                                 <!-- <tbody>
                                     <tr> -->
-                                        <td> <input onchange={onChangeHandler} name="Fee_Name__c" /></td>
+                                        <td> <input style="width: 130px;" onchange={onChangeHandler} name="Fee_Name__c" /></td>
                                         <td><input onchange={onChangeHandler} name="Quantity__c" /></td>
                                         <td> <input onchange={onChangeHandler}
                                                 name="Actual_Amount_One_Quantity__c"  />

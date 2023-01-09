@@ -1,39 +1,32 @@
 <!-- sldsValidatorIgnore -->
 <template>
     <template if:true={isClassSectionOpen}>
-        <lightning-card>
-            <div class="slds-p-horizontal_medium slds-clearfix">
-
-                <div class="slds-border_bottom slds-p-bottom_medium">
-                    <lightning-icon icon-name="standard:education"
-                        title="Manage Classes and Sections">
+        <div style="max-width: 77rem;">
+        <lightning-card style="width:100%;">
+            <lightning-layout>
+                <lightning-layout-item size="5" class="slds-float_left slds-p-around_medium">
+                    <lightning-icon icon-name="standard:education" title="Manage Classes and Sections">
                     </lightning-icon>
-                    <span style="font-weight: bold; font-size: 16px;"
-                        class="slds-m-left_x-small slds-text-heading_large">Manage Class &
+                    <span style="font-weight: bold; font-size:larger" class="slds-p-around_small">Manage Class &
                         Sections</span>
-                    <!-- <c-create-class class="slds-float_right" label="Add Classes"></c-create-class> -->
-                    <!-- <lightning-button variant="brand" icon-name="utility:adduser" title="Create class"
-                        onclick={openModal} class="slds-float_right slds-m-left_medium">
-                    </lightning-button> -->
-                </div>
-                <lightning-layout>
-                <lightning-layout-item size="10" class="slds-clearfix slds-align_absolute-center slds-p-around_medium">
+                </lightning-layout-item>
+                <lightning-layout-item size="2" class="slds-clearfix slds-float_left slds-p-around_medium" style="padding-top: 1.2rem">
                     <div class="mySearchBar">
                         <lightning-icon icon-name="utility:search" size="x-small" alternative-text="search"
-                            title="View Academic Year">
+                            title="Search">
                         </lightning-icon>
-                        <input type="text" placeholder="Search student" />
+                        <input type="text" placeholder="Search Classes" />
                     </div>
                 </lightning-layout-item>
-               <lightning-layout-item size="2" class="slds-clearfix">
-                 <div>
-                    <lightning-button variant="brand" class="slds-float_right slds-p-around_medium"
-                        icon-name="utility:adduser" title="Add Class" onclick={openClassModal}>
-                    </lightning-button>
-                </div>
-            </lightning-layout-item>
+                <lightning-layout-item size="5" class="slds-clearfix">
+                    <div>
+                        <lightning-button variant="brand" class="slds-float_right slds-p-around_medium"
+                            icon-name="utility:adduser" title="Add Class" onclick={openClassModal}>
+                        </lightning-button>
+                    </div>
+                </lightning-layout-item>
             </lightning-layout>
-            </div>
+
             <div class="container">
 
                 <table>
@@ -46,6 +39,9 @@
                         </th>
                         <th>
                             <div><b>Action</b></div>
+                        </th>
+                        <th>
+                            <div></div>
                         </th>
                     </thead>
                     <tbody>
@@ -66,6 +62,10 @@
                             <td>
                                 <a href="#">Add Section</a>
                             </td>
+                            <td>
+                                <a href="#">Map Subject</a>
+                            </td>
+                            
                         </tr>
                         <tr>
                             <td>
@@ -84,6 +84,10 @@
                             <td>
                                 <a href="#">Add Section</a>
                             </td>
+                            <td>
+                                <a href="#">Map Subject</a>
+                            </td>
+                            
                         </tr>
                         <tr>
                             <td>
@@ -102,6 +106,9 @@
                             </td>
                             <td>
                                 <a href="#">Add Section</a>
+                            </td>
+                            <td>
+                                <a href="#">Map Subject</a>
                             </td>
                         </tr>
                         <!-- <tr>
@@ -159,6 +166,7 @@
             </lightning-button>
 
         </lightning-card>
+    </div>
     </template>
     <template if:true={isManageAllOpen}>
         <c-manage-student-teacher-subject onbackbtn={closeModal}></c-manage-student-teacher-subject>

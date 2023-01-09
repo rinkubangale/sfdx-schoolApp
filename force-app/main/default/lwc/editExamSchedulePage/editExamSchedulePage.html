@@ -1,0 +1,163 @@
+<template>  
+    <div id="addClassRoomContainer" class="col-md-11 center-block dashboard-container">
+  <!--add class main content-->
+  <div id="error" class="error"> </div>
+  <main class="main-content add-class-wrap">
+      <div class="header row no-left-margin no-right-margin">
+          <a href="#" data-close="true">
+              <!-- <div class="back" onclick={handleModalChange}>
+                  <lightning-icon icon-name="utility:back" size="x-small" alternative-text="Back!" title="Back">
+                  </lightning-icon>
+                  <p>Back</p>
+              </div> -->
+          </a>
+          <div class="Add-c-headings">
+              <p class="add-heading-manage fivpx-mrgn-btm">
+                  <lightning-icon class="new-icon" icon-name="utility:new" size="small" alternative-text="new!"
+                      title="new">
+                  </lightning-icon>
+                  <b style="color: black;">Edit Exam Schedule</b>
+              </p>
+              <!-- <p class="add-subheading-manage">{subHeadTitle}</p> -->
+          </div>
+          <!-- <a href="#" data-close="true">
+              <div class="esc" onclick={handleModalChange}>
+                  <lightning-icon icon-name="utility:close" size="x-small" alternative-text="Esc!" title="Esc">
+                  </lightning-icon>
+                  <p>Esc</p>
+              </div>
+          </a> -->
+
+          <a href="#" data-close="true">
+              <div class="back" onclick={handleModalChange}>
+                  <lightning-icon icon-name="utility:back" onclick={goBack} size="x-small" alternative-text="Back!" title="Back">
+                  </lightning-icon>
+                  <p onclick={goBack}>Back</p>
+              </div>
+          </a>
+      </div>
+      <!--/add-class-header-->
+
+      <div class="add-class-body">
+
+          <div style="background-color: white;" >
+
+          <table class="tblname">
+              <thead style="border:aqua; background-color:#f3f3f3;">
+                  <tr style="border: 1px solid #edeae9;
+                  border-collapse: collapse;">
+                      <th class="forTable" style="border: 1px solid #edeae9;
+                      border-collapse: collapse;padding:10px;">
+                          <div style="font-size: 1.05rem;
+                              font-weight: 545;">Class</div>
+                      </th>
+                      <th class="forTable" style="border: 1px solid #edeae9;
+                      border-collapse: collapse;padding:10px;">
+                          <div style="font-size: 1.05rem;
+                              font-weight: 545; padding-left:8px"> Subject </div>
+                      </th>
+                      <th class="forTable" style="border: 1px solid #edeae9;
+                      border-collapse: collapse; padding:10px;">
+                          <div style="font-size: 1.05rem;
+                                  font-weight: 545; padding-left:8px">Exam Date</div>
+                      </th>
+
+                      <th class="forTable" style="border: 1px solid #edeae9;
+                      border-collapse: collapse; padding:10px;">
+                          <div style="font-size: 1.05rem;
+                              font-weight: 545; padding-left:8px">Start at</div>
+                      </th>
+                      <th class="forTable" style="border: 1px solid #edeae9;
+                      border-collapse: collapse; padding:10px;">
+                          <div style="font-size: 1.05rem;
+                                  font-weight: 545; padding-left:8px"> Ends at </div>
+                      </th>
+                      <!-- <th class="forTable" style="border: 1px solid #edeae9;
+                      border-collapse: collapse; padding:10px;">
+                          <div style="font-size: 1.05rem;
+                                  font-weight: 545; padding-left:8px"> Actions </div>
+                      </th> -->
+                      
+                  </tr>
+              </thead>
+              <tbody>
+                  <tr style="border: 1px solid #edeae9;
+                          border-collapse: collapse;">
+                      <td class="forTable" style="border: 1px solid #edeae9;
+                              border-collapse: collapse;">
+                          <div class="firstLastDivs">UKG</div>
+                      </td>
+                      <td class="forTable" style="border: 1px solid #edeae9;
+                              border-collapse: collapse;">
+                          <div>English</div>
+                      </td>
+                      <td class="forTable" style="border: 1px solid #edeae9;
+                              border-collapse: collapse;">
+                          <div>21/12/2002</div>
+                      </td>
+                      <td class="forTable" style="border: 1px solid #edeae9;
+                              border-collapse: collapse;">
+                          <div>22/12/2002</div>
+                      </td>
+                      <td class="forTable" style="border: 1px solid #edeae9;
+                              border-collapse: collapse;">
+                          <div>23/12/2002</div>
+                      </td>
+                      <!-- <td class="forTable" style="border: 1px solid #edeae9;
+                              border-collapse: collapse;">
+                          <div><a>Edit /</a><a> Delete</a></div>
+                      </td>
+                       -->
+                  </tr>
+                  <tr style="border: 1px solid #edeae9;
+                  border-collapse: collapse;">
+              <td class="forTable" style="border: 1px solid #edeae9;
+                      border-collapse: collapse;">
+                  <div class="firstLastDivs">UKG</div>
+              </td>
+              <td class="forTable" style="border: 1px solid #edeae9;
+                      border-collapse: collapse;">
+                  <div>English</div>
+              </td>
+              <td class="forTable" style="border: 1px solid #edeae9;
+                      border-collapse: collapse;">
+                  <div>21/12/2002</div>
+              </td>
+              <td class="forTable" style="border: 1px solid #edeae9;
+                      border-collapse: collapse;">
+                  <div>22/12/2002</div>
+              </td>
+              <td class="forTable" style="border: 1px solid #edeae9;
+                      border-collapse: collapse;">
+                  <div>23/12/2002</div>
+              </td>
+              <!-- <td class="forTable" style="border: 1px solid #edeae9;
+              border-collapse: collapse;">
+                  <div><a>Edit /</a> <a> Delete</a></div>
+              </td> -->
+              
+          </tr>
+              </tbody>
+          </table>
+
+          <div>
+        </div>
+    </div>
+    <lightning-layout multiple-rows>
+        <lightning-layout-item flexibility="true" class="slds-p-around_medium" size="4"></lightning-layout-item>
+        <lightning-layout-item flexibility="true" class="slds-var-m-top_large slds-align_absolute-center" size="4">
+            <lightning-button class="slds-p-around_x-small slds-float_right" variant="brand" label="Update"></lightning-button>
+        </lightning-layout-item>
+        <lightning-layout-item flexibility="true" class="slds-p-around_medium" size="4"></lightning-layout-item>
+    </lightning-layout>
+
+      </div>
+      <template if:true={isLoading}>
+          <lightning-spinner alternative-text="Loading" variant="brand" style="background:transparent;">
+          </lightning-spinner>
+      </template>
+  </main>
+</div>
+
+  
+</template>

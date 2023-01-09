@@ -1,0 +1,45 @@
+<template>
+
+    <lightning-card style="margin:15px; text-transform:capitalize;" class="slds-card__header ">
+        <lightning-layout>
+            <lightning-layout-item size="4" class="slds-float_left slds-p-around_medium">
+                <lightning-icon icon-name="standard:record" alternative-text="Clone" title="Leave Request">
+                </lightning-icon>
+
+                <span style="font-weight:bold; font-size:larger" class=" slds-p-around_small ">Leave Request
+                </span>
+            </lightning-layout-item>
+
+            <lightning-layout-item size="4" class="slds-align_absolute-center slds-p-around_medium">
+
+            </lightning-layout-item>
+
+            <lightning-layout-item size="4" class="slds-float_right slds-clearfix">
+                <lightning-button variant="brand" class="slds-float_right slds-p-around_medium"
+                    icon-name="utility:adduser" title="Apply Leave" onclick={openModal}>
+                </lightning-button>
+            </lightning-layout-item>
+        </lightning-layout>
+
+
+        <template if:true={isDelete}>
+            <c-delete-confirmation records-id={DelId} obj-name="Academic_Year__c" onmodalchange={closemodaldelete}>
+            </c-delete-confirmation>
+        </template>
+
+        <div style="height:auto">
+
+            <lightning-datatable key-field="Id" data={dataList} columns={columns} onrowaction={rowActionHandler}
+                column-widths-mode=auto resize-column-disabled suppress-bottom-bar>
+            </lightning-datatable>
+
+        </div>
+        <div slot="footer" class="slds-clearfix slds-p-top_xxx-small ">
+            <lightning-button label="Back" variant="brand" onclick={goBack}
+                class="slds-var-m-left_xx-small slds-float_left"></lightning-button>
+            <lightning-button label="Delete" onclick={getSelectedRec} variant="brand"
+                class="slds-var-m-left_xx-small slds-float_right"></lightning-button>
+        </div>
+    </lightning-card>
+    
+</template>

@@ -21,8 +21,15 @@
 .container {
   display: block;
   padding: 16px;
+  width: 100%;
+  overflow: hidden;
+ max-width: 100%;
 }
-
+table{
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
+}
 table th,
 table td {
   text-align: center;

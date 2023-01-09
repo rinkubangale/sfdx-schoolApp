@@ -57,7 +57,7 @@
         <lightning-tabset>
 
             <lightning-tab label="Manage Teacher">
-                <div style="height: auto">
+                <div style="height:auto; width:1202px" class="hideFirstColTable">
                     <lightning-datatable key-field="Id" data={dataList} columns={columns}
                         onrowselection={handleRowSelection} onrowaction={rowActionHandler} draft-values={fldsItemValues}
                         onsave={saveAction} resize-column-disabled>

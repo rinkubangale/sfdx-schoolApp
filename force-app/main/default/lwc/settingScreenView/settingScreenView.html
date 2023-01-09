@@ -7,6 +7,9 @@
             <c-leave-type-list-view onbackbtn={handleBack}></c-leave-type-list-view>
         </template>
     </template>
+    <template if:true={login}>
+        <c-login-page onbackbtn={handleBack}></c-login-page>
+    </template>
 
     <template if:false={clicked}>
         <lightning-card class="removeBg">
@@ -25,7 +28,15 @@
                         </c-default-card>
                     </span>
                 </lightning-layout-item>
-            </lightning-layout>
+            
+            <lightning-layout-item flexibility="auto" padding="around-small">
+                <span onclick={openCard} data-name="login">
+                    <c-default-card obj-api-name='Leave__c' header="Login" step="STEP 1"
+                        header-line="Login Page" example-tag="Login, Register, forget Password">
+                    </c-default-card>
+                </span>
+            </lightning-layout-item>
+        </lightning-layout>
         </lightning-card>
     </template>
 </template>

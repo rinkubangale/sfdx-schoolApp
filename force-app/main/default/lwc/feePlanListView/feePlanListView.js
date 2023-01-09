@@ -10,16 +10,23 @@ import {
 import getFeePlanList from "@salesforce/apex/addFeeType.getFeePlanList";
 import deleteRecord from "@salesforce/apex/Lookup.deleteRecord";
 
+
 const actions = [{
-        label: 'Edit',
-        name: 'edit',
+        label: "Assign/Revoke Fees",
+        name: "assignRevoke",
+        iconName: "utility:change_owner",
+        alternativeText: "edit",
+        title: "Assign/Revoke Fees"
+    }, {
+        label: "edit",
+        name: "edit",
         iconName: "utility:edit",
-        alternativeText: "Edit",
-        title: "Edit"
+        alternativeText: "edit",
+        title: "edit"
     },
     {
-        label: 'Delete',
-        name: 'delete',
+        label: "Delete",
+        name: "delete",
         iconName: "utility:delete",
         alternativeText: "Delete",
         title: "Delete"
@@ -28,7 +35,7 @@ const actions = [{
 
 const columns = [{
         label: 'Fee Plan Id',
-        fieldName: 'Id',
+        fieldName: 'feePlanId',
         editable: false
     },
     {
@@ -47,7 +54,7 @@ const columns = [{
         editable: false
     },
     {
-        type: 'action',
+        type: "action",
         typeAttributes: {
             rowActions: actions
         }
@@ -55,18 +62,30 @@ const columns = [{
 ];
 
 export default class FeePlanListView extends LightningElement {
-
-    columns = columns;
-    @track dataList;
+    @track isFeeSummaryOpen = false;
     @track isModalOpen = false;
     @track isCreateFeeOpen = false;
-    openModal() {
-        this.isModalOpen = true;
-    }
 
-    closeModal() {
-        this.isModalOpen = false;
-    }
+    dataList = [{
+            feePlanId: "001",
+            Name: "Annual Plan",
+            LastModifiedBy: "Srihari N",
+            LastModifiedDate: "26-Dec-2022",
+        },
+        {
+            feePlanId: "002",
+            Name: "Monthly Plan",
+            LastModifiedBy: "Shubhendra Shukla",
+            LastModifiedDate: "26-Dec-2022",
+        }, {
+            feePlanId: "003",
+            Name: "Annual Customised Plan",
+            LastModifiedBy: "Srihari N",
+            LastModifiedDate: "01-Jan-2023",
+        }
+    ];
+
+    columns = columns;
 
     openCreateFeePlan() {
         this.isCreateFeeOpen = true;
@@ -75,6 +94,12 @@ export default class FeePlanListView extends LightningElement {
     closeCreateFeePlan() {
         this.isCreateFeeOpen = false;
     }
+
+    closeFeeSummary() {
+        this.isFeeSummaryOpen = false;
+        this.isCreateFeeOpen = false;
+    }
+
     submitDetails() {
         // to close modal set isModalOpen tarck value as false
         //Add your code to call apex method or do some processing
@@ -87,26 +112,26 @@ export default class FeePlanListView extends LightningElement {
 
     }
 
-    @wire(getFeePlanList)
-    wiredDepartments({
-        data,
-        error
-    }) {
-        if (data) {
-            this.error = undefined;
-            this.dataList = data.map((item) => {
-                return {
-                    Id: item.Id,
-                    Name: item.Name,
-                    LastModifiedBy: item.LastModifiedBy.Name,
-                    LastModifiedDate: item.LastModifiedDate.split('T')[0],
-                }
-            });
-        } else if (error) {
-            this.error = error;
-            this.dataList = undefined;
-        }
-    }
+    // @wire(getFeePlanList)
+    // wiredDepartments({
+    //     data,
+    //     error
+    // }) {
+    //     if (data) {
+    //         this.error = undefined;
+    //         this.dataList = data.map((item) => {
+    //             return {
+    //                 Id: item.Id,
+    //                 Name: item.Name,
+    //                 LastModifiedBy: item.LastModifiedBy.Name,
+    //                 LastModifiedDate: item.LastModifiedDate.split('T')[0],
+    //             }
+    //         });
+    //     } else if (error) {
+    //         this.error = error;
+    //         this.dataList = undefined;
+    //     }
+    // }
 
     recid = [];
     rowActionHandler(event) {
@@ -145,6 +170,9 @@ export default class FeePlanListView extends LightningElement {
         if (event.detail.action.name === 'edit') {
             this.recordID = event.detail.row.Id;
             this.isModalOpen = true;
+        }
+        if (event.detail.action.name === 'assignRevoke') {
+            this.isFeeSummaryOpen = true;
         }
     }
 

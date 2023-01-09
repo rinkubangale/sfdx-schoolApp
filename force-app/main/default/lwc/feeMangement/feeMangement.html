@@ -9,6 +9,9 @@
         <template if:true={adhocFeeListView}>
             <c-adhoc-fee-list-view onbackbtn={handleBack}></c-adhoc-fee-list-view>
         </template>
+        <template if:true={feeInvoice}>
+            <c-fee-invoice onbackbtn={handleBack}></c-fee-invoice>
+        </template>
     </template>
 
     <template if:false={clicked}>
@@ -51,8 +54,8 @@
                 </lightning-layout-item>
 
                 <lightning-layout-item flexibility="auto" padding="around-small">
-                    <span data-name="teacherListView">
-                        <c-default-card obj-api-name='Adhoc_Fee__c' header="View Invoices" step="STEP 4"
+                    <span onclick={openCard} data-name="feeInvoice">
+                        <c-default-card obj-api-name='adhocFeeListView' header="View Invoices" step="STEP 4"
                             header-line="Invoice" example-tag="View/Edit Invoice at student level">
                         </c-default-card>
                     </span>

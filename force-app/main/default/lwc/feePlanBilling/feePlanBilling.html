@@ -1,7 +1,7 @@
 <template>
     <lightning-card style="margin:15px; text-transform:capitalize;" class="slds-card__header ">
-        <div style="border: 1px solid #cbc6c6;
-        background-color: #f3f3f3">
+        <div style="border: 1px solid white;
+        background-color: white">
             <lightning-layout class="slds-m-top_none slds-p-top_none">
                 <lightning-layout-item size="4">
 
@@ -16,265 +16,318 @@
             <lightning-layout style="margin-top: 10px;">
                 <lightning-layout-item style="width:100% ;">
                     <div class="slds-p-horizontal_medium slds-clearfix">
-                        <table>
-                            <thead style="border:aqua; background-color:#e1dede">
-                                <tr style="height:2.5rem">
-                                    <th>
+                        <table class="tblname">
+                            <thead style="border:aqua; background-color:#f3f3f3">
+                                <tr>
+                                    <th style="width:10%">
                                         <div style="font-size: 1.05rem;
                                     font-weight: 545;">Terms</div>
                                     </th>
-                                    <th>
+                                    <th style="width:35%">
                                         <div style="font-size: 1.05rem;
-                                    font-weight: 545;"> Invoice Date </div>
+                                    font-weight: 545; padding-left:8px"> Invoice Date </div>
                                     </th>
-                                    <th>
+                                    <th style="width:5%">
+
+                                    </th>
+                                    <th style="width:35%">
                                         <div style="font-size: 1.05rem;
-                                    font-weight: 545;"> Invoice Due Date </div>
+                                    font-weight: 545; padding-left:8px"> Invoice Due Date </div>
                                     </th>
-                                    <th>
+                                    <th style="width:5%">
+
+                                    </th>
+                                    <th style="width:10%">
                                         <div style="font-size: 1.05rem;
                                     font-weight: 545;"> Amount </div>
                                     </th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr style="height:2.5rem">
+                                <tr>
                                     <td>
-                                        <div>Term 1</div>
+                                        <div class="firstLastDivs">Term 1</div>
                                     </td>
                                     <td>
-                                        <div>
-                                            <input type="date" name="invoDate" class="upperInput" value={} min="2018-01-01"
-                                                max="2025-12-31">
+                                        <lightning-input type="date" name="invoDate" placeholder="dd-mm-yyyy">
+                                        </lightning-input>
+                                    </td>
+                                    <td>
+
+                                    </td>
+                                    <td>
+                                        <lightning-input type="date" name="invoDate" placeholder="dd-mm-yyyy">
+                                        </lightning-input>
+                                    </td>
+                                    <td>
+
+                                    </td>
+                                    <td>
+                                        <div class="firstLastDivs">
+                                            14000
                                         </div>
                                     </td>
+                                </tr>
+                                <tr>
                                     <td>
-                                        <div> <input type="date" name="invoDueDate" class="upperInput" value={} min="2018-01-01"
-                                                max="2025-12-31"></div>
+                                        <div class="firstLastDivs">Term 2</div>
                                     </td>
                                     <td>
-                                        <div>
+                                        <lightning-input type="date" name="invoDate" placeholder="dd-mm-yyyy">
+                                        </lightning-input>
+                                    </td>
+                                    <td>
+
+                                    </td>
+                                    <td>
+                                        <lightning-input type="date" name="invoDate" placeholder="dd-mm-yyyy">
+                                        </lightning-input>
+                                    </td>
+                                    <td>
+
+                                    </td>
+                                    <td>
+                                        <div class="firstLastDivs">
+                                            11000
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="firstLastDivs">Term 3</div>
+                                    </td>
+                                    <td>
+                                        <lightning-input type="date" name="invoDate" placeholder="dd-mm-yyyy">
+                                        </lightning-input>
+                                    </td>
+                                    <td>
+
+                                    </td>
+                                    <td>
+                                        <lightning-input type="date" name="invoDate" placeholder="dd-mm-yyyy">
+                                        </lightning-input>
+                                    </td>
+                                    <td>
+
+                                    </td>
+                                    <td>
+                                        <div class="firstLastDivs">
+                                            13500
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="firstLastDivs">Term 4</div>
+                                    </td>
+                                    <td>
+                                        <lightning-input type="date" name="invoDate" placeholder="dd-mm-yyyy">
+                                        </lightning-input>
+                                    </td>
+                                    <td>
+
+                                    </td>
+                                    <td>
+                                        <lightning-input type="date" name="invoDate" placeholder="dd-mm-yyyy">
+                                        </lightning-input>
+                                    </td>
+                                    <td>
+
+                                    </td>
+                                    <td>
+                                        <div class="firstLastDivs">
+                                            6600
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="firstLastDivs">Term 5</div>
+                                    </td>
+                                    <td>
+                                        <lightning-input type="date" name="invoDate" placeholder="dd-mm-yyyy">
+                                        </lightning-input>
+                                    </td>
+                                    <td>
+
+                                    </td>
+                                    <td>
+                                        <lightning-input type="date" name="invoDate" placeholder="dd-mm-yyyy">
+                                        </lightning-input>
+                                    </td>
+                                    <td>
+
+                                    </td>
+                                    <td>
+                                        <div class="firstLastDivs">
+                                            8900
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="firstLastDivs">Term 6</div>
+                                    </td>
+                                    <td>
+                                        <lightning-input type="date" name="invoDate" placeholder="dd-mm-yyyy">
+                                        </lightning-input>
+                                    </td>
+                                    <td>
+
+                                    </td>
+                                    <td>
+                                        <lightning-input type="date" name="invoDate" placeholder="dd-mm-yyyy">
+                                        </lightning-input>
+                                    </td>
+                                    <td>
+
+                                    </td>
+                                    <td>
+                                        <div class="firstLastDivs">
+                                            7000
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="firstLastDivs">Term 7</div>
+                                    </td>
+                                    <td>
+                                        <lightning-input type="date" name="invoDate" placeholder="dd-mm-yyyy">
+                                        </lightning-input>
+                                    </td>
+                                    <td>
+
+                                    </td>
+                                    <td>
+                                        <lightning-input type="date" name="invoDate" placeholder="dd-mm-yyyy">
+                                        </lightning-input>
+                                    </td>
+                                    <td>
+
+                                    </td>
+                                    <td>
+                                        <div class="firstLastDivs">
+                                            11500
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="firstLastDivs">Term 8</div>
+                                    </td>
+                                    <td>
+                                        <lightning-input type="date" name="invoDate" placeholder="dd-mm-yyyy">
+                                        </lightning-input>
+                                    </td>
+                                    <td>
+
+                                    </td>
+                                    <td>
+                                        <lightning-input type="date" name="invoDate" placeholder="dd-mm-yyyy">
+                                        </lightning-input>
+                                    </td>
+                                    <td>
+
+                                    </td>
+                                    <td>
+                                        <div class="firstLastDivs">
+                                            16000
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="firstLastDivs">Term 9</div>
+                                    </td>
+                                    <td>
+                                        <lightning-input type="date" name="invoDate" placeholder="dd-mm-yyyy">
+                                        </lightning-input>
+                                    </td>
+                                    <td>
+
+                                    </td>
+                                    <td>
+                                        <lightning-input type="date" name="invoDate" placeholder="dd-mm-yyyy">
+                                        </lightning-input>
+                                    </td>
+                                    <td>
+
+                                    </td>
+                                    <td>
+                                        <div class="firstLastDivs">
                                             12000
                                         </div>
                                     </td>
                                 </tr>
-                                <tr style="height:2.5rem">
+                                <tr>
                                     <td>
-                                        <div>Term 2</div>
+                                        <div class="firstLastDivs">Term 10</div>
                                     </td>
                                     <td>
-                                        <div>
-                                            <input type="date" name="invoDate" class="upperInput" value={} min="2018-01-01"
-                                                max="2025-12-31">
-                                        </div>
+                                        <lightning-input type="date" name="invoDate" placeholder="dd-mm-yyyy">
+                                        </lightning-input>
                                     </td>
                                     <td>
-                                        <div> <input type="date" name="invoDueDate" class="upperInput" value={} min="2018-01-01"
-                                                max="2025-12-31"></div>
+
+                                    </td>                                  
+                                    <td>
+                                        <lightning-input type="date" name="invoDate" placeholder="dd-mm-yyyy">
+                                        </lightning-input>
                                     </td>
                                     <td>
-                                        <div>
-                                            12000
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr style="height:2.5rem">
-                                    <td>
-                                        <div>Term 3</div>
+
                                     </td>
                                     <td>
-                                        <div>
-                                            <input type="date" name="invoDate" class="upperInput" value={} min="2018-01-01"
-                                                max="2025-12-31">
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div> <input type="date" name="invoDueDate" class="upperInput" value={} min="2018-01-01"
-                                                max="2025-12-31"></div>
-                                    </td>
-                                    <td>
-                                        <div>
-                                            12000
+                                        <div class="firstLastDivs">
+                                            8000
                                         </div>
                                     </td>
                                 </tr>
-                                <tr style="height:2.5rem">
+                                <tr>
                                     <td>
-                                        <div>Term 4</div>
+                                        <div class="firstLastDivs">Term 11</div>
                                     </td>
                                     <td>
-                                        <div>
-                                            <input type="date" name="invoDate" class="upperInput" value={} min="2018-01-01"
-                                                max="2025-12-31">
-                                        </div>
+                                        <lightning-input type="date" name="invoDate" placeholder="dd-mm-yyyy">
+                                        </lightning-input>
                                     </td>
                                     <td>
-                                        <div> <input type="date" name="invoDueDate" class="upperInput" value={} min="2018-01-01"
-                                                max="2025-12-31"></div>
+
                                     </td>
                                     <td>
-                                        <div>
-                                            12000
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr style="height:2.5rem">
-                                    <td>
-                                        <div>Term 5</div>
+                                        <lightning-input type="date" name="invoDate" placeholder="dd-mm-yyyy">
+                                        </lightning-input>
                                     </td>
                                     <td>
-                                        <div>
-                                            <input type="date" name="invoDate" class="upperInput" value={} min="2018-01-01"
-                                                max="2025-12-31">
-                                        </div>
+
                                     </td>
                                     <td>
-                                        <div> <input type="date" name="invoDueDate" class="upperInput" value={} min="2018-01-01"
-                                                max="2025-12-31"></div>
-                                    </td>
-                                    <td>
-                                        <div>
-                                            12000
+                                        <div class="firstLastDivs">
+                                            10000
                                         </div>
                                     </td>
                                 </tr>
-                                <tr style="height:2.5rem">
-                                    <td>
-                                        <div>Term 6</div>
+                                <tr>
+                                    <td style="padding-bottom:20px">
+                                        <div class="firstLastDivs">Term 12</div>
                                     </td>
-                                    <td>
-                                        <div>
-                                            <input type="date" name="invoDate" class="upperInput" value={} min="2018-01-01"
-                                                max="2025-12-31">
-                                        </div>
+                                    <td style="padding-bottom:20px">
+                                        <lightning-input type="date" name="invoDate" placeholder="dd-mm-yyyy">
+                                        </lightning-input>
                                     </td>
-                                    <td>
-                                        <div> <input type="date" name="invoDueDate" class="upperInput" value={} min="2018-01-01"
-                                                max="2025-12-31"></div>
+                                    <td style="padding-bottom:20px">
+
                                     </td>
-                                    <td>
-                                        <div>
-                                            12000
-                                        </div>
+                                    <td style="padding-bottom:20px">
+                                        <lightning-input type="date" name="invoDate" placeholder="dd-mm-yyyy">
+                                        </lightning-input>
                                     </td>
-                                </tr>
-                                <tr style="height:2.5rem">
-                                    <td>
-                                        <div>Term 7</div>
+                                    <td style="padding-bottom:20px">
+
                                     </td>
-                                    <td>
-                                        <div>
-                                            <input type="date" name="invoDate" class="upperInput" value={} min="2018-01-01"
-                                                max="2025-12-31">
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div> <input type="date" name="invoDueDate" class="upperInput" value={} min="2018-01-01"
-                                                max="2025-12-31"></div>
-                                    </td>
-                                    <td>
-                                        <div>
-                                            12000
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr style="height:2.5rem">
-                                    <td>
-                                        <div>Term 8</div>
-                                    </td>
-                                    <td>
-                                        <div>
-                                            <input type="date" name="invoDate" class="upperInput" value={} min="2018-01-01"
-                                                max="2025-12-31">
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div> <input type="date" name="invoDueDate" class="upperInput" value={} min="2018-01-01"
-                                                max="2025-12-31"></div>
-                                    </td>
-                                    <td>
-                                        <div>
-                                            12000
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr style="height:2.5rem">
-                                    <td>
-                                        <div>Term 9</div>
-                                    </td>
-                                    <td>
-                                        <div>
-                                            <input type="date" name="invoDate" class="upperInput" value={} min="2018-01-01"
-                                                max="2025-12-31">
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div> <input type="date" name="invoDueDate" class="upperInput"  value={} min="2018-01-01"
-                                                max="2025-12-31"></div>
-                                    </td>
-                                    <td>
-                                        <div>
-                                            12000
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr style="height:2.5rem">
-                                    <td>
-                                        <div>Term 10</div>
-                                    </td>
-                                    <td>
-                                        <div>
-                                            <input type="date" name="invoDate" class="upperInput" value={} min="2018-01-01"
-                                                max="2025-12-31">
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div> <input type="date" name="invoDueDate" class="upperInput" value={} min="2018-01-01"
-                                                max="2025-12-31"></div>
-                                    </td>
-                                    <td>
-                                        <div>
-                                            12000
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr style="height:2.5rem">
-                                    <td>
-                                        <div>Term 11</div>
-                                    </td>
-                                    <td>
-                                        <div>
-                                            <input type="date" name="invoDate" class="upperInput" value={} min="2018-01-01"
-                                                max="2025-12-31">
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div> <input type="date" name="invoDueDate" class="upperInput" value={} min="2018-01-01"
-                                                max="2025-12-31"></div>
-                                    </td>
-                                    <td>
-                                        <div>
-                                            12000
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr style="height:2.5rem">
-                                    <td>
-                                        <div>Term 12</div>
-                                    </td>
-                                    <td>
-                                        <div> <input type="date" name="invoDate" class="upperInput" value={} min="2018-01-01"
-                                                max="2025-12-31">
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div>
-                                            <input type="date" name="invoDueDate" class="upperInput" value={} min="2018-01-01"
-                                                max="2025-12-31">
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div>
+                                    <td style="padding-bottom:20px">
+                                        <div class="firstLastDivs">
                                             12000
                                         </div>
                                     </td>
@@ -290,51 +343,53 @@
         <br />
         <br />
         <br />
-        <div style="border: 1px solid #cbc6c6;
-        background-color: #f3f3f3">
+        <div style="background-color:white">
             <lightning-layout multiple-rows>
                 <lightning-layout-item size="9">
 
                 </lightning-layout-item>
                 <lightning-layout-item size="3">
-                    <lightning-button variant="neutral" class="slds-float_right" icon-name="utility:moneybag"
-                        title="Add Fee Type" label="Add Fee Type" onclick={openModal}>
-                    </lightning-button>
+                    <button type="button" style="border:0px solid rgb(231 223 223);
+                    background-color: #317de5;
+                    color: #ffffff;
+                    float: right;
+                    padding: 8px;
+                    margin: 6px 15px; border-radius: 4px;">Add Fee Type</button>
                 </lightning-layout-item>
                 <lightning-layout-item size="12">
-                    <div class="slds-p-horizontal_medium slds-clearfix" style="padding-bottom: 12px;">
-                        <table>
-                            <thead style="border:aqua; background-color:#e1dede">
-                                <tr style="height:2.5rem">
-                                    <th>
+                    <div class="slds-p-horizontal_medium slds-clearfix" style="padding-bottom:12px;">
+                        <table class="tblname">
+                            <thead style="border:aqua; background-color:#f3f3f3">
+                                <tr>
+                                    <th style="width:25%">
                                         <div style="font-size: 1.05rem;
-                                    font-weight: 545;"> Fees Type </div>
+                                    font-weight: 545; padding-left:8px"> Fees Type </div>
                                     </th>
-                                    <th>
+                                    <th style="width:25%">
                                         <div style="font-size: 1.05rem;
-                                    font-weight: 545;"> Billing Frequency </div>
+                                    font-weight: 545; padding-left:8px"> Billing Frequency </div>
                                     </th>
-                                    <th>
+                                    <th style="width:15%">
                                         <div style="font-size: 1.05rem;
                                     font-weight: 545;"> Refundable </div>
                                     </th>
-                                    <th>
+                                    <th style="width:15%">
                                         <div style="font-size: 1.05rem;
                                     font-weight: 545;"> Apply To </div>
                                     </th>
-                                    <th>
+                                    <th style="width:10%">
                                         <div style="font-size: 1.05rem;
                                     font-weight: 545;"> Amount </div>
                                     </th>
-                                    <th>
+                                    <th style="width:10%">
                                         <div style="font-size: 1.05rem;
                                     font-weight: 545;"> Action </div>
                                     </th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr style="height:2.5rem">
-                                    <td>
+                                <tr>
+                                    <td style="padding-top:24px">
                                         <div>
                                             <select name="feeType">
                                                 <option value="select">Select</option>
@@ -343,33 +398,33 @@
                                             </select>
                                         </div>
                                     </td>
-                                    <td>
+                                    <td style="padding-top:24px">
                                         <div>
-                                            <select name="billingFrequency" style="width:8rem">
+                                            <select name="billingFrequency">
                                                 <option value="select">Select</option>
                                                 <option value="Mandatory">Recurring</option>
                                                 <option value="Optional">Fixed</option>
                                             </select>
                                         </div>
                                     </td>
-                                    <td>
+                                    <td style="padding-top:24px; padding-left:12px;">
                                         <div>
                                             <input type="checkbox" id="switch" class="checkbox" />
                                             <label for="switch" class="toggle"></label>
                                         </div>
                                     </td>
-                                    <td>
+                                    <td style="padding-top:24px">
                                         <div>
-                                            <a href="#">Select Terms</a>
+                                            <a href="#">Select Term</a>
                                         </div>
                                     </td>
                                     <td>
-                                        <div>
+                                        <div style="padding-top:24px">
 
                                         </div>
                                     </td>
                                     <td>
-                                        <div>
+                                        <div style="padding-top:24px">
 
                                         </div>
                                     </td>

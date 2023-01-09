@@ -1,0 +1,404 @@
+<template>
+    <div style="max-width: 100%">
+        <lightning-card style="width:100%" class="headerCard">
+            <lightning-layout>
+                <lightning-layout-item size="5" class="slds-float_left slds-p-around_medium">
+                    <lightning-icon icon-name="standard:education" title="Fee Summary">
+                    </lightning-icon>
+                    <span style="font-weight: bold; font-size:larger" class="slds-p-around_small">Record Payment</span>
+                </lightning-layout-item>
+                <lightning-layout-item size="2" class="slds-clearfix slds-float_left slds-p-around_medium"
+                    style="padding-top: 1.2rem">
+
+                </lightning-layout-item>
+                <lightning-layout-item size="5" class="slds-clearfix" style="padding: 0.5rem 1.5rem">
+                    
+                    <!-- <lightning-button style="padding: 8px;" label="Back"  title="back" onclick={goBack}
+                    class="slds-p-around_small slds-float_right">
+                </lightning-button> -->
+                <!-- <a href="#" data-close="true" class="slds-float_right"> -->
+                    <a>
+                    <div class="back slds-float_right"  onclick={goBack}>
+                        <lightning-icon style="padding-left: 7px;" icon-name="utility:back" size="x-small" alternative-text="Back!" title="Back">
+                        </lightning-icon>
+                        <p>Back</p>
+                    </div>
+                   </a>
+                </lightning-layout-item>
+            </lightning-layout>
+            <div style="padding: 0.5rem 1.5rem">
+                <h1 style="font-weight: 600;
+                font-size: 1em">
+                Record Payment
+                </h1>
+            </div>
+
+            <div class="slds-p-horizontal_medium slds-clearfix">
+                <table class="tblname">
+                    <thead style="border:aqua; background-color:#f3f3f3;">
+                        <tr style="border: 1px solid #edeae9;
+                        border-collapse: collapse;">
+                            <th class="forTable" style="border: 1px solid #edeae9;
+                            border-collapse: collapse;padding:10px;">
+                                <div style="font-size: 1.05rem;
+                                    font-weight: 545;">Term Name</div>
+                            </th>
+                            <th class="forTable" style="border: 1px solid #edeae9;
+                            border-collapse: collapse;padding:10px;">
+                                <div style="font-size: 1.05rem;
+                                    font-weight: 545; padding-left:8px"> Fees Type </div>
+                            </th>
+                            <th class="forTable" style="border: 1px solid #edeae9;
+                            border-collapse: collapse; padding:10px;">
+                                <div style="font-size: 1.05rem;
+                                        font-weight: 545; padding-left:8px">Invoice Date </div>
+                            </th>
+
+                            <th class="forTable" style="border: 1px solid #edeae9;
+                            border-collapse: collapse; padding:10px;">
+                                <div style="font-size: 1.05rem;
+                                    font-weight: 545; padding-left:8px"> Invoice Due Date</div>
+                            </th>
+                            <th class="forTable" style="border: 1px solid #edeae9;
+                            border-collapse: collapse; padding:10px;">
+                                <div style="font-size: 1.05rem;
+                                        font-weight: 545; padding-left:8px"> Billing Frequency </div>
+                            </th>
+                            <th class="forTable" style="border: 1px solid #edeae9;
+                            border-collapse: collapse; padding:10px;">
+                                <div style="font-size: 1.05rem;
+                                    font-weight: 545;"> Refundable </div>
+                            </th>
+                            <th class="forTable" style="border: 1px solid #edeae9;
+                            border-collapse: collapse; padding:10px;">
+                                <div style="font-size: 1.05rem;
+                                    font-weight: 545;"> Fee Amount (₹)</div>
+                            </th>
+                            <th class="forTable" style="border: 1px solid #edeae9;
+                            border-collapse: collapse;padding:10px;">
+                                <div style="font-size: 1.05rem;
+                                    font-weight: 545; padding:10px;"> Penalty </div>
+                            </th>
+                            <th class="forTable" style="border: 1px solid #edeae9;
+                            border-collapse: collapse;padding:10px;">
+                                <div style="font-size: 1.05rem;
+                                    font-weight: 545; padding:10px;"> Status </div>
+                            </th>
+                            <th class="forTable" style="border: 1px solid #edeae9;
+                            border-collapse: collapse;padding:10px;">
+                                <div style="font-size: 1.05rem;
+                                    font-weight: 545; padding:10px;"> Paid Date </div>
+                            </th>
+                            <th class="forTable" style="border: 1px solid #edeae9;
+                            border-collapse: collapse;padding:10px;">
+                                <div style="font-size: 1.05rem;
+                                    font-weight: 545; padding:10px;"> Total Amount (₹)</div>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr style="border: 1px solid #edeae9;
+                                border-collapse: collapse;">
+                            <td class="forTable" style="border: 1px solid #edeae9;
+                                    border-collapse: collapse;">
+                                <div class="firstLastDivs">Term 1</div>
+                            </td>
+                            <td class="forTable" style="border: 1px solid #edeae9;
+                                    border-collapse: collapse;">
+                                <div>0</div>
+                            </td>
+                            <td class="forTable" style="border: 1px solid #edeae9;
+                                    border-collapse: collapse;">
+                                <div>0</div>
+                            </td>
+                            <td class="forTable" style="border: 1px solid #edeae9;
+                                    border-collapse: collapse;">
+                                <div>0</div>
+                            </td>
+                            <td class="forTable" style="border: 1px solid #edeae9;
+                                    border-collapse: collapse;">
+                                <div>0</div>
+                            </td>
+                            <td class="forTable" style="border: 1px solid #edeae9;
+                                    border-collapse: collapse;">
+                                <div>0</div>
+                            </td>
+                            <td class="forTable" style="border: 1px solid #edeae9;
+                                    border-collapse: collapse;">
+                                <div> ₹2</div>
+                            </td>
+                            <td class="forTable" style="border: 1px solid #edeae9;
+                                    border-collapse: collapse;">
+                                <div> ₹0</div>
+                            </td>
+                            <td class="forTable" style="border: 1px solid #edeae9;
+                                    border-collapse: collapse;">
+                                <div>Not Paid</div>
+                            </td>
+                            <td class="forTable" style="border: 1px solid #edeae9;
+                                    border-collapse: collapse;">
+                                <div>-</div>
+                            </td>
+                            <td class="forTable" style="border: 1px solid #edeae9;
+                                    border-collapse: collapse;">
+                                <div>2</div>
+                            </td>
+                        </tr>
+                        <tr style="border: 1px solid #edeae9;
+                                border-collapse: collapse;">
+                            <td class="forTable" style="border: 1px solid #edeae9;
+                                    border-collapse: collapse;">
+                                <div></div>
+                            </td>
+                            <td class="forTable" style="border: 1px solid #edeae9;
+                                    border-collapse: collapse;">
+                                <div>sdsdsd</div>
+                            </td>
+                            <td class="forTable" style="border: 1px solid #edeae9;
+                                    border-collapse: collapse;">
+                                <div>19-Jan-2024</div>
+                            </td>
+                            <td class="forTable" style="border: 1px solid #edeae9;
+                                    border-collapse: collapse;">
+                                <div>19-Jan-2024</div>
+                            </td>
+                            <td class="forTable" style="border: 1px solid #edeae9;
+                                    border-collapse: collapse;">
+                                <div>Recurring</div>
+                            </td>
+                            <td class="forTable" style="border: 1px solid #edeae9;
+                                    border-collapse: collapse;">
+                                <div class="firstLastDivs">
+                                    No
+                                </div>
+                            </td>
+                            <td class="forTable" style="border: 1px solid #edeae9;
+                                    border-collapse: collapse;">
+                                <div class="firstLastDivs">
+                                    2
+                                </div>
+                            </td>
+                            <td class="forTable" style="border: 1px solid #edeae9;
+                                    border-collapse: collapse;">
+                                <div class="firstLastDivs">
+                                    -
+                                </div>
+                            </td>
+                            <td class="forTable" style="border: 1px solid #edeae9;
+                                    border-collapse: collapse;">
+                                <div class="firstLastDivs">
+                                    Not Paid
+                                </div>
+                            </td>
+                            <td class="forTable" style="border: 1px solid #edeae9;
+                                    border-collapse: collapse;">
+                                <div class="firstLastDivs">
+                                    -
+                                </div>
+                            </td>
+                            <td class="forTable" style="border: 1px solid #edeae9;
+                                    border-collapse: collapse;">
+                                <div class="firstLastDivs">
+                                    
+                                </div>
+                            </td>
+
+                        </tr>
+                        <tr style="border: 1px solid #edeae9;
+                        border-collapse: collapse;">
+                    <td class="forTable" style="border: 1px solid #edeae9;
+                            border-collapse: collapse;">
+                        <div class="firstLastDivs">Term 2</div>
+                    </td>
+                    <td class="forTable" style="border: 1px solid #edeae9;
+                            border-collapse: collapse;">
+                        <div>0</div>
+                    </td>
+                    <td class="forTable" style="border: 1px solid #edeae9;
+                            border-collapse: collapse;">
+                        <div>0</div>
+                    </td>
+                    <td class="forTable" style="border: 1px solid #edeae9;
+                            border-collapse: collapse;">
+                        <div>0</div>
+                    </td>
+                    <td class="forTable" style="border: 1px solid #edeae9;
+                            border-collapse: collapse;">
+                        <div>0</div>
+                    </td>
+                    <td class="forTable" style="border: 1px solid #edeae9;
+                            border-collapse: collapse;">
+                        <div>0</div>
+                    </td>
+                    <td class="forTable" style="border: 1px solid #edeae9;
+                            border-collapse: collapse;">
+                        <div>₹ 2</div>
+                    </td>
+                    <td class="forTable" style="border: 1px solid #edeae9;
+                            border-collapse: collapse;">
+                        <div>₹ 0</div>
+                    </td>
+                    <td class="forTable" style="border: 1px solid #edeae9;
+                            border-collapse: collapse;">
+                        <div>Not Paid</div>
+                    </td>
+                    <td class="forTable" style="border: 1px solid #edeae9;
+                            border-collapse: collapse;">
+                        <div>-</div>
+                    </td>
+                    <td class="forTable" style="border: 1px solid #edeae9;
+                            border-collapse: collapse;">
+                        <div>2</div>
+                    </td>
+                </tr>
+                <tr style="border: 1px solid #edeae9;
+                        border-collapse: collapse;">
+                    <td class="forTable" style="border: 1px solid #edeae9;
+                            border-collapse: collapse;">
+                        <div></div>
+                    </td>
+                    <td class="forTable" style="border: 1px solid #edeae9;
+                            border-collapse: collapse;">
+                        <div>sdsdsd</div>
+                    </td>
+                    <td class="forTable" style="border: 1px solid #edeae9;
+                            border-collapse: collapse;">
+                        <div>19-Jan-2024</div>
+                    </td>
+                    <td class="forTable" style="border: 1px solid #edeae9;
+                            border-collapse: collapse;">
+                        <div>19-Jan-2024</div>
+                    </td>
+                    <td class="forTable" style="border: 1px solid #edeae9;
+                            border-collapse: collapse;">
+                        <div>Recurring</div>
+                    </td>
+                    <td class="forTable" style="border: 1px solid #edeae9;
+                            border-collapse: collapse;">
+                        <div class="firstLastDivs">
+                            No
+                        </div>
+                    </td>
+                    <td class="forTable" style="border: 1px solid #edeae9;
+                            border-collapse: collapse;">
+                        <div class="firstLastDivs">
+                            2
+                        </div>
+                    </td>
+                    <td class="forTable" style="border: 1px solid #edeae9;
+                            border-collapse: collapse;">
+                        <div class="firstLastDivs">
+                            -
+                        </div>
+                    </td>
+                    <td class="forTable" style="border: 1px solid #edeae9;
+                            border-collapse: collapse;">
+                        <div class="firstLastDivs">
+                            Not Paid
+                        </div>
+                    </td>
+                    <td class="forTable" style="border: 1px solid #edeae9;
+                            border-collapse: collapse;">
+                        <div class="firstLastDivs">
+                            -
+                        </div>
+                    </td>
+                    <td class="forTable" style="border: 1px solid #edeae9;
+                            border-collapse: collapse;">
+                        <div class="firstLastDivs">
+                            
+                        </div>
+                    </td>
+
+                </tr>
+                    </tbody>
+                </table>
+            </div>
+            <br />
+
+            <div  style="border: 1px solid rgb(237, 234, 233);margin: 16px;box-sizing: border-box;">
+                <lightning-layout multiple-rows="true" style="padding: 10px;">
+                    <lightning-layout-item size="6">
+                    </lightning-layout-item>
+                    <lightning-layout-item size="6">
+                            <span class="slds-float_right" style="padding: 10px;margin-right: 32px;">
+                                Total Amount : 0
+                            </span>
+                    </lightning-layout-item>    
+                    <lightning-layout-item size="6">
+                    </lightning-layout-item>
+                    <lightning-layout-item size="6">
+                        <span class="slds-float_right" style="padding: 10px;margin-right: 32px;">
+                            Discount Amount : 0
+                        </span>
+                    </lightning-layout-item>
+                    <lightning-layout-item size="6">
+
+                    </lightning-layout-item>
+                    <lightning-layout-item size="6">
+                        <span class="slds-float_right" style="padding: 10px;margin-right: 32px;">
+                            Penalty Amount : 0
+                        </span>
+                    </lightning-layout-item>
+                    <lightning-layout-item size="6">
+                    </lightning-layout-item>
+                    <lightning-layout-item size="6">
+                        <span class="slds-float_right" style="padding: 10px;margin-right: 32px;">
+                            Sibling Discount : 0
+                        </span>
+                    </lightning-layout-item>
+                    <lightning-layout-item size="6">
+                    </lightning-layout-item>
+                    <lightning-layout-item size="6">
+                        <span class="slds-float_right" style="padding: 10px;margin-right: 32px;">
+                        Grand Total Amount : 0
+                        </span>
+                    </lightning-layout-item>
+                </lightning-layout>
+        </div>
+            
+        <div class="add-class-body" style="width: 97%;
+        margin: 0rem auto;
+        border: 2px solid #f3f3f3;
+        background-color: #f3f3f3;
+        border-radius: 6px;
+        padding: 2rem;
+        color: gray;">
+            
+                <div style="margin-top: 5px;">0% discount is applicable if paid initially for full term within the due date</div>
+                <div style="margin-top: 5px;">0% Late Fee charges are levied if the fees are not paid within the due date</div>
+                <div style="margin-top: 5px;">Sibling Discount will be applicable if the student is eligible and it will reflect in Student Fee Summary Section</div>
+                <div style="margin-top: 5px;">*Discount & other charges are applied/included in Final Billing Summary</div>
+        
+        </div>
+
+        <lightning-card>
+            <lightning-layout multiple-rows>
+                <lightning-layout-item size="6" class=" slds-p-around_medium" style="margin-top: 35px;">
+                    <lightning-icon icon-name="action:clone" alternative-text="Assigned Student" title="Assigned Student">
+                    </lightning-icon>
+        
+                    <span style="font-weight:bold; font-size:larger" class=" slds-p-around_small ">Payment</span>
+                    <div class="slds-p-around_medium">
+                        <lightning-combobox
+                                    name="Payment type"
+                                    label="Payment type"
+                                    value={value}
+                                    options={options}
+                                    onchange={handleChange}
+                                    required class="goon">
+                </lightning-combobox>
+                    </div>
+                </lightning-layout-item>
+                <lightning-layout-item size="2" class=" slds-p-around_medium" style="margin-top: 105px;">
+                    <div class="slds-p-around_medium">
+                        <lightning-button variant="brand" type="reset" label='Submit'></lightning-button>
+                    </div>
+                </lightning-layout-item>
+            </lightning-layout>
+        </lightning-card>
+
+       
+        </lightning-card>
+    </div>
+</template>

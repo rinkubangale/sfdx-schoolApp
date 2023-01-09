@@ -113,7 +113,8 @@ export default class StudentListView extends LightningElement {
     }
 
     @track deleteId = [];
-    @track dataList;
+    @track dataList = [{FirstName: 'John'}];
+
     wiredRecordList;
     selectedStudents;
     wiredStudents;
@@ -148,49 +149,49 @@ export default class StudentListView extends LightningElement {
         this.dispatchEvent(toastEvent);
     }
 
-    @wire(getRecords)
-    wiredStudents(result) {
-        //console.log('Helloo==================>'+JSON.stringify(result))
-        this.wiredRecordList = result
-        if (JSON.stringify(result) != '{}' && result.data) {
-            this.dataList = JSON.parse(JSON.stringify(result.data));
-            //let dataL = [];
-            for (let x of this.dataList) {
-                console.log('x=====>' + JSON.stringify(x))   ///==>> this one is for taking parent name...
-                x.Class_Name__c = x.Class_Name__c == null ? null : x.Class_Name__r.Name;
-                x.Class_Section__c = x.Class_Section__c == null ? null : x.Class_Section__r.Name;
-                x.Academic_Year__c = x.Academic_Year__c == null ? null : x.Academic_Year__r.From_Year__c + "/"
-                    + x.Academic_Year__r.From_Month__c + "-" + x.Academic_Year__r.To_Year__c + "/"
-                    + x.Academic_Year__r.To_Month__c;
-                /* dataL.push({'label': x.From_Year__c +'/'+ this.academicYear(x.From_Month__c) +  ' - '  + x.To_Year__c+'/'+ this.academicYear(x.To_Month__c), 
-                'value': x.From_Year__c +'/'+ this.academicYear(x.From_Month__c) +  ' - '   +  x.To_Year__c+'/'+ this.academicYear(x.To_Month__c)},
-                x.Class_Name__c= x.Class_Name__c == null?null:x.Class_Name__r.Name,
-                x.Class_Section__c = x.Class_Section__c == null?null:x.Class_Section__r.Name); */
-            }
+    // @wire(getRecords)
+    // wiredStudents(result) {
+    //     //console.log('Helloo==================>'+JSON.stringify(result))
+    //     this.wiredRecordList = result
+    //     if (JSON.stringify(result) != '{}' && result.data) {
+    //         this.dataList = JSON.parse(JSON.stringify(result.data));
+    //         //let dataL = [];
+    //         for (let x of this.dataList) {
+    //             console.log('x=====>' + JSON.stringify(x))   ///==>> this one is for taking parent name...
+    //             x.Class_Name__c = x.Class_Name__c == null ? null : x.Class_Name__r.Name;
+    //             x.Class_Section__c = x.Class_Section__c == null ? null : x.Class_Section__r.Name;
+    //             x.Academic_Year__c = x.Academic_Year__c == null ? null : x.Academic_Year__r.From_Year__c + "/"
+    //                 + x.Academic_Year__r.From_Month__c + "-" + x.Academic_Year__r.To_Year__c + "/"
+    //                 + x.Academic_Year__r.To_Month__c;
+    //             /* dataL.push({'label': x.From_Year__c +'/'+ this.academicYear(x.From_Month__c) +  ' - '  + x.To_Year__c+'/'+ this.academicYear(x.To_Month__c), 
+    //             'value': x.From_Year__c +'/'+ this.academicYear(x.From_Month__c) +  ' - '   +  x.To_Year__c+'/'+ this.academicYear(x.To_Month__c)},
+    //             x.Class_Name__c= x.Class_Name__c == null?null:x.Class_Name__r.Name,
+    //             x.Class_Section__c = x.Class_Section__c == null?null:x.Class_Section__r.Name); */
+    //         }
 
-            //console.log("dataList",result.data)
-            this.total = this.dataList.length;
-            this.allList = result.data;
-            //console.log("allList",this.allList)
-            this.activeList = this.allList.filter((list) => {
-                console.log(list, "list")
-                return list.Status__c === "Active"
-            })
-            this.InactiveList = this.allList.filter((list) => {
-                console.log(list, "list")
-                return list.Status__c === "Inactive"
-            })
-            //console.log("------",this.activeList)
-            this.active = this.activeList.length;
-            this.Inactive = this.InactiveList.length;
-            //console.log(this.total);
-            //console.log("testing001", this.dataList);
-            //console.log("testing002", this.columns);
-        }
-        else if (JSON.stringify(result) != '{}' && result.error) {
-            console.log(error);
-        }
-    }
+    //         //console.log("dataList",result.data)
+    //         this.total = this.dataList.length;
+    //         this.allList = result.data;
+    //         //console.log("allList",this.allList)
+    //         this.activeList = this.allList.filter((list) => {
+    //             console.log(list, "list")
+    //             return list.Status__c === "Active"
+    //         })
+    //         this.InactiveList = this.allList.filter((list) => {
+    //             console.log(list, "list")
+    //             return list.Status__c === "Inactive"
+    //         })
+    //         //console.log("------",this.activeList)
+    //         this.active = this.activeList.length;
+    //         this.Inactive = this.InactiveList.length;
+    //         //console.log(this.total);
+    //         //console.log("testing001", this.dataList);
+    //         //console.log("testing002", this.columns);
+    //     }
+    //     else if (JSON.stringify(result) != '{}' && result.error) {
+    //         console.log(error);
+    //     }
+    // }
     columns = columns;
 
     handleRowSelection(event) {
@@ -306,25 +307,11 @@ export default class StudentListView extends LightningElement {
         await refreshApex(this.dataList);
     }
 
-
-    /* popup() {
-        this.dispatchEvent(new CustomEvent('edit',{
-            detail:true
-        }))
-    }
-
-    closePopUp(event){
-        this.dispatchEvent(new CustomEvent('close',{
-            detail:true
-        }))
-
-    } */
-
     goBack() {
         // history.back();
         this.dispatchEvent(new CustomEvent('backbtn', {
             detail: false,
         }))
     }
-
+    dataList = [{FirstName: 'John'}]
 }

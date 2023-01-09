@@ -1,0 +1,501 @@
+<template>
+    <div style="max-width: 77rem;">
+        <lightning-card style="width:100%" class="headerCard">
+            <lightning-layout>
+                <lightning-layout-item size="5" class="slds-float_left slds-p-around_medium">
+                    <lightning-icon icon-name="standard:education" title="Fee Summary">
+                    </lightning-icon>
+                    <span style="font-weight: bold; font-size:larger" class="slds-p-around_small">Fee Summary</span>
+                </lightning-layout-item>
+                <lightning-layout-item size="2" class="slds-clearfix slds-float_left slds-p-around_medium"
+                    style="padding-top: 1.2rem">
+
+                </lightning-layout-item>
+                <lightning-layout-item size="5" class="slds-clearfix">
+
+                </lightning-layout-item>
+            </lightning-layout>
+            <div style="padding: 0.5rem 1.5rem">
+                <h1 style="font-weight: 600;
+                font-size: 1em">
+                    Forecast Amount
+                </h1>
+            </div>
+
+            <div class="slds-p-horizontal_medium slds-clearfix">
+                <table class="tblname">
+                    <thead style="border:aqua; background-color:#f3f3f3">
+                        <tr style="border: 1px solid #edeae9;
+                        border-collapse: collapse;">
+                            <th class="forTable" style="border: 1px solid #edeae9;
+                            border-collapse: collapse;">
+                                <div style="font-size: 1.05rem;
+                                    font-weight: 545;">Class/Student</div>
+                            </th>
+                            <th class="forTable" style="border: 1px solid #edeae9;
+                            border-collapse: collapse;">
+                                <div style="font-size: 1.05rem;
+                                    font-weight: 545; padding-left:8px"> Total students </div>
+                            </th>
+                            <th class="forTable" style="border: 1px solid #edeae9;
+                            border-collapse: collapse;">
+                                <div style="font-size: 1.05rem;
+                                        font-weight: 545; padding-left:8px"> Fee Assigned to </div>
+                            </th>
+
+                            <th class="forTable" style="border: 1px solid #edeae9;
+                            border-collapse: collapse;">
+                                <div style="font-size: 1.05rem;
+                                    font-weight: 545; padding-left:8px"> New Students </div>
+                            </th>
+                            <th class="forTable" style="border: 1px solid #edeae9;
+                            border-collapse: collapse;">
+                                <div style="font-size: 1.05rem;
+                                        font-weight: 545; padding-left:8px"> Academic Year </div>
+                            </th>
+                            <th class="forTable" style="border: 1px solid #edeae9;
+                            border-collapse: collapse;">
+                                <div style="font-size: 1.05rem;
+                                    font-weight: 545;"> Total Amount </div>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr style="border: 1px solid #edeae9;
+                                border-collapse: collapse;">
+                            <td class="forTable" style="border: 1px solid #edeae9;
+                                    border-collapse: collapse;">
+                                <div class="firstLastDivs">Pre-KG</div>
+                            </td>
+                            <td class="forTable" style="border: 1px solid #edeae9;
+                                    border-collapse: collapse;">
+                                <div>0</div>
+                            </td>
+                            <td class="forTable" style="border: 1px solid #edeae9;
+                                    border-collapse: collapse;">
+                                <div>0</div>
+                            </td>
+                            <td class="forTable" style="border: 1px solid #edeae9;
+                                    border-collapse: collapse;">
+                                <div>0</div>
+                            </td>
+                            <td class="forTable" style="border: 1px solid #edeae9;
+                                    border-collapse: collapse;">
+                                <div>2022/12 - 2023/11</div>
+                            </td>
+                            <td class="forTable" style="border: 1px solid #edeae9;
+                                    border-collapse: collapse;">
+                                <div class="firstLastDivs">
+                                    1400
+                                </div>
+                            </td>
+                        </tr>
+                        <tr style="border: 1px solid #edeae9;
+                                border-collapse: collapse; background-color: #f3f3f3">
+                            <td>
+
+                            </td>
+                            <td>
+
+                            </td>
+                            <td>
+
+                            </td>
+                            <td>
+
+                            </td>
+                            <td class="forTable" style="border: 1px solid #edeae9;
+                                    border-collapse: collapse">
+                                <div>Total Amount</div>
+                            </td>
+                            <td class="forTable" style="border: 1px solid #edeae9;
+                                    border-collapse: collapse">
+                                <div class="firstLastDivs">
+                                    1400
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <br />
+
+
+            <div style="padding: 0.5rem 1.5rem">
+                <h1 style="font-weight: 600;
+                font-size: 1em">
+                    Fee Summary for
+                </h1>
+            </div>
+            <div class="slds-p-horizontal_medium slds-clearfix">
+                <table class="tblname">
+                    <thead style="border:aqua; background-color:#f3f3f3">
+                        <tr style="border: 1px solid #edeae9;
+                        border-collapse: collapse;">
+                            <th class="forTable" style="border: 1px solid #edeae9;
+                            border-collapse: collapse;">
+                                <div style="font-size: 1.05rem;
+                                    font-weight: 545;">Term Name</div>
+                            </th>
+                            <th class="forTable" style="border: 1px solid #edeae9;
+                            border-collapse: collapse;">
+                                <div style="font-size: 1.05rem;
+                                    font-weight: 545; padding-left:8px">Fees Type</div>
+                            </th>
+                            <th class="forTable" style="border: 1px solid #edeae9;
+                            border-collapse: collapse;">
+                                <div style="font-size: 1.05rem;
+                                        font-weight: 545; padding-left:8px">Invoice Date</div>
+                            </th>
+
+                            <th class="forTable" style="border: 1px solid #edeae9;
+                            border-collapse: collapse;">
+                                <div style="font-size: 1.05rem;
+                                    font-weight: 545; padding-left:8px">Invoice Due Date</div>
+                            </th>
+                            <th class="forTable" style="border: 1px solid #edeae9;
+                            border-collapse: collapse;">
+                                <div style="font-size: 1.05rem;
+                                        font-weight: 545; padding-left:8px">Billing Frequency</div>
+                            </th>
+                            <th class="forTable" style="border: 1px solid #edeae9;
+                            border-collapse: collapse;">
+                                <div style="font-size: 1.05rem;
+                                    font-weight: 545;">Refundable</div>
+                            </th>
+                            <th class="forTable" style="border: 1px solid #edeae9;
+                            border-collapse: collapse;">
+                                <div style="font-size: 1.05rem;
+                                    font-weight: 545;">Fee Amount</div>
+                            </th>
+                            <th class="forTable" style="border: 1px solid #edeae9;
+                            border-collapse: collapse;">
+                                <div style="font-size: 1.05rem;
+                                    font-weight: 545;">Total Amount</div>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr style="border: 1px solid #edeae9;
+                                border-collapse: collapse;">
+                            <td class="forTable" style="border: 1px solid #edeae9;
+                                    border-collapse: collapse;">
+                                <div class="firstLastDivs">Term1</div>
+                            </td>
+                            <td class="forTable">
+                                <div></div>
+                            </td>
+                            <td class="forTable">
+                                <div></div>
+                            </td>
+                            <td class="forTable">
+                                <div></div>
+                            </td>
+                            <td class="forTable">
+                                <div></div>
+                            </td>
+                            <td class="forTable">
+                                <div></div>
+                            </td>
+                            <td class="forTable">
+                                <div></div>
+                            </td>
+                            <td class="forTable" style="border: 1px solid #edeae9;
+                            border-collapse: collapse">
+                                <div>350</div>
+                            </td>
+                        </tr>
+
+                        <tr style="border: 1px solid #edeae9;
+                        border-collapse: collapse;">
+                            <td class="forTable" style="border: 1px solid #edeae9;
+                            border-collapse: collapse;">
+                                <div class="firstLastDivs"></div>
+                            </td>
+                            <td class="forTable" style="border: 1px solid #edeae9;
+                    border-collapse: collapse;">
+                                <div>Tution Fee</div>
+                            </td>
+                            <td class="forTable" style="border: 1px solid #edeae9;
+                    border-collapse: collapse;">
+                                <div>6-Dec-2022</div>
+                            </td>
+                            <td class="forTable" style="border: 1px solid #edeae9;
+                    border-collapse: collapse;">
+                                <div>12-Dec-2022</div>
+                            </td>
+                            <td class="forTable" style="border: 1px solid #edeae9;
+                    border-collapse: collapse;">
+                                <div>Recurring</div>
+                            </td>
+                            <td class="forTable" style="border: 1px solid #edeae9;
+                    border-collapse: collapse;">
+                                <div>No</div>
+                            </td>
+                            <td class="forTable" style="border: 1px solid #edeae9;
+                    border-collapse: collapse;">
+                                <div>350</div>
+                            </td>
+                            <td class="forTable" style="border: 1px solid #edeae9;
+                    border-collapse: collapse">
+                                <div></div>
+                            </td>
+                        </tr>
+
+                        <tr style="border: 1px solid #edeae9;
+                        border-collapse: collapse;">
+                            <td class="forTable" style="border: 1px solid #edeae9;
+                            border-collapse: collapse;">
+                                <div class="firstLastDivs">Term2</div>
+                            </td>
+                            <td class="forTable">
+                                <div></div>
+                            </td>
+                            <td class="forTable">
+                                <div></div>
+                            </td>
+                            <td class="forTable">
+                                <div></div>
+                            </td>
+                            <td class="forTable">
+                                <div></div>
+                            </td>
+                            <td class="forTable">
+                                <div></div>
+                            </td>
+                            <td class="forTable">
+                                <div></div>
+                            </td>
+                            <td class="forTable" style="border: 1px solid #edeae9;
+                    border-collapse: collapse">
+                                <div>350</div>
+                            </td>
+                        </tr>
+
+                        <tr style="border: 1px solid #edeae9;
+                border-collapse: collapse;">
+                            <td class="forTable" style="border: 1px solid #edeae9;
+                    border-collapse: collapse;">
+                                <div class="firstLastDivs"></div>
+                            </td>
+                            <td class="forTable" style="border: 1px solid #edeae9;
+            border-collapse: collapse;">
+                                <div>Tution Fee</div>
+                            </td>
+                            <td class="forTable" style="border: 1px solid #edeae9;
+            border-collapse: collapse;">
+                                <div>6-Mar-2023</div>
+                            </td>
+                            <td class="forTable" style="border: 1px solid #edeae9;
+            border-collapse: collapse;">
+                                <div>12-Mar-2023</div>
+                            </td>
+                            <td class="forTable" style="border: 1px solid #edeae9;
+            border-collapse: collapse;">
+                                <div>Recurring</div>
+                            </td>
+                            <td class="forTable" style="border: 1px solid #edeae9;
+            border-collapse: collapse;">
+                                <div>No</div>
+                            </td>
+                            <td class="forTable" style="border: 1px solid #edeae9;
+            border-collapse: collapse;">
+                                <div>350</div>
+                            </td>
+                            <td class="forTable" style="border: 1px solid #edeae9;
+            border-collapse: collapse">
+                                <div></div>
+                            </td>
+                        </tr>
+
+                        <tr style="border: 1px solid #edeae9;
+                border-collapse: collapse;">
+                            <td class="forTable" style="border: 1px solid #edeae9;
+                    border-collapse: collapse;">
+                                <div class="firstLastDivs">Term3</div>
+                            </td>
+                            <td class="forTable">
+                                <div></div>
+                            </td>
+                            <td class="forTable">
+                                <div></div>
+                            </td>
+                            <td class="forTable">
+                                <div></div>
+                            </td>
+                            <td class="forTable">
+                                <div></div>
+                            </td>
+                            <td class="forTable">
+                                <div></div>
+                            </td>
+                            <td class="forTable">
+                                <div></div>
+                            </td>
+                            <td class="forTable" style="border: 1px solid #edeae9;
+            border-collapse: collapse">
+                                <div>350</div>
+                            </td>
+                        </tr>
+
+                        <tr style="border: 1px solid #edeae9;
+        border-collapse: collapse;">
+                            <td class="forTable" style="border: 1px solid #edeae9;
+            border-collapse: collapse;">
+                                <div class="firstLastDivs"></div>
+                            </td>
+                            <td class="forTable" style="border: 1px solid #edeae9;
+    border-collapse: collapse;">
+                                <div>Tution Fee</div>
+                            </td>
+                            <td class="forTable" style="border: 1px solid #edeae9;
+    border-collapse: collapse;">
+                                <div>6-Jun-2023</div>
+                            </td>
+                            <td class="forTable" style="border: 1px solid #edeae9;
+    border-collapse: collapse;">
+                                <div>12-Jun-2023</div>
+                            </td>
+                            <td class="forTable" style="border: 1px solid #edeae9;
+    border-collapse: collapse;">
+                                <div>Recurring</div>
+                            </td>
+                            <td class="forTable" style="border: 1px solid #edeae9;
+    border-collapse: collapse;">
+                                <div>No</div>
+                            </td>
+                            <td class="forTable" style="border: 1px solid #edeae9;
+    border-collapse: collapse;">
+                                <div>350</div>
+                            </td>
+                            <td class="forTable" style="border: 1px solid #edeae9;
+    border-collapse: collapse">
+                                <div></div>
+                            </td>
+                        </tr>
+
+                        <tr style="border: 1px solid #edeae9;
+        border-collapse: collapse;">
+                            <td class="forTable" style="border: 1px solid #edeae9;
+            border-collapse: collapse;">
+                                <div class="firstLastDivs">Term4</div>
+                            </td>
+                            <td class="forTable">
+                                <div></div>
+                            </td>
+                            <td class="forTable">
+                                <div></div>
+                            </td>
+                            <td class="forTable">
+                                <div></div>
+                            </td>
+                            <td class="forTable">
+                                <div></div>
+                            </td>
+                            <td class="forTable">
+                                <div></div>
+                            </td>
+                            <td class="forTable">
+                                <div></div>
+                            </td>
+                            <td class="forTable" style="border: 1px solid #edeae9;
+    border-collapse: collapse">
+                                <div>350</div>
+                            </td>
+                        </tr>
+
+                        <tr style="border: 1px solid #edeae9;
+border-collapse: collapse;">
+                            <td class="forTable" style="border: 1px solid #edeae9;
+    border-collapse: collapse;">
+                                <div class="firstLastDivs"></div>
+                            </td>
+                            <td class="forTable" style="border: 1px solid #edeae9;
+border-collapse: collapse;">
+                                <div>Tution Fee</div>
+                            </td>
+                            <td class="forTable" style="border: 1px solid #edeae9;
+border-collapse: collapse;">
+                                <div>6-Sep-2023</div>
+                            </td>
+                            <td class="forTable" style="border: 1px solid #edeae9;
+border-collapse: collapse;">
+                                <div>12-Sep-2023</div>
+                            </td>
+                            <td class="forTable" style="border: 1px solid #edeae9;
+border-collapse: collapse;">
+                                <div>Recurring</div>
+                            </td>
+                            <td class="forTable" style="border: 1px solid #edeae9;
+border-collapse: collapse;">
+                                <div>No</div>
+                            </td>
+                            <td class="forTable" style="border: 1px solid #edeae9;
+border-collapse: collapse;">
+                                <div>350</div>
+                            </td>
+                            <td class="forTable" style="border: 1px solid #edeae9;
+border-collapse: collapse">
+                                <div></div>
+                            </td>
+                        </tr>
+
+                        <tr style="border: 1px solid #edeae9;
+                        border-collapse: collapse; background-color: #f3f3f3">
+                            <td class="forTable">
+                                <div></div>
+                            </td>
+                            <td class="forTable">
+                                <div></div>
+                            </td>
+                            <td class="forTable">
+                                <div></div>
+                            </td>
+                            <td class="forTable">
+                                <div></div>
+                            </td>
+                            <td class="forTable">
+                                <div></div>
+                            </td>
+                            <td class="forTable">
+                                <div></div>
+                            </td>
+                            <td class="forTable" style="border: 1px solid #edeae9;
+                            border-collapse: collapse;">
+                                <div>Grand Total Amount</div>
+                            </td>
+                            <td class="forTable" style="border: 1px solid #edeae9;
+                    border-collapse: collapse">
+                                <div>1400</div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <br />
+
+            <div style="padding: 0.8rem">
+                <ul style="background-color: #f3f3f3;
+                padding: 0.8rem">
+                    <li style="padding: 0.2rem">0% discount is applicable if paid initially for full term within the due
+                        date</li>
+                    <li style="padding: 0.2rem">0% Late Fee charges are levied if the fees are not paid within the due
+                        date</li>
+                    <li style="padding: 0.2rem">Sibling Discount will be applicable if the student is eligible and it
+                        will reflect in Student
+                        Fee Summary Section</li>
+                    <li style="padding: 0.2rem">*Discount & other charges are applied/included in Final Billing Summary
+                    </li>
+                </ul>
+            </div>
+
+            <div style="padding: 1rem 0.4rem">
+                <lightning-button label="Back" variant="brand" title="back" onclick={goBack}
+                    class="slds-m-left_x-small">
+                </lightning-button>
+            </div>
+
+        </lightning-card>
+    </div>
+</template>

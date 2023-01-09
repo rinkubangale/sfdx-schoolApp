@@ -1,22 +1,11 @@
 <template>
-    <lightning-button variant="brand" class="slds-m-left_x-small slds-p-horizontal_x-small" 
-    icon-name="utility:adduser" title="Create Academic Year" onclick={openModal}>
-    </lightning-button>
-    <template if:true={isModalOpen}>
-        
-        <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true"
-            aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open slds-modal_medium">
     <div id="addClassRoomContainer" class="col-md-11 center-block dashboard-container">
         <!--add class main content-->
         <div id="error" class="error"> </div>
         <main class="main-content add-class-wrap">
             <div class="header row no-left-margin no-right-margin">
                 <a href="#" data-close="true">
-                    <div class="back" onclick={handleModalChange}>
-                        <lightning-icon icon-name="utility:back" size="x-small" alternative-text="Back!" title="Back">
-                        </lightning-icon>
-                        <p>Back</p>
-                    </div>
+
                 </a>
                 <div class="Add-c-headings">
                     <p class="add-heading-manage fivpx-mrgn-btm">
@@ -25,114 +14,419 @@
                         </lightning-icon>
                         <b>{headTitle}</b>
                     </p>
-                    <p class="add-subheading-manage">{subHeadTitle}</p>
+
                 </div>
                 <a href="#" data-close="true">
-                    <div class="esc" onclick={handleModalChange}>
-                        <lightning-icon icon-name="utility:close" size="x-small" alternative-text="Esc!" title="Esc">
+                    <div class="back" onclick={handleModalChange}>
+                        <lightning-icon icon-name="utility:back" size="x-small" alternative-text="Back!" title="Back">
                         </lightning-icon>
-                        <p>Esc</p>
+                        <p>Back</p>
                     </div>
                 </a>
             </div>
-            <!--/add-class-header-->
+
 
             <div class="add-class-body">
-                <!-- <form data-parsley-validate="">
-                    <div class="form-group">
-                        <div class="row no-left-margin no-right-margin">
-                            <div class="col-sm-12 mt">
-                                <div class="row easyoption-section selectable-div active" id="select_option_first1">
-                                    <div id="branchesTab"
-                                        style="margin-bottom: 1.5rem;display: inline-block;width: 100%;">
-                                        <label class="col-md-12">Select branches</label>
-                                        <div class="col-sm-12 mt add-classroom-tags remove-border-css">
-                                            <select class="ac_select branches select2-hidden-accessible"
-                                                id="branchesList" data-select2-id="branchesList" tabindex="-1"
-                                                aria-hidden="true">
-                                                <option value="" data-select2-id="18">Select branches</option>
-                                                <option value="249200">Main Branch</option>
-                                                <option value="1250655">Second Branch</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <label class="col-md-12">Please enter name and add a comma or press enter.</label>
-                                    <div class="col-sm-12 mt add-classroom-tags remove-border-css classroom-uppercase">
-                                        <div class="form-group bigger-taginput">
-                                            <div class="bootstrap-tagsinput" style="padding:0px;">
-                                                <div class="bootstrap-tagsinput" style=""><input type="text"
-                                                        placeholder=""></div><input type="text" value=""
-                                                    class="form-control" data-role="tagsinput" id="addClassroomTag"
-                                                    style="display: none;">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="clearfix"></div>
-                                    <div class="form-group text-center col-md-12">
-                                        <button class="btn btn-default btn-lg button btn-edit-details ladda-button"
-                                            data-color="green" data-style="expand-right" type="submit"> <span
-                                                class="ladda-label">Add Classroom
-                                            </span> </button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </form> -->
-                <!-- <lightning-record-edit-form object-api-name={objectName} onload={handleLoading}>
-                    <template for:each={allFields} for:item="field">
-                        <lightning-input-field key={field.key} field-name={field.fieldName}></lightning-input-field>
-                    </template>
-                    <div class="slds-var-m-top_large slds-align_absolute-center">
-                        <lightning-button variant="brand" type="submit" label={btnLabel}>
-                        </lightning-button>
-                    </div>
-                </lightning-record-edit-form> -->
 
-                <lightning-layout>
-                    <lightning-layout-item size="6" padding="around-small">
-                        <div>
-                            <!-- <lightning-combobox name="Academic Year" label="Academic Year" value={Academic_Year}
-                                        options={searchOptions} onchange={handleAccountSelection}></lightning-combobox> -->
-                            <lightning-input type="text" label="Academic Year" value={Academic_Year}
-                                options={searchOptions} data-field="Academic_Year" onchange={handleAccountSelection}
-                                class="validate" required></lightning-input>
-                        </div>
-                    </lightning-layout-item>
-                    <lightning-layout-item size="6" padding="around-small">
-                        <div>
-                            <lightning-combobox name="admissionStatus" label="Status" value={Admission_Status}
-                                class="validate" data-field="Admission_Status" options={statusOptions}
-                                onchange={handleChange}>
-                            </lightning-combobox>
-                        </div>
-                    </lightning-layout-item>
-                </lightning-layout>
+                <lightning-layout multiple-rows>
+                    <!-- <lightning-layout-item size="1" padding="around-small">
 
-                <lightning-layout>
-                    <lightning-layout-item size="6" padding="around-small">
-                        <div>
-                            <lightning-input type="Date" label="Admission Close Date" value={Admission_Close_Date}
-                                data-field="Admission_Close_Date" onchange={handleChange} class="validate" required>
-                            </lightning-input>
-                        </div>
+                    </lightning-layout-item> -->
+                    <lightning-layout-item size="3" padding="around-small">
+                        <lightning-input label="Leave Type" onchange={handleNameChange}>
+                        </lightning-input>
                     </lightning-layout-item>
-                    <lightning-layout-item size="6" padding="around-small">
-                        <div>
-                            <c-multi-select name="assignClass" label="Assign Class" multi-select-by-default="true"
-                                variant="label-inline" dropdown-length="10">
-                            </c-multi-select>
-                        </div>
+                    <lightning-layout-item size="1" padding="around-small">
+
                     </lightning-layout-item>
-                </lightning-layout>
-                <lightning-layout>
-                    <lightning-layout-item size="12" class="slds-var-m-top_large slds-align_absolute-center">
+                    <lightning-layout-item size="4" padding="around-small">
+                        <lightning-combobox label="Duration Type" options={optionss} placeholder="Full Day"
+                            onchange={durationHandleChange}>
+                        </lightning-combobox>
+                    </lightning-layout-item>
+                    <lightning-layout-item size="1" padding="around-small">
+
+                    </lightning-layout-item>
+                    <lightning-layout-item size="3" padding="around-small">
+                        <lightning-input label="Annual Quota" onchange={handleNameChange}>
+                        </lightning-input>
+                    </lightning-layout-item>
+
+
+                    <lightning-layout-item size="3" padding="around-small">
+                        <lightning-combobox label="Status" options={statusOptions} placeholder="Active"
+                            onchange={statusHandleChange}>
+                        </lightning-combobox>
+                    </lightning-layout-item>
+                    <lightning-layout-item size="1" padding="around-small">
+
+                    </lightning-layout-item>
+                    <lightning-layout-item size="4" padding="around-small" style="margin-top:2rem">
+                        <lightning-input type="checkbox" label="Weekends" onchange={onDiscountChange} name="input1">
+
+                        </lightning-input>
+                    </lightning-layout-item>
+                    <lightning-layout-item size="4" padding="around-small">
+
+                    </lightning-layout-item>
+
+                    <!-- <lightning-layout-item size="12" class="slds-var-m-top_large slds-align_absolute-center">
                         <lightning-button label={btnLabel} onclick={saveHandler} variant="brand"
                             class=" slds-p-around_x-small slds-float_right">
                         </lightning-button>
-                    </lightning-layout-item>
+                    </lightning-layout-item> -->
                 </lightning-layout>
 
+                <div style="margin-top: 2rem">
+                    <lightning-tabset>
+
+                        <lightning-tab label="Leave Settings">
+                            <lightning-card>
+                                <div style="background-color:white; padding: 2rem 0rem ">
+                                    <lightning-layout multiple-rows>
+                                        <lightning-layout-item size="12">
+                                            <div style="text-decoration: underline;
+                                    margin-bottom: 1rem; margin-left: 1rem">Weekends covering Leave Period</div>
+                                        </lightning-layout-item>
+                                        <lightning-layout-item size="1"></lightning-layout-item>
+                                        <lightning-layout-item size="5">
+                                            <lightning-radio-group name="radioGroup" options={options1} value={value}
+                                                type="radio"></lightning-radio-group>
+                                        </lightning-layout-item>
+                                        <lightning-layout-item size="5">
+                                            <lightning-radio-group name="radioGroup" options={options2} value={value}
+                                                type="radio"></lightning-radio-group>
+                                        </lightning-layout-item>
+                                        <lightning-layout-item size="1"></lightning-layout-item>
+                                        <lightning-layout-item size="12">
+                                            <div style="text-decoration: underline;
+                                    margin-bottom: 1rem;
+                                    margin-top: 1rem; margin-left: 1rem">Holidays covering Leave Period</div>
+                                        </lightning-layout-item>
+                                        <lightning-layout-item size="1"></lightning-layout-item>
+                                        <lightning-layout-item size="5">
+                                            <lightning-radio-group name="holidayGroups" options={options3} value={value}
+                                                type="radio"></lightning-radio-group>
+                                        </lightning-layout-item>
+                                        <lightning-layout-item size="5">
+                                            <lightning-radio-group name="holidayGroups" options={options4} value={value}
+                                                type="radio"></lightning-radio-group>
+                                        </lightning-layout-item>
+                                        <lightning-layout-item size="1"></lightning-layout-item>
+                                        <lightning-layout-item size="12">
+                                            <div style="text-decoration: underline;
+                                    margin-bottom: 1rem;
+                                    margin-top: 1rem; margin-left: 1rem">Choose Duration Type</div>
+                                        </lightning-layout-item>
+                                        <lightning-layout-item size="1"></lightning-layout-item>
+                                        <lightning-layout-item size="5">
+                                            <lightning-input type="checkbox" label="Full Day"></lightning-input>
+                                        </lightning-layout-item>
+                                        <lightning-layout-item size="5">
+                                            <lightning-input type="checkbox" label="Half Day"></lightning-input>
+                                        </lightning-layout-item>
+                                        <lightning-layout-item size="1"></lightning-layout-item>
+                                        <lightning-layout-item size="12">
+                                            <div style="text-decoration: underline;
+                                    margin-bottom: 1rem;
+                                    margin-top: 1rem; margin-left: 1rem">Permit Leave Requests</div>
+                                        </lightning-layout-item>
+                                        <lightning-layout-item size="1"></lightning-layout-item>
+                                        <lightning-layout-item size="5">
+                                            <lightning-input type="checkbox" label="Past Dates"></lightning-input>
+                                        </lightning-layout-item>
+                                        <lightning-layout-item size="5">
+                                            <lightning-input type="checkbox" label="Future Dates"></lightning-input>
+                                        </lightning-layout-item>
+                                        <lightning-layout-item size="1"></lightning-layout-item>
+
+                                        <lightning-layout-item size="1" style="margin-top: 1rem">
+                                        </lightning-layout-item>
+                                        <lightning-layout-item size="1" style="margin-top: 1rem">
+                                            <lightning-input type="number" label="Past Days" style="margin-top: 1rem">
+                                            </lightning-input>
+                                        </lightning-layout-item>
+
+                                        <lightning-layout-item size="4" style="margin-top: 1rem">
+                                        </lightning-layout-item>
+                                        <lightning-layout-item size="1" style="margin-top: 1rem">
+                                            <lightning-input type="number" label="Next Days" style="margin-top: 1rem">
+                                            </lightning-input>
+                                        </lightning-layout-item>
+                                        <lightning-layout-item size="4" style="margin-top: 1rem">
+                                        </lightning-layout-item>
+                                        <lightning-layout-item size="1" style="margin-top: 1rem">
+                                        </lightning-layout-item>
+                                        <lightning-layout-item size="12">
+                                            <div style="text-decoration: underline;
+                                        margin-bottom: 1rem;
+                                        margin-top: 1rem; margin-left: 1rem">Leave Request exceed Leave Balance</div>
+                                        </lightning-layout-item>
+                                        <lightning-layout-item size="1"></lightning-layout-item>
+                                        <lightning-layout-item size="11">
+                                            <lightning-radio-group name="balanceGroup" options={options7} value={value}
+                                                type="radio"></lightning-radio-group>
+                                        </lightning-layout-item>
+                                        <lightning-layout-item size="1"></lightning-layout-item>
+                                        <lightning-layout-item size="11">
+                                            <lightning-radio-group name="balanceGroup" options={options8} value={value}
+                                                type="radio"></lightning-radio-group>
+                                        </lightning-layout-item>
+                                        <lightning-layout-item size="1" style="margin-top: 1rem">
+                                        </lightning-layout-item>
+                                        <lightning-layout-item size="3" style="margin-top: 1rem">
+                                            <lightning-radio-group name="balanceGroupnew" options={options9}
+                                                value={value} type="radio"></lightning-radio-group>
+                                        </lightning-layout-item>
+                                        <lightning-layout-item size="3" style="margin-top: 1rem">
+                                            <lightning-radio-group name="balanceGroupnew" options={options10}
+                                                value={value} type="radio"></lightning-radio-group>
+                                        </lightning-layout-item>
+                                        <lightning-layout-item size="4" style="margin-top: 1rem">
+                                            <lightning-radio-group name="balanceGroupnew" options={options11}
+                                                value={value} type="radio"></lightning-radio-group>
+                                        </lightning-layout-item>
+                                        <lightning-layout-item size="1" style="margin-top: 1rem">
+                                        </lightning-layout-item>
+
+
+                                        <lightning-layout-item size="1" style="margin-top: 1rem">
+                                        </lightning-layout-item>
+                                        <lightning-layout-item size="5" style="margin-top: 2.5rem">
+                                            <lightning-input type="checkbox" label="Min Leave per Application">
+                                            </lightning-input>
+                                        </lightning-layout-item>
+                                        <lightning-layout-item size="1">
+                                            <lightning-input type="number" style="margin-top: 1rem"></lightning-input>
+                                        </lightning-layout-item>
+                                        <lightning-layout-item size="5" style="margin-top: 1rem">
+                                        </lightning-layout-item>
+
+                                        <lightning-layout-item size="1" style="margin-top: 1rem">
+                                        </lightning-layout-item>
+                                        <lightning-layout-item size="5" style="margin-top: 2.65rem">
+                                            <lightning-input type="checkbox" label="Max Leave per Application">
+                                            </lightning-input>
+                                        </lightning-layout-item>
+                                        <lightning-layout-item size="1" style="margin-top: 1rem">
+                                            <lightning-input type="number"></lightning-input>
+                                        </lightning-layout-item>
+                                        <lightning-layout-item size="5" style="margin-top: 1rem">
+                                        </lightning-layout-item>
+
+                                        <lightning-layout-item size="1" style="margin-top: 1rem">
+                                        </lightning-layout-item>
+                                        <lightning-layout-item size="5" style="margin-top: 2.8rem">
+                                            <lightning-input type="checkbox"
+                                                label="Max consecutive days of leave allowed">
+                                            </lightning-input>
+                                        </lightning-layout-item>
+                                        <lightning-layout-item size="1" style="margin-top: 1rem">
+                                            <lightning-input type="number"></lightning-input>
+                                        </lightning-layout-item>
+                                        <lightning-layout-item size="5" style="margin-top: 1rem">
+                                        </lightning-layout-item>
+
+                                        <lightning-layout-item size="1" style="margin-top: 1rem; margin-bottom:1rem">
+                                        </lightning-layout-item>
+                                        <lightning-layout-item size="5" style="margin-top: 2.8rem; margin-bottom:1rem">
+                                            <lightning-input type="checkbox"
+                                                label="Min gap b/w two leave requests(Days)">
+                                            </lightning-input>
+                                        </lightning-layout-item>
+                                        <lightning-layout-item size="1" style="margin-top: 1rem; margin-bottom:1rem">
+                                            <lightning-input type="number"></lightning-input>
+                                        </lightning-layout-item>
+                                        <lightning-layout-item size="5" style="margin-top: 1rem">
+                                        </lightning-layout-item>
+
+                                        <lightning-layout-item size="5" style="margin-top: 2.5rem">
+                                        </lightning-layout-item>
+                                        <lightning-layout-item size="1" style="margin-top: 2.5rem">
+                                            <lightning-button variant="brand" label="Submit"></lightning-button>
+                                        </lightning-layout-item>
+                                        <lightning-layout-item size="1" style="margin-top: 2.5rem">
+                                            <lightning-button label="Cancel"></lightning-button>
+                                        </lightning-layout-item>
+                                        <lightning-layout-item size="5" style="margin-top: 2.5rem">
+                                        </lightning-layout-item>
+                                    </lightning-layout>
+                                </div>
+                            </lightning-card>
+                        </lightning-tab>
+                        <lightning-tab label="Quota Settings" title="2nd tab extended title">
+                            <lightning-card>
+                                <div style="background-color:white; padding: 2rem 0rem">
+                                    <lightning-layout multiple-rows>
+                                        <lightning-layout-item size="1"></lightning-layout-item>
+                                        <lightning-layout-item size="2">
+                                            <div style="margin-top: 1.5rem">Leaves Effective From</div>
+                                        </lightning-layout-item>
+                                        <lightning-layout-item size="1"></lightning-layout-item>
+                                        <lightning-layout-item size="1">
+                                            <lightning-input type="number"></lightning-input>
+                                        </lightning-layout-item>
+                                        <lightning-layout-item size="1"></lightning-layout-item>
+                                        <lightning-layout-item size="2">
+                                            <lightning-combobox options={options12} placeholder="Day(s)"
+                                                onchange={durationHandleChange}>
+                                            </lightning-combobox>
+                                        </lightning-layout-item>
+                                        <lightning-layout-item size="1"></lightning-layout-item>
+                                        <lightning-layout-item size="2">
+                                            <div style="margin-top: 1.5rem">from Date of Joining</div>
+                                        </lightning-layout-item>
+                                        <lightning-layout-item size="1"></lightning-layout-item>
+
+                                        <lightning-layout-item size="1" style="margin-top: 2rem">
+                                        </lightning-layout-item>
+                                        <lightning-layout-item size="3" style="margin-top: 2rem">
+                                            <lightning-input type="checkbox" label="Reset Leaves">
+                                            </lightning-input>
+                                        </lightning-layout-item>
+                                        <lightning-layout-item size="8" style="margin-top: 2rem">
+                                        </lightning-layout-item>
+
+                                        <lightning-layout-item size="1"></lightning-layout-item>
+                                        <lightning-layout-item size="2">
+                                            <lightning-combobox options={options13} placeholder="Yearly"
+                                                onchange={durationHandleChange}>
+                                            </lightning-combobox>
+                                        </lightning-layout-item>
+                                        <lightning-layout-item size="1"></lightning-layout-item>
+                                        <lightning-layout-item size="1">
+                                            <div style="margin-top: 1.6rem;
+                                        padding-left: 1.2rem;">on</div>
+                                        </lightning-layout-item>
+                                        <lightning-layout-item size="1"></lightning-layout-item>
+                                        <lightning-layout-item size="2">
+                                            <lightning-input type="date"></lightning-input>
+                                        </lightning-layout-item>
+                                        <lightning-layout-item size="4"></lightning-layout-item>
+
+                                        <lightning-layout-item size="1" style="margin-top: 2rem">
+                                        </lightning-layout-item>
+                                        <lightning-layout-item size="2" style="margin-top: 3.6rem">
+                                            <div>Leave Carry Forward</div>
+                                        </lightning-layout-item>
+                                        <lightning-layout-item size="1" style="margin-top: 2rem">
+                                        </lightning-layout-item>
+                                        <lightning-layout-item size="2" style="margin-top: 2rem">
+                                            <lightning-combobox options={options14} placeholder="Carry forward"
+                                                onchange={durationHandleChange}>
+                                            </lightning-combobox>
+                                        </lightning-layout-item>
+                                        <lightning-layout-item size="1" style="margin-top: 2rem">
+                                        </lightning-layout-item>
+                                        <lightning-layout-item size="1" style="margin-top: 2rem">
+                                            <lightning-input type="number"></lightning-input>
+                                        </lightning-layout-item>
+                                        <lightning-layout-item size="1" style="margin-top: 2rem">
+                                        </lightning-layout-item>
+                                        <lightning-layout-item size="1" style="margin-top: 3.6rem">
+                                            <div>days</div>
+                                        </lightning-layout-item>
+                                        <lightning-layout-item size="2" style="margin-top: 2rem">
+                                        </lightning-layout-item>
+
+                                        <lightning-layout-item size="1" style="margin-top: 1rem">
+                                        </lightning-layout-item>
+                                        <lightning-layout-item size="2" style="margin-top: 2.6rem">
+                                            <div>expires in</div>
+                                        </lightning-layout-item>
+                                        <lightning-layout-item size="1" style="margin-top: 1rem">
+                                        </lightning-layout-item>
+                                        <lightning-layout-item size="1">
+                                            <lightning-input type="number" style="margin-top: 1rem"></lightning-input>
+                                        </lightning-layout-item>
+                                        <lightning-layout-item size="1" style="margin-top: 1rem">
+                                        </lightning-layout-item>
+                                        <lightning-layout-item size="2">
+                                            <div style="margin-top: 2.5rem">days</div>
+                                        </lightning-layout-item>
+                                        <lightning-layout-item size="4" style="margin-top: 1rem">
+
+                                        </lightning-layout-item>
+
+                                        <lightning-layout-item size="1" style="margin-top: 2rem">
+                                        </lightning-layout-item>
+                                        <lightning-layout-item size="2" style="margin-top: 3.6rem">
+                                            <div>Encashment</div>
+                                        </lightning-layout-item>
+                                        <lightning-layout-item size="1" style="margin-top: 2rem">
+                                        </lightning-layout-item>
+                                        <lightning-layout-item size="1">
+                                            <lightning-input type="number" style="margin-top: 2rem"></lightning-input>
+                                        </lightning-layout-item>
+                                        <lightning-layout-item size="1" style="margin-top: 2rem">
+                                        </lightning-layout-item>
+                                        <lightning-layout-item size="2">
+                                            <div style="margin-top: 3.5rem">days</div>
+                                        </lightning-layout-item>
+                                        <lightning-layout-item size="4" style="margin-top: 2rem">
+
+                                        </lightning-layout-item>
+
+                                        <lightning-layout-item size="5" style="margin-top: 2.5rem">
+                                        </lightning-layout-item>
+                                        <lightning-layout-item size="1" style="margin-top: 2.5rem">
+                                            <lightning-button variant="brand" label="Submit"></lightning-button>
+                                        </lightning-layout-item>
+                                        <lightning-layout-item size="1" style="margin-top: 2.5rem">
+                                            <lightning-button label="Cancel"></lightning-button>
+                                        </lightning-layout-item>
+                                        <lightning-layout-item size="5" style="margin-top: 2.5rem">
+                                        </lightning-layout-item>
+                                    </lightning-layout>
+                                </div>
+                            </lightning-card>
+                        </lightning-tab>
+                        <lightning-tab label="Assignment">
+                            <lightning-card>
+                                <div style="background-color:white; padding: 2rem 0rem">
+                                    <lightning-layout multiple-rows>
+                                        <lightning-layout-item size="1"></lightning-layout-item>
+                                        <lightning-layout-item size="4">
+                                            <lightning-combobox options={options15} label="Gender" placeholder="Male"
+                                                onchange={durationHandleChange}>
+                                            </lightning-combobox>
+                                        </lightning-layout-item>
+                                        <lightning-layout-item size="2"></lightning-layout-item>
+                                        <lightning-layout-item size="4">
+                                            <lightning-combobox options={options16} label="Marital Status"
+                                                placeholder="Married" onchange={durationHandleChange}>
+                                            </lightning-combobox>
+                                        </lightning-layout-item>
+                                        <lightning-layout-item size="1"></lightning-layout-item>
+
+                                        <lightning-layout-item size="1" style="margin-top: 1.5rem">
+                                        </lightning-layout-item>
+                                        <lightning-layout-item size="4" style="margin-top: 1.5rem">
+                                            <lightning-combobox options={options17} label="Applicable for"
+                                                placeholder="Staff" onchange={durationHandleChange}>
+                                            </lightning-combobox>
+                                        </lightning-layout-item>
+                                        <lightning-layout-item size="6" style="margin-top: 1.5rem">
+                                        </lightning-layout-item>
+                                        <lightning-layout-item size="1" style="margin-top: 1.5rem">
+                                        </lightning-layout-item>
+
+                                        <lightning-layout-item size="5" style="margin-top: 2.5rem">
+                                        </lightning-layout-item>
+                                        <lightning-layout-item size="1" style="margin-top: 2.5rem">
+                                            <lightning-button variant="brand" label="Submit"></lightning-button>
+                                        </lightning-layout-item>
+                                        <lightning-layout-item size="1" style="margin-top: 2.5rem">
+                                            <lightning-button label="Cancel"></lightning-button>
+                                        </lightning-layout-item>
+                                        <lightning-layout-item size="5" style="margin-top: 2.5rem">
+                                        </lightning-layout-item>
+                                    </lightning-layout>
+                                </div>
+                            </lightning-card>
+                        </lightning-tab>
+                    </lightning-tabset>
+                </div>
             </div>
             <template if:true={isLoading}>
                 <lightning-spinner alternative-text="Loading" variant="brand" style="background:transparent;">
@@ -140,6 +434,5 @@
             </template>
         </main>
     </div>
-        </section>
-</template>
+
 </template>

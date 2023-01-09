@@ -1,0 +1,56 @@
+<template>
+    <template if:false={isModalOpen}>
+        <lightning-card style="margin:15px; text-transform:capitalize;" class="slds-card__header ">
+            <lightning-layout>
+                <lightning-layout-item size="4" class="slds-float_left slds-p-around_medium">
+                    <lightning-icon icon-name="standard:record" alternative-text="Clone" title="View Academic Year">
+                    </lightning-icon>
+
+                    <span style="font-weight:bold; font-size:larger; color: black;"
+                        class=" slds-p-around_small ">Certificate
+                        Request</span>
+                </lightning-layout-item>
+
+                <lightning-layout-item size="4" class="slds-align_absolute-center slds-p-around_medium"
+                    style="padding-top: 0px;">
+                    <div class="mySearchBar">
+                        <label for="certificate" style="font-size: 11px; padding-left: 4px;">Create Certificate
+                            Request</label>
+                        <br />
+                        <select name="certificateType" id="certificate" style="width: 11rem; outline: none; 
+                        border-bottom: 1px solid #b7b6b6; border-top:0px; border-left: 0px; border-right:0px;">
+                            <option value="Select">--Select--</option>
+                            <option value="Conduct">Conduct Certificate</option>
+                            <option value="Transfer">Transfer Certificate</option>
+                            <option value="Bonafide">Bonafide Certificate</option>
+                        </select>
+                    </div>
+                </lightning-layout-item>
+
+                <lightning-layout-item size="4" class="slds-float_right slds-clearfix">
+                    <lightning-button variant="brand" class="slds-float_right slds-p-around_medium"
+                        icon-name="utility:adduser" title="Create Certificate Request" onclick={openModal}>
+                    </lightning-button>
+                </lightning-layout-item>
+            </lightning-layout>
+
+
+            <template if:true={isDelete}>
+                <c-delete-confirmation records-id={DelId} obj-name="Academic_Year__c" onmodalchange={closemodaldelete}>
+                </c-delete-confirmation>
+            </template>
+
+            <div style="height:auto">
+                <lightning-datatable key-field="Id" data={dataList} columns={columns} onrowaction={rowActionHandler}
+                    resize-column-disabled suppress-bottom-bar>
+                </lightning-datatable>
+            </div>
+            <div slot="footer" class="slds-clearfix slds-p-top_xxx-small ">
+
+                <lightning-button label="Delete" onclick={getSelectedRec} variant="brand"
+                    class="slds-var-m-left_xx-small slds-float_right"></lightning-button>
+            </div>
+        </lightning-card>
+
+    </template>
+</template>

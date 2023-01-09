@@ -1,0 +1,105 @@
+<template>
+    <template if:false={createmodal}>
+        <lightning-card style="margin:15px; text-transform:capitalize" class="slds-card__header headerCard">
+            <lightning-layout>
+                <lightning-layout-item size="4" class="slds-float_left slds-p-around_medium">
+                    <lightning-icon icon-name="action:clone" alternative-text="Invoice" title="Invoice">
+                    </lightning-icon>
+
+                    <span style="font-weight:bold; font-size:larger" class=" slds-p-around_small ">View Fee Plans
+                        Invoice</span>
+                </lightning-layout-item>
+
+                <lightning-layout-item size="4" class="slds-align_absolute-center slds-p-around_medium">
+
+                </lightning-layout-item>
+
+                <lightning-layout-item size="4" class="slds-float_right slds-clearfix">
+
+                </lightning-layout-item>
+            </lightning-layout>
+
+            <!-- <div style="margin-top: 18px;
+                margin-bottom: 22px;"><b>Invoice</b></div>
+                <table >
+                    <tr>
+                        <th>Invoice Name</th>
+                        <th>Invoice Type</th>
+                        <th>Fee Plan Start Date</th>
+                        <th>Fee plan End Date</th>
+                        <th>Total Students(Fee Assinged)</th>
+                        <th>Not Paid</th>
+                        <th>Partially Paid</th>
+                        <th>Fully Paid</th>
+                        <th>Cancelled</th>
+                        <th>Actions</th>
+                    </tr>
+                    <tr>
+                        <td onclick={handelModel}> New fee</td>
+                        <td>Term Fee</td>
+                        <td>01-Jan-2021</td>
+                        <td>08-Aug-2022</td>
+                        <td>3</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>2</td>
+                        <td>1</td>
+                        <td><lightning-button-icon icon-name="utility:add" alternative-text="Settings"
+                            title="Settings" onclick={handleClick}></lightning-button-icon>
+                            <div if:true={label} style="border: outset;
+                            border-radius: 6px;
+                            text-align: center;"><ul><li>Assing manager</li></ul></div>
+                    </td>
+                    </tr>
+                    <tr>
+                        <td onclick={handelModel}>old fee</td>
+                        <td>Term Fee</td>
+                        <td>03-Jan-2021</td>
+                        <td>05-Aug-2022</td>
+                        <td>3</td>
+                        <td>1</td>
+                        <td>-</td>
+                        <td>2</td>
+                        <td>1</td>
+                        <td><lightning-button-icon icon-name="utility:add" alternative-text="Settings"
+                            title="Settings" onclick={handleClick}></lightning-button-icon>
+                           
+                    </td>
+                    </tr>
+                    <tr>
+                        <td onclick={handelModel}>old fee</a></td>
+                        <td>Term Fee</td>
+                        <td>03-Jan-2021</td>
+                        <td>05-Aug-2022</td>
+                        <td>3</td>
+                        <td>1</td>
+                        <td>-</td>
+                        <td>2</td>
+                        <td>1</td>
+                        <td><lightning-button-icon icon-name="utility:add" alternative-text="Settings"
+                            title="Settings" onclick={handleClick}></lightning-button-icon>
+                          
+                    </td>
+                    </tr>
+                </table>               
+             -->
+
+            <div style="height:auto; padding: 0 1rem;" class="slds-card__body">
+                <lightning-datatable key-field="id" data={data} columns={columns} resize-column-disabled
+                    onrowaction={openModal} suppress-bottom-bar>
+                </lightning-datatable>
+            </div>
+            <div slot="footer" class="slds-clearfix slds-p-top_xxx-small ">
+                <lightning-button label="Back" variant="brand" onclick={goBack}
+                    class="slds-var-m-left_xx-small slds-float_left"></lightning-button>
+                <lightning-button label="Delete" onclick={getSelectedRec} variant="brand"
+                    class="slds-var-m-left_xx-small slds-float_right"></lightning-button>
+            </div>
+
+        </lightning-card>
+
+    </template>
+    <template if:true={createmodal}>
+        <c-assing-student-list onbackbtnn={closeModal}></c-assing-student-list>
+    </template>
+</template>

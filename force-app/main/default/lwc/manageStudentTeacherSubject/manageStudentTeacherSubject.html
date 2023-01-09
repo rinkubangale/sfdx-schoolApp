@@ -6,8 +6,8 @@
                 <lightning-layout-item size="4" class="slds-float_left slds-p-around_medium">
                     <lightning-icon icon-name="standard:education" title="Manage Classes and Subjects">
                     </lightning-icon>
-                    <span style="font-weight: bold; font-size:larger" class="slds-p-around_small">Manage Students &
-                        Subjects
+                    <span style="font-weight: bold; font-size:larger" class="slds-p-around_small">LKG - A
+
                     </span>
                 </lightning-layout-item>
                 <lightning-layout-item size="1">
@@ -25,7 +25,7 @@
                 <lightning-layout-item size="1">
 
                 </lightning-layout-item>
-                <lightning-layout-item size="2" style="padding:1.3rem">
+                <lightning-layout-item size="2" style="padding:1.4rem">
                     <lightning-input type="checkbox" label="Show Sibling"></lightning-input>
                 </lightning-layout-item>
                 <lightning-layout-item size="1">
@@ -300,7 +300,7 @@
                 </lightning-tab>
 
                 <lightning-tab label="Subjects" value="two">
-                    <lightning-card style="margin:15px; text-transform:capitalize;" class="slds-card__header ">
+                    <lightning-card>
                         <lightning-layout style="margin-top: 10px;">
                             <lightning-layout-item style="width:100% ;">
                                 <div class="slds-p-horizontal_medium slds-clearfix">
@@ -346,11 +346,11 @@
                                                     </ul>
                                                 </td>
                                                 <td>
-                                                    <div><a href="#" onclick={openAssignTeacherModal}>Hemanth</a>
+                                                    <div><a onclick={openAssignTeacherModal}>Hemanth</a>
                                                     </div>
                                                 </td>
                                                 <td>
-                                                    <div><a href="#" onclick={openAssignTeacherModal}
+                                                    <div><a onclick={openAssignTeacherModal}
                                                             style="margin-left:2rem">2</a>
                                                     </div>
                                                 </td>
@@ -390,17 +390,17 @@
                                                 <td>
                                                     <ul class="lkgSection">
                                                         <li>Students-2</li>
-                                                        <li><a href="#">Add Student</a></li>
+                                                        <li><a>Add Student</a></li>
 
                                                     </ul>
                                                 </td>
                                                 <td>
-                                                    <div><a href="#" onclick={openAssignTeacherModal}>Poornima</a>
+                                                    <div><a onclick={openAssignTeacherModal}>Poornima</a>
                                                     </div>
                                                 </td>
 
                                                 <td>
-                                                    <div><a href="#" onclick={openAssignTeacherModal}
+                                                    <div><a onclick={openAssignTeacherModal}
                                                             style="margin-left:2rem">1</a>
                                                     </div>
                                                 </td>
@@ -441,11 +441,11 @@
                                                     </ul>
                                                 </td>
                                                 <td>
-                                                    <div><a href="#" onclick={openAssignTeacherModal}>Rajesh</a>
+                                                    <div><a onclick={openAssignTeacherModal}>Rajesh</a>
                                                     </div>
                                                 </td>
                                                 <td>
-                                                    <div><a href="#" onclick={openAssignTeacherModal}
+                                                    <div><a onclick={openAssignTeacherModal}
                                                             style="margin-left:2rem">3</a>
                                                     </div>
                                                 </td>
@@ -478,17 +478,18 @@
                     </lightning-card>
                 </lightning-tab>
             </lightning-tabset>
-           
+
         </lightning-card>
     </template>
 
     <template if:true={isShowTransfer}>
         <c-transfer-student onmodalchange={hideModalBox}></c-transfer-student>
     </template>
-    <!-- </template> -->
+
     <template if:true={isSubjectOpen}>
         <c-add-edit-subject onmodalchange={closeModal}></c-add-edit-subject>
     </template>
+
     <template if:true={isAssignTeacherOpen}>
         <c-assign-teachers onmodalchange={closeAssignTeacherModal}></c-assign-teachers>
     </template>

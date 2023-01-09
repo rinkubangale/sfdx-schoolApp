@@ -1,0 +1,169 @@
+<template>
+    <template if:false={createmodal}>
+        <template if:false={isModalOpen}>
+            <template if:false={click}>
+    <div style="width: 30rem; margin-left: 400px;
+    margin-top: 30px;background: snow;">
+    <lightning-card >
+        <lightning-layout>
+            <lightning-layout-item>
+                <div class="slds-p-horizontal_medium slds-clearfix">
+
+                <div class="slds-border_bottom slds-p-bottom_medium">
+                    
+                    <span style="font-weight: bold; font-size: 25px;"
+                        class="slds-m-left_x-small slds-text-heading_large">Login to School App</span>
+                        <span><lightning-icon style='margin-left: 151px; cursor: pointer;' icon-name="standard:education">
+                    </lightning-icon></span>
+                </div>
+                </div>
+            </lightning-layout-item>
+            
+            
+              
+          
+        </lightning-layout >
+        <lightning-layout>
+            <lightning-layout-item >
+        <div class="mySearchBar">
+                   
+            <input type="text" placeholder="Email" required />
+        </div>
+    </lightning-layout-item >
+    </lightning-layout>
+    
+        <lightning-layout>
+            <lightning-layout-item >
+        <div class="mySearchBar">
+           
+            <input type="text" placeholder="Password" required/>
+        </div>
+        
+    </lightning-layout-item>
+    </lightning-layout>
+    <!-- <lightning-layout>
+        <lightning-layout-item>
+            <div>
+                <iframe src={navigateTo} name="captchaFrame" onload={captchaLoaded} style="width: -webkit-fill-available;height: 108px;
+                margin-top: 10px;
+                margin-left: 88px;"></iframe>
+
+
+            </div>
+        </lightning-layout-item>
+    </lightning-layout> -->
+    <lightning-layout>
+        <lightning-layout-item class="slds-border_bottom slds-p-bottom_medium">
+            <div class="login">
+                Login
+            </div>
+
+        </lightning-layout-item>
+    </lightning-layout>
+    <lightning-layout>
+        <lightning-layout-item>
+            <div style=" margin-left: 180px;
+            margin-top: 40px;
+            margin-bottom: 5px;">
+            <span onclick={openModal} class="create"> Forgot Password?</span>
+            </div>
+        </lightning-layout-item>
+    </lightning-layout>
+    <lightning-layout>
+        <lightning-layout-item>
+            <div style="margin-left: 118px">Don't have an Account?
+          <span onclick={handelmodal} class="create">Create Account</span>
+            </div>
+        </lightning-layout-item>
+    </lightning-layout>
+<div if:true={label} style="margin-left: 160px;
+margin-top: 15px;
+"> <label class="container">School/Institute
+    <input type="checkbox" onclick={handelModel}>
+    <span class="checkmark"></span>
+  </label>
+  
+  <label class="container">Parent/Self
+    <input type="checkbox" onclick={onhandel}>
+    <span class="checkmark"></span>
+  </label></div>
+    </lightning-card>
+</div>
+</template>
+</template>
+
+</template>
+<template if:true={createmodal}>
+    <c-school-register onmodalchange={closeModal}></c-school-register>
+</template>
+<template if:true={click}>
+    <c-parent-register onmodalchange={closeModal}></c-parent-register>
+</template>
+
+
+<div if:true={isModalOpen} style="width: 30rem; margin-left: 400px;
+    margin-top: 30px;background: snow;">
+    <lightning-card >
+        <lightning-layout>
+            <lightning-layout-item>
+                <div class="slds-p-horizontal_medium slds-clearfix">
+
+                <div >
+                    
+                    <span style="font-weight: bold; font-size: 25px;"
+                        class="slds-m-left_x-small slds-text-heading_large">Forget Password?</span>
+                        <span><lightning-icon style='margin-left: 160px; cursor: pointer;' icon-name="standard:education">
+                    </lightning-icon></span>
+                        <div style="margin-top: 15px;
+                        font-size: smaller;
+                        margin-left: 10px;">Enter the email address which is associated with your account.</div>
+                </div>
+                </div>
+            </lightning-layout-item>
+        </lightning-layout>
+        
+        <lightning-layout>
+            <lightning-layout-item >
+        <div class="mySearchBar">
+                   
+            <input type="text" placeholder="Email" required />
+        </div>
+    </lightning-layout-item >
+    </lightning-layout>
+    <lightning-layout>
+        <lightning-layout-item >
+            <div class="login">
+                Send
+            </div>
+            <div style="margin-left: 100px;
+            font-size: smaller;
+            margin-top: 7px;">We will email you a link to reset your password</div>
+
+        </lightning-layout-item>
+    </lightning-layout>
+    <lightning-layout>
+        <lightning-layout-item>
+            <div style="    margin-left: 175px;
+            margin-top: 25px;
+            margin-bottom: 23px;">Go back to
+                <span  class="create" onclick={closeModal}>Login</span>
+                  </div>
+        </lightning-layout-item>
+    </lightning-layout>
+    <div style="margin-left: 100px;">Don't have an Account?
+        <span onclick={handelmodal} class="create">Create Account</span>
+          </div>
+          <div if:true={label} style="margin-left: 160px;
+margin-top: 15px;
+"> <label class="container">School/Institute
+    <input type="checkbox" onclick={handelModel}>
+    <span class="checkmark"></span>
+  </label>
+  
+  <label class="container">Parent/Self
+    <input type="checkbox" onclick={onhandel}>
+    <span class="checkmark"></span>
+  </label></div>
+    </lightning-card>
+</div>
+</template>

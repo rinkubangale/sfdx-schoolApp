@@ -28,6 +28,9 @@
             <div class="add-class-body">
                 <lightning-record-edit-form object-api-name="Fee_plan__c">
                     <lightning-layout multiple-rows style="row-gap: 25px;">
+                        <lightning-layout-item size="1">
+
+                        </lightning-layout-item>
                         <lightning-layout-item size="3">
                             <lightning-input onchange={handleInputChange} label="Fee Plan Name" field-name="Name">
                             </lightning-input>
@@ -35,22 +38,27 @@
                         <lightning-layout-item size="1">
 
                         </lightning-layout-item>
-              
-                        <!-- <lightning-layout-item size="6">
-                            <lightning-input-field onchange={handleInputChange} field-name="Plan_Type__c">
-                            </lightning-input-field>
-                        </lightning-layout-item> -->
-                        <lightning-layout-item size="3">
+                        <lightning-layout-item size="2">
                             <lightning-input onchange={handleInputChange} label="Class" field-name="Class__c">
                             </lightning-input>
                         </lightning-layout-item>
                         <lightning-layout-item size="1">
 
                         </lightning-layout-item>
-                        <lightning-layout-item size="3">
-                            <lightning-input onchange={handleInputChange} label="No. of Students"
+                        <lightning-layout-item size="1">
+                            <lightning-input onchange={handleInputChange} label="Students"
                                 field-name="Total_Number_of_Students__c">
                             </lightning-input>
+                        </lightning-layout-item>
+                        <lightning-layout-item size="1">
+
+                        </lightning-layout-item>
+                        <lightning-layout-item size="1">
+                            <lightning-input onchange={handleInputChange} label="Terms">
+                            </lightning-input>
+                        </lightning-layout-item>
+                        <lightning-layout-item size="1">
+
                         </lightning-layout-item>
                         <lightning-layout-item size="12">
 
@@ -61,8 +69,10 @@
                         style="margin:1.5rem 1.5rem 1.5rem 1rem; text-decoration:underline; font-size: large; background-color: #e7e5e5;">
                         Set Fee terms & Fee Types
                     </div> -->
-                    <lightning-layout multiple-rows title="Set Fee Terms & Fee Types" style="row-gap: 25px;">
+                    <lightning-layout multiple-rows style="row-gap: 25px;">
+                        <lightning-layout-item size="1">
 
+                        </lightning-layout-item>
                         <lightning-layout-item size="3">
                             <lightning-input onchange={handleInputChange} label="Fee Plan Start Date"
                                 field-name="Fee_Plan_Start_Date__c">
@@ -71,7 +81,7 @@
                         <lightning-layout-item size="1">
 
                         </lightning-layout-item>
-                        <lightning-layout-item size="3">
+                        <lightning-layout-item size="2">
                             <lightning-input onchange={handleInputChange} label="Fee Plan Close Date"
                                 field-name="Fee_Plan_End_Date__c">
                             </lightning-input>
@@ -84,6 +94,9 @@
                                 field-name="Billing_Frequency__c">
                             </lightning-input>
                         </lightning-layout-item>
+                        <lightning-layout-item size="1">
+
+                        </lightning-layout-item>
                         <lightning-layout-item size="12">
 
                         </lightning-layout-item>
@@ -94,20 +107,19 @@
 
 
                     <div
-                        style="margin:1.5rem 1.5rem 1.5rem 1rem; text-decoration:underline; font-size:medium; background-color: #e1dede;">
+                        style="padding:12px 4px; text-decoration:underline; font-size:medium; background-color:#e5e2e2">
                         Discount & Penalty
                     </div>
 
-                    <lightning-layout multiple-rows title="Discount" style="row-gap: 25px;">
+                    <lightning-layout multiple-rows title="Discount" style="row-gap: 25px; padding: 12px 4px">
 
                         <lightning-layout-item size="6">
-                            <lightning-input-field onchange={handleInputChange} field-name="Show_Discount__c">
-                            </lightning-input-field>
+                            <lightning-input type="checkbox" label="Show Discount" onchange={onDiscountChange} disabled={discountDisabled} class="discPenaltyCheckbox" name="input1"></lightning-input>
                         </lightning-layout-item>
                         <lightning-layout-item size="6">
-                            <lightning-input-field onchange={handleInputChange} field-name="Show_Penalty__c">
-                            </lightning-input-field>
+                            <lightning-input type="checkbox" label="Show Penalty" onchange={onPenaltyChange} disabled={penaltyDisabled} class="discPenaltyCheckbox" name="input2"></lightning-input>
                         </lightning-layout-item>
+
                         <template if:true={showDiscFields}>
                             <lightning-layout-item size="5">
                                 <lightning-input onchange={handleInputChange} label="Discount Mode"
@@ -158,7 +170,7 @@
                                 </lightning-input>
                             </lightning-layout-item>
                         </template>
-                    </lightning-layout>             
+                    </lightning-layout>
                 </lightning-record-edit-form>
 
                 <lightning-layout>

@@ -16,7 +16,6 @@ select {
 
 .container {
   display: block;
-  padding: 16px;
 }
 .mySearchBar > input[type="text"] {
   color: #333;

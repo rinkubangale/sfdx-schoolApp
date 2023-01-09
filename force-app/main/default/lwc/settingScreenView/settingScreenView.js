@@ -4,6 +4,7 @@ export default class SettingScreenView extends LightningElement {
   @api clicked = false;
   @track holidayListView;
   @track leaveTypeListView;
+  @track login;
 
   connectedCallback() {
     console.log("Settings Page Loaded");
@@ -17,6 +18,7 @@ export default class SettingScreenView extends LightningElement {
     this.clicked = true;
     this.holidayListView = false;
     this.leaveTypeListView = false;
+    this.login = false;
 
     switch (event.currentTarget.dataset.name) {
       case "holidayListView":
@@ -24,6 +26,9 @@ export default class SettingScreenView extends LightningElement {
         break;
       case "leaveTypeListView":
         this.leaveTypeListView = true;
+        break;
+      case "login":
+        this.login = true;
         break;
       default:
         console.log("Sorry, we are out of data.");

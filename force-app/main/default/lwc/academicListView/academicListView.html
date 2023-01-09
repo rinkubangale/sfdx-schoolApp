@@ -8,7 +8,7 @@
                     <lightning-icon icon-name="standard:record" alternative-text="Clone" title="View Academic Year">
                     </lightning-icon>
 
-                    <span style="font-weight: bold; font-size: larger;  " class=" slds-p-around_small ">View Academic
+                    <span style="font-weight:bold; font-size:larger" class=" slds-p-around_small ">View Academic
                         Year</span>
                 </lightning-layout-item>
 
@@ -34,7 +34,7 @@
                 </c-delete-confirmation>
             </template>
 
-            <div style="height: auto;">
+            <div style="height:auto">
                 <template if:true={dataList}>
                     <lightning-datatable key-field="Id" data={dataList} columns={columns} onrowaction={rowActionHandler}
                         column-widths-mode=auto resize-column-disabled suppress-bottom-bar>

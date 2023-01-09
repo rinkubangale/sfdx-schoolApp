@@ -5,6 +5,7 @@ export default class FeeMangement extends LightningElement {
     @track feesListView;
     @track feePlanListView;
     @track adhocFeeListView;
+    @track feeInvoice;
     handleBack(e) {
         this.clicked = e.detail;
     }
@@ -13,6 +14,7 @@ export default class FeeMangement extends LightningElement {
         this.feesListView = false;
         this.feePlanListView = false;
         this.adhocFeeListView = false;
+        this.feeInvoice = false;
 
         switch (event.currentTarget.dataset.name) {
             case 'feesListView':
@@ -23,6 +25,9 @@ export default class FeeMangement extends LightningElement {
                 break;
             case 'adhocFeeListView':
                 this.adhocFeeListView = true;
+                break;
+            case 'feeInvoice':
+                this.feeInvoice = true;
                 break;
             default:
                 console.log('Sorry, we are out of data.');

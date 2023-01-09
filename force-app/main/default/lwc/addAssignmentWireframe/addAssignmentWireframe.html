@@ -1,0 +1,336 @@
+<template>
+    <div id="addClassRoomContainer" class="col-md-11 center-block dashboard-container">
+        <!--add class main content-->
+        <div id="error" class="error"> </div>
+        <main class="main-content add-class-wrap">
+            <div class="header row no-left-margin no-right-margin">
+                <a href="#" data-close="true">
+
+                </a>
+                <div class="Add-c-headings">
+                    <p class="add-heading-manage fivpx-mrgn-btm">
+                        <lightning-icon class="new-icon" icon-name="utility:new" size="small" alternative-text="new!"
+                            title="new">
+                        </lightning-icon>
+                        <b>{headTitle}</b>
+                    </p>
+                    <!-- <p class="add-subheading-manage">{subHeadTitle}</p> -->
+                </div>
+
+
+                <a href="#" data-close="true">
+                    <div class="back" onclick={handleModalChange}>
+                        <lightning-icon icon-name="utility:back" size="x-small" alternative-text="Back!" title="Back">
+                        </lightning-icon>
+                        <p>Back</p>
+                    </div>
+                </a>
+            </div>
+
+
+            <div class="add-class-body">
+
+                <lightning-layout multiple-rows>
+                    <lightning-layout-item size="4" class="slds-p-around_x-small ">
+                        <lightning-input type="text" label="Name">
+                        </lightning-input>
+
+                    </lightning-layout-item>
+                    <lightning-layout-item size="4" class="slds-p-around_x-small ">
+                        <lightning-combobox label="Type" placeholder="Select Type" options={options1}
+                            onchange={handleChange}>
+                        </lightning-combobox>
+
+                    </lightning-layout-item>
+                    <lightning-layout-item size="4" class="slds-p-around_x-small ">
+                        <lightning-combobox label="Subject" placeholder="Select Subject" options={options2}
+                            onchange={handleChange}>
+                        </lightning-combobox>
+                    </lightning-layout-item>
+
+                    <lightning-layout-item size="4" class="slds-p-around_x-small ">
+                        <lightning-input type="date" label="Publish Date" onchange={emailInpChange}>
+                        </lightning-input>
+                    </lightning-layout-item>
+                    <lightning-layout-item size="4" class="slds-p-around_x-small ">
+                        <lightning-input type="date" label="Due Date" onchange={emailInpChange}>
+                        </lightning-input>
+                    </lightning-layout-item>
+                    <lightning-layout-item size="4" class="slds-p-around_x-small ">
+                        <lightning-combobox label="Submission Type" placeholder="Select Submission Type"
+                            options={options3} onchange={handleChange}>
+                        </lightning-combobox>
+                    </lightning-layout-item>
+                    <lightning-layout-item size="4" class="slds-p-around_x-small ">
+                        <lightning-input type="text" label="Total Marks" onchange={emailInpChange}>
+                        </lightning-input>
+                    </lightning-layout-item>
+                    <lightning-layout-item size="4" class="slds-p-around_x-small " style="padding: 2rem 1.1rem">
+                        <lightning-input type="checkbox" label="Evaluation" onchange={emailInpChange}>
+                        </lightning-input>
+                    </lightning-layout-item>
+                    <lightning-layout-item size="4" class="slds-p-around_x-small ">
+
+                    </lightning-layout-item>
+                    <lightning-layout-item size="8" class="slds-p-around_x-small ">
+                        <lightning-textarea label="Description"></lightning-textarea>
+                    </lightning-layout-item>
+
+                    <lightning-layout-item size="4" class="slds-p-around_x-small ">
+
+                    </lightning-layout-item>
+                    <lightning-layout-item size="2" class="slds-p-around_x-small " style="padding-top: 2.5rem">
+                        <div>
+                            <h1 style="font-size: 12px;
+                            color: #282727;">
+                                Attachments
+                            </h1>
+                        </div>
+                    </lightning-layout-item>
+                    <lightning-layout-item size="4" class="slds-p-around_x-small ">
+
+                        <lightning-input type="file" multiple></lightning-input>
+
+
+                    </lightning-layout-item>
+                    <lightning-layout-item size="6" class="slds-p-around_x-small ">
+
+                    </lightning-layout-item>
+                    <lightning-layout-item size="2" class="slds-p-around_x-small " style="padding-top: 2.5rem">
+                        <div>
+                            <h1 style="font-size: 12px;
+                            color: #282727;">
+                                Assign
+                            </h1>
+                        </div>
+                    </lightning-layout-item>
+                    <lightning-layout-item size="10">
+
+                    </lightning-layout-item>
+                    <lightning-layout-item size="2" class="slds-p-around_x-small ">
+                        <input name="radioGroup" id="classR" value="Class" type="radio" onchange={radiochange} />
+                        <label for="classR" style="padding-left: 0.5rem;
+                        font-size: 13px;
+                        color: #2c2b2b;">Class</label>
+                    </lightning-layout-item>
+                    <lightning-layout-item size="2" class="slds-p-around_x-small ">
+                        <input name="radioGroup" id="classRoomR" value="ClassRoom" type="radio"
+                            onchange={radiochange} />
+                        <label for="classRoomR" style="padding-left: 0.5rem;
+                        font-size: 13px;
+                        color: #2c2b2b;">ClassRoom</label>
+                    </lightning-layout-item>
+                    <lightning-layout-item size="2" class="slds-p-around_x-small ">
+                        <input name="radioGroup" id="studentR" value="Student" type="radio" onchange={radiochange} />
+                        <label for="studentR" style="padding-left: 0.5rem;
+                        font-size: 13px;
+                        color: #2c2b2b;">Student</label>
+                    </lightning-layout-item>
+                    <lightning-layout-item size="6">
+
+                    </lightning-layout-item>
+
+                    <template if:true={openStudentsRadio}>
+                        <div style="width: 65rem;
+                        background-color: white">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <td class="radiostyles" style="text-decoration: underline; width:9rem">Select
+                                        </td>
+                                        <td class="radiostyles" style="text-decoration: underline;">Student Name</td>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="radiostyles" style="padding-left: 2.7rem;"><input type="checkbox">
+                                        </td>
+                                        <td class="radiostyles">Shubham</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="radiostyles" style="padding-left: 2.7rem;"><input type="checkbox">
+                                        </td>
+                                        <td class="radiostyles">Raman</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="radiostyles" style="padding-left: 2.7rem;"><input type="checkbox">
+                                        </td>
+                                        <td class="radiostyles">Marlon</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="radiostyles" style="padding-left: 2.7rem;"><input type="checkbox">
+                                        </td>
+                                        <td class="radiostyles">Shrijetha</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="radiostyles" style="padding-left: 2.7rem;"><input type="checkbox">
+                                        </td>
+                                        <td class="radiostyles">Sameer</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="radiostyles" style="padding-left: 2.7rem;"><input type="checkbox">
+                                        </td>
+                                        <td class="radiostyles">Aman</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="radiostyles" style="padding-left: 2.7rem;"><input type="checkbox">
+                                        </td>
+                                        <td class="radiostyles">Alizeh</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="radiostyles" style="padding-left: 2.7rem;"><input type="checkbox">
+                                        </td>
+                                        <td class="radiostyles">Saravana</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="radiostyles" style="padding-left: 2.7rem; padding-bottom: 1rem">
+                                            <input type="checkbox">
+                                        </td>
+                                        <td class="radiostyles" style="padding-bottom: 1rem">Rahul</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </template>
+                    <template if:true={openClassRoomsRadio}>
+                        <div style="width: 65rem;
+                        background-color: white">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <td class="radiostyles" style="text-decoration: underline; width:9rem">Select
+                                        </td>
+                                        <td class="radiostyles" style="text-decoration: underline;">Classrooms</td>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="radiostyles" style="padding-left: 2.7rem;"><input type="checkbox">
+                                        </td>
+                                        <td class="radiostyles">LKG</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="radiostyles" style="padding-left: 2.7rem;"><input type="checkbox">
+                                        </td>
+                                        <td class="radiostyles">UKG</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="radiostyles" style="padding-left: 2.7rem;"><input type="checkbox">
+                                        </td>
+                                        <td class="radiostyles">1st</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="radiostyles" style="padding-left: 2.7rem;"><input type="checkbox">
+                                        </td>
+                                        <td class="radiostyles">2nd</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="radiostyles" style="padding-left: 2.7rem;"><input type="checkbox">
+                                        </td>
+                                        <td class="radiostyles">3rd</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="radiostyles" style="padding-left: 2.7rem;"><input type="checkbox">
+                                        </td>
+                                        <td class="radiostyles">4th</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="radiostyles" style="padding-left: 2.7rem;"><input type="checkbox">
+                                        </td>
+                                        <td class="radiostyles">5th</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="radiostyles" style="padding-left: 2.7rem;"><input type="checkbox">
+                                        </td>
+                                        <td class="radiostyles">6th</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="radiostyles" style="padding-left: 2.7rem; padding-bottom: 1rem">
+                                            <input type="checkbox">
+                                        </td>
+                                        <td class="radiostyles" style="padding-bottom: 1rem">7th</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </template>
+
+                    <template if:true={openClassRadio}>
+                        <div style="width: 65rem;
+                        background-color: white">
+                            <!-- <table>
+                                <thead>
+                                    <tr>
+                                        <td class="radiostyles" style="text-decoration: underline; width:9rem">Select
+                                        </td>
+                                        <td class="radiostyles" style="text-decoration: underline;">Student Name</td>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="radiostyles" style="padding-left: 2.7rem;"><input type="checkbox">
+                                        </td>
+                                        <td class="radiostyles">Shubham</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="radiostyles" style="padding-left: 2.7rem;"><input type="checkbox">
+                                        </td>
+                                        <td class="radiostyles">Raman</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="radiostyles" style="padding-left: 2.7rem;"><input type="checkbox">
+                                        </td>
+                                        <td class="radiostyles">Marlon</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="radiostyles" style="padding-left: 2.7rem;"><input type="checkbox">
+                                        </td>
+                                        <td class="radiostyles">Shrijetha</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="radiostyles" style="padding-left: 2.7rem;"><input type="checkbox">
+                                        </td>
+                                        <td class="radiostyles">Sameer</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="radiostyles" style="padding-left: 2.7rem;"><input type="checkbox">
+                                        </td>
+                                        <td class="radiostyles">Aman</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="radiostyles" style="padding-left: 2.7rem;"><input type="checkbox">
+                                        </td>
+                                        <td class="radiostyles">Alizeh</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="radiostyles" style="padding-left: 2.7rem;"><input type="checkbox">
+                                        </td>
+                                        <td class="radiostyles">Saravana</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="radiostyles" style="padding-left: 2.7rem; padding-bottom: 1rem">
+                                            <input type="checkbox">
+                                        </td>
+                                        <td class="radiostyles" style="padding-bottom: 1rem">Rahul</td>
+                                    </tr>
+                                </tbody>
+                            </table> -->
+                        </div>
+                    </template>
+
+
+                    <lightning-layout-item size="12" class="slds-var-m-top_large slds-align_absolute-center">
+                        <lightning-button variant="brand" label={btnLabel}>
+                        </lightning-button>
+                    </lightning-layout-item>
+                </lightning-layout>
+            </div>
+
+
+            <template if:true={isLoading}>
+                <lightning-spinner alternative-text="Loading" variant="brand" style="background:transparent;">
+                </lightning-spinner>
+            </template>
+        </main>
+    </div>
+</template>

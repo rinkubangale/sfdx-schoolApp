@@ -1,8 +1,110 @@
 <template>
-    <lightning-card>
-        <div class="slds-m-around_large">
-    <lightning-button variant="brand" label="CREATE EXAM SCHEDULE"
-    title="Create Exam Schedule" onclick={handleClick} class="slds-m-left_x-small slds-align_absolute-center"></lightning-button>
+    <!-- <template if:false={createRecord}>
+    <div style="height: 15rem;
+    background: #0176d324;
+    display: flex;
+    align-items: center;
+    justify-content: center;"> 
+         <div class="slds-m-around_large">
+            <lightning-layout multiple-rows="true" style="height: 15rem;
+            background: #0176d324;
+            display: flex;
+            align-items: center;
+            justify-content: center;">
+                <lightning-layout-item flexibility="true" size="4"></lightning-layout-item>
+                <lightning-layout-item flexibility="true" size="4" class="slds-m-left_x-small slds-align_absolute-center">
+                    <span title="Create Exam Schedule" onclick={openCreateRecord} style="color: #777;font-size: 1.3rem;cursor: pointer;padding-top:70px;" >CREATE EXAM SCHEDULE +</span>
+                </lightning-layout-item>
+                <lightning-layout-item flexibility="true" size="4"></lightning-layout-item>
+            </lightning-layout>
+            <span title="Create Exam Schedule" onclick={openCreateRecord} style="color: #777;font-size: 1.3rem;cursor: pointer;" class="slds-m-left_x-small slds-align_absolute-center">CREATE EXAM SCHEDULE +</span>
+        </div>
+    </div>
+</template> -->
+
+    <!-- <template if:true={createRecord}> -->
+        <div id="addClassRoomContainer" class="col-md-11 center-block dashboard-container">
+            <!--add class main content-->
+            <div id="error" class="error"> </div>
+            <main class="main-content add-class-wrap">
+                <div class="header row no-left-margin no-right-margin">
+                    <a href="#" data-close="true">
+                        <!-- <div class="back" onclick={handleModalChange}>
+                            <lightning-icon icon-name="utility:back" size="x-small" alternative-text="Back!" title="Back">
+                            </lightning-icon>
+                            <p>Back</p>
+                        </div> -->
+                    </a>
+                    <div class="Add-c-headings">
+                        <p class="add-heading-manage fivpx-mrgn-btm">
+                            <lightning-icon class="new-icon" icon-name="utility:new" size="small" alternative-text="new!"
+                                title="new">
+                            </lightning-icon>
+                            <b>Create Exam Schedule</b>
+                        </p>
+                        <!-- <p class="add-subheading-manage">{subHeadTitle}</p> -->
+                    </div>
+                    <!-- <a href="#" data-close="true">
+                        <div class="esc" onclick={handleModalChange}>
+                            <lightning-icon icon-name="utility:close" size="x-small" alternative-text="Esc!" title="Esc">
+                            </lightning-icon>
+                            <p>Esc</p>
+                        </div>
+                    </a> -->
+    
+                    <a >
+                        <div class="back" onclick={handleModalChange}>
+                            <lightning-icon icon-name="utility:back" onclick={goBack} size="x-small" alternative-text="Back!" title="Back">
+                            </lightning-icon>
+                            <p onclick={goBack}>Back</p>
+                        </div>
+                    </a>
+                </div>
+                <!--/add-class-header-->
+    
+                <div class="add-class-body">
+
+            <lightning-layout size="12" multiple-rows class="slds-p-around_medium">
+                <lightning-layout-item size="6" class="slds-p-around_x-small">
+                    <lightning-combobox name="Class" label="Class" options={options} onchange={classRecords}>
+                    </lightning-combobox>
+                </lightning-layout-item>
+
+                <lightning-layout-item size="6" class="slds-p-around_x-small">
+                    <lightning-input type="text" label="Exam Name" onchange={handleChange}>
+                    </lightning-input>
+                </lightning-layout-item>
+
+                <lightning-layout-item size="6" class="slds-p-around_x-small">
+                    <lightning-input type="date" label="Start Date" onchange={handleChange}>
+                    </lightning-input>
+                </lightning-layout-item>
+
+                <lightning-layout-item size="6" class="slds-p-around_x-small">
+                    <lightning-input type="date" label="End Date" onchange={handleChange}>
+                    </lightning-input>
+                </lightning-layout-item>
+                
+                
+                
+                <lightning-layout-item size="4" class="slds-p-around_x-small">
+                </lightning-layout-item>
+                <lightning-layout-item style="margin-top: 10px;" size="4" class="slds-p-around_x-small">
+                    <lightning-button label="Create Exam Schedule" variant="brand" onclick={saveHandler}
+                    class="slds-var-m-left_xx-small slds-float_right"></lightning-button>
+                </lightning-layout-item>
+                <lightning-layout-item size="4" class="slds-p-around_x-small">
+                </lightning-layout-item>
+                
+            
+        </lightning-layout>
+        <!-- </lightning-card> -->
+    </div>
+    <template if:true={isLoading}>
+        <lightning-spinner alternative-text="Loading" variant="brand" style="background:transparent;">
+        </lightning-spinner>
+    </template>
+</main>
 </div>
-</lightning-card>
-</template>
+    </template>
+<!-- </template> -->

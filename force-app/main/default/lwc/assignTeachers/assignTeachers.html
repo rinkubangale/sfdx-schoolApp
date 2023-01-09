@@ -1,11 +1,10 @@
 <template>
+
+    <!--
     <template if:false={isModalOpen}>
-
-
-        <div class="mainDiv">
-
+ <div class="mainDiv">
             <div class="header row no-left-margin no-right-margin" style="border-bottom: 1px solid #e5e5e5">
-                <a href="#" data-close="true">
+                <a   data-close="true">
 
                 </a>
                 <div class="Add-c-headings">
@@ -16,7 +15,7 @@
                         <b style="color:black; font-size:1.1rem">Assign Teachers</b>
                     </p>
                 </div>
-                <a href="#" data-close="true">
+                <a   data-close="true">
                     <div class="back" onclick={handleModalChange}>
                         <lightning-icon icon-name="utility:back" size="x-small" alternative-text="Back!" title="Back">
                         </lightning-icon>
@@ -28,7 +27,7 @@
             <lightning-card>
 
                 <div class="AddTeacher slds-clearfix" style="text-decoration:underline" onclick={openModal}>
-                    <a href="#" class="slds-float_right" style="font-size: 1.05rem;">Add Teacher</a>
+                    <a class="slds-float_right" style="font-size: 1.05rem;">Add Teacher</a>
 
                 </div>
                 <br />
@@ -55,7 +54,7 @@
                             </td>
 
                             <td>
-                                <a href="#">Assign</a>
+                                <a  >Assign</a>
                             </td>
                         </tr>
                         <tr class="trClass" style="height:2rem;background-color:#f3f3f3">
@@ -66,7 +65,7 @@
                                 <input type="checkbox" class="checkboxstyle">
                             </td>
                             <td>
-                                <a href="#">Assign</a>
+                                <a  >Assign</a>
                             </td>
                         </tr>
                         <tr class="trClass" style="background-color:#f3f3f3; height:2rem">
@@ -77,18 +76,67 @@
                                 <input type="checkbox" class="checkboxstyle">
                             </td>
                             <td>
-                                <a href="#">Assign</a>
+                                <a  >Assign</a>
                             </td>
                         </tr>
                     </table>
                 </div>
             </lightning-card>
+        </div> 
 
-            <!-- <div class="slds-backdrop slds-backdrop_open"></div> -->
-        </div>
+    </template> -->
+
+
+    <template if:false={isModalOpen}>
+        <lightning-card style="margin:15px; text-transform:capitalize;" class="slds-card__header ">
+            <lightning-layout>
+                <lightning-layout-item size="4" class="slds-float_left slds-p-around_medium">
+                    <lightning-icon icon-name="standard:record" alternative-text="Clone" title="Assign Teachers">
+                    </lightning-icon>
+
+                    <span style="font-weight:bold; font-size:larger" class=" slds-p-around_small ">Assign Teachers
+                        </span>
+                </lightning-layout-item>
+
+                <lightning-layout-item size="4" class="slds-align_absolute-center slds-p-around_medium">
+                    <div class="mySearchBar">
+                        <lightning-icon icon-name="utility:search" size="x-small" alternative-text="search"
+                            title="View Academic Year">
+                        </lightning-icon>
+                        <input type="text" placeholder="Search Teachers" />
+                    </div>
+                </lightning-layout-item>
+
+                <lightning-layout-item size="4" class="slds-float_right slds-clearfix">
+                    <lightning-button variant="brand" class="slds-float_right slds-p-around_medium"
+                        icon-name="utility:adduser" title="Add Teachers" onclick={openModal}>
+                    </lightning-button>
+                </lightning-layout-item>
+            </lightning-layout>
+
+
+            <template if:true={isDelete}>
+                <c-delete-confirmation records-id={DelId} obj-name="Academic_Year__c" onmodalchange={closemodaldelete}>
+                </c-delete-confirmation>
+            </template>
+
+            <div style="height:auto">
+
+                <lightning-datatable key-field="Id" data={dataList} columns={columns} onrowaction={rowActionHandler}
+                    column-widths-mode=auto resize-column-disabled suppress-bottom-bar>
+                </lightning-datatable>
+
+            </div>
+            <div slot="footer" class="slds-clearfix slds-p-top_xxx-small ">
+                <lightning-button label="Back" variant="brand" onclick={goBack}
+                    class="slds-var-m-left_xx-small slds-float_left"></lightning-button>
+                <lightning-button label="Delete" onclick={getSelectedRec} variant="brand"
+                    class="slds-var-m-left_xx-small slds-float_right"></lightning-button>
+            </div>
+        </lightning-card>
 
     </template>
     <template if:true={isModalOpen}>
-        <c-teacher-add-wireframe onmodalchange={closeModal}></c-teacher-add-wireframe>
+        <c-add-edit-teacher onmodalchange={closeModal}></c-add-edit-teacher>
     </template>
 </template>

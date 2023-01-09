@@ -1,0 +1,71 @@
+<template>
+    <div id="addClassRoomContainer" class="col-md-11 center-block dashboard-container">
+        <!--add class main content-->
+        <div id="error" class="error"> </div>
+        <main class="main-content add-class-wrap">
+            <div class="header row no-left-margin no-right-margin">
+                <a href="#" data-close="true">
+
+                </a>
+                <div class="Add-c-headings">
+                    <p class="add-heading-manage fivpx-mrgn-btm">
+                        <lightning-icon class="new-icon" icon-name="utility:new" size="small" alternative-text="new!"
+                            title="new">
+                        </lightning-icon>
+                        <b>{headTitle}</b>
+                    </p>
+                    <!-- <p class="add-subheading-manage">{subHeadTitle}</p> -->
+                </div>
+
+
+                <a href="#" data-close="true">
+                    <div class="back" onclick={handleModalChange}>
+                        <lightning-icon icon-name="utility:back" size="x-small" alternative-text="Back!" title="Back">
+                        </lightning-icon>
+                        <p>Back</p>
+                    </div>
+                </a>
+            </div>
+
+
+            <div class="add-class-body">
+
+                <lightning-layout multiple-rows class="slds-p-around_medium" style="align-items: flex-end;">
+                    <lightning-layout-item size="6" class="slds-p-around_x-small ">
+                        <lightning-input type="text" label="Subject Name" onchange={nameInpChange}>
+                        </lightning-input>
+                        <!-- <c-custom-lookup obj-name="Contact"></c-custom-lookup> -->
+                    </lightning-layout-item>
+                    <lightning-layout-item size="6" class="slds-p-around_x-small ">
+                        <lightning-input type="text" label="Category Name" onchange={emailInpChange}>
+                        </lightning-input>
+                    </lightning-layout-item>
+                    <lightning-layout-item size="3">
+
+                    </lightning-layout-item>
+
+                    <lightning-layout-item size="6" class="slds-p-around_x-small ">
+                        <lightning-input type="text" label="Subject Category" onchange={emailInpChange}>
+                        </lightning-input>
+                    </lightning-layout-item>
+                    <lightning-layout-item size="3" class="slds-p-around_x-small ">
+
+
+                    </lightning-layout-item>
+
+
+                    <lightning-layout-item size="12" class="slds-var-m-top_large slds-align_absolute-center">
+                        <lightning-button variant="brand" label={btnLabel}>
+                        </lightning-button>
+                    </lightning-layout-item>
+                </lightning-layout>
+            </div>
+
+
+            <template if:true={isLoading}>
+                <lightning-spinner alternative-text="Loading" variant="brand" style="background:transparent;">
+                </lightning-spinner>
+            </template>
+        </main>
+    </div>
+</template>

@@ -59,7 +59,7 @@ export default class LeaveTracker extends LightningElement {
   @track dataList;
   @track arr = [];
   @track isModalOpen = false;
-  @track isModalOpenn = false;
+
   @track Holiday_Name__c;
   @track Name;
   @track DelId = [];

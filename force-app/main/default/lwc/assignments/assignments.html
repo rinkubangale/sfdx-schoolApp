@@ -1,65 +1,366 @@
 <template>
-    <template if:false={isModalOpen}>
-        <lightning-card style="margin:15px; text-transform:capitalize;" class="slds-card__header ">
-            <lightning-layout>
-                <lightning-layout-item size="4" class="slds-float_left slds-p-around_medium">
-                    <lightning-icon icon-name="standard:record" alternative-text="Clone" title="View Assignments">
-                    </lightning-icon>
+    <template if:false={evaluatePage}>
+        <template if:false={viewPage}>
+            <template if:false={isModalOpen}>
+                <lightning-card style="margin:15px; text-transform:capitalize;" class="slds-card__header ">
+                    <lightning-layout multiple-rows>
+                        <lightning-layout-item size="2"
+                            class="slds-float_left slds-p-around_medium slds-p-around_small">
+                            <lightning-icon icon-name="standard:record" alternative-text="Clone"
+                                title="View Assignments">
+                            </lightning-icon>
 
-                    <span style="font-weight:bold; font-size:larger; color:black"
-                        class=" slds-p-around_small ">Assignments
-                    </span>
-                </lightning-layout-item>
+                            <span style="font-weight:bold; font-size:larger; color:black"
+                                class=" slds-p-around_small ">Assignments
+                            </span>
+                        </lightning-layout-item>
+                        <lightning-layout-item size="2">
+                            <div class=" slds-p-horizontal_small"
+                                style="font-weight:bold;font-size: 16px;text-align:center; margin-top: 6px;">
+                                37
+                            </div>
+                            <div class="slds-p-horizontal_large"
+                                style="color:rgb(2, 178, 231); font-size:medium; text-align:center;font-family: serif; ">
+                                Submitted
+                            </div>
+                        </lightning-layout-item>
 
-                <lightning-layout-item size="4" class="slds-align_absolute-center slds-p-around_medium">
-                    <div class="mySearchBar">
-                        <lightning-icon icon-name="utility:search" size="x-small" alternative-text="search"
-                            title="View Assignments">
-                        </lightning-icon>
-                        <input type="text" placeholder="Search Assignments" />
+                        <lightning-layout-item size="2">
+                            <div class="slds-p-horizontal_small"
+                                style="font-weight:bold;font-size: 16px;text-align:center; margin-top: 6px;">
+                                20
+                            </div>
+                            <div class="slds-p-horizontal_large"
+                                style="color:rgb(30, 114, 23); font-size:medium; text-align:center;font-family: serif;">
+                                Due
+                            </div>
+                        </lightning-layout-item>
+
+                        <lightning-layout-item size="2">
+                            <div class=" slds-p-horizontal_small"
+                                style="font-weight:bold;font-size: 16px;text-align:center; margin-top: 6px;">
+                                11
+                            </div>
+                            <div class="slds-p-horizontal_large"
+                                style="color:rgb(51, 129, 173); font-size:medium; text-align:center;font-family: serif;">
+                                Completed
+                            </div>
+
+                        </lightning-layout-item>
+                        <lightning-layout-item size="2">
+                            <div class="slds-p-horizontal_small"
+                                style="font-weight:bold;font-size: 16px;text-align:center; margin-top: 6px;">
+                                2
+                            </div>
+                            <div class="slds-p-horizontal_large"
+                                style="color:rgb(201, 130, 24); font-size:medium; text-align:center;font-family: serif;">
+                                Assignment</div>
+                        </lightning-layout-item>
+                        <lightning-layout-item size="2">
+
+                        </lightning-layout-item>
+
+                        <lightning-layout-item size="1">
+                            <p style="padding-top:26px; padding-left: 16px; color:black">From Date</p>
+                        </lightning-layout-item>
+                        <lightning-layout-item size="2">
+                            <lightning-input type="date"></lightning-input>
+                        </lightning-layout-item>
+                        <lightning-layout-item size="1"></lightning-layout-item>
+                        <lightning-layout-item size="1">
+                            <p style="padding-top:26px; padding-left: 36px; color:black">To Date</p>
+                        </lightning-layout-item>
+                        <lightning-layout-item size="2">
+                            <lightning-input type="date"></lightning-input>
+                        </lightning-layout-item>
+                        <lightning-layout-item size="1"></lightning-layout-item>
+                        <lightning-layout-item size="1" style="padding: 4px 0px 0px 20px;">
+                            <lightning-button variant="brand" label={buttonLabel} onclick={handleView}
+                                class=" slds-float_right slds-p-around_medium">
+                            </lightning-button>
+                        </lightning-layout-item>
+                        <lightning-layout-item size="2"></lightning-layout-item>
+                        <lightning-layout-item size="1" style="padding-top:20px">
+                            <lightning-button variant="brand" class="slds-p-around_medium" icon-name="utility:adduser"
+                                title="Add Assignments" onclick={openModal}>
+                            </lightning-button>
+                        </lightning-layout-item>
+
+                    </lightning-layout>
+
+                    <!-- <div style="display:flex; margin-top: 2rem;">
+                        <span style="width:25%"><label for="submitted" style="padding-left:5rem">Submitted</label>
+                            <br />
+                            <button id="submitted" style="background-color: #1380b5;
+                            width: 100px;
+                            height: 40px;
+                            margin-top: 1px; margin-left:4.3rem;font-size: 20px;">37</button>
+                        </span>
+
+                        <span style="width:25%"><label for="due" style="margin-left: 4.5rem;">Due</label>
+                            <br />
+                            <button id="due" style="background-color: #d7b63f;
+                            width: 100px;
+                            height: 40px; margin-top: 1px; margin-left:2.2rem;font-size: 20px;">20</button>
+                        </span>
+
+                        <span style="width:25%"><label for="completed" style="padding-left: 1.2rem;">Completed</label>
+                            <br />
+                            <button id="completed" style="background-color: #52ab42;
+                            width: 100px;
+                            height: 40px;margin-top: 1px;font-size: 20px;">11</button>
+                        </span>
+
+                        <span style="width:25%"><label for="assignment" style="padding-left: 0.4rem;">Assignment</label>
+                            <br />
+                            <button id="assignment" style="background-color: #eb2410;
+                            width: 100px;
+                            height: 40px; margin-top: 1px; margin-left:-0.1rem;font-size: 20px;">2</button>
+                        </span>
+                    </div> -->
+
+                    <!-- <lightning-button label="Create Student" variant="brand" onclick={navigateToNewRecordPage} class="slds-var-m-left_xx-small slds-float_right"></lightning-button> -->
+
+                    <!-- <lightning-layout-item size="1"></lightning-layout-item>
+                            <lightning-layout-item size="1">
+                                <p style="padding-top:26px; padding-left: 16px;">From Date</p>
+                            </lightning-layout-item>
+                            <lightning-layout-item size="2">
+                                <lightning-input type="date" style="width:16rem"></lightning-input>
+                            </lightning-layout-item>
+                            <lightning-layout-item size="1"></lightning-layout-item>
+                            <lightning-layout-item size="1">
+                                <p style="padding-top:26px; padding-left: 36px;">To Date</p>
+                            </lightning-layout-item>
+                            <lightning-layout-item size="2">
+                                <lightning-input type="date" style="width:16rem"></lightning-input>
+                            </lightning-layout-item>
+                            <lightning-layout-item size="1"></lightning-layout-item>
+                            <lightning-layout-item size="1" style="padding: 23px 0px 0px 28px;">
+                                <lightning-button variant="brand" label="Apply"></lightning-button>
+                            </lightning-layout-item>
+                            <lightning-layout-item size="2"></lightning-layout-item> -->
+
+
+
+
+                    <template if:true={isDelete}>
+                        <c-delete-confirmation records-id={DelId} obj-name="Academic_Year__c"
+                            onmodalchange={closemodaldelete}>
+                        </c-delete-confirmation>
+                    </template>
+
+                    <div style="height:auto; margin-top: 1rem" if:false={calendarView}>
+                        <lightning-datatable key-field="Id" data={dataList} columns={columns}
+                            onrowaction={rowActionHandler} resize-column-disabled suppress-bottom-bar>
+                        </lightning-datatable>
+
                     </div>
-                </lightning-layout-item>
-                <lightning-layout-item size="2" class="slds-clearfix">
-                    <lightning-button variant="brand" label={buttonLabel} onclick={handleView}
-                        class=" slds-float_right slds-p-around_medium">
 
-                    </lightning-button>
-                </lightning-layout-item>
-
-                <lightning-layout-item size="2" class="slds-float_right slds-clearfix">
-                    <lightning-button variant="brand" class="slds-float_right slds-p-around_medium"
-                        icon-name="utility:adduser" title="Add Assignments" onclick={openModal}>
-                    </lightning-button>
-                </lightning-layout-item>
-            </lightning-layout>
+                    <div style="height:auto; margin-top: 1rem" if:true={calendarView}>
+                        <c-full-calendar-js></c-full-calendar-js>
+                    </div>
 
 
-            <template if:true={isDelete}>
-                <c-delete-confirmation records-id={DelId} obj-name="Academic_Year__c" onmodalchange={closemodaldelete}>
-                </c-delete-confirmation>
+                    <div slot="footer" class="slds-clearfix slds-p-top_xxx-small ">
+                        <lightning-button label="Delete" onclick={getSelectedRec} variant="brand"
+                            class="slds-var-m-left_xx-small slds-float_right">
+                        </lightning-button>
+                    </div>
+                </lightning-card>
             </template>
+        </template>
+    </template>
 
-            <div style="height:auto" if:false={calendarView}>
-                <lightning-datatable key-field="Id" data={dataList} columns={columns} onrowaction={rowActionHandler}
-                    resize-column-disabled suppress-bottom-bar>
-                </lightning-datatable>
+    <template if:true={viewPage}>
+        <div id="addClassRoomContainer" class="col-md-11 center-block dashboard-container">
 
+            <div id="error" class="error"> </div>
+            <main class="main-content add-class-wrap">
+                <div class="header row no-left-margin no-right-margin">
+                    <a href="#" data-close="true">
+
+                    </a>
+                    <div class="Add-c-headings">
+                        <p class="add-heading-manage fivpx-mrgn-btm">
+                            <lightning-icon class="new-icon" icon-name="utility:new" size="small"
+                                alternative-text="new!" title="new">
+                            </lightning-icon>
+                            <b>{headTitle}</b>
+                        </p>
+                        <!-- <p class="add-subheading-manage">{subHeadTitle}</p> -->
+                    </div>
+
+
+                    <a href="#" data-close="true">
+                        <div class="back" onclick={backToListView}>
+                            <lightning-icon icon-name="utility:back" size="x-small" alternative-text="Back!"
+                                title="Back">
+                            </lightning-icon>
+                            <p>Back</p>
+                        </div>
+                    </a>
+                </div>
+
+
+                <div class="add-class-body">
+                    <lightning-layout multiple-rows>
+                        <lightning-layout-item size="1">
+
+                        </lightning-layout-item>
+                        <lightning-layout-item size="4" class="slds-p-around_x-small ">
+                            <lightning-input type="text" label="Assignment Name" placeholder="English Test" disabled>
+                            </lightning-input>
+                        </lightning-layout-item>
+                        <lightning-layout-item size="2">
+
+                        </lightning-layout-item>
+                        <lightning-layout-item size="4" class="slds-p-around_x-small ">
+                            <lightning-input type="number" label="No. of Students" placeholder="45" disabled>
+                            </lightning-input>
+                        </lightning-layout-item>
+                        <lightning-layout-item size="1">
+
+                        </lightning-layout-item>
+
+                        <lightning-layout-item size="1">
+
+                        </lightning-layout-item>
+                        <lightning-layout-item size="4" class="slds-p-around_x-small ">
+                            <lightning-input type="text" label="Type" placeholder="Test" disabled>
+                            </lightning-input>
+                        </lightning-layout-item>
+                        <lightning-layout-item size="2">
+
+                        </lightning-layout-item>
+                        <lightning-layout-item size="4" class="slds-p-around_x-small ">
+                            <lightning-input type="number" label="Total Marks" placeholder="100" disabled>
+                            </lightning-input>
+                        </lightning-layout-item>
+                        <lightning-layout-item size="1">
+
+                        </lightning-layout-item>
+                    </lightning-layout>
+
+                </div>
+                <template if:true={isLoading}>
+                    <lightning-spinner alternative-text="Loading" variant="brand" style="background:transparent;">
+                    </lightning-spinner>
+                </template>
+            </main>
+        </div>
+    </template>
+
+    <template if:true={evaluatePage}>
+        <div style="border: 1px solid #dddada;; background-color:white; padding: 1rem">
+            <div style="border: 1px solid #dddada; padding: 1rem; ">
+                <span style="padding-left: 3rem"><input type="text" style="padding: 5px;
+                    border: 1px solid #dddada;
+                    border-radius: 5px; outline: 1px solid #dddada;" placeholder="Search student" /> </span>
+                <span style="margin-left: 47rem;"><button type="button" style="width: 8rem;
+                    height: 2rem; background-color: #1d9f1d">Approve All</button> </span>
             </div>
+            <div>
+                <table>
+                    <thead>
+                        <tr>
+                            <td style="padding: 1rem 1rem; width:10%">S.No.</td>
+                            <td style="padding: 1rem 1rem; width:25%">Student Name</td>
+                            <td style="padding: 1rem 1rem; width:25%">Status</td>
+                            <td style="padding: 1rem 1rem; width:25%">Receive Note</td>
+                            <td style="padding: 1rem 1rem; width:15%">Marks</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td style="padding: 1rem 1rem;">1</td>
+                            <td style="padding: 1rem 1rem;">Shubham</td>
+                            <td style="padding: 1rem 0rem;">
+                                <select name="status" style="margin: 0px 7px;
+                                outline: 1px solid #dddada; border-radius: 6px;">
+                                    <option value="Submitted">Submitted</option>
+                                    <option value="Approve">Approve</option>
+                                    <option value="Incomplete">Incomplete</option>
+                                    <option value="NotSubmitted">Not Submitted</option>
+                                    <option value="Reject">Reject</option>
+                                    <option value="Other">Other</option>
+                                </select>
+                            </td>
+                            <td style="padding: 1rem 1rem;">Excellent</td>
+                            <td style="padding: 1rem 0rem;"><input style="border: 1px solid #dddada;
+                                border-radius: 5px;
+                                margin: 0px 5px; outline:none" type="number" /></td>
+                        </tr>
 
-            <div style="height:auto" if:true={calendarView}>
-                <c-full-calendar-js></c-full-calendar-js>
+                        <tr>
+                            <td style="padding: 1rem 1rem;">2</td>
+                            <td style="padding: 1rem 1rem;">Maithili</td>
+                            <td style="padding: 1rem 0rem;">
+                                <select name="status" style="margin: 0px 7px;
+                                outline: 1px solid #dddada; border-radius: 6px;">
+                                    <option value="Submitted">Submitted</option>
+                                    <option value="Approve">Approve</option>
+                                    <option value="Incomplete">Incomplete</option>
+                                    <option value="NotSubmitted">Not Submitted</option>
+                                    <option value="Reject">Reject</option>
+                                    <option value="Other">Other</option>
+                                </select>
+                            </td>
+                            <td style="padding: 1rem 1rem;">Poor</td>
+                            <td style="padding: 1rem 0rem;"><input style="border: 1px solid #dddada;
+                                border-radius: 5px;
+                                margin: 0px 5px; outline:none" type="number" /></td>
+                        </tr>
+
+                        <tr>
+                            <td style="padding: 1rem 1rem;">3</td>
+                            <td style="padding: 1rem 1rem;">Sudha</td>
+                            <td style="padding: 1rem 0rem;">
+                                <select name="status" style="margin: 0px 7px;
+                                outline: 1px solid #dddada; border-radius: 6px;">
+                                    <option value="Submitted">Submitted</option>
+                                    <option value="Approve">Approve</option>
+                                    <option value="Incomplete">Incomplete</option>
+                                    <option value="NotSubmitted">Not Submitted</option>
+                                    <option value="Reject">Reject</option>
+                                    <option value="Other">Other</option>
+                                </select>
+                            </td>
+                            <td style="padding: 1rem 1rem;">Worst</td>
+                            <td style="padding: 1rem 0rem;"><input style="border: 1px solid #dddada;
+                                border-radius: 5px;
+                                margin: 0px 5px; outline:none" type="number" /></td>
+                        </tr>
+
+                        <tr>
+                            <td style="padding: 1rem 1rem;">4</td>
+                            <td style="padding: 1rem 1rem;">Ramannah</td>
+                            <td style="padding: 1rem 0rem;">
+                                <select name="status" style="margin: 0px 7px;
+                                outline: 1px solid #dddada; border-radius: 6px;">
+                                    <option value="Submitted">Submitted</option>
+                                    <option value="Approve">Approve</option>
+                                    <option value="Incomplete">Incomplete</option>
+                                    <option value="NotSubmitted">Not Submitted</option>
+                                    <option value="Reject">Reject</option>
+                                    <option value="Other">Other</option>
+                                </select>
+                            </td>
+                            <td style="padding: 1rem 1rem;">Average</td>
+                            <td style="padding: 1rem 0rem;"><input style="border: 1px solid #dddada;
+                                border-radius: 5px;
+                                margin: 0px 5px; outline:none" type="number" /></td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
-
-
-            <div slot="footer" class="slds-clearfix slds-p-top_xxx-small ">
-
-                <lightning-button label="Delete" onclick={getSelectedRec} variant="brand"
-                    class="slds-var-m-left_xx-small slds-float_right"></lightning-button>
+            <div style="padding:1rem 0rem">
+                <lightning-button type="button" variant="brand" label="Back" onclick={goBack}></lightning-button>
             </div>
-        </lightning-card>
+        </div>
     </template>
 
     <template if:true={isModalOpen}>
-        <c-add-assignments onclose={openModal}></c-add-assignments>
+        <c-add-assignment-wireframe onclose={openModal}></c-add-assignment-wireframe>
     </template>
 </template>

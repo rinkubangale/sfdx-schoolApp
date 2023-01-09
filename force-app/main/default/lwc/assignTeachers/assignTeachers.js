@@ -3,30 +3,69 @@ import {
   track
 } from 'lwc';
 
+
+const actions = [{
+  label: "Assign",
+  name: "Assign",
+  iconName: "utility:change_owner",
+  alternativeText: "Assign",
+  title: "Assign"
+}];
+
+
+const columns = [{
+    label: "Teacher Name",
+    fieldName: "teacherName"
+  },
+  {
+    label: "Is Admin",
+    fieldName: "isAdmin",
+    type: "boolean"
+  },
+  {
+    type: "action",
+    typeAttributes: {
+      rowActions: actions
+    }
+  }
+];
+
+
 export default class AssignTeachers extends LightningElement {
   @track isModalOpen = false;
 
-  @track headTitle = "Assign Teachers";
+  columns = columns;
 
+  dataList = [{
+    teacherName: "Jagadish",
+    isAdmin: true,
+  }, {
+    teacherName: "Abilash",
+    isAdmin: true,
+  }, {
+    teacherName: "Subish",
+    isAdmin: false,
+  }, {
+    teacherName: "Hemanth",
+    isAdmin: true,
+  }, {
+    teacherName: "Ranjith",
+    isAdmin: true,
+  }]
 
   get btnLabel() {
     return this.headTitle;
   }
 
   openModal() {
-    this.isModalOpen = !this.isModalOpen;
+    this.isModalOpen = true;
   }
 
   closeModal() {
-    // to close modal set isModalOpen tarck value as false
     this.isModalOpen = false;
   }
-  submitDetails() {
-    // to close modal set isModalOpen tarck value as false
-    //Add your code to call apex method or do some processing
-    this.isModalOpen = false;
-  }
-  handleModalChange() {
+
+  goBack() {
     this.dispatchEvent(new CustomEvent("modalchange", {
       detail: false
     }));

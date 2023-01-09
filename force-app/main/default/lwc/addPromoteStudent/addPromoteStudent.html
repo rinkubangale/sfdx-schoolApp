@@ -129,16 +129,17 @@
                         
                         
                     </lightning-layout-item>
-            <div>
-                    <lightning-layout-item size="12">
+            
+                    <lightning-layout-item size="12" style="width:45rem ; display:block">
                         <lightning-datatable
                         key-field="Id"
                         data={data}
                         columns={columns}
-                        onrowselection={handleSelectedRows}>
+                        onrowselection={handleSelectedRows}
+                        resize-column-disabled>
                 </lightning-datatable> 
             </lightning-layout-item>
-        </div>
+        
                     </lightning-layout>
                    
                     <div class="slds-var-m-top_large slds-align_absolute-center">
