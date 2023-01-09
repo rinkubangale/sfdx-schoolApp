@@ -74,3 +74,68 @@ div {
     padding: 8px;
     cursor: pointer;
 }
+
+.layoutitemcommon {
+    background-color: white;
+    height: 10rem;
+    border-radius: 8px;
+}
+
+.bottomdiv2 {
+    display: flex;
+    justify-content: space-between;
+}
+
+.bottomdiv2>div {
+    display: inline-block;
+}
+
+.bottomdiv2 button:active {
+    background-color: #f2f2f2;
+}
+
+.bottomdiv2 button {
+    outline: none;
+    font-size: 15px;
+    color: #0070D2;
+    font-weight: 500;
+    border-radius: 3px;
+    background-color: white;
+    border: 1px solid #dddbda;
+}
+
+.imgFlexScroll {
+    display: flex;
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    height: 88px;
+}
+
+.grxView {
+    display: flex;
+    align-items: center;
+    position: relative;
+    padding: 1rem 0;
+}
+
+.grxView>p {
+    transform: rotate(90deg);
+    background-color: #f3f3f3;
+    width: 30px;
+    height: 29px;
+    text-align: center;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    position: absolute;
+    justify-content: center;
+    left: -14px;
+    z-index: 1;
+}
+
+.grxView>p:last-child {
+    transform: rotate(-90deg);
+    right: 0;
+    left: 95%;
+}

@@ -1,7 +1,7 @@
 <template>
     <template if:false={openLeaveRequestPage}>
-        <h1 class="slds-header sHeader">WELCOME TO PARENT/STUDENT PORTAL</h1>
-        <div>
+        <h1 class="slds-header sHeader slds-m-bottom_large">WELCOME TO PARENT/STUDENT PORTAL</h1>
+        <div style="width: 75%">
             <!-- <div class="headerContent">
                 <div>Holiday</div>
                 <div onclick={leaveReq}>Leave Request</div>
@@ -9,25 +9,24 @@
                 <div>Alerts and Notifications</div>
             </div> -->
 
-            <lightning-layout>
+            <lightning-layout multiple-rows style="gap: 2rem">
+
                 <lightning-layout-item
                     class="slds-var-p-around_x-large slds-size_1-of-1 slds-medium-size_5-of-12 slds-small-size_5-of-12 layoutitemcommon">
                     <div class="bottomdiv2">
+                        <div><b>Holidays</b></div>
                         <div>
-                            <b>Holidays</b>
-                        </div>
-                        <div style="margin-left:2em">
-                            <lightning-button class="listview" label="List" onclick={handleClick1}></lightning-button>
-                            <lightning-button class="graphicview" label="Graphic" onclick={handleClick2}>
-                            </lightning-button>
+                            <button class="listview slds-m-right_small" data-name="list"
+                                onclick={handleListGxBtn}>List</button>
+                            <button class="graphicview" data-name="grx" onclick={handleListGxBtn}>Graphic</button>
                         </div>
                     </div>
-                    <div style="overflow:auto; height: 70%">
-                        <template for:each={holidaysData} for:item="holiday">
-                            <div key={holiday.Id} class="slds-clearfix" style="padding: 10px 0px;">
-                                <div class="festival">
-                                    <h3>{holiday.Name}</h3>
-                                </div>
+                    <div style="overflow:auto; height: 70%" if:true={listDisplay}>
+                        <template for:each={holidayImg} for:item="holiday">
+                            <div key={holiday.title}>
+                                <ul class="festival" style="list-style: inside;">
+                                    <li>{holiday.title}</li>
+                                </ul>
                                 <div class="slds-float_right thirddiv">
                                     <p>{holiday.date}</p>
                                     <p>{holiday.day}</p>
@@ -35,7 +34,17 @@
                             </div>
                         </template>
                     </div>
+                    <div class="grxView" if:true={grxDisplay}>
+                        <p>v</p>
+                        <div class="imgFlexScroll">
+                            <template for:each={holidayImg} for:item="img">
+                                <img src={img.img} alt="holidayImg" key={img}>
+                            </template>
+                        </div>
+                        <p>v</p>
+                    </div>
                 </lightning-layout-item>
+
                 <lightning-layout-item
                     class="slds-var-p-around_x-large slds-size_1-of-1 slds-medium-size_5-of-12 slds-large-size_5-of-12 layoutitemcommon">
                     <div class="bottomdiv2" onclick={leaveReq}>
@@ -44,6 +53,7 @@
                         </div>
                     </div>
                 </lightning-layout-item>
+
                 <lightning-layout-item
                     class="slds-var-p-around_x-large slds-size_1-of-1 slds-medium-size_5-of-12 slds-large-size_5-of-12 layoutitemcommon">
                     <div class="bottomdiv2">
@@ -52,6 +62,7 @@
                         </div>
                     </div>
                 </lightning-layout-item>
+
                 <lightning-layout-item
                     class="slds-var-p-around_x-large slds-size_1-of-1 slds-medium-size_5-of-12 slds-large-size_5-of-12 layoutitemcommon">
                     <div class="bottomdiv2">
@@ -60,6 +71,7 @@
                         </div>
                     </div>
                 </lightning-layout-item>
+
             </lightning-layout>
 
 
