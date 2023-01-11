@@ -35,13 +35,16 @@
                         </template>
                     </div>
                     <div class="grxView" if:true={grxDisplay}>
-                        <p>v</p>
+                        <p onclick={movePrev}>></p>
                         <div class="imgFlexScroll">
                             <template for:each={holidayImg} for:item="img">
-                                <img src={img.img} alt="holidayImg" key={img}>
+                                <div key={img}>
+                                    <img src={img.img} alt="holidayImg">
+                                    <p>{img.title}</p>
+                                </div>
                             </template>
                         </div>
-                        <p>v</p>
+                        <p onclick={moveNext}>></p>
                     </div>
                 </lightning-layout-item>
 

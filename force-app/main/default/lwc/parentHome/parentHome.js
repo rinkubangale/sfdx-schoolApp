@@ -38,24 +38,40 @@ export default class ParentHome extends LightningElement {
 
   @track holidayImg = [
     {
-      img: "https://img.freepik.com/free-vector/happy-makar-sankranti-festival-beautiful-banner-design_1017-22869.jpg?w=1060&t=st=1673268018~exp=1673268618~hmac=ac8efa1ba4b5ebf6c0356ea2a2266b37cd3de6588734a088d88771483a21f61d",
-      title: "Makar Sankranti"
+      img: "https://cdn.kekastatic.net/assets/images/dashboard/holidays/ugadi.svg",
+      title: "Gudi Padwa"
     },
     {
-      img: "https://img.freepik.com/premium-vector/tamil-lettering-happy-pongal-font-with-traditional-dish-cooking-bonfire-floral-garland-toran-decorated-brown-background_1302-30515.jpg?w=1060",
-      title: "Pongal"
+      img: "https://cdn.kekastatic.net/assets/images/dashboard/holidays/india-republic-day.svg",
+      title: "Republic Day"
     },
     {
-      img: "https://img.freepik.com/free-vector/hindu-traditional-happy-holi-festival-banner_1017-23576.jpg?w=1060&t=st=1673267913~exp=1673268513~hmac=87aa4f5026038699fe12ca0f31abc27381eca15abd62c351d43928ad3ff1ec96",
+      img: "https://cdn.kekastatic.net/assets/images/dashboard/holidays/shivratri.svg",
+      title: "Shivratri"
+    },
+    {
+      img: "https://cdn.kekastatic.net/assets/images/dashboard/holidays/holi.svg",
       title: "Holi"
     },
     {
-      img: "https://img.freepik.com/premium-vector/different-religion-people-doing-namaste-welcome-show-unity-diversity-india_1302-22655.jpg?w=1060",
-      title: "Independence Day"
+      img: "https://cdn.kekastatic.net/assets/images/dashboard/holidays/dussehra.svg",
+      title: "Maha Ashtami"
     },
     {
-      img: "https://img.freepik.com/free-vector/happy-diwali-creative-festival-banner-design_1017-28118.jpg?w=1060&t=st=1673268027~exp=1673268627~hmac=ce88a4b20ab77ec49a372ffb9aa20bbf4aafb2106d54fd4efcf0246acb191b9e",
-      title: "Diwali"
+      img: "https://cdn.kekastatic.net/assets/images/dashboard/holidays/srirama-navami.svg",
+      title: "Rama Navami"
+    },
+    {
+      img: "https://cdn.kekastatic.net/assets/images/dashboard/holidays/rakshabandhan.svg",
+      title: "Raksha Bandhan"
     }
   ];
+  movePrev() {
+    let anchor = this.template.querySelector(".imgFlexScroll");
+    anchor.scrollLeft -= 420;
+  }
+  moveNext() {
+    let anchor = this.template.querySelector(".imgFlexScroll");
+    anchor.scrollLeft += 420;
+  }
 }

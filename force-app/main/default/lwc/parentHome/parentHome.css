@@ -77,7 +77,8 @@ div {
 
 .layoutitemcommon {
     background-color: white;
-    height: 10rem;
+    width: 445px;
+    min-height: 204px;
     border-radius: 8px;
 }
 
@@ -109,7 +110,23 @@ div {
     position: relative;
     width: 100%;
     overflow: hidden;
-    height: 88px;
+    height: 125px;
+    scroll-behavior: smooth;
+}
+
+.imgFlexScroll>div {
+    flex-shrink: 0;
+}
+
+.imgFlexScroll p {
+    position: absolute;
+    top: 0;
+    font-size: 2rem;
+    color: #fff;
+    font-family: cursive;
+    /* width: 420px; */
+    /* height: 125px; */
+    margin: 25px;
 }
 
 .grxView {
@@ -117,25 +134,36 @@ div {
     align-items: center;
     position: relative;
     padding: 1rem 0;
+    height: 157px;
 }
 
 .grxView>p {
-    transform: rotate(90deg);
+    transform: rotate(180deg);
     background-color: #f3f3f3;
     width: 30px;
-    height: 29px;
+    height: 30px;
     text-align: center;
     border-radius: 50%;
     display: flex;
     align-items: center;
     position: absolute;
     justify-content: center;
-    left: -14px;
+    left: -15px;
     z-index: 1;
+    cursor: pointer;
+}
+
+.grxView>p::selection {
+    background-color: transparent;
+}
+
+.grxView>p:active {
+    background-color: #444;
+    color: #fff;
 }
 
 .grxView>p:last-child {
-    transform: rotate(-90deg);
+    transform: rotate(0deg);
     right: 0;
-    left: 95%;
+    left: 96%;
 }
