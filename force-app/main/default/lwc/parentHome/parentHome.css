@@ -80,6 +80,7 @@ div {
     width: 445px;
     min-height: 204px;
     border-radius: 8px;
+    cursor: pointer;
 }
 
 .bottomdiv2 {
@@ -119,14 +120,41 @@ div {
 }
 
 .imgFlexScroll p {
-    position: absolute;
-    top: 0;
+    /* position: absolute;
+    top: 0; */
     font-size: 2rem;
     color: #fff;
     font-family: cursive;
-    /* width: 420px; */
-    /* height: 125px; */
+    width: 370px;
     margin: 25px;
+}
+
+.gudi {
+    background-image: url("https://cdn.kekastatic.net/assets/images/dashboard/holidays/ugadi.svg");
+}
+
+.republicDay {
+    background-image: url("https://cdn.kekastatic.net/assets/images/dashboard/holidays/india-republic-day.svg");
+}
+
+.shivratri {
+    background-image: url("https://cdn.kekastatic.net/assets/images/dashboard/holidays/shivratri.svg");
+}
+
+.holi {
+    background-image: url("https://cdn.kekastatic.net/assets/images/dashboard/holidays/holi.svg");
+}
+
+.ashtami {
+    background-image: url("https://cdn.kekastatic.net/assets/images/dashboard/holidays/dussehra.svg");
+}
+
+.navami {
+    background-image: url("https://cdn.kekastatic.net/assets/images/dashboard/holidays/srirama-navami.svg");
+}
+
+.rakshaBandhan {
+    background-image: url("https://cdn.kekastatic.net/assets/images/dashboard/holidays/rakshabandhan.svg");
 }
 
 .grxView {
@@ -139,7 +167,7 @@ div {
 
 .grxView>p {
     transform: rotate(180deg);
-    background-color: #f3f3f3;
+    background-color: #ffffff;
     width: 30px;
     height: 30px;
     text-align: center;
@@ -151,6 +179,10 @@ div {
     left: -15px;
     z-index: 1;
     cursor: pointer;
+    background-image: url(https://cdn-icons-png.flaticon.com/512/32/32213.png);
+    background-size: 15px;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 .grxView>p::selection {

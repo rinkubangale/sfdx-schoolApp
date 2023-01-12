@@ -21,7 +21,7 @@
                             <button class="graphicview" data-name="grx" onclick={handleListGxBtn}>Graphic</button>
                         </div>
                     </div>
-                    <div style="overflow:auto; height: 70%" if:true={listDisplay}>
+                    <div style="overflow:auto; height: 70%; padding: 1rem;" if:true={listDisplay}>
                         <template for:each={holidayImg} for:item="holiday">
                             <div key={holiday.title}>
                                 <ul class="festival" style="list-style: inside;">
@@ -35,22 +35,21 @@
                         </template>
                     </div>
                     <div class="grxView" if:true={grxDisplay}>
-                        <p onclick={movePrev}>></p>
+                        <p onclick={movePrev}></p>
                         <div class="imgFlexScroll">
                             <template for:each={holidayImg} for:item="img">
-                                <div key={img}>
-                                    <img src={img.img} alt="holidayImg">
+                                <div key={img} class={img.class}>
                                     <p>{img.title}</p>
                                 </div>
                             </template>
                         </div>
-                        <p onclick={moveNext}>></p>
+                        <p onclick={moveNext}></p>
                     </div>
                 </lightning-layout-item>
 
-                <lightning-layout-item
-                    class="slds-var-p-around_x-large slds-size_1-of-1 slds-medium-size_5-of-12 slds-large-size_5-of-12 layoutitemcommon">
-                    <div class="bottomdiv2" onclick={leaveReq}>
+                <lightning-layout-item class="slds-var-p-around_x-large slds-size_1-of-1 slds-medium-size_5-of-12 slds-large-size_5-of-12
+                    layoutitemcommon" onclick={leaveReq}>
+                    <div class="bottomdiv2">
                         <div>
                             <b>Leave Request</b>
                         </div>

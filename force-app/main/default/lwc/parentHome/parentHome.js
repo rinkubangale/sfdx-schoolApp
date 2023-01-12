@@ -38,32 +38,32 @@ export default class ParentHome extends LightningElement {
 
   @track holidayImg = [
     {
-      img: "https://cdn.kekastatic.net/assets/images/dashboard/holidays/ugadi.svg",
-      title: "Gudi Padwa"
+      title: "Gudi Padwa",
+      class: "gudi"
     },
     {
-      img: "https://cdn.kekastatic.net/assets/images/dashboard/holidays/india-republic-day.svg",
-      title: "Republic Day"
+      title: "Republic Day",
+      class: "republicDay"
     },
     {
-      img: "https://cdn.kekastatic.net/assets/images/dashboard/holidays/shivratri.svg",
-      title: "Shivratri"
+      title: "Shivratri",
+      class: "shivratri"
     },
     {
-      img: "https://cdn.kekastatic.net/assets/images/dashboard/holidays/holi.svg",
-      title: "Holi"
+      title: "Holi",
+      class: "holi"
     },
     {
-      img: "https://cdn.kekastatic.net/assets/images/dashboard/holidays/dussehra.svg",
-      title: "Maha Ashtami"
+      title: "Maha Ashtami",
+      class: "ashtami"
     },
     {
-      img: "https://cdn.kekastatic.net/assets/images/dashboard/holidays/srirama-navami.svg",
-      title: "Rama Navami"
+      title: "Rama Navami",
+      class: "navami"
     },
     {
-      img: "https://cdn.kekastatic.net/assets/images/dashboard/holidays/rakshabandhan.svg",
-      title: "Raksha Bandhan"
+      title: "Raksha Bandhan",
+      class: "rakshaBandhan"
     }
   ];
   movePrev() {
