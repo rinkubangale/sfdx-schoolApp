@@ -21,7 +21,8 @@
                             <button class="graphicview" data-name="grx" onclick={handleListGxBtn}>Graphic</button>
                         </div>
                     </div>
-                    <div style="overflow:auto; height: 70%; padding: 1rem;" if:true={listDisplay}>
+                    <div style="overflow:auto; height: 70%; padding: 1rem;display: flex;justify-content: space-between;flex-wrap: wrap;gap: 2rem;"
+                        if:true={listDisplay}>
                         <template for:each={holidayImg} for:item="holiday">
                             <div key={holiday.title}>
                                 <ul class="festival" style="list-style: inside;">
@@ -50,8 +51,25 @@
                 <lightning-layout-item class="slds-var-p-around_x-large slds-size_1-of-1 slds-medium-size_5-of-12 slds-large-size_5-of-12
                     layoutitemcommon" onclick={leaveReq}>
                     <div class="bottomdiv2">
+                        <div><b>Leave Request</b></div>
                         <div>
-                            <b>Leave Request</b>
+                            <button class="viewall" data-name="view">View all</button>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="dashboard">
+                            <div>
+                                <div class="casualL border">15</div>
+                                <P>Total Leave</P>
+                            </div>
+                            <div>
+                                <div class="sickL border">01</div>
+                                <P>Sick Leave</P>
+                            </div>
+                            <div>
+                                <div class="otherL border">04</div>
+                                <P>Other Leave</P>
+                            </div>
                         </div>
                     </div>
                 </lightning-layout-item>

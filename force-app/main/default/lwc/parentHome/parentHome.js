@@ -28,8 +28,8 @@ export default class ParentHome extends LightningElement {
     this.openLeaveRequestPage = false;
   }
 
-  @track listDisplay = true;
-  @track grxDisplay = false;
+  @track listDisplay = false;
+  @track grxDisplay = true;
 
   handleListGxBtn(e) {
     this.listDisplay = e.currentTarget.dataset.name === "list" ? true : false;
