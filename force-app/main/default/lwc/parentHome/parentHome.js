@@ -74,4 +74,23 @@ export default class ParentHome extends LightningElement {
     let anchor = this.template.querySelector(".imgFlexScroll");
     anchor.scrollLeft += 420;
   }
+
+  
+
+@track openLeaveRequestPage = false;
+@track openAcademicPerformance = false;
+@track openCocurricularPerformance = false;
+@track openAttendancePerformance = false;
+
+
+academicPerformance() {
+  this.openAcademicPerformance = ! this.openAcademicPerformance;
+}
+cocurricularPerformance() {
+  this.openCocurricularPerformance = !this.openCocurricularPerformance;
+}
+attendancePerformance() {
+  this.openAttendancePerformance = !this.openAttendancePerformance;
+}
+
 }

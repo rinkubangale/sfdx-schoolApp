@@ -99,15 +99,15 @@
                 <p>Student Performance</p>
                 <div>
                     <div class="cardContainer">
-                        <div>
+                        <div onclick={academicPerformance}>
                             <span class="card-title">Academics</span>
                             <span>80%</span>
                         </div>
-                        <div>
+                        <div onclick={cocurricularPerformance}>
                             <span class="card-title">Co-curricular</span>
                             <span>90%</span>
                         </div>
-                        <div>
+                        <div onclick={attendancePerformance}>
                             <span class="card-title">Attendance</span>
                             <span>80%</span>
                         </div>
@@ -122,5 +122,18 @@
     </template>
     <template if:true={openLeaveRequestPage}>
         <c-leave-req-list-view onbackbtn={closeLeaveReq}></c-leave-req-list-view>
+    </template>
+
+    <template if:true={openAcademicPerformance}>
+        <c-student-academic-performance onmodalchange={academicPerformance}></c-student-academic-performance>
+    </template>
+
+    <template if:true={openCocurricularPerformance}>
+        <c-student-co-curricular-performance onmodalchange={cocurricularPerformance}>
+        </c-student-co-curricular-performance>
+    </template>
+
+    <template if:true={openAttendancePerformance}>
+        <c-student-attendance-performance onmodalchange={attendancePerformance}></c-student-attendance-performance>
     </template>
 </template>
