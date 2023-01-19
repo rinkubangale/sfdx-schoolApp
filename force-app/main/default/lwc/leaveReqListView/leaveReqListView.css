@@ -1,18 +1,22 @@
-.mySearchBar > input[type="text"] {
-    color: #333;
-    border: none;
-    outline: none;
-    margin-left: 4px;
-  }
-  
-  .mySearchBar > input[type="text"]:hover,
-  .mySearchBar > input[type="text"]:focus {
-    font-size: 1rem;
-  }
-  
-  .mySearchBar {
-    border-bottom: 1px solid #ccc;
-    padding-bottom: 3px;
-    display: flex;
-    align-items: center;
-  }
+.mySearchBar>input[type="text"] {
+  color: #333;
+  border: none;
+  outline: none;
+  margin-left: 4px;
+}
+
+.mySearchBar>input[type="text"]:hover,
+.mySearchBar>input[type="text"]:focus {
+  font-size: 1rem;
+}
+
+.mySearchBar {
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 3px;
+  display: flex;
+  align-items: center;
+}
+
+.slds-card__header {
+  color: #444;
+}

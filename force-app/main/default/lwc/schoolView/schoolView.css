@@ -202,3 +202,128 @@ span.userName {
     width: 30%;
   }
 }
+
+.layoutitemcommon {
+  background-color: white;
+  width: 445px;
+  min-height: 204px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.bottomdiv2 {
+  display: flex;
+  justify-content: space-between;
+}
+
+.bottomdiv2>div {
+  display: inline-block;
+}
+
+.bottomdiv2 button:active {
+  background-color: #f2f2f2;
+}
+
+.bottomdiv2 button {
+  outline: none;
+  font-size: 15px;
+  color: #0070D2;
+  font-weight: 500;
+  border-radius: 3px;
+  background-color: white;
+  border: 1px solid #dddbda;
+}
+
+.imgFlexScroll {
+  display: flex;
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  height: 125px;
+  scroll-behavior: smooth;
+}
+
+.imgFlexScroll>div {
+  flex-shrink: 0;
+}
+
+.imgFlexScroll p {
+  /* position: absolute;
+    top: 0; */
+  font-size: 2rem;
+  color: #fff;
+  font-family: cursive;
+  width: 370px;
+  margin: 25px;
+}
+
+.gudi {
+  background-image: url("https://cdn.kekastatic.net/assets/images/dashboard/holidays/ugadi.svg");
+}
+
+.republicDay {
+  background-image: url("https://cdn.kekastatic.net/assets/images/dashboard/holidays/india-republic-day.svg");
+}
+
+.shivratri {
+  background-image: url("https://cdn.kekastatic.net/assets/images/dashboard/holidays/shivratri.svg");
+}
+
+.holi {
+  background-image: url("https://cdn.kekastatic.net/assets/images/dashboard/holidays/holi.svg");
+}
+
+.ashtami {
+  background-image: url("https://cdn.kekastatic.net/assets/images/dashboard/holidays/dussehra.svg");
+}
+
+.navami {
+  background-image: url("https://cdn.kekastatic.net/assets/images/dashboard/holidays/srirama-navami.svg");
+}
+
+.rakshaBandhan {
+  background-image: url("https://cdn.kekastatic.net/assets/images/dashboard/holidays/rakshabandhan.svg");
+}
+
+.grxView {
+  display: flex;
+  align-items: center;
+  position: relative;
+  padding: 1rem 0;
+  height: 157px;
+}
+
+.grxView>p {
+  transform: rotate(180deg);
+  background-color: #ffffff;
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  position: absolute;
+  justify-content: center;
+  left: -15px;
+  z-index: 1;
+  cursor: pointer;
+  background-image: url(https://cdn-icons-png.flaticon.com/512/32/32213.png);
+  background-size: 15px;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.grxView>p::selection {
+  background-color: transparent;
+}
+
+.grxView>p:active {
+  background-color: #444;
+  color: #fff;
+}
+
+.grxView>p:last-child {
+  transform: rotate(0deg);
+  right: 0;
+  left: 96%;
+}

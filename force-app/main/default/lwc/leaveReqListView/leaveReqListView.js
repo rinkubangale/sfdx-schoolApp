@@ -1,5 +1,6 @@
 import {
-    LightningElement
+    LightningElement,
+    track
 } from 'lwc';
 
 
@@ -42,8 +43,31 @@ const columns = [{
 
 
 export default class LeaveReqListView extends LightningElement {
+    @track isModalOpen = false;
+
     columns = columns;
 
+    openModal() {
+
+        this.isModalOpen = true;
+    }
+    closeModal() {
+
+        this.isModalOpen = false;
+    }
+
+
+
+
+
+
+
+
+    dataList = [{
+        leaveType: "Casual Leave",
+        dateApplied: "09-Jan-2023",
+        status: "Active"
+    }];
 
     rowActionHandler(evt) {
         const rowDel = [];

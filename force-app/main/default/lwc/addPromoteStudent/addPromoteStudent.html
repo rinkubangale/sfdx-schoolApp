@@ -6,7 +6,7 @@
         <main class="main-content add-class-wrap">
             <div class="header row no-left-margin no-right-margin">
                 <a href="#" data-close="true">
-                   
+
                 </a>
                 <div class="Add-c-headings">
                     <p class="add-heading-manage fivpx-mrgn-btm">
@@ -69,84 +69,56 @@
                         </div>
                     </div>
                 </form> -->
-                
-                    <lightning-layout multiple-rows="true">
-                        <lightning-layout-item size="6" class="slds-p-around_medium">
-                            <lightning-combobox
-                            name="progress"
-                            label="Current Academic Year"
-                            placeholder="Select "
-                            options={AYoptions}
-                            onchange={handleFromAY} required ></lightning-combobox>
-                    
-                        </lightning-layout-item>
-            
+
+                <lightning-layout multiple-rows="true">
                     <lightning-layout-item size="6" class="slds-p-around_medium">
-                        <lightning-combobox
-                        name="progress"
-                        label="Next Academic Year"
-                        placeholder="Select "
-                        options={AYoptions}
-                        onchange={handleToAY} required></lightning-combobox>
-                      </lightning-layout-item>
-                        
-                   <lightning-layout-item size="3" class="slds-p-around_medium">
-                        <lightning-combobox
-                        name="progress"
-                        label="From Class"
-                        placeholder="Select "
-                        options={ClassOptions}
-                        value={Class}
-                        onchange={handleFromClass} required ></lightning-combobox>
+                        <lightning-combobox name="progress" label="Current Academic Year" placeholder="Select "
+                            options={AYoptions} onchange={handleFromAY} required></lightning-combobox>
+
                     </lightning-layout-item>
-            
+
+                    <lightning-layout-item size="6" class="slds-p-around_medium">
+                        <lightning-combobox name="progress" label="Next Academic Year" placeholder="Select "
+                            options={AYoptions} onchange={handleToAY} required></lightning-combobox>
+                    </lightning-layout-item>
+
                     <lightning-layout-item size="3" class="slds-p-around_medium">
-                        <lightning-combobox
-                        name="progress"
-                        label="From Section"
-                        placeholder="Select "
-                        options={FromSectionOptions}
-                        onchange={handleFromSection} required></lightning-combobox>
+                        <lightning-combobox name="progress" label="From Class" placeholder="Select "
+                            options={ClassOptions} value={Class} onchange={handleFromClass} required>
+                        </lightning-combobox>
                     </lightning-layout-item>
-                
+
                     <lightning-layout-item size="3" class="slds-p-around_medium">
-                        <lightning-combobox
-                        name="progress"
-                        label="To Class"
-                        placeholder="Select "
-                        options={ClassOptions}
-                        onchange={handleToClass} required ></lightning-combobox>
+                        <lightning-combobox name="progress" label="From Section" placeholder="Select "
+                            options={FromSectionOptions} onchange={handleFromSection} required></lightning-combobox>
                     </lightning-layout-item>
-                
+
                     <lightning-layout-item size="3" class="slds-p-around_medium">
-                        <lightning-combobox
-                        name="progress"
-                        label="To Section"
-                        placeholder="Select "
-                        options={ToSectionOptions}
-                        onchange={handleToSection} required ></lightning-combobox>
-                        
-                        
-                        
+                        <lightning-combobox name="progress" label="To Class" placeholder="Select "
+                            options={ClassOptions} onchange={handleToClass} required></lightning-combobox>
                     </lightning-layout-item>
-            
-                    <lightning-layout-item size="12" style="width:45rem ; display:block">
-                        <lightning-datatable
-                        key-field="Id"
-                        data={data}
-                        columns={columns}
-                        onrowselection={handleSelectedRows}
-                        resize-column-disabled>
-                </lightning-datatable> 
-            </lightning-layout-item>
-        
-                    </lightning-layout>
-                   
-                    <div class="slds-var-m-top_large slds-align_absolute-center">
-                        <lightning-button variant="brand" type="submit" label={headTitle}>
-                        </lightning-button>
-                    </div>
-                
+
+                    <lightning-layout-item size="3" class="slds-p-around_medium">
+                        <lightning-combobox name="progress" label="To Section" placeholder="Select "
+                            options={ToSectionOptions} onchange={handleToSection} required></lightning-combobox>
+
+
+
+                    </lightning-layout-item>
+
+                    <lightning-layout-item size="12" style="display:none">
+                        <lightning-datatable key-field="Id" data={data} columns={columns}
+                            onrowselection={handleSelectedRows} resize-column-disabled>
+                        </lightning-datatable>
+                    </lightning-layout-item>
+
+                </lightning-layout>
+
+                <div class="slds-var-m-top_large slds-align_absolute-center">
+                    <lightning-button variant="brand" type="submit" label={headTitle}>
+                    </lightning-button>
+                </div>
+
             </div>
             <template if:true={isLoading}>
                 <lightning-spinner alternative-text="Loading" variant="brand" style="background:transparent;">

@@ -286,4 +286,49 @@ export default class SchoolView extends LightningElement {
       class: e.currentTarget.dataset.class
     };
   }
+  @track holidayImg = [
+    {
+      title: "Gudi Padwa",
+      class: "gudi"
+    },
+    {
+      title: "Republic Day",
+      class: "republicDay"
+    },
+    {
+      title: "Shivratri",
+      class: "shivratri"
+    },
+    {
+      title: "Holi",
+      class: "holi"
+    },
+    {
+      title: "Maha Ashtami",
+      class: "ashtami"
+    },
+    {
+      title: "Rama Navami",
+      class: "navami"
+    },
+    {
+      title: "Raksha Bandhan",
+      class: "rakshaBandhan"
+    }
+  ];
+
+  @track listDisplay = false;
+  @track grxDisplay = true;
+  handleListGxBtn(e) {
+    this.listDisplay = e.currentTarget.dataset.name === "list" ? true : false;
+    this.grxDisplay = e.currentTarget.dataset.name === "grx" ? true : false;
+  }
+  movePrev() {
+    let anchor = this.template.querySelector(".imgFlexScroll");
+    anchor.scrollLeft -= 420;
+  }
+  moveNext() {
+    let anchor = this.template.querySelector(".imgFlexScroll");
+    anchor.scrollLeft += 420;
+  }
 }

@@ -1,6 +1,14 @@
-import { LightningElement, api, track } from "lwc";
-import { NavigationMixin } from "lightning/navigation";
-import { showError } from "c/utility";
+import {
+  LightningElement,
+  api,
+  track
+} from "lwc";
+import {
+  NavigationMixin
+} from "lightning/navigation";
+import {
+  showError
+} from "c/utility";
 
 export default class HomeDefault extends NavigationMixin(LightningElement) {
   @api clicked = false;
@@ -54,6 +62,7 @@ export default class HomeDefault extends NavigationMixin(LightningElement) {
     this.previewSchool = false;
     this.promoteStudents = false;
     this.onlineAdmission = false;
+    this.manageSubjects = false;
 
     switch (event.currentTarget.dataset.name) {
       case "schoolSetting":
@@ -101,6 +110,9 @@ export default class HomeDefault extends NavigationMixin(LightningElement) {
         break;
       case "onlineAdmission":
         this.onlineAdmission = true;
+        break;
+      case "manageSubjectListView":
+        this.manageSubjects = true;
         break;
       default:
         console.log("Sorry, we are out of data.");

@@ -6,9 +6,15 @@
         <template if:true={leaveTypeListView}>
             <c-leave-type-list-view onbackbtn={handleBack}></c-leave-type-list-view>
         </template>
-    </template>
-    <template if:true={login}>
-        <c-login-page onbackbtn={handleBack}></c-login-page>
+        <template if:true={alertListView}>
+            <c-alerts-list-view onbackbtn={handleBack}></c-alerts-list-view>
+        </template>
+        <template if:true={messagesListView}>
+            <c-messages-chats onbackbtn={handleBack}></c-messages-chats>
+        </template>
+        <template if:true={login}>
+            <c-login-page onbackbtn={handleBack}></c-login-page>
+        </template>
     </template>
 
     <template if:false={clicked}>
@@ -28,15 +34,29 @@
                         </c-default-card>
                     </span>
                 </lightning-layout-item>
-            
-            <lightning-layout-item flexibility="auto" padding="around-small">
-                <span onclick={openCard} data-name="login">
-                    <c-default-card obj-api-name='Leave__c' header="Login" step="STEP 1"
-                        header-line="Login Page" example-tag="Login, Register, forget Password">
-                    </c-default-card>
-                </span>
-            </lightning-layout-item>
-        </lightning-layout>
+
+                <lightning-layout-item flexibility="auto" padding="around-small">
+                    <span onclick={openCard} data-name="login">
+                        <c-default-card obj-api-name='Leave__c' header="Login" step="STEP 1" header-line="Login Page"
+                            example-tag="Login, Register, forget Password">
+                        </c-default-card>
+                    </span>
+                </lightning-layout-item>
+                <lightning-layout-item flexibility="auto" padding="around-small">
+                    <span onclick={openCard} data-name="alertListView">
+                        <c-default-card obj-api-name='Leave__c' header="Manage Alerts" step="STEP 1"
+                            header-line="Alerts & Notifications" example-tag="">
+                        </c-default-card>
+                    </span>
+                </lightning-layout-item>
+                <lightning-layout-item flexibility="auto" padding="around-small">
+                    <span onclick={openCard} data-name="messagesListView">
+                        <c-default-card obj-api-name='Leave__c' header="Manage Messages" step="STEP 2"
+                            header-line="Messages & Chat" example-tag="">
+                        </c-default-card>
+                    </span>
+                </lightning-layout-item>
+            </lightning-layout>
         </lightning-card>
     </template>
 </template>

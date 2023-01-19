@@ -18,15 +18,29 @@ const actions = [{
     title: "Delete"
   },
   {
+    label: "Approve",
+    name: "approve",
+    iconName: "utility:check",
+    alternativeText: "Approve",
+    title: "Approve"
+  },
+  {
+    label: "Reject",
+    name: "reject",
+    iconName: "utility:close",
+    alternativeText: "Reject",
+    title: "Reject"
+  },
+  {
     label: "Print",
-    name: "Print",
+    name: "print",
     iconName: "utility:print",
     alternativeText: "Print",
     title: "Print"
   },
   {
     label: "Send",
-    name: "Send",
+    name: "send",
     iconName: "utility:send",
     alternativeText: "Send",
     title: "Send"
@@ -69,6 +83,13 @@ const columns = [{
   }
 ];
 export default class Inbox extends LightningElement {
+  @track editPage = false;
+  @track deleteConfirmation = false;
+  @track approveconfirmation = false;
+  @track rejectconfirmation = false;
+  @track sendPage = false;
+  @track opengeneratecertificate = false;
+
 
   dataList = [{
 
@@ -85,9 +106,6 @@ export default class Inbox extends LightningElement {
 
   columns = columns;
 
-
-
-
   viewInbox = true;
   @track user;
   @track details = false;
@@ -102,4 +120,42 @@ export default class Inbox extends LightningElement {
     this.details2 = true;
     this.details = false;
   }
+
+  rowActionHandler(e) {
+    if (e.detail.action.name == 'edit') {
+      this.editPage = true;
+    } else if (e.detail.action.name == 'delete') {
+      this.deleteConfirmation = true;
+    } else if (e.detail.action.name == 'approve') {
+      this.approveconfirmation = true;
+    } else if (e.detail.action.name == 'reject') {
+      this.rejectconfirmation = true;
+    } else if (e.detail.action.name == 'send') {
+      this.sendPage = true;
+    }
+
+  }
+
+  editPageFunc() {
+    this.editPage = !this.editPage;
+  }
+  sendPageFunc() {
+    this.sendPage = !this.sendPage;
+  }
+  deleteConfirmationFunc() {
+    this.deleteConfirmation = !this.deleteConfirmation;
+  }
+  approveConfirmationFunc() {
+    this.approveconfirmation = !this.approveconfirmation;
+  }
+  rejectConfirmationFunc() {
+    this.rejectconfirmation = !this.rejectconfirmation;
+  }
+  openGenerateCertificate() {
+    this.opengeneratecertificate = !this.opengeneratecertificate;
+  }
+  closeGenerateCertificate() {
+    this.opengeneratecertificate = false;
+  }
+
 }

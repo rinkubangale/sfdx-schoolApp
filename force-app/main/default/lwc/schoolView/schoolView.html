@@ -73,30 +73,39 @@
         </lightning-layout-item>
 
         <lightning-layout-item
-          class="slds-var-p-around_x-large slds-size_1-of-1 slds-medium-size_5-of-12 slds-large-size_3-of-12 layoutitemcommon"
-          alignment-bump="">
-          <div class="slds-clearfix bottomdiv2">
+          class="slds-var-p-around_x-large slds-size_1-of-1 slds-medium-size_5-of-12 slds-small-size_5-of-12 layoutitemcommon">
+          <div class="bottomdiv2">
+            <div><b>Holidays</b></div>
             <div>
-              <b>Upcoming Holidays</b>
-            </div>
-            <div style="margin-left:2em">
-              <lightning-button class="listview" label="List" onclick={handleClick1}></lightning-button>
-              <lightning-button class="graphicview" label="Graphic" onclick={handleClick2}></lightning-button>
+              <button class="listview slds-m-right_small" data-name="list" onclick={handleListGxBtn}>List</button>
+              <button class="graphicview" data-name="grx" onclick={handleListGxBtn}>Graphic</button>
             </div>
           </div>
-          <br />
-          <div style="overflow:auto; height: 70%">
-            <template for:each={holidaysData} for:item="holiday">
-              <div key={holiday.Id} class="slds-clearfix" style="padding: 10px 0px;">
-                <div class="festival">
-                  <h3>{holiday.Name}</h3>
-                </div>
+          <div
+            style="overflow:auto; height: 70%; padding: 1rem;display: flex;justify-content: space-between;flex-wrap: wrap;gap: 2rem;"
+            if:true={listDisplay}>
+            <template for:each={holidayImg} for:item="holiday">
+              <div key={holiday.title}>
+                <ul class="festival" style="list-style: inside;">
+                  <li>{holiday.title}</li>
+                </ul>
                 <div class="slds-float_right thirddiv">
                   <p>{holiday.date}</p>
                   <p>{holiday.day}</p>
                 </div>
               </div>
             </template>
+          </div>
+          <div class="grxView" if:true={grxDisplay}>
+            <p onclick={movePrev}></p>
+            <div class="imgFlexScroll">
+              <template for:each={holidayImg} for:item="img">
+                <div key={img} class={img.class}>
+                  <p>{img.title}</p>
+                </div>
+              </template>
+            </div>
+            <p onclick={moveNext}></p>
           </div>
         </lightning-layout-item>
       </lightning-layout>

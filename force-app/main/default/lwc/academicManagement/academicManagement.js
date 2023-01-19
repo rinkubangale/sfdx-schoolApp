@@ -1,7 +1,9 @@
-import { LightningElement, track } from "lwc";
+import {
+  LightningElement,
+  track
+} from "lwc";
 
-const actions = [
-  {
+const actions = [{
     label: "edit",
     name: "edit",
     iconName: "utility:edit",
@@ -17,8 +19,7 @@ const actions = [
   }
 ];
 
-const columns = [
-  {
+const columns = [{
     label: "Name",
     fieldName: "Name"
   },
@@ -56,9 +57,8 @@ export default class AcademicManagement extends LightningElement {
   @track showAcademics = false;
   @track showCurricular = false;
   @track showAttendance = false;
-  @track showPopup = false;
-  @track columns = [
-    {
+  @track toggleAssignTeacher = false;
+  @track columns = [{
       sr: "1",
       strtime: "9:00",
       endtime: "9:40",
@@ -116,16 +116,14 @@ export default class AcademicManagement extends LightningElement {
   @track gradeSetup = false;
 
   @track
-  dataList = [
-    {
-      Name: "Srihari N",
-      Class: "LKG-A",
-      Subject: "Science",
-      StartDate: "22-Jan-2022",
-      SubmissionDate: "11-Feb-2022",
-      Status: "Completed"
-    }
-  ];
+  dataList = [{
+    Name: "Srihari N",
+    Class: "LKG-A",
+    Subject: "Science",
+    StartDate: "22-Jan-2022",
+    SubmissionDate: "11-Feb-2022",
+    Status: "Completed"
+  }];
   column = columns;
   @track showTTSetup = false;
   handleTTSetup() {
@@ -143,7 +141,7 @@ export default class AcademicManagement extends LightningElement {
   }
 
   togglePopup() {
-    this.showPopup = !this.showPopup;
+    this.toggleAssignTeacher = !this.toggleAssignTeacher;
   }
   togglePerformance() {
     this.showPerformance = !this.showPerformance;
@@ -189,8 +187,7 @@ export default class AcademicManagement extends LightningElement {
     return this.viewCsLesson ? "rotateIcon" : "breadcrumIcon";
   }
 
-  @track arrLessons = [
-    {
+  @track arrLessons = [{
       lesson: "Lesson 1",
       noClass: "10",
       status: "Not Started",
@@ -280,8 +277,7 @@ export default class AcademicManagement extends LightningElement {
     }
   }
 
-  @track col = [
-    {
+  @track col = [{
       sr: "1",
       strtime: "9:00",
       endtime: "9:40",

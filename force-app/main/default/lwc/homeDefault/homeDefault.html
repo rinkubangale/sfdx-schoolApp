@@ -48,6 +48,9 @@
         <template if:true={onlineAdmission}>
             <c-online-admission onbackbtn={closeModal}></c-online-admission>
         </template>
+        <template if:true={manageSubjects}>
+            <c-manage-subject-list-view onbackbtn={closeModal}></c-manage-subject-list-view>
+        </template>
     </template>
 
     <template if:false={clicked}>
@@ -147,7 +150,7 @@
                 </lightning-layout-item>
                 <lightning-layout-item flexibility="auto" padding="around-small"
                     class="slds-size_1-of-1 slds-medium-size_6-of-12 slds-large-size_4-of-12">
-                    <span onclick={defaultNotSet} data-name="listClass">
+                    <span onclick={openCard} data-name="manageSubjectListView">
                         <c-default-card obj-api-name='ContactStudent' header="Manage Subjects" step="STEP 3"
                             header-line="Add Subjects" example-tag="[for eg: English, Maths, Science, etc]">
                         </c-default-card>

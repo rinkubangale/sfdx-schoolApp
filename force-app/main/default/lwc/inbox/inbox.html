@@ -1,97 +1,118 @@
 <template>
-    <div if:true={viewInbox} class="container">
-        <div>
-            <div>
-                <span class="slds-text-heading_large">Inbox</span>
-            </div>
-        </div>
-        <lightning-tabset>
-            <lightning-tab label="Certificate Request">
-                <div>
+    <template if:false={opengeneratecertificate}>
+        <template if:false={sendPage}>
+            <template if:false={rejectconfirmation}>
+                <template if:false={approveconfirmation}>
+                    <template if:false={editPage}>
+                        <template if:false={deleteConfirmation}>
+                            <div if:true={viewInbox} class="container">
+                                <div>
+                                    <div>
+                                        <span class="slds-text-heading_large">Inbox</span>
+                                    </div>
+                                </div>
+                                <lightning-tabset>
+
+                                    <lightning-tab label="Certificate Request">
+                                        <div>
 
 
-                    <!-- <lightning-accordion class="example-accordion" allow-multiple-sections-open active-section-name="A">
+                                            <!-- <lightning-accordion class="example-accordion" allow-multiple-sections-open active-section-name="A">
                         <lightning-accordion-section name="A" label="Action Required (5)"> -->
-                    <lightning-card style="margin:15px; text-transform:capitalize;" class="slds-card__header ">
-                        <lightning-layout>
-                            <lightning-layout-item size="3" class="slds-float_left slds-p-around_medium">
-                                <lightning-icon icon-name="standard:record" alternative-text="Clone"
-                                    title="View Academic Year">
-                                </lightning-icon>
+                                            <lightning-card style="margin:15px; text-transform:capitalize;"
+                                                class="slds-card__header ">
+                                                <lightning-layout>
+                                                    <lightning-layout-item size="3"
+                                                        class="slds-float_left slds-p-around_medium">
+                                                        <lightning-icon icon-name="standard:record"
+                                                            alternative-text="Clone" title="View Academic Year">
+                                                        </lightning-icon>
 
-                                <span style="font-weight:bold; font-size:larger; color: black; padding-top: 7px;"
-                                    class=" slds-p-around_small ">
-                                    Request Details</span>
-                            </lightning-layout-item>
+                                                        <span
+                                                            style="font-weight:bold; font-size:larger; color: black; padding-top: 7px;"
+                                                            class=" slds-p-around_small ">
+                                                            Request Details</span>
+                                                    </lightning-layout-item>
 
-                            <lightning-layout-item size="3" class="slds-p-around_medium" style="padding-bottom: 12px;">
-                                <div>
-                                    <label for="certificate" style="font-size: 11px; padding-left: 4px;">
-                                        Sort by Certificate Type
-                                    </label>
-                                    <br />
-                                    <select name="certificateType" id="certificate"
-                                        style="width: 11rem; outline: none; 
+                                                    <lightning-layout-item size="3" class="slds-p-around_medium"
+                                                        style="padding-bottom: 12px;">
+                                                        <div>
+                                                            <label for="certificate"
+                                                                style="font-size: 11px; padding-left: 4px;">
+                                                                Sort by Certificate Type
+                                                            </label>
+                                                            <br />
+                                                            <select name="certificateType" id="certificate"
+                                                                style="width: 11rem; outline: none; 
                                             border-bottom: 1px solid #b7b6b6; border-top:0px; border-left: 0px; border-right:0px;">
-                                        <option value="Select">--Select--</option>
-                                        <option value="Conduct">Conduct Certificate</option>
-                                        <option value="Transfer">Transfer Certificate</option>
-                                        <option value="Bonafide">Bonafide Certificate</option>
-                                    </select>
-                                </div>
-                            </lightning-layout-item>
+                                                                <option value="Select">--Select--</option>
+                                                                <option value="Conduct">Conduct Certificate</option>
+                                                                <option value="Transfer">Transfer Certificate</option>
+                                                                <option value="Bonafide">Bonafide Certificate</option>
+                                                            </select>
+                                                        </div>
+                                                    </lightning-layout-item>
 
-                            <lightning-layout-item size="3" class="slds-p-around_medium slds-align_absolute-center"
-                                style="padding-bottom: 12px;">
-                                <div>
-                                    <label for="status" style="font-size: 11px; padding-left: 4px;">
-                                        Sort by Status
-                                    </label>
-                                    <br />
-                                    <select name="statusType" id="status"
-                                        style="width: 11rem; outline: none; 
+                                                    <lightning-layout-item size="3"
+                                                        class="slds-p-around_medium slds-align_absolute-center"
+                                                        style="padding-bottom: 12px;">
+                                                        <div>
+                                                            <label for="status"
+                                                                style="font-size: 11px; padding-left: 4px;">
+                                                                Sort by Status
+                                                            </label>
+                                                            <br />
+                                                            <select name="statusType" id="status"
+                                                                style="width: 11rem; outline: none; 
                                             border-bottom: 1px solid #b7b6b6; border-top:0px; border-left: 0px; border-right:0px;">
-                                        <option value="Select">--Select--</option>
-                                        <option value="draft">Draft </option>
-                                        <option value="submitted">Submitted </option>
-                                        <option value="approved">Approved </option>
-                                        <option value="rejected">Rejected</option>
-                                        <option value="generated">Generated</option>
-                                        <option value="online">Online</option>
-                                        <option value="couriered">Couriered</option>
-                                        <option value="personalCollect">In Person-Collect</option>
-                                        <option value="needInfo">Need Further Info</option>
-                                        <option value="verified">Verified</option>
-                                    </select>
-                                </div>
-                            </lightning-layout-item>
-                            <lightning-layout-item size="3" class="slds-p-around_medium slds-align_absolute-center"
-                                style="padding-bottom: 12px;">
-                                <lightning-button variant="brand" label="Generate Certificate"></lightning-button>
-                            </lightning-layout-item>
-                        </lightning-layout>
+                                                                <option value="Select">--Select--</option>
+                                                                <option value="draft">Draft </option>
+                                                                <option value="submitted">Submitted </option>
+                                                                <option value="approved">Approved </option>
+                                                                <option value="rejected">Rejected</option>
+                                                                <option value="generated">Generated</option>
+                                                                <option value="online">Online</option>
+                                                                <option value="couriered">Couriered</option>
+                                                                <option value="personalCollect">In Person-Collect
+                                                                </option>
+                                                                <option value="needInfo">Need Further Info</option>
+                                                                <option value="verified">Verified</option>
+                                                            </select>
+                                                        </div>
+                                                    </lightning-layout-item>
+                                                    <lightning-layout-item size="3"
+                                                        class="slds-p-around_medium slds-align_absolute-center"
+                                                        style="padding-bottom: 12px;">
+                                                        <lightning-button variant="brand" label="Generate Certificate"
+                                                            onclick={openGenerateCertificate}>
+                                                        </lightning-button>
+                                                    </lightning-layout-item>
+                                                </lightning-layout>
 
 
-                        <template if:true={isDelete}>
-                            <c-delete-confirmation records-id={DelId} obj-name="Academic_Year__c"
-                                onmodalchange={closemodaldelete}>
-                            </c-delete-confirmation>
-                        </template>
+                                                <template if:true={isDelete}>
+                                                    <c-delete-confirmation records-id={DelId}
+                                                        obj-name="Academic_Year__c" onmodalchange={closemodaldelete}>
+                                                    </c-delete-confirmation>
+                                                </template>
 
-                        <div style="height:auto">
-                            <lightning-datatable key-field="Id" data={dataList} columns={columns}
-                                onrowaction={rowActionHandler} resize-column-disabled suppress-bottom-bar>
-                            </lightning-datatable>
-                        </div>
-                        <div slot="footer" class="slds-clearfix slds-p-top_xxx-small ">
+                                                <div style="height:auto">
+                                                    <lightning-datatable key-field="Id" data={dataList}
+                                                        columns={columns} onrowaction={rowActionHandler}
+                                                        resize-column-disabled suppress-bottom-bar>
+                                                    </lightning-datatable>
+                                                </div>
+                                                <div slot="footer" class="slds-clearfix slds-p-top_xxx-small ">
 
-                            <lightning-button label="Delete" onclick={getSelectedRec} variant="brand"
-                                class="slds-var-m-left_xx-small slds-float_right"></lightning-button>
-                        </div>
-                    </lightning-card>
-                    <!-- </lightning-accordion-section> -->
+                                                    <lightning-button label="Delete" onclick={getSelectedRec}
+                                                        variant="brand"
+                                                        class="slds-var-m-left_xx-small slds-float_right">
+                                                    </lightning-button>
+                                                </div>
+                                            </lightning-card>
+                                            <!-- </lightning-accordion-section> -->
 
-                    <!-- <lightning-accordion-section name="B" label="Past Request">
+                                            <!-- <lightning-accordion-section name="B" label="Past Request">
                             <div class="firstTabContainer">
                                 <c-inbox-info-card type-leave=true user='Srihari N' approved=true
                                     onclick={handleViewCard}>
@@ -103,128 +124,262 @@
                         <c-inbox-info-detail-card type-leave=true user={user}>
                         </c-inbox-info-detail-card>
                     </div> -->
-                </div>
-            </lightning-tab>
-            <lightning-tab label="Leave Request (5)">
-                <div class="accContainer">
-                    <lightning-accordion class="example-accordion" allow-multiple-sections-open active-section-name="A">
-                        <lightning-accordion-section name="A" label="Action Required (5)">
-                            <div class="firstTabContainer">
-                                <c-inbox-info-card type-leave=true user='Jagadish Hospet' onclick={handleViewCard}>
-                                </c-inbox-info-card>
-                                <c-inbox-info-card type-leave=true user='Jagadish Hospet' onclick={handleViewCard}>
-                                </c-inbox-info-card>
-                                <c-inbox-info-card type-leave=true user='Jagadish Hospet' onclick={handleViewCard}>
-                                </c-inbox-info-card>
-                                <c-inbox-info-card type-leave=true user='Jagadish Hospet' onclick={handleViewCard}>
-                                </c-inbox-info-card>
-                                <c-inbox-info-card type-leave=true user='Jagadish Hospet' onclick={handleViewCard}>
-                                </c-inbox-info-card>
-                            </div>
-                        </lightning-accordion-section>
+                                        </div>
+                                    </lightning-tab>
+                                    <lightning-tab label="Leave Request (5)">
+                                        <div class="accContainer">
+                                            <lightning-accordion class="example-accordion" allow-multiple-sections-open
+                                                active-section-name="A">
+                                                <lightning-accordion-section name="A" label="Action Required (5)">
+                                                    <div class="firstTabContainer">
+                                                        <c-inbox-info-card type-leave=true user='Jagadish Hospet'
+                                                            onclick={handleViewCard}>
+                                                        </c-inbox-info-card>
+                                                        <c-inbox-info-card type-leave=true user='Jagadish Hospet'
+                                                            onclick={handleViewCard}>
+                                                        </c-inbox-info-card>
+                                                        <c-inbox-info-card type-leave=true user='Jagadish Hospet'
+                                                            onclick={handleViewCard}>
+                                                        </c-inbox-info-card>
+                                                        <c-inbox-info-card type-leave=true user='Jagadish Hospet'
+                                                            onclick={handleViewCard}>
+                                                        </c-inbox-info-card>
+                                                        <c-inbox-info-card type-leave=true user='Jagadish Hospet'
+                                                            onclick={handleViewCard}>
+                                                        </c-inbox-info-card>
+                                                    </div>
+                                                </lightning-accordion-section>
 
-                        <lightning-accordion-section name="B" label="Past Request">
-                            <div class="firstTabContainer">
-                                <c-inbox-info-card type-leave=true user='Srihari N' approved=true
-                                    onclick={handleViewCard}>
-                                </c-inbox-info-card>
-                            </div>
-                        </lightning-accordion-section>
-                    </lightning-accordion>
-                    <div if:true={details} class="detailedCard">
-                        <c-inbox-info-detail-card type-leave=true user={user}>
-                        </c-inbox-info-detail-card>
-                    </div>
-                </div>
-            </lightning-tab>
-            <lightning-tab label="Attendance Regularization (1)">
-                <div class="accContainer">
-                    <lightning-accordion class="example-accordion" allow-multiple-sections-open active-section-name="A">
-                        <lightning-accordion-section name="A" label="Action Required (1)">
-                            <div class="firstTabContainer">
-                                <c-inbox-info-card user='Rinku Bangale' onclick={handleViewCard2}></c-inbox-info-card>
-                            </div>
-                        </lightning-accordion-section>
+                                                <lightning-accordion-section name="B" label="Past Request">
+                                                    <div class="firstTabContainer">
+                                                        <c-inbox-info-card type-leave=true user='Srihari N'
+                                                            approved=true onclick={handleViewCard}>
+                                                        </c-inbox-info-card>
+                                                    </div>
+                                                </lightning-accordion-section>
+                                            </lightning-accordion>
+                                            <div if:true={details} class="detailedCard">
+                                                <c-inbox-info-detail-card type-leave=true user={user}>
+                                                </c-inbox-info-detail-card>
+                                            </div>
+                                        </div>
+                                    </lightning-tab>
+                                    <lightning-tab label="Attendance Regularization (1)">
+                                        <div class="accContainer">
+                                            <lightning-accordion class="example-accordion" allow-multiple-sections-open
+                                                active-section-name="A">
+                                                <lightning-accordion-section name="A" label="Action Required (1)">
+                                                    <div class="firstTabContainer">
+                                                        <c-inbox-info-card user='Rinku Bangale'
+                                                            onclick={handleViewCard2}>
+                                                        </c-inbox-info-card>
+                                                    </div>
+                                                </lightning-accordion-section>
 
-                        <lightning-accordion-section name="B" label="Past Request">
-                            <div class="firstTabContainer">
-                                <c-inbox-info-card user='Abilash Rao' approved=true onclick={handleViewCard2}>
-                                </c-inbox-info-card>
+                                                <lightning-accordion-section name="B" label="Past Request">
+                                                    <div class="firstTabContainer">
+                                                        <c-inbox-info-card user='Abilash Rao' approved=true
+                                                            onclick={handleViewCard2}>
+                                                        </c-inbox-info-card>
+                                                    </div>
+                                                </lightning-accordion-section>
+                                            </lightning-accordion>
+                                            <div if:true={details2} class="detailedCard">
+                                                <c-inbox-info-detail-card user={user}>
+                                                </c-inbox-info-detail-card>
+                                            </div>
+                                        </div>
+                                    </lightning-tab>
+                                    <lightning-tab label="Archive">
+                                        <div class="archContainer">
+                                            <div class="filterSection">
+                                                <span><b>Filter </b></span>
+                                                <select name="Type">
+                                                    <option value="Attendance" selected disabled hidden>Select Type
+                                                    </option>
+                                                    <option value="Attendance">Attendance Regularization</option>
+                                                    <option value="Leave">Leave Request</option>
+                                                </select>
+                                                <select name="Status" id="">
+                                                    <option value="Approved" selected disabled hidden>Select Status
+                                                    </option>
+                                                    <option value="Approved">Approved</option>
+                                                    <option value="Rejected">Rejected</option>
+                                                </select>
+                                            </div>
+                                            <div class="data">
+                                                <div>
+                                                    <table>
+                                                        <tr>
+                                                            <th>Type</th>
+                                                            <th>Name</th>
+                                                            <th>Date</th>
+                                                            <th>Message</th>
+                                                            <th>Status</th>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Leave Request</td>
+                                                            <td>Jagadish Hospet</td>
+                                                            <td>29 Nov</td>
+                                                            <td>Please Approve</td>
+                                                            <td>Approved</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Attendance Adjustments</td>
+                                                            <td>Jagadish Hospet</td>
+                                                            <td>26 Nov</td>
+                                                            <td>Please Approve</td>
+                                                            <td>Approved</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Leave Request</td>
+                                                            <td>Shubhendra Shukla</td>
+                                                            <td>22 Nov</td>
+                                                            <td>Please Approve</td>
+                                                            <td>Approved</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Attendance Adjustments</td>
+                                                            <td>Jagadish Hospet</td>
+                                                            <td>22 Nov</td>
+                                                            <td>Please Approve</td>
+                                                            <td>Approved</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Attendance Adjustments</td>
+                                                            <td>Rinku Bangale</td>
+                                                            <td>23 Nov</td>
+                                                            <td>Please Approve</td>
+                                                            <td>Approved</td>
+                                                        </tr>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </lightning-tab>
+                                </lightning-tabset>
                             </div>
-                        </lightning-accordion-section>
-                    </lightning-accordion>
-                    <div if:true={details2} class="detailedCard">
-                        <c-inbox-info-detail-card user={user}>
-                        </c-inbox-info-detail-card>
-                    </div>
+                        </template>
+                    </template>
+                </template>
+            </template>
+        </template>
+    </template>
+
+
+    <!-- certificate delete confirmation page-->
+
+    <template if:true={deleteConfirmation}>
+        <section role="dialog" tabindex="-1" aria-modal="true" aria-labelledby="modal-heading-01"
+            class="slds-modal slds-fade-in-open slds-modal_large">
+            <div class="slds-modal__container">
+                <div class="slds-float_right">
+                    <button
+                        class="slds-button slds-float_right slds-button_icon slds-modal__close slds-button_icon-inverse"
+                        title="Close" onclick={deleteConfirmationFunc}>
+                        <lightning-icon icon-name="utility:close" alternative-text="close" variant="inverse"
+                            size="small">
+                        </lightning-icon>
+                        <span class="slds-assistive-text">Close</span>
+                    </button>
                 </div>
-            </lightning-tab>
-            <lightning-tab label="Archive">
-                <div class="archContainer">
-                    <div class="filterSection">
-                        <span><b>Filter </b></span>
-                        <select name="Type">
-                            <option value="Attendance" selected disabled hidden>Select Type</option>
-                            <option value="Attendance">Attendance Regularization</option>
-                            <option value="Leave">Leave Request</option>
-                        </select>
-                        <select name="Status" id="">
-                            <option value="Approved" selected disabled hidden>Select Status</option>
-                            <option value="Approved">Approved</option>
-                            <option value="Rejected">Rejected</option>
-                        </select>
-                    </div>
-                    <div class="data">
-                        <div>
-                            <table>
-                                <tr>
-                                    <th>Type</th>
-                                    <th>Name</th>
-                                    <th>Date</th>
-                                    <th>Message</th>
-                                    <th>Status</th>
-                                </tr>
-                                <tr>
-                                    <td>Leave Request</td>
-                                    <td>Jagadish Hospet</td>
-                                    <td>29 Nov</td>
-                                    <td>Please Approve</td>
-                                    <td>Approved</td>
-                                </tr>
-                                <tr>
-                                    <td>Attendance Adjustments</td>
-                                    <td>Jagadish Hospet</td>
-                                    <td>26 Nov</td>
-                                    <td>Please Approve</td>
-                                    <td>Approved</td>
-                                </tr>
-                                <tr>
-                                    <td>Leave Request</td>
-                                    <td>Shubhendra Shukla</td>
-                                    <td>22 Nov</td>
-                                    <td>Please Approve</td>
-                                    <td>Approved</td>
-                                </tr>
-                                <tr>
-                                    <td>Attendance Adjustments</td>
-                                    <td>Jagadish Hospet</td>
-                                    <td>22 Nov</td>
-                                    <td>Please Approve</td>
-                                    <td>Approved</td>
-                                </tr>
-                                <tr>
-                                    <td>Attendance Adjustments</td>
-                                    <td>Rinku Bangale</td>
-                                    <td>23 Nov</td>
-                                    <td>Please Approve</td>
-                                    <td>Approved</td>
-                                </tr>
-                            </table>
-                        </div>
-                    </div>
+                <div class="slds-modal__header">
+                    <h1 id="modal-heading-03" class="slds-modal__title slds-hyphenate" style="color: black;"
+                        onclick={closeCancelInvoice}>Delete Confirmation</h1>
                 </div>
-            </lightning-tab>
-        </lightning-tabset>
-    </div>
+                <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                    <p style="color: black;text-align: center;">Are you sure you want to delete this record ?</p>
+                </div>
+                <div class="slds-modal__footer">
+                    <button class="slds-button slds-button_brand">Confirm</button>
+                    <button class="slds-button slds-button_neutral" aria-label="Cancel and close"
+                        onclick={deleteConfirmationFunc}>Cancel</button>
+
+                </div>
+            </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open"></div>
+    </template>
+
+    <!-- certificate approve confirmation page-->
+    <template if:true={approveconfirmation}>
+        <section role="dialog" tabindex="-1" aria-modal="true" aria-labelledby="modal-heading-01"
+            class="slds-modal slds-fade-in-open slds-modal_large">
+            <div class="slds-modal__container">
+                <div class="slds-float_right">
+                    <button
+                        class="slds-button slds-float_right slds-button_icon slds-modal__close slds-button_icon-inverse"
+                        title="Close" onclick={approveConfirmationFunc}>
+                        <lightning-icon icon-name="utility:close" alternative-text="close" variant="inverse"
+                            size="small">
+                        </lightning-icon>
+                        <span class="slds-assistive-text">Close</span>
+                    </button>
+                </div>
+                <div class="slds-modal__header">
+                    <h1 class="slds-modal__title slds-hyphenate" style="color: black;" onclick={closeCancelInvoice}>
+                        Approve Confirmation</h1>
+                </div>
+                <div class="slds-modal__content slds-p-around_medium">
+                    <p style="color: black;text-align: center;">Are you sure you want to Approve this record ?</p>
+                </div>
+                <div class="slds-modal__footer">
+                    <button class="slds-button slds-button_brand">Confirm</button>
+                    <button class="slds-button slds-button_neutral" aria-label="Cancel and close"
+                        onclick={approveConfirmationFunc}>Cancel</button>
+
+                </div>
+            </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open"></div>
+    </template>
+
+
+    <!-- certificate reject confirmation page-->
+    <template if:true={rejectconfirmation}>
+        <section role="dialog" tabindex="-1" aria-modal="true" aria-labelledby="modal-heading-01"
+            class="slds-modal slds-fade-in-open slds-modal_large">
+            <div class="slds-modal__container">
+                <div class="slds-float_right">
+                    <button
+                        class="slds-button slds-float_right slds-button_icon slds-modal__close slds-button_icon-inverse"
+                        title="Close" onclick={rejectConfirmationFunc}>
+                        <lightning-icon icon-name="utility:close" alternative-text="close" variant="inverse"
+                            size="small">
+                        </lightning-icon>
+                        <span class="slds-assistive-text">Close</span>
+                    </button>
+                </div>
+                <div class="slds-modal__header">
+                    <h1 class="slds-modal__title slds-hyphenate" style="color: black;" onclick={closeCancelInvoice}>
+                        Reject Confirmation</h1>
+                </div>
+                <div class="slds-modal__content slds-p-around_medium">
+                    <p style="color: black;text-align: center;">Are you sure you want to Reject this record ?</p>
+                </div>
+                <div class="slds-modal__footer">
+                    <button class="slds-button slds-button_brand">Confirm</button>
+                    <button class="slds-button slds-button_neutral" aria-label="Cancel and close"
+                        onclick={rejectConfirmationFunc}>Cancel</button>
+
+                </div>
+            </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open"></div>
+    </template>
+
+
+    <template if:true={editPage}>
+        <c-admin-certificate-edit onmodalchange={editPageFunc}></c-admin-certificate-edit>
+    </template>
+
+
+    <template if:true={sendPage}>
+        <c-admin-certificate-send onmodalchange={sendPageFunc}></c-admin-certificate-send>
+    </template>
+
+    <template if:true={opengeneratecertificate}>
+        <c-admin-generate-certificate onmodalchange={closeGenerateCertificate}></c-admin-generate-certificate>
+    </template>
 
 </template>

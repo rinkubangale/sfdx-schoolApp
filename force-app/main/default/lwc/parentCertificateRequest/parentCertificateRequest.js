@@ -47,7 +47,9 @@ const columns = [{
     }
 ];
 export default class ParentCertificateRequest extends LightningElement {
-
+    @track openCertificateConfirmation = false;
+    @track CertificateRequestConfirmationHeading;
+    @track certificateRequestEdit = false;
     dataList = [{
         sno: "001",
         requestId: "CC-01",
@@ -69,8 +71,35 @@ export default class ParentCertificateRequest extends LightningElement {
             this.DelId = rowDel;
         } else if (evt.detail.action.label === "edit") {
             this.recordId = evt.detail.row.Id;
+            this.certificateRequestEdit = true;
 
-            this.isModalOpen = true;
         }
+    }
+
+
+    certificateTypeConduct() {
+        this.certificateConfirmation();
+        this.CertificateRequestConfirmationHeading = 'Conduct Certificate Request Confirmation';
+    }
+    certificateTypeTransfer() {
+        this.certificateConfirmation();
+        this.CertificateRequestConfirmationHeading = 'Transfer Certificate Request Confirmation';
+    }
+    certificateTypeBonafide() {
+        this.certificateConfirmation();
+        this.CertificateRequestConfirmationHeading = 'Bonafide Certificate Request Confirmation';
+    }
+
+
+    certificateConfirmation() {
+        this.openCertificateConfirmation = true;
+    }
+
+    certificateConfirmationclosed() {
+        this.openCertificateConfirmation = false;
+    }
+
+    certificateRequestEditclosed() {
+        this.certificateRequestEdit = false;
     }
 }

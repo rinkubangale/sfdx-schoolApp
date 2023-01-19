@@ -1,125 +1,130 @@
 <template>
-    <template if:false={openLeaveRequestPage}>
-        <h1 class="slds-header sHeader slds-m-bottom_large">WELCOME TO PARENT/STUDENT PORTAL</h1>
-        <div style="width: 75%">
-            <!-- <div class="headerContent">
-                <div>Holiday</div>
-                <div onclick={leaveReq}>Leave Request</div>
-                <div>Time Table</div>
-                <div>Alerts and Notifications</div>
-            </div> -->
 
-            <lightning-layout multiple-rows style="gap: 2rem">
+    <template if:false={openAttendancePerformance}>
+        <template if:false={openCocurricularPerformance}>
+            <template if:false={openAcademicPerformance}>
+                <template if:false={openLeaveRequestPage}>
+                    <h1 class="slds-header sHeader slds-m-bottom_large">WELCOME TO PARENT/STUDENT PORTAL</h1>
+                    <div style="width: 75%">
 
-                <lightning-layout-item
-                    class="slds-var-p-around_x-large slds-size_1-of-1 slds-medium-size_5-of-12 slds-small-size_5-of-12 layoutitemcommon">
-                    <div class="bottomdiv2">
-                        <div><b>Holidays</b></div>
-                        <div>
-                            <button class="listview slds-m-right_small" data-name="list"
-                                onclick={handleListGxBtn}>List</button>
-                            <button class="graphicview" data-name="grx" onclick={handleListGxBtn}>Graphic</button>
-                        </div>
-                    </div>
-                    <div style="overflow:auto; height: 70%; padding: 1rem;display: flex;justify-content: space-between;flex-wrap: wrap;gap: 2rem;"
-                        if:true={listDisplay}>
-                        <template for:each={holidayImg} for:item="holiday">
-                            <div key={holiday.title}>
-                                <ul class="festival" style="list-style: inside;">
-                                    <li>{holiday.title}</li>
-                                </ul>
-                                <div class="slds-float_right thirddiv">
-                                    <p>{holiday.date}</p>
-                                    <p>{holiday.day}</p>
+                        <lightning-layout multiple-rows style="gap: 2rem">
+
+                            <lightning-layout-item
+                                class="slds-var-p-around_x-large slds-size_1-of-1 slds-medium-size_5-of-12 slds-small-size_5-of-12 layoutitemcommon">
+                                <div class="bottomdiv2">
+                                    <div><b>Holidays</b></div>
+                                    <div>
+                                        <button class="listview slds-m-right_small" data-name="list"
+                                            onclick={handleListGxBtn}>List</button>
+                                        <button class="graphicview" data-name="grx"
+                                            onclick={handleListGxBtn}>Graphic</button>
+                                    </div>
                                 </div>
-                            </div>
-                        </template>
-                    </div>
-                    <div class="grxView" if:true={grxDisplay}>
-                        <p onclick={movePrev}></p>
-                        <div class="imgFlexScroll">
-                            <template for:each={holidayImg} for:item="img">
-                                <div key={img} class={img.class}>
-                                    <p>{img.title}</p>
+                                <div style="overflow:auto; height: 70%; padding: 1rem;display: flex;justify-content: space-between;flex-wrap: wrap;gap: 2rem;"
+                                    if:true={listDisplay}>
+                                    <template for:each={holidayImg} for:item="holiday">
+                                        <div key={holiday.title}>
+                                            <ul class="festival" style="list-style: inside;">
+                                                <li>{holiday.title}</li>
+                                            </ul>
+                                            <div class="slds-float_right thirddiv">
+                                                <p>{holiday.date}</p>
+                                                <p>{holiday.day}</p>
+                                            </div>
+                                        </div>
+                                    </template>
                                 </div>
-                            </template>
-                        </div>
-                        <p onclick={moveNext}></p>
-                    </div>
-                </lightning-layout-item>
+                                <div class="grxView" if:true={grxDisplay}>
+                                    <p onclick={movePrev}></p>
+                                    <div class="imgFlexScroll">
+                                        <template for:each={holidayImg} for:item="img">
+                                            <div key={img} class={img.class}>
+                                                <p>{img.title}</p>
+                                            </div>
+                                        </template>
+                                    </div>
+                                    <p onclick={moveNext}></p>
+                                </div>
+                            </lightning-layout-item>
 
-                <lightning-layout-item class="slds-var-p-around_x-large slds-size_1-of-1 slds-medium-size_5-of-12 slds-large-size_5-of-12
+                            <lightning-layout-item class="slds-var-p-around_x-large slds-size_1-of-1 slds-medium-size_5-of-12 slds-large-size_5-of-12
                     layoutitemcommon" onclick={leaveReq}>
-                    <div class="bottomdiv2">
-                        <div><b>Leave Request</b></div>
-                        <div>
-                            <button class="viewall" data-name="view">View all</button>
-                        </div>
-                    </div>
-                    <div>
-                        <div class="dashboard">
+                                <div class="bottomdiv2">
+                                    <div><b>Leave Request</b></div>
+                                    <div>
+                                        <button class="viewall" data-name="view">View all</button>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="dashboard">
+                                        <div>
+                                            <div class="casualL border">15</div>
+                                            <P>Total Leave</P>
+                                        </div>
+                                        <div>
+                                            <div class="sickL border">01</div>
+                                            <P>Sick Leave</P>
+                                        </div>
+                                        <div>
+                                            <div class="otherL border">04</div>
+                                            <P>Other Leave</P>
+                                        </div>
+                                    </div>
+                                </div>
+                            </lightning-layout-item>
+
+                            <lightning-layout-item
+                                class="slds-var-p-around_x-large slds-size_1-of-1 slds-medium-size_5-of-12 slds-large-size_5-of-12 layoutitemcommon">
+                                <div class="bottomdiv2">
+                                    <div>
+                                        <b>Time Table</b>
+                                    </div>
+                                </div>
+                            </lightning-layout-item>
+
+                            <lightning-layout-item
+                                class="slds-var-p-around_x-large slds-size_1-of-1 slds-medium-size_5-of-12 slds-large-size_5-of-12 layoutitemcommon">
+                                <div class="bottomdiv2">
+                                    <div>
+                                        <b>Alerts and Notifications</b>
+                                    </div>
+                                </div>
+                            </lightning-layout-item>
+
+                        </lightning-layout>
+
+
+                        <div class="footerContent">
+                            <p>Student Performance</p>
                             <div>
-                                <div class="casualL border">15</div>
-                                <P>Total Leave</P>
+                                <div class="cardContainer">
+                                    <div onclick={academicPerformance}>
+                                        <span class="card-title">Academics</span>
+                                        <span>80%</span>
+                                    </div>
+                                    <div onclick={cocurricularPerformance}>
+                                        <span class="card-title">Co-curricular</span>
+                                        <span>90%</span>
+                                    </div>
+                                    <div onclick={attendancePerformance}>
+                                        <span class="card-title">Attendance</span>
+                                        <span>80%</span>
+                                    </div>
+
+                                </div>
+                                <div class="btnContainer">
+                                    <div class="btn">Remedial</div>
+                                </div>
                             </div>
-                            <div>
-                                <div class="sickL border">01</div>
-                                <P>Sick Leave</P>
-                            </div>
-                            <div>
-                                <div class="otherL border">04</div>
-                                <P>Other Leave</P>
-                            </div>
                         </div>
                     </div>
-                </lightning-layout-item>
-
-                <lightning-layout-item
-                    class="slds-var-p-around_x-large slds-size_1-of-1 slds-medium-size_5-of-12 slds-large-size_5-of-12 layoutitemcommon">
-                    <div class="bottomdiv2">
-                        <div>
-                            <b>Time Table</b>
-                        </div>
-                    </div>
-                </lightning-layout-item>
-
-                <lightning-layout-item
-                    class="slds-var-p-around_x-large slds-size_1-of-1 slds-medium-size_5-of-12 slds-large-size_5-of-12 layoutitemcommon">
-                    <div class="bottomdiv2">
-                        <div>
-                            <b>Alerts and Notifications</b>
-                        </div>
-                    </div>
-                </lightning-layout-item>
-
-            </lightning-layout>
-
-
-            <div class="footerContent">
-                <p>Student Performance</p>
-                <div>
-                    <div class="cardContainer">
-                        <div onclick={academicPerformance}>
-                            <span class="card-title">Academics</span>
-                            <span>80%</span>
-                        </div>
-                        <div onclick={cocurricularPerformance}>
-                            <span class="card-title">Co-curricular</span>
-                            <span>90%</span>
-                        </div>
-                        <div onclick={attendancePerformance}>
-                            <span class="card-title">Attendance</span>
-                            <span>80%</span>
-                        </div>
-
-                    </div>
-                    <div class="btnContainer">
-                        <div class="btn">Remedial</div>
-                    </div>
-                </div>
-            </div>
-        </div>
+                </template>
+            </template>
+        </template>
     </template>
+
+
+
     <template if:true={openLeaveRequestPage}>
         <c-leave-req-list-view onbackbtn={closeLeaveReq}></c-leave-req-list-view>
     </template>

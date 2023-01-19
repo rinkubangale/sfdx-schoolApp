@@ -108,7 +108,9 @@
     min-width: 300px;
     } */
 
-
+div{
+  color:#444;
+}
 
 .mySearchBar>input[type="text"] {
   color: #333;
