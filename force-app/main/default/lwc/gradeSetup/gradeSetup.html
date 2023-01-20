@@ -1,0 +1,108 @@
+<template>
+    <div class="gradeSetupContainer">
+        <div class="gradeSetupHeader">
+            <span><b>GRADE SETUP</b></span>
+            <!-- <span class="closeGradeSetup" onclick={handleGradeSetup}>Close</span> -->
+            <a data-close="true">
+                <div class="back" onclick={handleModalChange}>
+                    <lightning-icon icon-name="utility:back" size="x-small" alternative-text="Back!" title="Back">
+                    </lightning-icon>
+                    <p>Back</p>
+                </div>
+            </a>
+        </div>
+        <div>
+            <div class="gradeSetuptable">
+                <span><b></b></span>
+                <table>
+                    <tr>
+                        <th>MARKS RANGE</th>
+                        <th>GRADE</th>
+                    </tr>
+                    <tr>
+                        <td>91 - 100</td>
+                        <td>A1</td>
+                    </tr>
+                    <tr>
+                        <td>81 - 90</td>
+                        <td>A2</td>
+                    </tr>
+                    <tr>
+                        <td>71 - 80</td>
+                        <td>B1</td>
+                    </tr>
+                    <tr>
+                        <td>61 - 70</td>
+                        <td>B2</td>
+                    </tr>
+                    <tr>
+                        <td>51 - 60</td>
+                        <td>C1</td>
+                    </tr>
+                    <tr>
+                        <td>41 - 50 <br> 31 - 40</td>
+                        <td>C2</td>
+                    </tr>
+                    <tr>
+                        <td>33 - 40</td>
+                        <td>D</td>
+                    </tr>
+                    <tr>
+                        <td>32 & Below</td>
+                        <td>E (Needs Improvements)</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="gradeSetuptable">
+                <span><b>Grading Scale for others</b></span>
+                <table>
+                    <tr>
+                        <th>MARKS RANGE</th>
+                        <th>GRADE</th>
+                    </tr>
+                    <tr>
+                        <td>Outstanding</td>
+                        <td>A</td>
+                    </tr>
+                    <tr>
+                        <td>Very Good</td>
+                        <td>B</td>
+                    </tr>
+                    <tr>
+                        <td>Fair</td>
+                        <td>C</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="gradeSetuptable">
+                <span><b>Attendance Grading Scale</b></span>
+                <table>
+                    <tr>
+                        <th>MARKS RANGE</th>
+                        <th>GRADE</th>
+                    </tr>
+                    <tr>
+                        <td>91-100</td>
+                        <td>A1</td>
+                    </tr>
+                    <tr>
+                        <td>81-90</td>
+                        <td>A2</td>
+                    </tr>
+                    <tr>
+                        <td>71-80</td>
+                        <td>B1</td>
+                    </tr>
+                    <tr>
+                        <td>61-70</td>
+                        <td>B2</td>
+                    </tr>
+                    <tr>
+                        <td>51-60</td>
+                        <td>C1</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</template>

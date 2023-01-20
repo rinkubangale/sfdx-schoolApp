@@ -7,6 +7,7 @@ export default class SettingScreenView extends LightningElement {
   @track login;
   @track alertListView;
   @track messagesListView;
+  @track gradeSettingsView;
 
   connectedCallback() {
     console.log("Settings Page Loaded");
@@ -18,11 +19,12 @@ export default class SettingScreenView extends LightningElement {
 
   openCard(event) {
     this.clicked = true;
-    this.holidayListView = false;
-    this.leaveTypeListView = false;
     this.login = false;
     this.alertListView = false;
+    this.holidayListView = false;
     this.messagesListView = false;
+    this.gradeSettingsView = false;
+    this.leaveTypeListView = false;
 
     switch (event.currentTarget.dataset.name) {
       case "holidayListView":
@@ -36,6 +38,9 @@ export default class SettingScreenView extends LightningElement {
         break;
       case "alertListView":
         this.alertListView = true;
+        break;
+      case "gradeSettingsView":
+        this.gradeSettingsView = true;
         break;
       case "messagesListView":
         this.messagesListView = true;

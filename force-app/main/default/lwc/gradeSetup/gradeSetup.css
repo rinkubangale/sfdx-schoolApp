@@ -1,0 +1,33 @@
+div {
+    color: #444;
+}
+
+.gradeSetup {
+    display: flex;
+    justify-content: space-between;
+}
+
+.closeGradeSetup {
+    background-color: #ff4570;
+    color: #fff;
+    cursor: pointer;
+    padding: 0 8px;
+    border-radius: 4px;
+}
+
+.gradeSetuptable {
+    min-width: 30%;
+}
+
+.gradeSetuptable>span {
+    margin-bottom: 2rem;
+    display: block;
+}
+
+.gradeSetupContainer>div {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+}
+
+.gradeSetuptable {}
