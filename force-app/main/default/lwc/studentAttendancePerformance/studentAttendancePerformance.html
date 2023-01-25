@@ -39,6 +39,180 @@
             <!--/add-class-header-->
 
             <div class="add-class-body">
+                <div class="totalInfo">
+                    <div class="totalNo">
+                        <h1>Total number of working days</h1>
+                        <span>22 false</span>
+                    </div>
+                    <div class="totalNo">
+                        <h1>Total number of days Present</h1>
+                        <span>0</span>
+                    </div>
+                    <div class="totalNo">
+                        <h1>Total number of Absentism</h1>
+                        <span></span>
+                    </div>
+                </div>
+
+                <div class="calender">
+                    <div class="monthHead">
+                        <div class="month">January 2023</div>
+                        <div>
+                            <span class="btn"> Prev Month </span>
+                            <span class="btn"> Current Month </span>
+                            <span class="btn"> Next Month </span>
+                        </div>
+                    </div>
+                    <div class="caldays">
+                        <table>
+                            <tr class="days">
+                                <th class="day">Sunday</th>
+                                <th class="day">Monday</th>
+                                <th class="day">Tuesday</th>
+                                <th class="day">Wednesday</th>
+                                <th class="day">Thursday</th>
+                                <th class="day">Friday</th>
+                                <th class="day">Saturday</th>
+                            </tr>
+                            <tr class="date">
+                                <td class="day">
+                                    <span>1</span>
+                                    <span>Week-off</span>
+                                </td>
+                                <td class="day">
+                                    <span>2</span>
+                                    <span>Absent</span>
+                                </td>
+                                <td class="day">
+                                    <span>3</span>
+                                    <span>Absent</span>
+                                </td>
+                                <td class="day">
+                                    <span>4</span>
+                                    <span>Absent</span>
+                                </td>
+                                <td class="day">
+                                    <span>5</span>
+                                    <span>Absent</span>
+                                </td>
+                                <td class="day">
+                                    <span>6</span>
+                                    <span>Absent</span>
+                                </td>
+                                <td class="day">
+                                    <span>7</span>
+                                    <span>Week-off</span>
+                                </td>
+                            </tr>
+                            <tr class="date">
+                                <td class="day">
+                                    <span>8</span>
+                                    <span>Week-off</span>
+                                </td>
+                                <td class="day">
+                                    <span>9</span>
+                                    <span>Absent</span>
+                                </td>
+                                <td class="day">
+                                    <span>10</span>
+                                    <span>Absent</span>
+                                </td>
+                                <td class="day">
+                                    <span>11</span>
+                                    <span>Absent</span>
+                                </td>
+                                <td class="day">
+                                    <span>12</span>
+                                    <span>Absent</span>
+                                </td>
+                                <td class="day">
+                                    <span>13</span>
+                                    <span>Absent</span>
+                                </td>
+                                <td class="day">
+                                    <span>14</span>
+                                    <span>Week-off</span>
+                                </td>
+                            </tr>
+                            <tr class="date">
+                                <td class="day">
+                                    <span>15</span>
+                                    <span>Week-off</span>
+                                </td>
+                                <td class="day">
+                                    <span>16</span>
+                                    <span>Absent</span>
+                                </td>
+                                <td class="day">
+                                    <span>17</span>
+                                    <span>Absent</span>
+                                </td>
+                                <td class="day">
+                                    <span>18</span>
+                                    <span>Absent</span>
+                                </td>
+                                <td class="day">
+                                    <span>19</span>
+                                    <span>Absent</span>
+                                </td>
+                                <td class="day">
+                                    <span>20</span>
+                                    <span>Absent</span>
+                                </td>
+                                <td class="day">
+                                    <span>21</span>
+                                    <span>Week-off</span>
+                                </td>
+                            </tr>
+                            <tr class="date">
+                                <td class="day">
+                                    <span>22</span>
+                                    <span>Week-off</span>
+                                </td>
+                                <td class="day">
+                                    <span>23</span>
+                                    <span>Absent</span>
+                                </td>
+                                <td class="day">
+                                    <span>24</span>
+                                    <span>Absent</span>
+                                </td>
+                                <td class="day">
+                                    <span>25</span>
+                                    <span>Absent</span>
+                                </td>
+                                <td class="day">
+                                    <span>26</span>
+                                    <span>Absent</span>
+                                </td>
+                                <td class="day">
+                                    <span>27</span>
+                                    <span>Absent</span>
+                                </td>
+                                <td class="day">
+                                    <span>28</span>
+                                    <span>Week-off</span>
+                                </td>
+                            </tr>
+                            <tr class="date">
+                                <td class="day">
+                                    <span>29</span>
+                                    <span>Week-off</span>
+                                </td>
+                                <td class="day">
+                                    <span>30</span>
+                                    <span>Absent</span>
+                                </td>
+                                <td class="day">
+                                    <span>31</span>
+                                    <span>Absent</span>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <!-- <div class="add-class-body">
 
                 <div>
                     <label for="term">Terms</label>
@@ -103,7 +277,9 @@
                     </table>
                 </div>
 
-            </div>
+            </div> -->
+
+
             <template if:true={isLoading}>
                 <lightning-spinner alternative-text="Loading" variant="brand" style="background:transparent;">
                 </lightning-spinner>
