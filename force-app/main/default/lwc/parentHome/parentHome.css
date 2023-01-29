@@ -4,9 +4,16 @@ div {
 }
 
 .sHeader {
-    font-size: 24px;
     font-weight: 600;
-    color: #444;
+    position: absolute;
+    top: 20px;
+    z-index: 999;
+    left: 140px;
+    font-size: 16px;
+    background-color: #00a1e0;
+    padding: 3px 6px;
+    color: #fff;
+    border-radius: 6px;
 }
 
 .headerContent {
