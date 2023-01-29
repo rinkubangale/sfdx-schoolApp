@@ -192,10 +192,11 @@ td.day:hover {
     border-radius: 8px;
 }
 
-.totalNo>span {
+.totalNo>span:last-child {
     font-size: 16px;
     font-weight: 500;
     color: #4ac477;
+    margin-left: 8px;
 }
 
 .monthHead {
