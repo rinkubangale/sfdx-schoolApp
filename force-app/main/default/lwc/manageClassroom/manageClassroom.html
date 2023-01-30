@@ -1,117 +1,118 @@
 <!-- sldsValidatorIgnore -->
 <template>
     <template if:true={isClassSectionOpen}>
-        <div style="max-width: 77rem;">
-        <lightning-card style="width:100%;">
-            <lightning-layout>
-                <lightning-layout-item size="5" class="slds-float_left slds-p-around_medium">
-                    <lightning-icon icon-name="standard:education" title="Manage Classes and Sections">
-                    </lightning-icon>
-                    <span style="font-weight: bold; font-size:larger" class="slds-p-around_small">Manage Class &
-                        Sections</span>
-                </lightning-layout-item>
-                <lightning-layout-item size="2" class="slds-clearfix slds-float_left slds-p-around_medium" style="padding-top: 1.2rem">
-                    <div class="mySearchBar">
-                        <lightning-icon icon-name="utility:search" size="x-small" alternative-text="search"
-                            title="Search">
+        <div>
+            <lightning-card style="width:100%;">
+                <lightning-layout>
+                    <lightning-layout-item size="5" class="slds-float_left slds-p-around_medium">
+                        <lightning-icon icon-name="standard:education" title="Manage Classes and Sections">
                         </lightning-icon>
-                        <input type="text" placeholder="Search Classes" />
-                    </div>
-                </lightning-layout-item>
-                <lightning-layout-item size="5" class="slds-clearfix">
-                    <div>
-                        <lightning-button variant="brand" class="slds-float_right slds-p-around_medium"
-                            icon-name="utility:adduser" title="Add Class" onclick={openClassModal}>
-                        </lightning-button>
-                    </div>
-                </lightning-layout-item>
-            </lightning-layout>
+                        <span style="font-weight: bold; font-size:larger" class="slds-p-around_small">Manage Class &
+                            Sections</span>
+                    </lightning-layout-item>
+                    <lightning-layout-item size="2" class="slds-clearfix slds-float_left slds-p-around_medium"
+                        style="padding-top: 1.2rem">
+                        <div class="mySearchBar">
+                            <lightning-icon icon-name="utility:search" size="x-small" alternative-text="search"
+                                title="Search">
+                            </lightning-icon>
+                            <input type="text" placeholder="Search Classes" />
+                        </div>
+                    </lightning-layout-item>
+                    <lightning-layout-item size="5" class="slds-clearfix">
+                        <div>
+                            <lightning-button variant="brand" class="slds-float_right slds-p-around_medium"
+                                icon-name="utility:adduser" title="Add Class" onclick={openClassModal}>
+                            </lightning-button>
+                        </div>
+                    </lightning-layout-item>
+                </lightning-layout>
 
-            <div class="container">
+                <div class="container">
 
-                <table>
-                    <thead style="border:aqua;background-color:#f3f3f3">
-                        <th>
-                            <div style="margin: 19px;"><b>Class</b></div>
-                        </th>
-                        <th>
-                            <div style="margin: 19px;"><b>Sections</b></div>
-                        </th>
-                        <th>
-                            <div><b>Action</b></div>
-                        </th>
-                        <th>
-                            <div></div>
-                        </th>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>
-                                <h6 href="#">LKG</h6>
-                            </td>
-                            <td>
-                                <ul class="lkgSection">
-                                    <li onclick={openModal}>LKG A</li>
-                                    <li onclick={openModal}>LKG B</li>
-                                    <li onclick={openModal}>LKG C</li>
-                                    <li onclick={openModal}>LKG D</li>
-                                    <li onclick={openModal}>LKG E</li>
-                                    <li onclick={openModal}>LKG F</li>
-                                </ul>
-                            </td>
-                            <td>
-                                <a href="#">Add Section</a>
-                            </td>
-                            <td>
-                                <a href="#">Map Subject</a>
-                            </td>
-                            
-                        </tr>
-                        <tr>
-                            <td>
-                                <h6 href="#">UKG</h6>
-                            </td>
-                            <td>
-                                <ul class="lkgSection">
-                                    <li onclick={openModal}>UKG A</li>
-                                    <li onclick={openModal}>UKG B</li>
-                                    <li onclick={openModal}>UKG C</li>
-                                    <li onclick={openModal}>UKG D</li>
-                                    <li onclick={openModal}>UKG E</li>
-                                    <li onclick={openModal}>UKG F</li>
-                                </ul>
-                            </td>
-                            <td>
-                                <a href="#">Add Section</a>
-                            </td>
-                            <td>
-                                <a href="#">Map Subject</a>
-                            </td>
-                            
-                        </tr>
-                        <tr>
-                            <td>
-                                <h6 href="#">1st</h6>
-                            </td>
-                            <td>
-                                <ul class="lkgSection">
-                                    <li onclick={openModal}>1st A</li>
-                                    <li onclick={openModal}>1st B</li>
-                                    <li onclick={openModal}>1st C</li>
-                                    <li onclick={openModal}>1st D</li>
-                                    <li onclick={openModal}>1st E</li>
-                                    <li onclick={openModal}>1st F</li>
-                                    <li>1st F</li>
-                                </ul>
-                            </td>
-                            <td>
-                                <a href="#">Add Section</a>
-                            </td>
-                            <td>
-                                <a href="#">Map Subject</a>
-                            </td>
-                        </tr>
-                        <!-- <tr>
+                    <table>
+                        <thead style="border:aqua;background-color:#f3f3f3">
+                            <th>
+                                <div style="margin: 19px;"><b>Class</b></div>
+                            </th>
+                            <th>
+                                <div style="margin: 19px;"><b>Sections</b></div>
+                            </th>
+                            <th>
+                                <div><b>Action</b></div>
+                            </th>
+                            <th>
+                                <div></div>
+                            </th>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <h6 href="#">LKG</h6>
+                                </td>
+                                <td>
+                                    <ul class="lkgSection">
+                                        <li onclick={openModal}>LKG A</li>
+                                        <li onclick={openModal}>LKG B</li>
+                                        <li onclick={openModal}>LKG C</li>
+                                        <li onclick={openModal}>LKG D</li>
+                                        <li onclick={openModal}>LKG E</li>
+                                        <li onclick={openModal}>LKG F</li>
+                                    </ul>
+                                </td>
+                                <td>
+                                    <a href="#">Add Section</a>
+                                </td>
+                                <td>
+                                    <a href="#">Map Subject</a>
+                                </td>
+
+                            </tr>
+                            <tr>
+                                <td>
+                                    <h6 href="#">UKG</h6>
+                                </td>
+                                <td>
+                                    <ul class="lkgSection">
+                                        <li onclick={openModal}>UKG A</li>
+                                        <li onclick={openModal}>UKG B</li>
+                                        <li onclick={openModal}>UKG C</li>
+                                        <li onclick={openModal}>UKG D</li>
+                                        <li onclick={openModal}>UKG E</li>
+                                        <li onclick={openModal}>UKG F</li>
+                                    </ul>
+                                </td>
+                                <td>
+                                    <a href="#">Add Section</a>
+                                </td>
+                                <td>
+                                    <a href="#">Map Subject</a>
+                                </td>
+
+                            </tr>
+                            <tr>
+                                <td>
+                                    <h6 href="#">1st</h6>
+                                </td>
+                                <td>
+                                    <ul class="lkgSection">
+                                        <li onclick={openModal}>1st A</li>
+                                        <li onclick={openModal}>1st B</li>
+                                        <li onclick={openModal}>1st C</li>
+                                        <li onclick={openModal}>1st D</li>
+                                        <li onclick={openModal}>1st E</li>
+                                        <li onclick={openModal}>1st F</li>
+                                        <li>1st F</li>
+                                    </ul>
+                                </td>
+                                <td>
+                                    <a href="#">Add Section</a>
+                                </td>
+                                <td>
+                                    <a href="#">Map Subject</a>
+                                </td>
+                            </tr>
+                            <!-- <tr>
                     <td>
                         <div style="display: flex;flex-wrap: wrap;">
 
@@ -158,15 +159,16 @@
 
 
                 </tr> -->
-                    </tbody>
-                </table>
-            </div>
+                        </tbody>
+                    </table>
+                </div>
 
-            <lightning-button label="Back" variant="brand" title="back" onclick={goBack} class="slds-m-left_x-small">
-            </lightning-button>
+                <lightning-button label="Back" variant="brand" title="back" onclick={goBack}
+                    class="slds-m-left_x-small">
+                </lightning-button>
 
-        </lightning-card>
-    </div>
+            </lightning-card>
+        </div>
     </template>
     <template if:true={isManageAllOpen}>
         <c-manage-student-teacher-subject onbackbtn={closeModal}></c-manage-student-teacher-subject>

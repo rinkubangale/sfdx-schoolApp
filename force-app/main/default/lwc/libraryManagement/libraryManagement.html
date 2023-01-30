@@ -1,0 +1,173 @@
+<template>
+    <lightning-tabset>
+        <lightning-tab label="Book Request">
+            <lightning-card style="margin:15px; text-transform:capitalize;" class="slds-card__header">
+                <div class="slds-p-horizontal_medium">
+                    <lightning-layout>
+                        <lightning-layout-item size="4" class="slds-float_left slds-p-around_medium">
+                            <lightning-icon icon-name="standard:record" alternative-text="Clone" title="Book
+                                Request">
+                            </lightning-icon>
+
+                            <span style="font-weight:bold; font-size:larger; color: #444"
+                                class=" slds-p-around_small ">Book
+                                Request
+                            </span>
+                        </lightning-layout-item>
+
+                        <lightning-layout-item size="4" class="slds-align_absolute-center slds-p-around_medium">
+                            <div class="mySearchBar">
+                                <lightning-icon icon-name="utility:search" size="x-small" alternative-text="search"
+                                    title="Book Request">
+                                </lightning-icon>
+                                <input type="text" placeholder="Book Request" />
+                            </div>
+                        </lightning-layout-item>
+
+                        <lightning-layout-item size="3" class="slds-clearfix" style="padding-top: 1px">
+                            <lightning-button variant="brand" class="slds-p-around_medium slds-float_right"
+                                icon-name="utility:upload" title="Export" onclick={openModal}>
+                            </lightning-button>
+                        </lightning-layout-item>
+
+                        <lightning-layout-item size="1" class="slds-float_right slds-clearfix">
+                            <lightning-button variant="brand" class="slds-float_right slds-p-around_medium"
+                                icon-name="utility:adduser" title="Add Book Request" onclick={openModal}>
+                            </lightning-button>
+                        </lightning-layout-item>
+                    </lightning-layout>
+
+
+                    <template if:true={isDelete}>
+                        <c-delete-confirmation records-id={DelId} obj-name="Academic_Year__c"
+                            onmodalchange={closemodaldelete}>
+                        </c-delete-confirmation>
+                    </template>
+
+                    <div style="height:auto" class="slds-m-top_medium">
+                        <lightning-datatable key-field="Id" data={dataList} columns={columns}
+                            onrowaction={rowActionHandler} resize-column-disabled suppress-bottom-bar>
+                        </lightning-datatable>
+                    </div>
+                </div>
+                <div slot="footer" class="slds-clearfix slds-p-top_xxx-small ">
+
+                    <lightning-button label="Delete" onclick={getSelectedRec} variant="brand"
+                        class="slds-var-m-left_xx-small slds-float_right"></lightning-button>
+                </div>
+            </lightning-card>
+        </lightning-tab>
+
+        <lightning-tab label="Book Issued list">
+            <lightning-card style="margin:15px; text-transform:capitalize;" class="slds-card__header">
+                <div class="slds-p-horizontal_medium">
+                    <lightning-layout>
+                        <lightning-layout-item size="4" class="slds-float_left slds-p-around_medium">
+                            <lightning-icon icon-name="standard:record" alternative-text="Clone"
+                                title="Book Issued List">
+                            </lightning-icon>
+
+                            <span style="font-weight:bold; font-size:larger; color: #444"
+                                class=" slds-p-around_small ">Book Issued List
+                            </span>
+                        </lightning-layout-item>
+
+                        <lightning-layout-item size="4" class="slds-align_absolute-center slds-p-around_medium">
+                            <div class="mySearchBar">
+                                <lightning-icon icon-name="utility:search" size="x-small" alternative-text="search"
+                                    title="Book Issued List">
+                                </lightning-icon>
+                                <input type="text" placeholder="Book Issued List" />
+                            </div>
+                        </lightning-layout-item>
+
+                        <lightning-layout-item size="4" class="slds-clearfix">
+                            <lightning-button variant="brand" class="slds-p-around_medium slds-float_right"
+                                icon-name="utility:upload" title="Export" onclick={openModal}>
+                            </lightning-button>
+                        </lightning-layout-item>
+
+
+                    </lightning-layout>
+
+
+                    <template if:true={isDelete}>
+                        <c-delete-confirmation records-id={DelId} obj-name="Academic_Year__c"
+                            onmodalchange={closemodaldelete}>
+                        </c-delete-confirmation>
+                    </template>
+
+                    <div style="height:auto" class="slds-m-top_medium">
+                        <lightning-datatable key-field="Id" data={dataList11} columns={columns11} resize-column-disabled
+                            suppress-bottom-bar>
+                        </lightning-datatable>
+                    </div>
+                </div>
+                <div slot="footer" class="slds-clearfix slds-p-top_xxx-small ">
+                    <lightning-button label="Delete" onclick={getSelectedRec} variant="brand"
+                        class="slds-var-m-left_xx-small slds-float_right"></lightning-button>
+                </div>
+
+            </lightning-card>
+        </lightning-tab>
+
+        <lightning-tab label="Book Store">
+            <lightning-card style="margin:15px; text-transform:capitalize;" class="slds-card__header">
+                <div class="slds-p-horizontal_medium">
+                    <lightning-layout>
+                        <lightning-layout-item size="4" class="slds-float_left slds-p-around_medium">
+                            <lightning-icon icon-name="standard:record" alternative-text="Clone" title="Book Store">
+                            </lightning-icon>
+
+                            <span style="font-weight:bold; font-size:larger; color: #444"
+                                class=" slds-p-around_small ">Book Store
+                            </span>
+                        </lightning-layout-item>
+
+                        <lightning-layout-item size="4" class="slds-align_absolute-center slds-p-around_medium">
+                            <div class="mySearchBar">
+                                <lightning-icon icon-name="utility:search" size="x-small" alternative-text="search"
+                                    title="Book Store">
+                                </lightning-icon>
+                                <input type="text" placeholder="Search Book Store" />
+                            </div>
+                        </lightning-layout-item>
+
+                        <lightning-layout-item size="3" class="slds-clearfix" style="padding-top: 1px">
+                            <lightning-button variant="brand" class="slds-p-around_medium slds-float_right"
+                                icon-name="utility:upload" title="Export" onclick={openModal}>
+                            </lightning-button>
+                        </lightning-layout-item>
+
+                        <lightning-layout-item size="1" class="slds-float_right slds-clearfix">
+                            <lightning-button variant="brand" class="slds-float_right slds-p-around_medium"
+                                icon-name="utility:adduser" title="Add Book List" onclick={openModal}>
+                            </lightning-button>
+                        </lightning-layout-item>
+                    </lightning-layout>
+
+
+                    <template if:true={isDelete}>
+                        <c-delete-confirmation records-id={DelId} obj-name="Academic_Year__c"
+                            onmodalchange={closemodaldelete}>
+                        </c-delete-confirmation>
+                    </template>
+
+                    <div style="height:auto" class="slds-m-top_medium">
+                        <lightning-datatable key-field="Id" data={dataList22} columns={columns22}
+                            onrowaction={rowActionHandler} resize-column-disabled suppress-bottom-bar>
+                        </lightning-datatable>
+                    </div>
+                </div>
+                <div slot="footer" class="slds-clearfix slds-p-top_xxx-small ">
+
+                    <lightning-button label="Delete" onclick={getSelectedRec} variant="brand"
+                        class="slds-var-m-left_xx-small slds-float_right"></lightning-button>
+                </div>
+            </lightning-card>
+        </lightning-tab>
+        <lightning-tab label="Settings">
+            <div style="color:#444; font-size: 44px">Settings</div>
+        </lightning-tab>
+    </lightning-tabset>
+</template>

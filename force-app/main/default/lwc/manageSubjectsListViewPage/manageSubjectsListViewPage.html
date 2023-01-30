@@ -1,0 +1,250 @@
+<template>
+    <template if:false={isAddSubjectOpen}>
+        <lightning-card style="width:100%;">
+            <lightning-layout>
+                <lightning-layout-item size="5" class="slds-float_left slds-p-around_medium">
+                    <lightning-icon icon-name="standard:education" title="Manage Classes and Sections">
+                    </lightning-icon>
+                    <span style="font-weight: bold; font-size:larger" class="slds-p-around_small">Subjects
+                    </span>
+                </lightning-layout-item>
+                <lightning-layout-item size="2" class="slds-clearfix slds-float_left slds-p-around_medium"
+                    style="padding-top: 1.2rem">
+                    <!-- <div class="mySearchBar">
+                            <lightning-icon icon-name="utility:search" size="x-small" alternative-text="search"
+                                title="Search">
+                            </lightning-icon>
+                            <input type="text" placeholder="Search Classes" />
+                        </div> -->
+                </lightning-layout-item>
+                <lightning-layout-item size="5" class="slds-clearfix">
+                    <div>
+                        <lightning-button variant="brand" class="slds-float_right slds-p-around_medium"
+                            icon-name="utility:adduser" title="Add Subjects" onclick={openAddSubjectModal}>
+                        </lightning-button>
+                    </div>
+                </lightning-layout-item>
+            </lightning-layout>
+            <lightning-layout>
+                <lightning-layout-item style="width:100% ;">
+                    <div class="slds-p-horizontal_medium slds-clearfix container">
+                        <table>
+                            <thead style="border:aqua;background-color:#f3f3f3">
+                                <th>
+                                    <div style="margin: 19px;"><b>Category Name</b></div>
+                                </th>
+                                <th>
+                                    <div style="margin: 19px;"><b>Subject Name</b></div>
+                                </th>
+                                <th>
+                                    <div><b>Subject Category</b></div>
+                                </th>
+                                <th>
+                                    <div>Action</div>
+                                </th>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <h6>Language</h6>
+                                    </td>
+                                    <td>
+                                        <h6>English</h6>
+                                    </td>
+                                    <td>
+
+                                    </td>
+                                    <td>
+                                        <div>
+                                            <lightning-icon icon-name="action:preview" alternative-text="Connected"
+                                                size="xx-small" title="View">
+                                            </lightning-icon>
+                                            <span style="margin:3px"></span>
+                                            <lightning-icon icon-name="action:edit" alternative-text="Connected"
+                                                size="xx-small" title="Edit">
+                                            </lightning-icon>
+                                            <span style="margin:3px"></span>
+                                            <lightning-icon icon-name="action:delete" alternative-text="Connected"
+                                                size="xx-small" title="Delete">
+                                            </lightning-icon>
+                                        </div>
+                                    </td>
+
+                                </tr>
+
+                                <tr>
+                                    <td>
+
+                                    </td>
+                                    <td>
+
+                                    </td>
+                                    <td>
+                                        <h6>Reading Skills</h6>
+                                    </td>
+                                    <td>
+                                        <span style="font-size: x-large;">&#43;</span>
+                                        <span style="padding-left: 10px;
+                                        font-size: x-large;">&#8722;</span>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>
+
+                                    </td>
+                                    <td>
+
+                                    </td>
+                                    <td>
+                                        <h6>Writing Skills</h6>
+                                    </td>
+                                    <td>
+                                        <span style="font-size: x-large;">&#43;</span>
+                                        <span style="padding-left: 10px;
+                                        font-size: x-large;">&#8722;</span>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>
+
+                                    </td>
+                                    <td>
+
+                                    </td>
+                                    <td>
+                                        <h6>Speaking Skills</h6>
+                                    </td>
+                                    <td>
+                                        <span style="font-size: x-large;">&#43;</span>
+                                        <span style="padding-left: 10px;
+                                        font-size: x-large;">&#8722;</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+
+                                    </td>
+                                    <td>
+
+                                    </td>
+                                    <td>
+                                        <h6>Listening Skills</h6>
+                                    </td>
+                                    <td>
+                                        <span style="font-size: x-large;">&#43;</span>
+                                        <span style="padding-left: 10px;
+                                        font-size: x-large;">&#8722;</span>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>
+                                        <h6>Language</h6>
+                                    </td>
+                                    <td>
+                                        <h6>Hindi</h6>
+                                    </td>
+                                    <td>
+
+                                    </td>
+                                    <td>
+                                        <div>
+                                            <lightning-icon icon-name="action:preview" alternative-text="Connected"
+                                                size="xx-small" title="View">
+                                            </lightning-icon>
+                                            <span style="margin:3px"></span>
+                                            <lightning-icon icon-name="action:edit" alternative-text="Connected"
+                                                size="xx-small" title="Edit">
+                                            </lightning-icon>
+                                            <span style="margin:3px"></span>
+                                            <lightning-icon icon-name="action:delete" alternative-text="Connected"
+                                                size="xx-small" title="Delete">
+                                            </lightning-icon>
+                                        </div>
+                                    </td>
+
+                                </tr>
+                                <tr>
+                                    <td>
+
+                                    </td>
+                                    <td>
+
+                                    </td>
+                                    <td>
+                                        <h6>Reading Skills</h6>
+                                    </td>
+                                    <td>
+                                        <span style="font-size: x-large;">&#43;</span>
+                                        <span style="padding-left: 10px;
+                                        font-size: x-large;">&#8722;</span>
+                                    </td>
+
+                                </tr>
+                                <tr>
+                                    <td>
+
+                                    </td>
+                                    <td>
+
+                                    </td>
+                                    <td>
+                                        <h6>Writing Skills</h6>
+                                    </td>
+                                    <td>
+                                        <span style="font-size: x-large;">&#43;</span>
+                                        <span style="padding-left: 10px;
+                                        font-size: x-large;">&#8722;</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+
+                                    </td>
+                                    <td>
+
+                                    </td>
+                                    <td>
+                                        <h6>Speaking Skills</h6>
+                                    </td>
+                                    <td>
+                                        <span style="font-size: x-large;">&#43;</span>
+                                        <span style="padding-left: 10px;
+                                        font-size: x-large;">&#8722;</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+
+                                    </td>
+                                    <td>
+
+                                    </td>
+                                    <td>
+                                        <h6>Listening Skills</h6>
+                                    </td>
+                                    <td>
+                                        <span style="font-size: x-large;">&#43;</span>
+                                        <span style="padding-left: 10px;
+                                        font-size: x-large;">&#8722;</span>
+                                    </td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+                    </div>
+                    <div slot="footer" class="slds-clearfix slds-p-top_xxx-small">
+                        <lightning-button label="Back" variant="brand" title="back" onclick={goBack}
+                            class="slds-m-left_x-small">
+                        </lightning-button>
+                    </div>
+                </lightning-layout-item>
+            </lightning-layout>
+        </lightning-card>
+    </template>
+    <template if:true={isAddSubjectOpen}>
+        <c-manage-subject-add-page onmodalchange={openAddSubjectModal}></c-manage-subject-add-page>
+    </template>
+</template>

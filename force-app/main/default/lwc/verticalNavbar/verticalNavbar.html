@@ -145,6 +145,14 @@
                             <span class={hide}>Feature Request</span>
                         </span>
                     </li>
+                    <li if:false={isTeacher}>
+                        <span onclick={toVisitorTracking}>
+                            <lightning-icon icon-name="utility:transport_walking" size="small"
+                                alternative-text="Visitor Tracking" title="Visitor Tracking" class="my-icon">
+                            </lightning-icon>
+                            <span class={hide}>Visitor Tracking</span>
+                        </span>
+                    </li>
 
                     <li if:true={isTeacher}>
                         <span onclick={toMyClassrooms}>

@@ -1,56 +1,56 @@
 <template>
     <template if:false={isCreateFeeTypeOpen}>
-    <lightning-card style="margin:15px; text-transform:capitalize" class="slds-card__header headerCard">
-        <div class="slds-p-horizontal_medium">
-            <lightning-layout>
-                <lightning-layout-item size="4" class="slds-p-left_small">
-                    <lightning-icon icon-name="action:clone" class="slds-p-left_small  " alternative-text="Clone"
-                        title="Fee Type"></lightning-icon>
-                    <span class="slds-p-horizontal_small" style="font-weight: bold; color: black">Fee
-                        Type</span>
-                </lightning-layout-item>
-                <lightning-layout-item size="4">
-                    <div class="slds-align_absolute-center slds-p-left_xx-large">
-                        <lightning-input name="feesType" type="text" label="Search Fees" placeholder="Search Fees"
-                            onchange={handlesearch} value={depname}></lightning-input>
+        <lightning-card style="margin:15px; text-transform:capitalize" class="slds-card__header headerCard">
+            <div class="slds-p-horizontal_medium">
+                <lightning-layout>
+                    <lightning-layout-item size="4" class="slds-p-left_small">
+                        <lightning-icon icon-name="action:clone" class="slds-p-left_small  " alternative-text="Clone"
+                            title="Fee Type"></lightning-icon>
+                        <span class="slds-p-horizontal_small" style="font-weight: bold; color: black">Fee
+                            Type</span>
+                    </lightning-layout-item>
+                    <lightning-layout-item size="4">
+                        <div class="slds-align_absolute-center slds-p-left_xx-large">
+                            <lightning-input name="feesType" type="text" label="Search Fees" placeholder="Search Fees"
+                                onchange={handlesearch} value={depname}></lightning-input>
 
-                    </div>
-                </lightning-layout-item>
-                <lightning-layout-item size="4" class="slds-float_right slds-clearfix">
-                    <lightning-button variant="brand" class="slds-float_right slds-p-around_medium"
-                        icon-name="utility:adduser" title="Create Fee Type" onclick={openCreateFeeType}>
-                    </lightning-button>
-                </lightning-layout-item>
-            </lightning-layout>
+                        </div>
+                    </lightning-layout-item>
+                    <lightning-layout-item size="4" class="slds-float_right slds-clearfix">
+                        <lightning-button variant="brand" class="slds-float_right slds-p-around_medium"
+                            icon-name="utility:adduser" title="Create Fee Type" onclick={openCreateFeeType}>
+                        </lightning-button>
+                    </lightning-layout-item>
+                </lightning-layout>
 
-            <div class="slds-m-top_medium hideFirstColTable">
+                <div class="slds-m-top_medium hideFirstColTable">
 
-                <lightning-datatable key-field="Id" data={dataList} columns={columns}
-                    onrowselection={getSelectedIdAction} onrowaction={rowActionHandler} checkbox-column="true"
-                    onsave={saveHandleAction} draft-values={fldsItemValues} sorted-by={sortBy}
-                    sorted-direction={sortDirection} onsort={doSorting} oncellchange={keyUpHandler}
-                    resize-column-disabled>
-                </lightning-datatable>
+                    <lightning-datatable key-field="Id" data={dataList} columns={columns}
+                        onrowselection={getSelectedIdAction} onrowaction={rowActionHandler} checkbox-column="true"
+                        onsave={saveHandleAction} draft-values={fldsItemValues} sorted-by={sortBy}
+                        sorted-direction={sortDirection} onsort={doSorting} oncellchange={keyUpHandler}
+                        resize-column-disabled>
+                    </lightning-datatable>
+
+                </div>
 
             </div>
-
-        </div>
-        <div slot="footer" class="slds-clearfix slds-p-top_xxx-small ">
-            <lightning-button label="Back" variant="brand" onclick={goBack}
-                class="slds-var-m-left_xx-small slds-float_left"></lightning-button>
-            <lightning-button label="Delete" variant="brand" onclick={deleteContactRowAction}
-                class="slds-var-m-left_xx-small slds-float_right"></lightning-button>
+            <div slot="footer" class="slds-clearfix slds-p-top_xxx-small ">
+                <lightning-button label="Back" variant="brand" onclick={goBack}
+                    class="slds-var-m-left_xx-small slds-float_left"></lightning-button>
+                <lightning-button label="Delete" variant="brand" onclick={deleteContactRowAction}
+                    class="slds-var-m-left_xx-small slds-float_right"></lightning-button>
             </div>
         </lightning-card>
     </template>
 
 
-     
-        
 
-<template if:true={isCreateFeeTypeOpen}>
-    <c-add-fee-type onmodalchange={closeCreateFeeType}></c-add-fee-type>
-</template>
+
+
+    <template if:true={isCreateFeeTypeOpen}>
+        <c-add-fee-type onmodalchange={closeCreateFeeType}></c-add-fee-type>
+    </template>
 
     <template if:true={isModalOpen}>
 

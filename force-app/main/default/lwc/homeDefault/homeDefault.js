@@ -27,6 +27,7 @@ export default class HomeDefault extends NavigationMixin(LightningElement) {
   @track previewSchool;
   @track promoteStudents;
   @track onlineAdmission;
+  @track manageSubjects;
 
   connectedCallback() {
     console.log("Home Page Loaded");
@@ -111,7 +112,7 @@ export default class HomeDefault extends NavigationMixin(LightningElement) {
       case "onlineAdmission":
         this.onlineAdmission = true;
         break;
-      case "manageSubjectListView":
+      case "manageSubjectsListViewPage":
         this.manageSubjects = true;
         break;
       default:

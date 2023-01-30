@@ -33,4 +33,5 @@ export default class ContentScreen extends LightningElement {
   @api showFacility;
   @api showCertificate;
   @api goBack;
+  @api showVisitorTracking;
 }

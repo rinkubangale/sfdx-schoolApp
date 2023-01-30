@@ -65,6 +65,9 @@
         <!-- <div>Inbox is here!!</div> -->
         <c-inbox></c-inbox>
     </template>
+    <template if:true={showVisitorTracking}>
+        <c-visitor-tracking clicked={goBack}></c-visitor-tracking >
+    </template>
     <template if:true={showFeatures}>
         <c-feature-request clicked={goBack}></c-feature-request>
     </template>

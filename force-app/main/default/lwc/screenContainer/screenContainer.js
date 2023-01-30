@@ -23,7 +23,8 @@ export default class ScreenContainer extends LightningElement {
     settings: false,
     subscription: false,
     showCheckin: false,
-    backbtn: false
+    backbtn: false,
+    visitortracking:false
   };
 
   @track toggle = false;
