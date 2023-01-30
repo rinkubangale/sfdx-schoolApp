@@ -85,7 +85,7 @@ div {
 .layoutitemcommon {
     background-color: white;
     width: 445px;
-    min-height: 204px;
+    /* min-height: 204px; */
     border-radius: 8px;
     cursor: pointer;
 }
@@ -216,22 +216,22 @@ div {
 }
 
 .border {
-    border: 20px solid #69e393;
-    padding: 13px;
+    color: #69e393;
+    /* padding: 13px;
     width: 100px;
     height: 100px;
-    border-radius: 50%;
+    border-radius: 50%; */
     text-align: center;
-    font-size: 2rem;
-    margin-top: 15PX 0;
+    font-size: 3rem;
+    margin-top: 15px;
 }
 
 .sickL {
-    border-color: #ff766b;
+    color: #ff766b;
 }
 
 .otherL {
-    border-color: #e0dd51;
+    color: #e0dd51;
 }
 
 /* #ff766b ##e0dd51 */
@@ -240,9 +240,103 @@ div {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 15px;
+    /* margin-top: 15px; */
 }
 
 .dashboard .border+p {
-    margin-top: 15px;
+    margin-bottom: 8px;
 }
+
+/* /message pop screen/ */
+
+.img {
+    width: 54px;
+    height: 54px;
+    border-radius: 50%;
+    background: #bebebe;
+    font-size: xx-large;
+    color: white;
+    padding: 10px;
+    text-align: center;
+}
+
+.popNum {
+    width: 20px;
+    height: 20px;
+    background: rgb(255, 92, 92);
+    color: #fff;
+    position: absolute;
+    border-radius: 50%;
+    text-align: center;
+    font-size: 12px;
+    bottom: 0;
+    right: 0;
+}
+
+div {
+    color: #000;
+}
+
+.msgContainer {
+    display: flex;
+    flex-wrap: wrap;
+    width: fit-content;
+}
+
+.profileContainer {
+    width: fit-content;
+    padding: 1rem;
+    margin: 1rem;
+}
+
+.profileContainer>div {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    /* width: 54px; */
+}
+
+span.userName {
+    font-size: 12px;
+}
+
+.profileContainer>div:first-child {
+    cursor: pointer;
+    width: 54px;
+    position: relative;
+}
+
+.filterMsg {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 1rem 0;
+}
+
+.filterMsg div>span {
+    margin: 8px;
+}
+
+.headerTitle {
+    text-align: left;
+}
+
+/* /message pop screen end/ */
+
+/* Alerts and Notifications Start */
+.container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.alerts {
+    width: 49%;
+    background-color: #fff;
+    border-radius: 8px;
+}
+
+.card {
+    padding: 10px;
+    height: 100%;
+}
+
+/* Alerts and Notifications End */

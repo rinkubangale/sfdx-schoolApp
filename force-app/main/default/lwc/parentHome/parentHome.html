@@ -4,23 +4,25 @@
         <template if:false={openCocurricularPerformance}>
             <template if:false={openAcademicPerformance}>
                 <template if:false={openLeaveRequestPage}>
-                    <h1 class="slds-header sHeader slds-m-bottom_large">Student Portal</h1>
-                    <div style="width: 75%">
+                    <!-- <h1 class="slds-header sHeader slds-m-bottom_large">Student Portal</h1> -->
+                    <div class="container">
 
-                        <lightning-layout multiple-rows style="gap: 2rem">
+                        <div style="width: 49%">
 
-                            <lightning-layout-item
-                                class="slds-var-p-around_x-large slds-size_1-of-1 slds-medium-size_5-of-12 slds-small-size_5-of-12 layoutitemcommon">
-                                <div class="bottomdiv2">
-                                    <div><b>Holidays</b></div>
-                                    <div>
+                            <lightning-layout multiple-rows style="gap: 2rem">
+
+                                <lightning-layout-item
+                                    class="slds-var-p-around_x-large slds-size_1-of-1 slds-medium-size_5-of-12 slds-small-size_5-of-12 layoutitemcommon">
+                                    <div class="bottomdiv2">
+                                        <div><b>Holidays</b></div>
+                                        <!-- <div>
                                         <button class="listview slds-m-right_small" data-name="list"
-                                            onclick={handleListGxBtn}>List</button>
+                                        onclick={handleListGxBtn}>List</button>
                                         <button class="graphicview" data-name="grx"
-                                            onclick={handleListGxBtn}>Graphic</button>
+                                        onclick={handleListGxBtn}>Graphic</button>
+                                    </div> -->
                                     </div>
-                                </div>
-                                <div style="overflow:auto; height: 70%; padding: 1rem;display: flex;justify-content: space-between;flex-wrap: wrap;gap: 2rem;"
+                                    <!-- <div style="overflow:auto; height: 70%; padding: 1rem;display: flex;justify-content: space-between;flex-wrap: wrap;gap: 2rem;"
                                     if:true={listDisplay}>
                                     <template for:each={holidayImg} for:item="holiday">
                                         <div key={holiday.title}>
@@ -33,88 +35,136 @@
                                             </div>
                                         </div>
                                     </template>
-                                </div>
-                                <div class="grxView" if:true={grxDisplay}>
-                                    <p onclick={movePrev}></p>
-                                    <div class="imgFlexScroll">
-                                        <template for:each={holidayImg} for:item="img">
-                                            <div key={img} class={img.class}>
-                                                <p>{img.title}</p>
-                                            </div>
-                                        </template>
+                                </div> -->
+                                    <div class="grxView" if:true={grxDisplay}>
+                                        <p onclick={movePrev}></p>
+                                        <div class="imgFlexScroll">
+                                            <template for:each={holidayImg} for:item="img">
+                                                <div key={img} class={img.class}>
+                                                    <p>{img.title}</p>
+                                                </div>
+                                            </template>
+                                        </div>
+                                        <p onclick={moveNext}></p>
                                     </div>
-                                    <p onclick={moveNext}></p>
-                                </div>
-                            </lightning-layout-item>
+                                </lightning-layout-item>
 
-                            <lightning-layout-item class="slds-var-p-around_x-large slds-size_1-of-1 slds-medium-size_5-of-12 slds-large-size_5-of-12
-                    layoutitemcommon" onclick={leaveReq}>
-                                <div class="bottomdiv2">
-                                    <div><b>Leave Request</b></div>
+                                <lightning-layout-item
+                                    class="slds-var-p-around_x-large slds-size_1-of-1 slds-medium-size_5-of-12 slds-large-size_5-of-12 layoutitemcommon"
+                                    onclick={leaveReq}>
+                                    <div class="bottomdiv2">
+                                        <div><b>Leave Balance</b></div>
+                                        <div>
+                                            <button class="viewall" data-name="view">Apply leave</button>
+                                        </div>
+                                    </div>
                                     <div>
-                                        <button class="viewall" data-name="view">View all</button>
-                                    </div>
-                                </div>
-                                <div>
-                                    <div class="dashboard">
-                                        <div>
-                                            <div class="casualL border">15</div>
-                                            <P>Total Leave</P>
-                                        </div>
-                                        <div>
-                                            <div class="sickL border">01</div>
-                                            <P>Sick Leave</P>
-                                        </div>
-                                        <div>
-                                            <div class="otherL border">04</div>
-                                            <P>Other Leave</P>
+                                        <div class="dashboard">
+                                            <div>
+                                                <div class="casualL border">15</div>
+                                                <P>Total Leave</P>
+                                            </div>
+                                            <div>
+                                                <div class="sickL border">01</div>
+                                                <P>Sick Leave</P>
+                                            </div>
+                                            <div>
+                                                <div class="otherL border">04</div>
+                                                <P>Other Leave</P>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                            </lightning-layout-item>
+                                </lightning-layout-item>
 
-                            <lightning-layout-item
+                                <!-- <lightning-layout-item
                                 class="slds-var-p-around_x-large slds-size_1-of-1 slds-medium-size_5-of-12 slds-large-size_5-of-12 layoutitemcommon">
                                 <div class="bottomdiv2">
                                     <div>
                                         <b>Time Table</b>
                                     </div>
                                 </div>
-                            </lightning-layout-item>
+                            </lightning-layout-item> -->
 
-                            <lightning-layout-item
+                                <!-- <lightning-layout-item
                                 class="slds-var-p-around_x-large slds-size_1-of-1 slds-medium-size_5-of-12 slds-large-size_5-of-12 layoutitemcommon">
                                 <div class="bottomdiv2">
                                     <div>
                                         <b>Alerts and Notifications</b>
                                     </div>
                                 </div>
-                            </lightning-layout-item>
+                            </lightning-layout-item> -->
 
-                        </lightning-layout>
+                            </lightning-layout>
 
 
-                        <div class="footerContent">
-                            <p>Student Performance</p>
-                            <div>
-                                <div class="cardContainer">
-                                    <div onclick={academicPerformance}>
-                                        <span class="card-title">Academics</span>
-                                        <span>80%</span>
+                            <div class="footerContent">
+                                <p>Student Performance</p>
+                                <div>
+                                    <div class="cardContainer">
+                                        <div onclick={academicPerformance}>
+                                            <span class="card-title">Academics</span>
+                                            <span>80%</span>
+                                        </div>
+                                        <div onclick={cocurricularPerformance}>
+                                            <span class="card-title">Co-curricular</span>
+                                            <span>90%</span>
+                                        </div>
+                                        <div onclick={attendancePerformance}>
+                                            <span class="card-title">Attendance</span>
+                                            <span>80%</span>
+                                        </div>
+
                                     </div>
-                                    <div onclick={cocurricularPerformance}>
-                                        <span class="card-title">Co-curricular</span>
-                                        <span>90%</span>
+                                    <div class="btnContainer">
+                                        <div class="btn">Remedial</div>
                                     </div>
-                                    <div onclick={attendancePerformance}>
-                                        <span class="card-title">Attendance</span>
-                                        <span>80%</span>
-                                    </div>
-
                                 </div>
-                                <div class="btnContainer">
-                                    <div class="btn">Remedial</div>
+                            </div>
+
+                            <div style="width:fit-content;">
+                                <div class="headerTitle">
+                                    <h1 class="slds-text-heading_medium">MESSAGES</h1>
                                 </div>
+                                <div class="filterMsg">
+                                    <div>Filter:
+                                        <span>
+                                            <input type="text" placeholder="Search..." />
+                                        </span>
+                                    </div>
+                                    <div>
+                                        <select name="messages" id="messages">
+                                            <option value="All messages">Subjects</option>
+                                            <option value="All messages">Hindi</option>
+                                            <option value="All messages">English</option>
+                                            <option value="All messages">Tamil</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="msgContainer slds-grid slds-wrap">
+                                    <template for:each={data1} for:item="item">
+                                        <div key={item.Id}
+                                            class="profileContainer slds-col slds-size_4-of-12 slds-medium-size_3-of-12 slds-large-size_2-of-12">
+                                            <div onclick={toggleChatWindow} data-name={item.Name}
+                                                data-section={item.section} data-class={item.class}>
+                                                <!-- <img src={userImg} alt="profile" /> -->
+                                                <div class="img">{item.firstLetter}</div>
+                                                <span class="popNum">{item.totalMessages}</span>
+                                            </div>
+                                            <div>
+                                                <span class="userName">{item.Name}</span>
+                                            </div>
+                                        </div>
+
+                                    </template>
+                                </div>
+                            </div>
+                            <c-chat-popup onchatclose={toggleChatWindow} user-profile={userDetails} if:true={openChats}>
+                            </c-chat-popup>
+                        </div>
+                        <div class="alerts">
+                            <div class="card">
+                                <div class="card-header">Alerts and Notifications</div>
+                                <div class="card-body"></div>
                             </div>
                         </div>
                     </div>

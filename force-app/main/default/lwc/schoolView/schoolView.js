@@ -286,6 +286,8 @@ export default class SchoolView extends LightningElement {
       class: e.currentTarget.dataset.class
     };
   }
+  //....................Chat ScreenContainer
+
   @track holidayImg = [
     {
       title: "Gudi Padwa",

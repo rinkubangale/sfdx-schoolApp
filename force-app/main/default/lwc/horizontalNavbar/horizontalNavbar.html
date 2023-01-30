@@ -4,6 +4,7 @@
             <img src="https://www.getjenny.com/hs-fs/hubfs/salesforce.png?width=577&name=salesforce.png"
                 alt="Vidhyaan School Logo" height="50px">
             <span>Vidhyaan</span>
+            <h1 class="slds-header sHeader">{profileName} Portal</h1>
         </div>
         <div class="navItemLeft" onclick={showProfileHandler}>
             <img src={userImg} alt="User Profile Image" onmouseover={showList} onmouseout={hideList}>
@@ -21,8 +22,7 @@
                     </div>
                     <div class="profileDetails">
                         <p class="profileName">{userName}</p>
-                        <a href="/lightning/setup/SetupOneHome/home"
-                            target="_blank">Setting</a>
+                        <a href="/lightning/setup/SetupOneHome/home" target="_blank">Setting</a>
                         <a href="/secur/logout.jsp">Log Out</a>
                     </div>
                 </div>

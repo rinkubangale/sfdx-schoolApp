@@ -106,6 +106,8 @@
   padding: 1rem;
 }
 
+/* /message pop screen starts/ */
+
 .img {
   width: 54px;
   height: 54px;
@@ -176,6 +178,8 @@ span.userName {
 .headerTitle {
   text-align: left;
 }
+
+/* /message pop screen end/ */
 
 .bottomdiv {
   display: flex;

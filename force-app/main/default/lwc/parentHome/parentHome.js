@@ -1,11 +1,5 @@
-import {
-  LightningElement,
-  track,
-  wire
-} from "lwc";
-import {
-  getRecord
-} from "lightning/uiRecordApi";
+import { LightningElement, track, wire } from "lwc";
+import { getRecord } from "lightning/uiRecordApi";
 import Id from "@salesforce/user/Id";
 import ProfileId from "@salesforce/schema/User.ProfileId";
 
@@ -15,10 +9,7 @@ export default class ParentHome extends LightningElement {
     recordId: Id,
     fields: [ProfileId]
   })
-  userDetails({
-    error,
-    data
-  }) {
+  userDetails({ error, data }) {
     if (data) {
       this.isTeacher =
         data.fields.ProfileId.value === "00e6D000000Ri7wQAC" ? true : false;
@@ -48,7 +39,8 @@ export default class ParentHome extends LightningElement {
     this.grxDisplay = e.currentTarget.dataset.name === "grx" ? true : false;
   }
 
-  @track holidayImg = [{
+  @track holidayImg = [
+    {
       title: "Gudi Padwa",
       class: "gudi"
     },
@@ -86,13 +78,10 @@ export default class ParentHome extends LightningElement {
     anchor.scrollLeft += 420;
   }
 
-
-
   @track openLeaveRequestPage = false;
   @track openAcademicPerformance = false;
   @track openCocurricularPerformance = false;
   @track openAttendancePerformance = false;
-
 
   academicPerformance() {
     this.openAcademicPerformance = !this.openAcademicPerformance;
@@ -113,4 +102,43 @@ export default class ParentHome extends LightningElement {
     this.openLeaveRequestPage = false;
   }
 
+  ////////////////////////////////////////////////////////////////
+  data1 = [
+    {
+      Id: 1,
+      Name: "Teacher 1",
+      firstLetter: "D",
+      totalMessages: "2",
+      section: "A",
+      class: "9"
+    },
+    {
+      Id: 2,
+      Name: "Teacher 2",
+      firstLetter: "J",
+      totalMessages: "3",
+      section: "A",
+      class: "9"
+    },
+    {
+      Id: 3,
+      Name: "Teacher 3",
+      firstLetter: "S",
+      totalMessages: "4",
+      section: "A",
+      class: "9"
+    }
+  ];
+
+  @track openChats = false;
+  @track userDetails;
+
+  toggleChatWindow(e) {
+    this.openChats = !this.openChats;
+    this.userDetails = {
+      Name: e.currentTarget.dataset.name,
+      section: e.currentTarget.dataset.section,
+      class: e.currentTarget.dataset.class
+    };
+  }
 }
