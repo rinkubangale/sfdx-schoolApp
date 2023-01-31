@@ -1,0 +1,134 @@
+<template>
+    <div id="addClassRoomContainer" class="col-md-11 center-block dashboard-container">
+        <div id="error" class="error"> </div>
+        <main class="main-content add-class-wrap">
+            <div class="header row no-left-margin no-right-margin">
+                <a href="#" data-close="true">
+                </a>
+                <div class="Add-c-headings">
+                    <p class="add-heading-manage fivpx-mrgn-btm">
+                        <lightning-icon class="new-icon" icon-name="utility:new" size="small" alternative-text="new!"
+                            title="new">
+                        </lightning-icon>
+                        <b>Add a Book</b>
+                    </p>
+                </div>
+
+                <a href="#" data-close="true">
+                    <div class="back" onclick={handleModalChange}>
+                        <lightning-icon icon-name="utility:back" size="x-small" alternative-text="Back!" title="Back">
+                        </lightning-icon>
+                        <p>Back</p>
+                    </div>
+                </a>
+            </div>
+
+            <div class="add-class-body">
+                <lightning-layout>
+                    <lightning-layout-item size="6" padding="around-small">
+                        <div>
+                            <lightning-input variant="label-inline" type="text" label="Book Name" value={bookName}
+                                data-field="bookName" onchange={handleAccountSelection} class="validate" required>
+                            </lightning-input>
+                        </div>
+                    </lightning-layout-item>
+                    <lightning-layout-item size="6" padding="around-small">
+                        <div>
+                            <lightning-input variant="label-inline" name="admissionStatus" label="Author" value={Author}
+                                class="validate" data-field="Author" onchange={handleChange}>
+                            </lightning-input>
+                        </div>
+                    </lightning-layout-item>
+                </lightning-layout>
+                <lightning-layout>
+                    <lightning-layout-item size="6" padding="around-small">
+                        <div>
+                            <lightning-input variant="label-inline" type="text" label="Book Id" value={bookId}
+                                data-field="bookId" onchange={handleAccountSelection} class="validate" required>
+                            </lightning-input>
+                        </div>
+                    </lightning-layout-item>
+                    <lightning-layout-item size="6" padding="around-small">
+                        <div>
+                            <lightning-input variant="label-inline" name="status" label="Status" value={status}
+                                class="validate" data-field="status" onchange={handleChange}>
+                            </lightning-input>
+                        </div>
+                    </lightning-layout-item>
+                </lightning-layout>
+                <lightning-layout>
+                    <lightning-layout-item size="6" padding="around-small">
+                        <div>
+                            <lightning-input variant="label-inline" type="text" label="Book Price" value={bookPrice}
+                                data-field="bookPrice" onchange={handleAccountSelection} class="validate" required>
+                            </lightning-input>
+                        </div>
+                    </lightning-layout-item>
+                    <lightning-layout-item size="6" padding="around-small">
+                        <div>
+                            <lightning-input variant="label-inline" name="admissionStatus" label="Supplier"
+                                value={supplier} class="validate" data-field="supplier" onchange={handleChange}>
+                            </lightning-input>
+                        </div>
+                    </lightning-layout-item>
+                </lightning-layout>
+                <lightning-layout>
+                    <lightning-layout-item size="6" padding="around-small">
+                        <div>
+                            <lightning-input variant="label-inline" type="text" label="Book Entry" value={bookEntry}
+                                data-field="bookEntry" onchange={handleAccountSelection} class="validate" required>
+                            </lightning-input>
+                        </div>
+                    </lightning-layout-item>
+                    <lightning-layout-item size="6" padding="around-small">
+                        <div>
+                            <lightning-input variant="label-inline" name="shelfNo" label="Shelf Number" value={shelfNo}
+                                class="validate" data-field="shelfNo" onchange={handleChange}>
+                            </lightning-input>
+                        </div>
+                    </lightning-layout-item>
+                </lightning-layout>
+                <lightning-layout>
+                    <lightning-layout-item size="6" padding="around-small">
+                        <div>
+                            <lightning-input variant="label-inline" type="text" label="Book Language" value={bookLang}
+                                data-field="bookLang" onchange={handleAccountSelection} class="validate" required>
+                            </lightning-input>
+                        </div>
+                    </lightning-layout-item>
+                    <lightning-layout-item size="6" padding="around-small">
+                        <div>
+                            <lightning-input variant="label-inline" name="publisher" label="Publisher" value={publisher}
+                                class="validate" data-field="publisher" onchange={handleChange}>
+                            </lightning-input>
+                        </div>
+                    </lightning-layout-item>
+                </lightning-layout>
+                <lightning-layout>
+                    <lightning-layout-item size="6" padding="around-small">
+                    </lightning-layout-item>
+                    <lightning-layout-item size="6" padding="around-small">
+                        <div>
+                            <lightning-input variant="label-inline" name="pages" label="No of Pages" value={noPages}
+                                class="validate" data-field="noPages" onchange={handleChange}>
+                            </lightning-input>
+                        </div>
+                    </lightning-layout-item>
+                </lightning-layout>
+
+                <lightning-layout>
+                    <lightning-layout-item size="12" class="slds-var-m-top_large slds-align_absolute-center">
+                        <lightning-button label="Add Book" onclick={saveHandler} variant="brand"
+                            class="slds-p-around_x-small slds-float_right">
+                        </lightning-button>
+                    </lightning-layout-item>
+                </lightning-layout>
+
+            </div>
+            <template if:true={isLoading}>
+                <lightning-spinner alternative-text="Loading" variant="brand" style="background:transparent;">
+                </lightning-spinner>
+            </template>
+        </main>
+    </div>
+</template>

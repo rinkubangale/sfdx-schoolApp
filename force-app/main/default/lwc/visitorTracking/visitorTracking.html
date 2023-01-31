@@ -1,3 +1,39 @@
 <template>
-    
+    <template if:false={isCreateNewGatePass}>
+        <lightning-card style="margin:15px; text-transform:capitalize" class="slds-card__header headerCard">
+            <div class="slds-p-horizontal_medium">
+                <lightning-layout>
+                    <lightning-layout-item size="8" class="slds-p-left_small">
+                        <lightning-icon icon-name="action:clone" class="slds-p-left_small" alternative-text="Clone"
+                            title="Create Fee Plan"></lightning-icon>
+                        <span class="slds-p-horizontal_small" style="font-weight:bold; color: black">Visitor
+                            Tracking</span>
+                    </lightning-layout-item>
+                    <lightning-layout-item size="4" class="slds-float_right slds-clearfix">
+                        <lightning-button variant="brand" class="slds-float_right slds-p-around_medium"
+                            icon-name="utility:unlock" title="Create New Gate Pass" onclick={openCreateNewPass}>
+                        </lightning-button>
+                    </lightning-layout-item>
+                </lightning-layout>
+
+                <div class="slds-m-top_medium">
+
+                    <lightning-datatable key-field="Id" data={dataList} columns={columns}
+                        onrowselection={rowSelectionHandler} onrowaction={rowActionHandler} checkbox-column="true"
+                        onsave={saveHandleAction} resize-column-disabled suppress-bottom-bar>
+                    </lightning-datatable>
+
+                </div>
+
+            </div>
+            <div slot="footer" class="slds-clearfix slds-p-top_xxx-small ">
+                <lightning-button label="Delete" variant="brand" onclick={deleteHandler}
+                    class="slds-var-m-left_xx-small slds-float_right"></lightning-button>
+            </div>
+        </lightning-card>
+    </template>
+
+    <template if:true={isCreateNewGatePass}>
+        <c-create-new-gate-pass onmodalchange={closeCreateNewPass}></c-create-new-gate-pass>
+    </template>
 </template>

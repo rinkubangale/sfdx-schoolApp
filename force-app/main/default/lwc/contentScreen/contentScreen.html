@@ -25,6 +25,12 @@
         </template>
     </template>
 
+    <template if:true={showAdmin}>
+        <template if:false={isParent}>
+            <c-admin-management></c-admin-management>
+        </template>
+    </template>
+
     <template if:true={showCertificate}>
         <template if:true={isParent}>
             <c-parent-certificate-request></c-parent-certificate-request>
@@ -66,7 +72,7 @@
         <c-inbox></c-inbox>
     </template>
     <template if:true={showVisitorTracking}>
-        <c-visitor-tracking clicked={goBack}></c-visitor-tracking >
+        <c-visitor-tracking clicked={goBack}></c-visitor-tracking>
     </template>
     <template if:true={showFeatures}>
         <c-feature-request clicked={goBack}></c-feature-request>

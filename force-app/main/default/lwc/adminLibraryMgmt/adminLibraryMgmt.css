@@ -1,0 +1,63 @@
+div {
+    color: #444;
+}
+
+.tabledata td {
+    text-align: center;
+    padding: 8px;
+}
+
+.tabledata td>div {
+    padding: 8px;
+    height: 35px;
+}
+
+.tabledata th {
+    background-color: #d5d5d5;
+    cursor: pointer;
+    text-align: center;
+    padding: 8px;
+}
+
+.tabledata tr:nth-child(odd) {
+    background-color: #f5f5f5;
+}
+
+.dashboard {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 10px 0px;
+}
+
+.info {
+    padding: 2px 8px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 2px solid #0176d3;
+    border-radius: 10px;
+    margin-right: 12px;
+}
+
+.info span {
+    font-size: 18px
+}
+
+.info span:last-child {
+    margin-left: 18px;
+    font-size: 24px !important;
+    font-weight: 500;
+}
+
+.r {
+    color: #ff436e;
+}
+
+.g {
+    color: #0bd30b;
+}
+
+.b {
+    color: #0176d3;
+}

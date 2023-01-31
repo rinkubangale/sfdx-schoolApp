@@ -1,0 +1,227 @@
+<template>
+    <div class="curr">
+        <div class="currHeader">
+            <div class="termSelect">
+                Terms: <select>
+                    <option value="Term 1">Term 1</option>
+                    <option value="Term 2">Term 2</option>
+                    <option value="Term 3">Term 3</option>
+                </select>
+            </div>
+        </div>
+        <div class="currBody">
+            <div class="currListView">
+                <table>
+                    <tr>
+                        <th>Term</th>
+                        <th>Subject</th>
+                        <th>Topics</th>
+                        <th>No of Classes</th>
+                        <th>Status</th>
+                        <th>From Date</th>
+                        <th>To Date</th>
+                        <th>Action</th>
+                        <th></th>
+                    </tr>
+                    <tr>
+                        <td>Term 1</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>4/1/2022</td>
+                        <td>9/30/2022</td>
+                        <td>
+                            <!-- <a>View</a>/<a>Edit</a> -->
+                        </td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>English</td>
+                        <td if:true={viewEngLesson}></td>
+                        <td if:true={viewEngLesson}></td>
+                        <td if:true={viewEngLesson}></td>
+                        <td if:true={viewEngLesson}></td>
+                        <td if:true={viewEngLesson}></td>
+                        <td if:false={viewEngLesson}>Lesson 1</td>
+                        <td if:false={viewEngLesson}>10</td>
+                        <td if:false={viewEngLesson}>Not Started</td>
+                        <td if:false={viewEngLesson}>12/27/2022</td>
+                        <td if:false={viewEngLesson}>12/27/2022</td>
+                        <td>
+                            <!-- <a>Add</a>/<a>Del</a> -->
+                        </td>
+                        <td>
+                            <lightning-icon class={rotateIconEng} icon-name="utility:chevronright"
+                                onclick={handleShowLesson} name="english" alternative-text="show more!" size="x-small"
+                                title="show more">
+                            </lightning-icon>
+                        </td>
+                    </tr>
+                    <tr if:true={viewEngLesson} for:each={arrLessons} for:item="subject" key={subject}>
+                        <td></td>
+                        <td></td>
+                        <td>{subject.lesson}</td>
+                        <td>{subject.noClass}</td>
+                        <td>{subject.status}</td>
+                        <td>{subject.sDate}</td>
+                        <td>{subject.eDate}</td>
+                        <td>
+                            <a>Materials</a>/<a>View</a>
+                        </td>
+                        <td>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>Hindi</td>
+                        <td if:true={viewHindiLesson}></td>
+                        <td if:true={viewHindiLesson}></td>
+                        <td if:true={viewHindiLesson}></td>
+                        <td if:true={viewHindiLesson}></td>
+                        <td if:true={viewHindiLesson}></td>
+                        <td if:false={viewHindiLesson}>Lesson 1</td>
+                        <td if:false={viewHindiLesson}>10</td>
+                        <td if:false={viewHindiLesson}>Not Started</td>
+                        <td if:false={viewHindiLesson}>12/27/2022</td>
+                        <td if:false={viewHindiLesson}>12/27/2022</td>
+                        <td>
+                            <!-- <a>Add</a>/<a>Del</a> -->
+                        </td>
+                        <td>
+                            <lightning-icon class={rotateIconHin} icon-name="utility:chevronright"
+                                onclick={handleShowLesson} name="hindi" alternative-text="show more!" size="x-small"
+                                title="show more">
+                            </lightning-icon>
+                        </td>
+                    </tr>
+                    <tr if:true={viewHindiLesson} for:each={arrLessons} for:item="subject" key={subject}>
+                        <td></td>
+                        <td></td>
+                        <td>{subject.lesson}</td>
+                        <td>{subject.noClass}</td>
+                        <td>{subject.status}</td>
+                        <td>{subject.sDate}</td>
+                        <td>{subject.eDate}</td>
+                        <td>
+                            <a>Materials</a>/<a>View</a>
+                        </td>
+                        <td>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>Tamil</td>
+                        <td if:true={viewTamilLesson}></td>
+                        <td if:true={viewTamilLesson}></td>
+                        <td if:true={viewTamilLesson}></td>
+                        <td if:true={viewTamilLesson}></td>
+                        <td if:true={viewTamilLesson}></td>
+                        <td if:false={viewTamilLesson}>Lesson 1</td>
+                        <td if:false={viewTamilLesson}>10</td>
+                        <td if:false={viewTamilLesson}>Not Started</td>
+                        <td if:false={viewTamilLesson}>12/27/2022</td>
+                        <td if:false={viewTamilLesson}>12/27/2022</td>
+                        <td>
+                            <!-- <a>Add</a>/<a>Del</a> -->
+                        </td>
+                        <td>
+                            <lightning-icon class={rotateIconTam} icon-name="utility:chevronright"
+                                onclick={handleShowLesson} name="tamil" alternative-text="show more!" size="x-small"
+                                title="show more">
+                            </lightning-icon>
+                        </td>
+                    </tr>
+                    <tr if:true={viewTamilLesson} for:each={arrLessons} for:item="subject" key={subject}>
+                        <td></td>
+                        <td></td>
+                        <td>{subject.lesson}</td>
+                        <td>{subject.noClass}</td>
+                        <td>{subject.status}</td>
+                        <td>{subject.sDate}</td>
+                        <td>{subject.eDate}</td>
+                        <td>
+                            <a>Materials</a>/<a>View</a>
+                        </td>
+                        <td>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>EVS</td>
+                        <td if:true={viewEvsLesson}></td>
+                        <td if:true={viewEvsLesson}></td>
+                        <td if:true={viewEvsLesson}></td>
+                        <td if:true={viewEvsLesson}></td>
+                        <td if:true={viewEvsLesson}></td>
+                        <td if:false={viewEvsLesson}>Lesson 1</td>
+                        <td if:false={viewEvsLesson}>10</td>
+                        <td if:false={viewEvsLesson}>Not Started</td>
+                        <td if:false={viewEvsLesson}>12/27/2022</td>
+                        <td if:false={viewEvsLesson}>12/27/2022</td>
+                        <td>
+                            <!-- <a>Add</a>/<a>Del</a> -->
+                        </td>
+                        <td>
+                            <lightning-icon class={rotateIconEVS} icon-name="utility:chevronright"
+                                onclick={handleShowLesson} name="evs" alternative-text="show more!" size="x-small"
+                                title="show more">
+                            </lightning-icon>
+                        </td>
+                    </tr>
+                    <tr if:true={viewEvsLesson} for:each={arrLessons} for:item="subject" key={subject}>
+                        <td></td>
+                        <td></td>
+                        <td>{subject.lesson}</td>
+                        <td>{subject.noClass}</td>
+                        <td>{subject.status}</td>
+                        <td>{subject.sDate}</td>
+                        <td>{subject.eDate}</td>
+                        <td>
+                            <a>Materials</a>/<a>View</a>
+                        </td>
+                        <td>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>Computer Science</td>
+                        <td if:true={viewCsLesson}></td>
+                        <td if:true={viewCsLesson}></td>
+                        <td if:true={viewCsLesson}></td>
+                        <td if:true={viewCsLesson}></td>
+                        <td if:true={viewCsLesson}></td>
+                        <td if:false={viewCsLesson}>Lesson 1</td>
+                        <td if:false={viewCsLesson}>10</td>
+                        <td if:false={viewCsLesson}>Not Started</td>
+                        <td if:false={viewCsLesson}>12/27/2022</td>
+                        <td if:false={viewCsLesson}>12/27/2022</td>
+                        <td>
+                            <!-- <a>Add</a>/<a>Del</a> -->
+                        </td>
+                        <td>
+                            <lightning-icon class={rotateIconCS} icon-name="utility:chevronright"
+                                onclick={handleShowLesson} name="cs" alternative-text="show more!" size="x-small"
+                                title="show more">
+                            </lightning-icon>
+                        </td>
+                    </tr>
+                    <tr if:true={viewCsLesson} for:each={arrLessons} for:item="subject" key={subject}>
+                        <td></td>
+                        <td></td>
+                        <td>{subject.lesson}</td>
+                        <td>{subject.noClass}</td>
+                        <td>{subject.status}</td>
+                        <td>{subject.sDate}</td>
+                        <td>{subject.eDate}</td>
+                        <td>
+                            <a>Materials</a>/<a>View</a>
+                        </td>
+                        <td>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</template>

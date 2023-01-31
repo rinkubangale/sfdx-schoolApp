@@ -1,11 +1,5 @@
-import {
-  LightningElement,
-  track,
-  wire
-} from "lwc";
-import {
-  getRecord
-} from "lightning/uiRecordApi";
+import { LightningElement, track, wire } from "lwc";
+import { getRecord } from "lightning/uiRecordApi";
 import Id from "@salesforce/user/Id";
 import ProfileId from "@salesforce/schema/User.ProfileId";
 
@@ -16,10 +10,7 @@ export default class VerticalNavbar extends LightningElement {
     recordId: Id,
     fields: [ProfileId]
   })
-  userDetails({
-    error,
-    data
-  }) {
+  userDetails({ error, data }) {
     if (data) {
       // console.log("currProfile " + JSON.stringify(data));
       this.isTeacher =
@@ -58,7 +49,19 @@ export default class VerticalNavbar extends LightningElement {
       })
     );
   }
-
+  toAdmin() {
+    this.dispatchEvent(
+      new CustomEvent("btnclick", {
+        detail: {
+          admission: false,
+          home: false,
+          admin: true,
+          settings: false,
+          subscription: false
+        }
+      })
+    );
+  }
   toFee() {
     this.dispatchEvent(
       new CustomEvent("btnclick", {

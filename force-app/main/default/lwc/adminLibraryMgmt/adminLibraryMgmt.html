@@ -1,0 +1,140 @@
+<template>
+    <lightning-tabset if:true={showListView}>
+        <lightning-tab label="Library">
+            <div class="libContainer">
+                <div class="dashboard">
+                    <div class="info">
+                        <span>Books</span>
+                        <span class="b">40</span>
+                    </div>
+                    <div class="info">
+                        <span>Assigned</span>
+                        <span class="r">20</span>
+                    </div>
+                    <div class="info">
+                        <span>Available</span>
+                        <span class="g">20</span>
+                    </div>
+                </div>
+                <div class="listView">
+                    <div class="btns slds-clearfix">
+                        <lightning-button variant="brand" class="slds-float_right slds-p-around_medium"
+                            icon-name="utility:upload" title="Import" onclick={openModal}>
+                        </lightning-button>
+                        <lightning-button variant="brand" class="slds-float_right slds-p-around_medium"
+                            icon-name="utility:adduser" title="Add book" onclick={handleAddChange}>
+                        </lightning-button>
+                    </div>
+                    <div class="tabledata">
+                        <table>
+                            <tr>
+                                <th>Book Name</th>
+                                <th>Status</th>
+                                <th>Quantity</th>
+                                <th>Assigned</th>
+                                <th>Available</th>
+                                <th>Action</th>
+                            </tr>
+                            <tr>
+                                <td>XYZ</td>
+                                <td>In-stock</td>
+                                <td>5</td>
+                                <td>3</td>
+                                <td>2</td>
+                                <td>
+                                    <a onclick={handleAssignChange}>Assign</a>/
+                                    <a>Edit</a>/
+                                    <a>Del</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>ABC</td>
+                                <td>Out of stock</td>
+                                <td>50</td>
+                                <td>30</td>
+                                <td>20</td>
+                                <td>
+                                    <a onclick={handleAssignChange}>Assign</a>/
+                                    <a>Edit</a>/
+                                    <a>Del</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>123</td>
+                                <td>Assigned</td>
+                                <td>15</td>
+                                <td>5</td>
+                                <td>10</td>
+                                <td>
+                                    <a onclick={handleAssignChange}>Assign</a>/
+                                    <a>Edit</a>/
+                                    <a>Del</a>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </lightning-tab>
+        <lightning-tab label="Book Issued">
+            <div style="margin-top: 10px;">
+                <div class="tabledata">
+                    <table>
+                        <tr>
+                            <th>Book Name</th>
+                            <th>Date Issued</th>
+                            <th>Assigned To</th>
+                            <th>Return Date</th>
+                            <th>Due Date</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                        </tr>
+                        <tr>
+                            <td>XYZ</td>
+                            <td>1/28/2023</td>
+                            <td>Harin</td>
+                            <td>1/28/2023</td>
+                            <td>1/28/2023</td>
+                            <td>Returned</td>
+                            <td>
+                                <a onclick={handleBookAssignChange}>Assign</a>/
+                                <a>Edit</a>/
+                                <a>Del</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>XYZ</td>
+                            <td>1/28/2023</td>
+                            <td>Harin</td>
+                            <td>1/28/2023</td>
+                            <td>1/28/2023</td>
+                            <td>Returned</td>
+                            <td>
+                                <a onclick={handleBookAssignChange}>Assign</a>/
+                                <a>Edit</a>/
+                                <a>Del</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>XYZ</td>
+                            <td>1/28/2023</td>
+                            <td>Harin</td>
+                            <td>1/28/2023</td>
+                            <td>1/28/2023</td>
+                            <td>Returned</td>
+                            <td>
+                                <a onclick={handleBookAssignChange}>Assign</a>/
+                                <a>Edit</a>/
+                                <a>Del</a>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </lightning-tab>
+    </lightning-tabset>
+
+    <c-add-book-library if:true={addBookPage} onmodalchange={handleAddChange}></c-add-book-library>
+    <c-assign-book-page if:true={assignBookPage} onmodalchange={handleAssignChange}></c-assign-book-page>
+    <c-view-issued-books if:true={assignBookIssue} onmodalchange={handleBookAssignChange}></c-view-issued-books>
+</template>

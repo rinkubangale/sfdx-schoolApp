@@ -8,18 +8,17 @@
 
                     <lightning-icon icon-name="standard:record" alternative-text="Clone" title="Clone"></lightning-icon>
 
-                    <span style="font-weight: bold; font-size: large;  " class="slds-p-horizontal_small ">Student List
+                    <span style="font-weight: bold; font-size: large; color:#444 "
+                        class="slds-p-horizontal_small ">Student List
                         View</span>
 
                 </lightning-layout-item>
 
                 <lightning-layout-item size="6" class="slds-p-around_medium">
-
                     <div class=" slds-float_right">
-                        <!-- <c-create-student></c-create-student> -->
-                        <lightning-button-icon icon-name="utility:adduser" variant="brand" alternative-text="Add user"
+                        <lightning-button icon-name="utility:adduser" variant="brand" alternative-text="Add user"
                             class=" slds-p-around_small" title="Add user" onclick={openModal}>
-                        </lightning-button-icon>
+                        </lightning-button>
                     </div>
                 </lightning-layout-item>
 
@@ -27,72 +26,48 @@
             </lightning-layout>
 
 
+            <lightning-layout multiple-rows class=" slds-p-around_small slds-align_absolute-center ">
+                <lightning-layout-item size="3">
 
-            <!-- 
-            <div>
-
-                <div class=" slds-float_right">
-
-                    <c-create-student></c-create-student>
-                 <lightning-button label="Delete" variant="brand" onclick={deleteSelectedStudents}
-            class="slds-var-m-left_xx-small slds-float_right"></lightning-button> -->
-            <!-- <lightning-button-icon icon-name="utility:delete" variant="brand" alternative-text="Delete user"
-                         class=" slds-p-around_small" title="Delete user" onclick={deleteSelectedStudents}>
-                    </lightning-button-icon> 
-
-                </div>
-
-            </div>  -->
-
-            <!-- <lightning-card style="box-shadow: black;"
-            class="slds-c-modal-shadow slds-p-top_none  slds-card_boundary slds-media__figure slds-c-card-shadow slds-card__body_inner"> -->
-
-            <lightning-layout size="12" class=" slds-p-around_small slds-align_absolute-center ">
-
+                </lightning-layout-item>
                 <lightning-layout-item size="2">
-                    <div class=" slds-p-horizontal_small" style="font-weight:bold;font-size: 20px;text-align:center">
-                        {total}
-                    </div>
-                    <div class="slds-p-horizontal_large"
-                        style="color:rgb(2, 178, 231); font-size:large; text-align:center;font-family: serif; ">Total
+                    <div class="status">
+                        <span class="slds-box_xx-small slds-text-color_inverse slds-badge slds-theme_warning" style="background: transparent;
+                            font-size: x-large;
+                            color: black;">9</span>
+
+                        <span style="color:black; font-weight: 600;
+                        font-size: 1.1rem;">Total</span>
                     </div>
                 </lightning-layout-item>
 
                 <lightning-layout-item size="2">
-                    <div class="slds-p-horizontal_small" style="font-weight:bold;font-size: 20px;text-align:center">
-                        {active}
-                    </div>
-                    <div class="slds-p-horizontal_large"
-                        style="color:rgb(30, 114, 23); font-size:large; text-align:center;font-family: serif;">Active
+                    <div class="status">
+                        <span class="slds-box_xx-small slds-text-color_inverse slds-badge slds-theme_warning" style="background: transparent;
+                            font-size: x-large;
+                            color: black;">5</span>
+
+                        <span style="color:black; font-weight: 600;
+                        font-size: 1.1rem;">Boys</span>
                     </div>
                 </lightning-layout-item>
 
                 <lightning-layout-item size="2">
-                    <div class=" slds-p-horizontal_small" style="font-weight:bold;font-size: 20px;text-align:center">
-                        {Inactive}
-                    </div>
-                    <div class="slds-p-horizontal_large"
-                        style="color:rgb(212, 12, 12); font-size:large; text-align:center;font-family: serif;">Inactive
+                    <div class="status">
+                        <span class="slds-box_xx-small slds-text-color_inverse slds-badge slds-theme_warning" style="background: transparent;
+                            font-size: x-large;
+                            color: black;">4</span>
+
+                        <span style="color:black; font-weight: 600;
+                        font-size: 1.1rem;">Girls</span>
                     </div>
                 </lightning-layout-item>
 
-                <lightning-layout-item size="2">
-                    <div class=" slds-p-horizontal_small" style="font-weight:bold;font-size: 20px;text-align:center">
-                        {New} 0
-                    </div>
-                    <div class="slds-p-horizontal_large"
-                        style="color:rgb(51, 129, 173); font-size:large; text-align:center;font-family: serif;">New
-                    </div>
+                <lightning-layout-item size="3">
 
                 </lightning-layout-item>
-                <lightning-layout-item size="2">
-                    <div class="slds-p-horizontal_small" style="font-weight:bold;font-size: 20px;text-align:center">
-                        {Waitlisted} 0
-                    </div>
-                    <div class="slds-p-horizontal_large"
-                        style="color:rgb(201, 130, 24); font-size:large; text-align:center;font-family: serif;">
-                        Waitlisted </div>
-                </lightning-layout-item>
+
+
                 <!-- <lightning-button label="Create Student" variant="brand" onclick={navigateToNewRecordPage} class="slds-var-m-left_xx-small slds-float_right"></lightning-button> -->
 
             </lightning-layout>

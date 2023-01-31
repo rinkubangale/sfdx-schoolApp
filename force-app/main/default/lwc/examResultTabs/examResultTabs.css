@@ -59,3 +59,14 @@
     margin-bottom: 12px;
     width: 100px;
 }
+
+.rankHeading {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row-reverse;
+}
+
+.header {
+    font-size: 18px;
+    font-weight: 500;
+}

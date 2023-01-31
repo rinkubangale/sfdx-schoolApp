@@ -1,59 +1,100 @@
-import { LightningElement, wire, track } from 'lwc';
-import { updateRecord } from 'lightning/uiRecordApi';
+import {
+    LightningElement,
+    wire,
+    track
+} from 'lwc';
+import {
+    updateRecord
+} from 'lightning/uiRecordApi';
 import getRecords from '@salesforce/apex/studentRecord.getRecords';
 /* import getCases from '@salesforce/apex/getContacts.contactController';  */
 import deleteStudents from '@salesforce/apex/studentRecord.deleteStudents';
-import { refreshApex } from '@salesforce/apex';
-import { ShowToastEvent } from 'lightning/platformShowToastEvent';
+import {
+    refreshApex
+} from '@salesforce/apex';
+import {
+    ShowToastEvent
+} from 'lightning/platformShowToastEvent';
 /* import { getObjectInfo } from 'lightning/uiObjectInfoApi';
 import { getPicklistValues } from 'lightning/uiObjectInfoApi';
 import Contact_object from '@salesforce/schema/Contact';
 import Status_field from '@salesforce/schema/Contact.Status__c';
  */
 import modal from "@salesforce/resourceUrl/popUpWidth";
-import { loadStyle } from "lightning/platformResourceLoader";
+import {
+    loadStyle
+} from "lightning/platformResourceLoader";
 
 
 
-const actions = [
-    {
-        label: 'Edit', name: 'edit', iconName: "utility:edit",
+const actions = [{
+        label: 'Edit',
+        name: 'edit',
+        iconName: "utility:edit",
         alternativeText: "Edit",
         title: "Edit"
     },
     {
-        label: 'Delete', name: 'delete', iconName: "utility:delete",
+        label: 'Delete',
+        name: 'delete',
+        iconName: "utility:delete",
         alternativeText: "Delete",
         title: "Delete"
     }
 
 ];
 
-const statuss = [
-    {
-        label: 'Status', name: 'Status', iconName: "action:update_status",
+const statuss = [{
+        label: 'Status',
+        name: 'Status',
+        iconName: "action:update_status",
         alternativeText: "status",
-        title: "Status", type: "picklist"
+        title: "Status",
+        type: "picklist"
     }
 
 ];
 
 
-const columns = [
-    { label: 'Student Name', fieldName: 'FirstName', editable: "true" },
+const columns = [{
+        label: 'Student Name',
+        fieldName: 'FirstName',
+        editable: "true"
+    },
     {
-        label: 'DOB', fieldName: 'Date_of_Birth__c', type: 'date-local', typeAttributes: {
+        label: 'Date Of Birth',
+        fieldName: 'Date_of_Birth__c',
+        type: 'date-local',
+        typeAttributes: {
             weekday: "long",
             year: "numeric",
             month: "long",
             day: "2-digit"
-        }, editable: "true"
+        },
+        editable: "true"
     },
-    { label: 'Registration Date', fieldName: 'Date_of_Joining__c', type: 'date-local', editable: 'true' },
-    { label: 'Class', fieldName: 'Class_Name__c', editable: "true" },
-    { label: 'Class Section', fieldName: 'Class_Section__c', editable: "true" },
+    {
+        label: 'Registration Date',
+        fieldName: 'Date_of_Joining__c',
+        type: 'date-local',
+        editable: 'true'
+    },
+    {
+        label: 'Class',
+        fieldName: 'Class_Name__c',
+        editable: "true"
+    },
+    {
+        label: 'Class Section',
+        fieldName: 'Class_Section__c',
+        editable: "true"
+    },
     /* { label: 'Classroom', fieldName: 'Classroom', editable: "true" }, */
-    { label: 'Contacts', fieldName: 'Email', editable: "true" },
+    {
+        label: 'Contacts',
+        fieldName: 'Email',
+        editable: "true"
+    },
 
     //     {
 
@@ -70,12 +111,29 @@ const columns = [
 
 
     {
-        label: 'Status', fieldName: 'Status__c', type: 'picklist', editable: "true", wrapText: true, typeAttributes: {
-            placeholder: 'Choose rating', options: [
-                { label: 'Active', value: 'Active' },
-                { label: 'Inactive', value: 'Inactive' },
-            ], value: { fieldName: 'Status__c' } // default value for picklist
-            , context: { fieldName: 'Id' } // binding account Id with context variable to be returned back
+        label: 'Status',
+        fieldName: 'Status__c',
+        type: 'picklist',
+        editable: "true",
+        wrapText: true,
+        typeAttributes: {
+            placeholder: 'Choose rating',
+            options: [{
+                    label: 'Active',
+                    value: 'Active'
+                },
+                {
+                    label: 'Inactive',
+                    value: 'Inactive'
+                },
+            ],
+            value: {
+                fieldName: 'Status__c'
+            } // default value for picklist
+            ,
+            context: {
+                fieldName: 'Id'
+            } // binding account Id with context variable to be returned back
         }
     },
 
@@ -89,7 +147,12 @@ const columns = [
         }
     },
  */
-    { type: 'action', typeAttributes: { rowActions: actions } }
+    {
+        type: 'action',
+        typeAttributes: {
+            rowActions: actions
+        }
+    }
 
 ];
 
@@ -113,7 +176,9 @@ export default class StudentListView extends LightningElement {
     }
 
     @track deleteId = [];
-    @track dataList = [{FirstName: 'John'}];
+    @track dataList = [{
+        FirstName: 'John'
+    }];
 
     wiredRecordList;
     selectedStudents;
@@ -249,15 +314,15 @@ export default class StudentListView extends LightningElement {
             //console.log("hey",JSON.stringify(this.deleteId));
 
             /*          const idList = this.selectedStudents.map(row => { return row.Id })
-             */        /* deleteStudents({ contactIds: idList }).then(() => {
-                      //location.reload();
-                      this.ShowToast();
-                  })
-                  this.template.querySelector('lightning-datatable').selectedRows = [];
-                  this.selectedStudents = undefined; 
-                  }*/
-        }
-        else if (this.getSelectedStudent() == 0) {
+             */
+            /* deleteStudents({ contactIds: idList }).then(() => {
+                          //location.reload();
+                          this.ShowToast();
+                      })
+                      this.template.querySelector('lightning-datatable').selectedRows = [];
+                      this.selectedStudents = undefined; 
+                      }*/
+        } else if (this.getSelectedStudent() == 0) {
             this.dispatchEvent(
                 new ShowToastEvent({
                     title: 'Error While Deleting Record',
@@ -272,7 +337,9 @@ export default class StudentListView extends LightningElement {
         this.fldsItemValues = event.detail.draftValues;
         const inputsItems = this.fldsItemValues.slice().map(draft => {
             const fields = Object.assign({}, draft);
-            return { fields };
+            return {
+                fields
+            };
         });
 
 
@@ -313,5 +380,7 @@ export default class StudentListView extends LightningElement {
             detail: false,
         }))
     }
-    dataList = [{FirstName: 'John'}]
+    dataList = [{
+        FirstName: 'John'
+    }]
 }
