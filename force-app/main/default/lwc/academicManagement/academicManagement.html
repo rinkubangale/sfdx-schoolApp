@@ -565,119 +565,357 @@
                         <c-assignments></c-assignments>
                     </lightning-tab>
                     <lightning-tab label="Exam Result">
-                        <div if:false={showResultTB}>
-                            <div class="filterResult">
-                                <div class="resultDivClass">
-                                    <div class="exResult">Exam Term <span>Term 1</span></div>
-                                    <div>
-                                        <label for="subjectLabels">Subjects</label>
-                                        <select name="subjects" id="subjectLabels">
-                                            <option value="English">English</option>
-                                            <option value="Hindi">Hindi</option>
-                                            <option value="Tamil">Tamil</option>
-                                            <option value="Physics">Physics</option>
-                                        </select>
+                        <lightning-tabset>
+                            <lightning-tab label="Academics">
+                                <div if:false={showResultTB}>
+                                    <div class="filterResult">
+                                        <div class="resultDivClass">
+                                            <div class="exResult">Exam Term <span>Term 1</span></div>
+                                            <div>
+                                                <label for="subjectLabel1">Subjects</label>
+                                                <select name="subjects" id="subjectLabel1">
+                                                    <option value="English">English</option>
+                                                    <option value="Hindi">Hindi</option>
+                                                    <option value="Tamil">Tamil</option>
+                                                    <option value="Physics">Physics</option>
+                                                </select>
+                                            </div>
+                                        </div>
                                     </div>
-                                </div>
-                            </div>
 
-                            <div class="showResultTb">
-                                <table>
-                                    <tr>
-                                        <th>#</th>
-                                        <th>Name</th>
-                                        <th>Date</th>
-                                        <th>Status</th>
-                                        <th>Action</th>
-                                    </tr>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>English</td>
-                                        <td>12/27/2022</td>
-                                        <td>
-                                            <select>
-                                                <option value="Pending">Pending</option>
-                                                <option value="Done">Done</option>
-                                            </select>
-                                        </td>
-                                        <td>
-                                            <span>
-                                                <span class="tbtn" onclick={handleShowResult}>Result</span>
-                                                <span class="tbtn">Delete</span>
-                                            </span>
-                                        </td>
-                                    </tr>
-                                </table>
-                            </div>
-                        </div>
-                        <div if:true={showResultTB}>
-                            <div class="resHeader">
-                                <div class="backBtnDiv" onclick={handleShowResult}>
-                                    <a>
-                                        <lightning-icon icon-name="utility:back" alternative-text="Back" title="Back"
-                                            size="x-small"></lightning-icon>
-                                        <p>Back</p>
-                                    </a>
-                                </div>
-                                <div>
-                                    <input type="text" placeholder="Search Students" />
-                                </div>
-                                <div>
-                                    <div class="btnGrp">
-                                        <span>Contribution</span>
-                                        <span>Calculate</span>
-                                        <span>Publish</span>
+                                    <div class="showResultTb">
+                                        <table>
+                                            <tr>
+                                                <th>Term</th>
+                                                <th>Subject</th>
+                                                <th>Exam Date</th>
+                                                <th>Total Marks</th>
+                                                <th>Grade</th>
+                                                <th>%</th>
+                                                <th>Action</th>
+                                            </tr>
+                                            <tr>
+                                                <td>Term 1</td>
+                                                <td>
+                                                    <div>English</div>
+                                                    <div>Tamil</div>
+                                                    <div>Hindi</div>
+                                                </td>
+                                                <td>
+                                                    <div>12/27/2022</div>
+                                                    <div>12/27/2022</div>
+                                                    <div>12/27/2022</div>
+                                                </td>
+                                                <td>
+                                                    <div>
+                                                        <input type="number" value="85">/<input type="number"
+                                                            value="100">
+                                                    </div>
+                                                    <div>
+                                                        <input type="number" value="85">/<input type="number"
+                                                            value="100">
+                                                    </div>
+                                                    <div>
+                                                        <input type="number" value="85">/<input type="number"
+                                                            value="100">
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div>A+</div>
+                                                    <div>A+</div>
+                                                    <div>B+</div>
+                                                </td>
+                                                <td>
+                                                    <div>85%</div>
+                                                    <div>85%</div>
+                                                    <div>85%</div>
+                                                </td>
+                                                <td>
+                                                    <div class="resBtn" onclick={handleShowResult}>Result</div>
+                                                    <div class="resBtn" onclick={handleShowResult}>Result</div>
+                                                    <div class="resBtn" onclick={handleShowResult}>Result</div>
+                                                </td>
+                                            </tr>
+                                        </table>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="resBody">
-                                <table>
-                                    <tr>
-                                        <th>#</th>
-                                        <th>Student Name</th>
-                                        <th>Grade</th>
-                                        <th>%</th>
-                                        <th>Ranks</th>
-                                        <th>Marks</th>
-                                        <th>Absent/Present</th>
-                                        <th>Comments</th>
-                                    </tr>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>Ramsath D</td>
-                                        <td>auto</td>
-                                        <td>auto</td>
-                                        <td>auto</td>
-                                        <td>
-                                            <input type="number" />
-                                        </td>
-                                        <td>
-                                            <span class="atnp">P</span>
-                                        </td>
-                                        <td>
-                                            <textarea></textarea>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>2</td>
-                                        <td>Pravna d</td>
-                                        <td>auto</td>
-                                        <td>auto</td>
-                                        <td>auto</td>
-                                        <td>
-                                            <input type="number" />
-                                        </td>
-                                        <td>
-                                            <span class="atna">A</span>
-                                        </td>
-                                        <td>
-                                            <textarea></textarea>
-                                        </td>
-                                    </tr>
-                                </table>
-                            </div>
-                            <div class="resFooter"></div>
-                        </div>
+                                <div if:true={showResultTB}>
+                                    <div class="resHeader">
+                                        <div class="backBtnDiv" onclick={handleShowResult}>
+                                            <a>
+                                                <lightning-icon icon-name="utility:back" alternative-text="Back"
+                                                    title="Back" size="x-small"></lightning-icon>
+                                                <p>Back</p>
+                                            </a>
+                                        </div>
+                                        <div>
+                                            <input type="text" placeholder="Search Students" />
+                                        </div>
+                                        <div>
+                                            <div class="btnGrp">
+                                                <span>Contribution</span>
+                                                <span>Calculate</span>
+                                                <span>Publish</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="resBody">
+                                        <table>
+                                            <tr>
+                                                <th>#</th>
+                                                <th>Student Name</th>
+                                                <th>Grade</th>
+                                                <th>%</th>
+                                                <th>Ranks</th>
+                                                <th>Marks</th>
+                                                <th>Absent/Present</th>
+                                                <th>Comments</th>
+                                            </tr>
+                                            <tr>
+                                                <td>1</td>
+                                                <td>Ramsath D</td>
+                                                <td>auto</td>
+                                                <td>auto</td>
+                                                <td>auto</td>
+                                                <td>
+                                                    <input type="number" />
+                                                </td>
+                                                <td>
+                                                    <span class="atnp">P</span>
+                                                </td>
+                                                <td>
+                                                    <textarea></textarea>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>2</td>
+                                                <td>Pravna d</td>
+                                                <td>auto</td>
+                                                <td>auto</td>
+                                                <td>auto</td>
+                                                <td>
+                                                    <input type="number" />
+                                                </td>
+                                                <td>
+                                                    <span class="atna">A</span>
+                                                </td>
+                                                <td>
+                                                    <textarea></textarea>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                    <div class="resFooter"></div>
+                                </div>
+                            </lightning-tab>
+                            <lightning-tab label="Curricular Activities">
+                                <div if:false={showCurricularResultTB}>
+                                    <div class="filterResult">
+                                        <div class="resultDivClass">
+                                            <div class="exResult">Exam Term <span>Term 1</span></div>
+                                            <div>
+                                                <label for="subjectLabel2">Subjects</label>
+                                                <select name="subjects" id="subjectLabel2">
+                                                    <option value="English">English</option>
+                                                    <option value="Hindi">Hindi</option>
+                                                    <option value="Tamil">Tamil</option>
+                                                    <option value="Physics">Physics</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="showResultTb">
+                                        <table>
+                                            <tr>
+                                                <th>Term</th>
+                                                <th>Activities</th>
+                                                <th>Date</th>
+                                                <th>Grade</th>
+                                                <th>Action</th>
+                                            </tr>
+                                            <tr>
+                                                <td>Term 1</td>
+                                                <td>
+                                                    <div>Games</div>
+                                                    <div>Arts/Craft</div>
+                                                    <div>Health</div>
+                                                </td>
+                                                <td>
+                                                    <div>1/27/2023</div>
+                                                    <div>1/27/2023</div>
+                                                    <div>1/27/2023</div>
+                                                </td>
+                                                <td>
+                                                    <div>A+</div>
+                                                    <div>A+</div>
+                                                    <div>B+</div>
+                                                </td>
+                                                <td>
+                                                    <div class="resBtn" data-name="currTB" onclick={handleShowResult}>
+                                                        Result
+                                                    </div>
+                                                    <div class="resBtn" data-name="currTB" onclick={handleShowResult}>
+                                                        Result
+                                                    </div>
+                                                    <div class="resBtn" data-name="currTB" onclick={handleShowResult}>
+                                                        Result
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </div>
+                                <div if:true={showCurricularResultTB}>
+                                    <div class="resHeader">
+                                        <div class="backBtnDiv" data-name="currTB" onclick={handleShowResult}>
+                                            <a>
+                                                <lightning-icon icon-name="utility:back" alternative-text="Back"
+                                                    title="Back" size="x-small"></lightning-icon>
+                                                <p>Back</p>
+                                            </a>
+                                        </div>
+                                        <div>
+                                            <input type="text" placeholder="Search Students" />
+                                        </div>
+                                        <div>
+                                            <div class="btnGrp">
+                                                <span>Contribution</span>
+                                                <span>Calculate</span>
+                                                <span>Publish</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="resBody">
+                                        <table>
+                                            <tr>
+                                                <th>#</th>
+                                                <th>Student Name</th>
+                                                <th>Grade</th>
+                                                <th>%</th>
+                                                <th>Ranks</th>
+                                                <th>Marks</th>
+                                                <th>Absent/Present</th>
+                                                <th>Comments</th>
+                                            </tr>
+                                            <tr>
+                                                <td>1</td>
+                                                <td>Ramsath D</td>
+                                                <td>auto</td>
+                                                <td>auto</td>
+                                                <td>auto</td>
+                                                <td>
+                                                    <input type="number" />
+                                                </td>
+                                                <td>
+                                                    <span class="atnp">P</span>
+                                                </td>
+                                                <td>
+                                                    <textarea></textarea>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>2</td>
+                                                <td>Pravna d</td>
+                                                <td>auto</td>
+                                                <td>auto</td>
+                                                <td>auto</td>
+                                                <td>
+                                                    <input type="number" />
+                                                </td>
+                                                <td>
+                                                    <span class="atna">A</span>
+                                                </td>
+                                                <td>
+                                                    <textarea></textarea>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                    <div class="resFooter"></div>
+                                </div>
+                            </lightning-tab>
+                            <lightning-tab label="Attendance">
+                                <div>
+                                    <div class="filterResult">
+                                        <div class="resultDivClass">
+                                            <div class="exResult">Exam Term <span>Term 1</span></div>
+                                            <div>
+                                                <label for="subjectLabel3">Subjects</label>
+                                                <select name="subjects" id="subjectLabel3">
+                                                    <option value="English">English</option>
+                                                    <option value="Hindi">Hindi</option>
+                                                    <option value="Tamil">Tamil</option>
+                                                    <option value="Physics">Physics</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="showResultTb">
+                                        <table>
+                                            <tr>
+                                                <th>Student Name</th>
+                                                <th>Total School Days</th>
+                                                <th>Present</th>
+                                                <th>Absent</th>
+                                                <th>Grade</th>
+                                            </tr>
+                                            <tr>
+                                                <td>Harin</td>
+                                                <td>65</td>
+                                                <td>65</td>
+                                                <td>0</td>
+                                                <td contenteditable>A+</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Priya</td>
+                                                <td>65</td>
+                                                <td>63</td>
+                                                <td>2</td>
+                                                <td contenteditable>B+</td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </div>
+                            </lightning-tab>
+                            <lightning-tab label="Overall Performance">
+                                <div>
+                                    <div class="slds-clearfix">
+                                        <lightning-button class="slds-float_right slds-m-around_x-small" label="Publish"
+                                            variant="brand"></lightning-button>
+                                    </div>
+                                    <div class="showResultTb">
+                                        <table>
+                                            <tr>
+                                                <th>Student Name</th>
+                                                <th>Academics</th>
+                                                <th>Curricular</th>
+                                                <th>Attendance</th>
+                                                <th>Ranking</th>
+                                                <th>Action</th>
+                                            </tr>
+                                            <tr>
+                                                <td>Harin</td>
+                                                <td contenteditable>65</td>
+                                                <td>65</td>
+                                                <td>65</td>
+                                                <td>1</td>
+                                                <td><textarea>Please Provide Feedback</textarea></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Priya</td>
+                                                <td>65</td>
+                                                <td>65</td>
+                                                <td>65</td>
+                                                <td>1</td>
+                                                <td><textarea>Please Provide Feedback</textarea></td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </div>
+                            </lightning-tab>
+                        </lightning-tabset>
                     </lightning-tab>
                 </lightning-tabset>
             </div>

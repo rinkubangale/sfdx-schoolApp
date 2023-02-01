@@ -97,13 +97,20 @@
 
 .info {
   margin: 2rem 0;
-  background: white;
-  text-align: center;
-  /* padding: 1rem; */
+  /* background: white; */
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
 }
 
 .info>div {
   padding: 1rem;
+}
+
+.info>div>div {
+  margin-bottom: 16px;
+  background-color: white;
+  padding: 10px;
 }
 
 /* /message pop screen starts/ */
@@ -331,3 +338,72 @@ span.userName {
   right: 0;
   left: 96%;
 }
+
+/* Alerts and Notifications Start */
+.container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.alerts {
+  background-color: #fff;
+  border-radius: 8px;
+}
+
+/* .card {
+  padding: 10px;
+  height: 100%;
+} */
+
+/* Alerts and Notifications End */
+
+
+/* /Post/ */
+.postHead:before {
+  content: '';
+  width: 30px;
+  background: #8199af;
+  height: 30px;
+  display: block;
+  margin-right: 6px;
+  border-radius: 50%;
+}
+
+.post {
+  background-color: aliceblue;
+  padding: 10px;
+  margin: 12px 0;
+}
+
+.postHead {
+  display: flex;
+}
+
+.postHead>div {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  align-items: center;
+}
+
+.postHead span {
+  font-size: x-small;
+  font-weight: 400;
+}
+
+.postBody {
+  margin: 10px 0;
+}
+
+.postFooter {
+  display: flex;
+  justify-content: space-between;
+}
+
+.postFooter>div {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+/* /Post/ */

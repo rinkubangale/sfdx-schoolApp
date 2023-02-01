@@ -84,7 +84,7 @@ div {
 
 .layoutitemcommon {
     background-color: white;
-    width: 445px;
+    width: 438px;
     /* min-height: 204px; */
     border-radius: 8px;
     cursor: pointer;
@@ -93,6 +93,7 @@ div {
 .bottomdiv2 {
     display: flex;
     justify-content: space-between;
+    margin-bottom: 8px;
 }
 
 .bottomdiv2>div {
@@ -168,26 +169,26 @@ div {
     display: flex;
     align-items: center;
     position: relative;
-    padding: 1rem 0;
-    height: 157px;
+    /* padding: 1rem 0;
+    height: 157px; */
 }
 
 .grxView>p {
     transform: rotate(180deg);
     background-color: #ffffff;
-    width: 30px;
-    height: 30px;
+    width: 25px;
+    height: 25px;
     text-align: center;
     border-radius: 50%;
     display: flex;
     align-items: center;
     position: absolute;
     justify-content: center;
-    left: -15px;
+    left: -8px;
     z-index: 1;
     cursor: pointer;
     background-image: url(https://cdn-icons-png.flaticon.com/512/32/32213.png);
-    background-size: 15px;
+    background-size: 13px;
     background-repeat: no-repeat;
     background-position: center;
 }
@@ -340,3 +341,54 @@ span.userName {
 }
 
 /* Alerts and Notifications End */
+
+
+/* /Post/ */
+.postHead:before {
+    content: '';
+    width: 30px;
+    background: #8199af;
+    height: 30px;
+    display: block;
+    margin-right: 6px;
+    border-radius: 50%;
+}
+
+.post {
+    background-color: aliceblue;
+    padding: 10px;
+    margin: 12px 0;
+}
+
+.postHead {
+    display: flex;
+}
+
+.postHead>div {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    align-items: center;
+}
+
+.postHead span {
+    font-size: x-small;
+    font-weight: 400;
+}
+
+.postBody {
+    margin: 10px 0;
+}
+
+.postFooter {
+    display: flex;
+    justify-content: space-between;
+}
+
+.postFooter>div {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+/* /Post/ */

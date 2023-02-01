@@ -1026,3 +1026,24 @@ span.atnp:last-child {
 .btnLight {
     --slds-c-button-radius-border: 0 !important;
 }
+
+input[type="number"] {
+    width: 50px;
+    border: none;
+    background: none;
+    text-align: end;
+    margin: 0 -12px 0 -8px;
+}
+
+.resBtn {
+    background-color: #0176d3;
+    width: fit-content;
+    margin: auto;
+    color: #fff;
+    cursor: pointer;
+}
+
+td>div {
+    margin-bottom: 8px !important;
+    padding: 3px 10px;
+}

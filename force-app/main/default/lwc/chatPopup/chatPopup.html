@@ -36,8 +36,12 @@
                 <div>
                     <input type="text" id="inputMsgBox" placeholder="Type your message..." onchange={handleTextChange}
                         onkeyup={enterPressed} />
-                    <lightning-icon icon-name="utility:attach" size="x-small" alternative-text="attach" title="attach">
-                    </lightning-icon>
+                    <label for="file-input">
+                        <lightning-icon icon-name="utility:attach" size="x-small" alternative-text="attach"
+                            title="attach">
+                        </lightning-icon>
+                    </label>
+                    <input id="file-input" type="file" hidden>
                 </div>
             </div>
             <div>
