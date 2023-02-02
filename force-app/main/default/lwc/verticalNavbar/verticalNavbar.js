@@ -30,6 +30,7 @@ export default class VerticalNavbar extends LightningElement {
           fee: false,
           settings: false,
           subscription: false,
+          inbox: false,
           backbtn: false
         }
       })
@@ -37,6 +38,7 @@ export default class VerticalNavbar extends LightningElement {
   }
 
   toHome() {
+    console.log("toHome " + JSON.stringify(this));
     this.dispatchEvent(
       new CustomEvent("btnclick", {
         detail: {
@@ -44,6 +46,7 @@ export default class VerticalNavbar extends LightningElement {
           home: true,
           fee: false,
           settings: false,
+          inbox: false,
           subscription: false
         }
       })
@@ -57,6 +60,7 @@ export default class VerticalNavbar extends LightningElement {
           home: false,
           admin: true,
           settings: false,
+          inbox: false,
           subscription: false
         }
       })
@@ -70,6 +74,7 @@ export default class VerticalNavbar extends LightningElement {
           home: false,
           fee: true,
           settings: false,
+          inbox: false,
           subscription: false
         }
       })
@@ -83,6 +88,7 @@ export default class VerticalNavbar extends LightningElement {
           home: false,
           fee: false,
           settings: true,
+          inbox: false,
           subscription: false
         }
       })
@@ -96,6 +102,7 @@ export default class VerticalNavbar extends LightningElement {
           home: false,
           fee: false,
           settings: false,
+          inbox: false,
           subscription: true
         }
       })
@@ -110,6 +117,7 @@ export default class VerticalNavbar extends LightningElement {
           fee: false,
           settings: false,
           subscription: false,
+          inbox: false,
           showCheckin: true
         }
       })
@@ -171,7 +179,8 @@ export default class VerticalNavbar extends LightningElement {
     this.dispatchEvent(
       new CustomEvent("btnclick", {
         detail: {
-          assignment: true
+          assignment: true,
+          inbox: false
         }
       })
     );
@@ -181,7 +190,8 @@ export default class VerticalNavbar extends LightningElement {
     this.dispatchEvent(
       new CustomEvent("btnclick", {
         detail: {
-          academic: true
+          academic: true,
+          inbox: false
         }
       })
     );
@@ -191,7 +201,8 @@ export default class VerticalNavbar extends LightningElement {
     this.dispatchEvent(
       new CustomEvent("btnclick", {
         detail: {
-          examScheduler: true
+          examScheduler: true,
+          inbox: false
         }
       })
     );
@@ -201,7 +212,8 @@ export default class VerticalNavbar extends LightningElement {
     this.dispatchEvent(
       new CustomEvent("btnclick", {
         detail: {
-          visitortracking: true
+          visitortracking: true,
+          inbox: false
         }
       })
     );
@@ -211,7 +223,8 @@ export default class VerticalNavbar extends LightningElement {
     this.dispatchEvent(
       new CustomEvent("btnclick", {
         detail: {
-          teacherSettings: true
+          teacherSettings: true,
+          inbox: false
         }
       })
     );
@@ -221,7 +234,8 @@ export default class VerticalNavbar extends LightningElement {
     this.dispatchEvent(
       new CustomEvent("btnclick", {
         detail: {
-          studentFacility: true
+          studentFacility: true,
+          inbox: false
         }
       })
     );
@@ -231,7 +245,8 @@ export default class VerticalNavbar extends LightningElement {
     this.dispatchEvent(
       new CustomEvent("btnclick", {
         detail: {
-          studentCertificate: true
+          studentCertificate: true,
+          inbox: false
         }
       })
     );

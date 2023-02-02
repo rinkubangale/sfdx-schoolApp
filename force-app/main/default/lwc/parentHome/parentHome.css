@@ -1,6 +1,6 @@
 div {
     color: #444;
-    font-weight: 500;
+    /* font-weight: 500; */
 }
 
 .sHeader {
@@ -121,6 +121,7 @@ div {
     overflow: hidden;
     height: 125px;
     scroll-behavior: smooth;
+    border-radius: 4px;
 }
 
 .imgFlexScroll>div {

@@ -3,7 +3,7 @@
     <div class="slds-col slds-size_1-of-1 displayCardRows">
       <lightning-layout multiple-rows style="gap: 2rem;">
         <lightning-layout-item
-          class="slds-var-p-around_x-large slds-size_1-of-1 slds-medium-size_5-of-12 slds-large-size_3-of-12 layoutitemcommon color"
+          class="slds-var-p-around_medium slds-size_1-of-1 slds-medium-size_5-of-12 slds-large-size_3-of-12 layoutitemcommon color"
           alignment-bump="">
           <div class="slds-clearfix topdiv">
             <div class="slds-text-heading_small">
@@ -50,7 +50,7 @@
         </lightning-layout-item>
 
         <lightning-layout-item
-          class="slds-var-p-around_x-large slds-size_1-of-1 slds-medium-size_5-of-12 slds-large-size_3-of-12 layoutitemcommon"
+          class="slds-var-p-around_medium slds-size_1-of-1 slds-medium-size_5-of-12 slds-large-size_3-of-12 layoutitemcommon"
           style="position:relative" alignment-bump="">
           <div class="slds-clearfix">
             <div class="slds-text-heading_small">
@@ -73,15 +73,15 @@
         </lightning-layout-item>
 
         <lightning-layout-item
-          class="slds-var-p-around_x-large slds-size_1-of-1 slds-medium-size_5-of-12 slds-small-size_5-of-12 layoutitemcommon">
+          class="slds-var-p-around_medium slds-size_1-of-1 slds-medium-size_5-of-12 slds-small-size_5-of-12 layoutitemcommon">
           <div class="bottomdiv2">
             <div><b>Holidays</b></div>
-            <div>
+            <!-- <div>
               <button class="listview slds-m-right_small" data-name="list" onclick={handleListGxBtn}>List</button>
               <button class="graphicview" data-name="grx" onclick={handleListGxBtn}>Graphic</button>
-            </div>
+            </div> -->
           </div>
-          <div
+          <!-- <div
             style="overflow:auto; height: 70%; padding: 1rem;display: flex;justify-content: space-between;flex-wrap: wrap;gap: 2rem;"
             if:true={listDisplay}>
             <template for:each={holidayImg} for:item="holiday">
@@ -95,7 +95,7 @@
                 </div>
               </div>
             </template>
-          </div>
+          </div> -->
           <div class="grxView" if:true={grxDisplay}>
             <p onclick={movePrev}></p>
             <div class="imgFlexScroll">
@@ -133,12 +133,12 @@
             </lightning-layout-item>
             <lightning-layout-item class="slds-size_1-of-1">
               <div class="attendanceTable">
-                <div class="slds-size_1-of-1 slds-medium-size_5-of-12 slds-large-size_3-of-12">
+                <!-- <div class="slds-size_1-of-1 slds-medium-size_5-of-12 slds-large-size_3-of-12">
                   <p>Class Attendance</p>
                   <p>
                     <span>5/24</span>
                   </p>
-                </div>
+                </div> -->
                 <div class="slds-size_1-of-1 slds-medium-size_5-of-12 slds-large-size_3-of-12">
                   <p>Total Students</p>
                   <p>
@@ -161,7 +161,7 @@
             </lightning-layout-item>
             <lightning-layout-item class="slds-size_1-of-1">
               <div class="requestInbox">
-                <h1>Inbox</h1>
+                <h1 onclick={openInbox}>Inbox</h1>
                 <div>
                   <div class="slds-size_1-of-1 slds-medium-size_6-of-12 slds-large-size_3-of-12">
                     <p>Leave Request</p>
@@ -181,7 +181,7 @@
             </lightning-layout-item>
           </lightning-layout>
         </div>
-        <div>
+        <div style="position:relative">
           <div class="headerTitle">
             <h1 class="slds-text-heading_medium">MESSAGES</h1>
           </div>
@@ -214,6 +214,8 @@
               </div>
             </template>
           </div>
+
+          <c-chat-popup onchatclose={toggleChatWindow} user-profile={userDetails} if:true={openChats}></c-chat-popup>
         </div>
       </div>
       <div style="width:49%">
@@ -240,8 +242,8 @@
                 </div>
                 <div class="postFooter">
                   <div>
-                    <div class="like">Like</div>
-                    <div class="comment">Comment</div>
+                    <div class="like" onclick={likedMe}>Like &hearts;</div>
+                    <div class="comment" onclick={likedMe}>Comment</div>
                   </div>
                   <div>
                     <div class="cLike">30 Likes</div>
@@ -268,8 +270,8 @@
                 </div>
                 <div class="postFooter">
                   <div>
-                    <div class="like">Like</div>
-                    <div class="comment">Comment</div>
+                    <div class="like" onclick={likedMe}>Like &hearts;</div>
+                    <div class="comment" onclick={likedMe}>Comment</div>
                   </div>
                   <div>
                     <div class="cLike">30 Likes</div>
@@ -296,8 +298,8 @@
                 </div>
                 <div class="postFooter">
                   <div>
-                    <div class="like">Like</div>
-                    <div class="comment">Comment</div>
+                    <div class="like" onclick={likedMe}>Like &hearts;</div>
+                    <div class="comment" onclick={likedMe}>Comment </div>
                   </div>
                   <div>
                     <div class="cLike">30 Likes</div>
@@ -311,5 +313,5 @@
       </div>
     </div>
   </div>
-  <c-chat-popup onchatclose={toggleChatWindow} user-profile={userDetails} if:true={openChats}></c-chat-popup>
+
 </template>

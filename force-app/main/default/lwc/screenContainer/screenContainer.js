@@ -24,13 +24,15 @@ export default class ScreenContainer extends LightningElement {
     subscription: false,
     showCheckin: false,
     backbtn: false,
-    visitortracking:false
+    visitortracking: false,
+    inbox: false
   };
 
   @track toggle = false;
 
   handleBtnClick(e) {
     this.showContainer = e.detail;
+    console.log(JSON.stringify(this.showContainer));
   }
 
   handleToggle(e) {

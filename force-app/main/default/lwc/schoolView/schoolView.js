@@ -333,4 +333,21 @@ export default class SchoolView extends LightningElement {
     let anchor = this.template.querySelector(".imgFlexScroll");
     anchor.scrollLeft += 420;
   }
+
+  // Like click button
+
+  likedMe(e) {
+    if (e.target.style.fontWeight === "bold") {
+      e.target.style.color = "black";
+      e.target.style.fontWeight = "400";
+      return;
+    }
+    e.target.style.color = "#0176d3";
+    e.target.style.fontWeight = "bold";
+  }
+
+  //redirect to inbox
+  openInbox() {
+    // this.dispatchEvent(new CustomEvent("redirectinbox", { detail: false }));
+  }
 }

@@ -35,4 +35,9 @@ export default class ContentScreen extends LightningElement {
   @api showAdmin;
   @api goBack;
   @api showVisitorTracking;
+
+  handleRedirect() {
+    this.showInbox = true;
+    this.showHome = false;
+  }
 }

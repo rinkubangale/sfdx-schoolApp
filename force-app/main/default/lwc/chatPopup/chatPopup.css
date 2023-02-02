@@ -8,13 +8,14 @@ lightning-icon {
     width: 480px;
     height: 620px;
     color: #333;
-    position: fixed;
-    bottom: 8px;
-    right: 8px;
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
     background: white;
     border: thin solid #ccc;
     flex-direction: column;
     justify-content: space-between;
+    text-align: left;
 }
 
 .container {
