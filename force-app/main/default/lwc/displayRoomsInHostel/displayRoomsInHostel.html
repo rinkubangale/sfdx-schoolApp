@@ -1,0 +1,66 @@
+<template>
+    <div class="listView">
+        <div style="display:flex; justify-content: space-between">
+            <div style="padding-top: 1.5rem; font-size: larger; font-weight: 500">
+                101
+            </div>
+            <!-- <div>
+                <lightning-button variant="brand" class="slds-float_right slds-p-around_small"
+                    icon-name="utility:adduser" title="Add Room" onclick={handleAddRoomChange}>
+                </lightning-button>
+
+                <lightning-button variant="brand" class="slds-float_right slds-p-around_small"
+                    icon-name="utility:upload" title="Import" onclick={openModal}>
+                </lightning-button>
+            </div> -->
+        </div>
+
+        <div class="tabledata">
+            <table>
+                <tr>
+                    <th>Room Number</th>
+                    <th>Student Name</th>
+                    <th>Mobile No.</th>
+                    <th>Class & Section</th>
+                    <th>Rent Status</th>
+
+                    <th>Action</th>
+                </tr>
+                <tr>
+                    <td>201</td>
+                    <td>Siddharth</td>
+                    <td>9938420380</td>
+                    <td>5-A</td>
+                    <td>1 month Due</td>
+                    <td>
+                        <a onclick={handleAssignRoomsChange}>Send Reminder</a>/
+                        <a>Remove</a>/
+                        <a>Edit</a>/
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>203</td>
+                    <td>Rohit</td>
+                    <td>8938447385</td>
+                    <td>5-A</td>
+                    <td>2 month Due</td>
+                    <td>
+                        <a onclick={handleAssignRoomsChange}>Send Reminder</a>/
+                        <a>Remove</a>/
+                        <a>Edit</a>/
+
+                    </td>
+                </tr>
+
+            </table>
+
+            <div class=".slds-clearfix">
+                <lightning-button class="slds-float_left slds-p-around_medium" variant="brand" label="Back"
+                    onclick={goBack}>
+                </lightning-button>
+            </div>
+        </div>
+
+    </div>
+</template>

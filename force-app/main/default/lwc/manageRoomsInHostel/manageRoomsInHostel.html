@@ -1,0 +1,98 @@
+<template>
+    <div class="libContainer">
+
+        <div if:true={manageRooms}>
+            <div class="listView">
+                <div style="display:flex; justify-content: space-between">
+                    <div style="padding-top: 1.5rem; font-size: larger; font-weight: 500">
+                        Ramar
+                    </div>
+                    <div>
+                        <lightning-button variant="brand" class="slds-float_right slds-p-around_small"
+                            icon-name="utility:adduser" title="Add Room" onclick={openAddRoomModal}>
+                        </lightning-button>
+
+                        <lightning-button variant="brand" class="slds-float_right slds-p-around_small"
+                            icon-name="utility:upload" title="Import" onclick={InportHandle}>
+                        </lightning-button>
+                    </div>
+                </div>
+
+                <div class="tabledata">
+                    <table>
+                        <tr>
+                            <th>Room Number</th>
+                            <th>Name</th>
+                            <th>Occupancy</th>
+                            <th>Type</th>
+                            <th>Occupied</th>
+                            <th>Rent</th>
+                            <th>Action</th>
+                        </tr>
+                        <tr>
+                            <td><a onclick={displayManageRooms}>201</a></td>
+                            <td>xyz</td>
+                            <td>Single</td>
+                            <td>AC</td>
+                            <td>1/1</td>
+                            <td>10000</td>
+                            <td>
+                                <a onclick={handleAssignRoomsChange}>Assign</a>/
+                                <a>View</a>/
+                                <a>Edit</a>/
+                                <a>Del</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><a onclick={displayManageRooms}>103</a></td>
+                            <td>xyz</td>
+                            <td>Double</td>
+                            <td>AC</td>
+                            <td>1/2</td>
+                            <td>8500</td>
+                            <td>
+                                <a onclick={handleAssignRoomsChange}>Assign</a>/
+                                <a>View</a>/
+                                <a>Edit</a>/
+                                <a>Del</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><a onclick={displayManageRooms}>106</a></td>
+                            <td>xyz</td>
+                            <td>Triple</td>
+                            <td>Non-AC</td>
+                            <td>2/3</td>
+                            <td>7000</td>
+                            <td>
+                                <a onclick={handleAssignRoomsChange}>Assign</a>/
+                                <a>View</a>/
+                                <a>Edit</a>/
+                                <a>Del</a>
+                            </td>
+                        </tr>
+                    </table>
+
+                    <div class="slds-clearfix">
+                        <lightning-button class="slds-float_left slds-p-around_medium" variant="brand" label="Back"
+                            onclick={goBack}>
+                        </lightning-button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div if:true={openAssignRoom}>
+            <c-add-assign-rooms-page onmodalchange={handleAssignRoomsChange}></c-add-assign-rooms-page>
+        </div>
+
+        <div if:true={openDisplayRooms}>
+            <c-display-rooms-in-hostel onmodalchange={displayManageRooms}></c-display-rooms-in-hostel>
+        </div>
+
+
+        <div if:true={openAddRooms}>
+            <c-add-room-in-hostel onmodalchange={openAddRoomModal}></c-add-room-in-hostel>
+        </div>
+    </div>
+</template>

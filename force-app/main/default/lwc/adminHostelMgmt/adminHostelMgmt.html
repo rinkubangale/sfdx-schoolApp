@@ -1,3 +1,64 @@
 <template>
+    <div class="libContainer">
 
+        <div if:true={openHostelmgmt}>
+            <div class="listView">
+                <div class="btns slds-clearfix">
+                    <!-- <lightning-button variant="brand" class="slds-float_right slds-p-around_medium"
+                    icon-name="utility:upload" title="Import" onclick={openModal}>
+                </lightning-button> -->
+                    <lightning-button variant="brand" class="slds-float_right slds-p-around_medium"
+                        icon-name="utility:adduser" title="Add Hostel" onclick={handleAddChange}>
+                    </lightning-button>
+                </div>
+                <div class="tabledata">
+                    <table>
+                        <tr>
+                            <th>Hostel Name</th>
+                            <th>Type</th>
+                            <th>No. of Rooms</th>
+                            <th>Available</th>
+                            <th>Occupied</th>
+                            <th>Staff</th>
+                            <th>Action</th>
+                        </tr>
+                        <tr>
+                            <td>Ramar</td>
+                            <td>Boys</td>
+                            <td>50</td>
+                            <td>30</td>
+                            <td>20</td>
+                            <td>Assign Staff</td>
+                            <td>
+                                <a onclick={handleManageRoomChange}>Manage Rooms</a>/
+                                <a>View</a>/
+                                <a>Edit</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Statr</td>
+                            <td>Girls</td>
+                            <td>40</td>
+                            <td>30</td>
+                            <td>10</td>
+                            <td>Assign Staff</td>
+                            <td>
+                                <a onclick={handleManageRoomChange}>Manage Rooms</a>/
+                                <a>View</a>/
+                                <a>Edit</a>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div if:true={addHostelPage}>
+            <c-addd-hostel onmodalchange={handleAddChange}></c-addd-hostel>
+        </div>
+
+        <div if:true={openManageRoomsPage}>
+            <c-manage-rooms-in-hostel onmodalchange={handleManageRoomChange}></c-manage-rooms-in-hostel>
+        </div>
+    </div>
 </template>

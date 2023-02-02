@@ -1,0 +1,136 @@
+<template>
+    <div id="addClassRoomContainer" class="col-md-11 center-block dashboard-container">
+        <div id="error" class="error"> </div>
+        <main class="main-content add-class-wrap">
+            <div class="header row no-left-margin no-right-margin">
+                <a href="#" data-close="true">
+                </a>
+                <div class="Add-c-headings">
+                    <p class="add-heading-manage fivpx-mrgn-btm">
+                        <lightning-icon class="new-icon" icon-name="utility:new" size="small" alternative-text="new!"
+                            title="new">
+                        </lightning-icon>
+                        <b>Create Routes</b>
+                    </p>
+                </div>
+
+                <a href="#" data-close="true">
+                    <div class="back" onclick={handleModalChange}>
+                        <lightning-icon icon-name="utility:back" size="x-small" alternative-text="Back!" title="Back">
+                        </lightning-icon>
+                        <p>Back</p>
+                    </div>
+                </a>
+            </div>
+
+            <div class="add-class-body">
+                <div>
+                    <lightning-layout>
+                        <lightning-layout-item size="6" padding="around-small">
+                            <div>
+                                <lightning-input variant="label-inline" type="text" label="Name" value={Name}
+                                    data-field="Name" onchange={handleAccountSelection} class="validate" required>
+                                </lightning-input>
+                            </div>
+                        </lightning-layout-item>
+                        <lightning-layout-item size="6" padding="around-small">
+                            <div>
+                                <lightning-input variant="label-inline" type="text" label="Driver/Attender" value={Name}
+                                    data-field="Name" onchange={handleAccountSelection} class="validate" required>
+                                </lightning-input>
+                            </div>
+                        </lightning-layout-item>
+                    </lightning-layout>
+                    <lightning-layout>
+                        <lightning-layout-item size="6" padding="around-small">
+                            <div>
+                                <lightning-input variant="label-inline" type="number" label="Start Time"
+                                    onchange={handleAccountSelection} class="validate" required>
+                                </lightning-input>
+                            </div>
+                        </lightning-layout-item>
+                        <lightning-layout-item size="6" padding="around-small">
+                            <div>
+                                <lightning-input variant="label-inline" name="available" label="End Time"
+                                    class="validate" data-field="status" onchange={handleChange} required>
+                                </lightning-input>
+                            </div>
+                        </lightning-layout-item>
+                    </lightning-layout>
+                </div>
+                <div class="tabledata">
+                    <table>
+                        <tr>
+                            <th style="  background-color: #d5d5d5;"></th>
+                            <th style="  background-color: #d5d5d5;"></th>
+                            <th style="  background-color: #d5d5d5; cursor: pointer;
+                        text-align: center;
+                        padding: 8px;">Stop</th>
+                            <th style="   background-color: #d5d5d5; cursor: pointer;
+                        text-align: center;
+                        padding: 8px;">Pick-up Time</th>
+                            <th style=" background-color: #d5d5d5; cursor: pointer;
+                        text-align: center;
+                        padding: 8px;">Drop time</th>
+                            <th style="  background-color: #d5d5d5;"></th>
+                            <th style="  background-color: #d5d5d5;"></th>
+                            <th style="  background-color: #d5d5d5;"></th>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>Start</td>
+                            <td>Kamakshi</td>
+                            <td>9:00 AM</td>
+                            <td>9:15AM</td>
+                            <td></td>
+                            <td>
+                                <a>Add</a>/
+                                <a>Del</a>
+                            </td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td>Velachery</td>
+                            <td>9:45 AM</td>
+                            <td>10:00 AM</td>
+                            <td></td>
+                            <td>
+                                <a>Add</a>/
+                                <a>Del</a>
+                            </td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>End</td>
+                            <td>OMR</td>
+                            <td>10:30 AM</td>
+                            <td>10:45 AM</td>
+                            <td></td>
+                            <td>
+                                <a>Add</a>/
+                                <a>Del</a>
+                            </td>
+                            <td></td>
+                        </tr>
+                    </table>
+                </div>
+                <div>
+                    <lightning-layout>
+                        <lightning-layout-item size="12" class="slds-var-m-top_large slds-align_absolute-center">
+                            <lightning-button label="Create Route" onclick={saveHandler} variant="brand"
+                                class="slds-p-around_x-small slds-float_right">
+                            </lightning-button>
+                        </lightning-layout-item>
+                    </lightning-layout>
+                </div>
+            </div>
+            <template if:true={isLoading}>
+                <lightning-spinner alternative-text="Loading" variant="brand" style="background:transparent;">
+                </lightning-spinner>
+            </template>
+        </main>
+    </div>
+</template>

@@ -1,7 +1,13 @@
 import {
+  LightningElement,
   track,
-  LightningElement
+  wire
 } from "lwc";
+import {
+  getRecord
+} from "lightning/uiRecordApi";
+import Id from "@salesforce/user/Id";
+import ProfileId from "@salesforce/schema/User.ProfileId";
 
 const actions = [{
     label: "edit",
@@ -89,7 +95,27 @@ export default class Inbox extends LightningElement {
   @track rejectconfirmation = false;
   @track sendPage = false;
   @track opengeneratecertificate = false;
+  @track isTeacher;
+  @track isLeaveReqOpen = false;
 
+
+  @wire(getRecord, {
+    recordId: Id,
+    fields: [ProfileId]
+  })
+  userDetails({
+    error,
+    data
+  }) {
+    if (data) {
+      // console.log("currProfile " + JSON.stringify(data));
+      this.isTeacher =
+        data.fields.ProfileId.value === "00e6D000000Ri7wQAC" ? true : false;
+
+    } else if (error) {
+      this.error = error;
+    }
+  }
 
   dataList = [{
 
@@ -135,6 +161,10 @@ export default class Inbox extends LightningElement {
     }
 
   }
+
+leaveReqListView(){
+  this.isLeaveReqOpen = ! this.isLeaveReqOpen;
+}
 
   editPageFunc() {
     this.editPage = !this.editPage;

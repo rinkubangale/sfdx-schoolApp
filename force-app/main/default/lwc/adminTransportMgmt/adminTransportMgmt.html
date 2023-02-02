@@ -1,3 +1,312 @@
 <template>
+    <div if:false={openAssignStudents}>
+        <div if:false={openCreateRoute}>
+            <lightning-tabset>
+                <lightning-tab label="Vehicles">
+                    <div class="libContainer">
+                        <div class="listView">
+                            <div class="btns slds-clearfix">
+                                <lightning-button variant="brand" class="slds-float_right slds-p-around_medium"
+                                    icon-name="utility:adduser" title="Add Vehicle" onclick={handleAddChange}>
+                                </lightning-button>
+                            </div>
+                            <div class="tabledata">
+                                <table>
+                                    <tr>
+                                        <th style=" background-color: #d5d5d5;
+                                cursor: pointer;
+                                text-align: center;
+                                padding: 8px;">Vehicle</th>
+                                        <th style=" background-color: #d5d5d5;
+                                cursor: pointer;
+                                text-align: center;
+                                padding: 8px;">Status</th>
+                                        <th style=" background-color: #d5d5d5;
+                                cursor: pointer;
+                                text-align: center;
+                                padding: 8px;">Type</th>
+                                        <th style=" background-color: #d5d5d5;
+                                cursor: pointer;
+                                text-align: center;
+                                padding: 8px;">Contact Name</th>
+                                        <th style=" background-color: #d5d5d5;
+                                cursor: pointer;
+                                text-align: center;
+                                padding: 8px;">Contact No.</th>
+                                        <th style=" background-color: #d5d5d5;
+                                cursor: pointer;
+                                text-align: center;
+                                padding: 8px;">Capacity</th>
+                                        <th style=" background-color: #d5d5d5;
+                                cursor: pointer;
+                                text-align: center;
+                                padding: 8px;">Action</th>
+
+                                    </tr>
+                                    <tr>
+                                        <td>Omni Van</td>
+                                        <td>Active</td>
+                                        <td>Van</td>
+                                        <td>Bijuda</td>
+                                        <td>8945456532</td>
+                                        <td>20</td>
+                                        <td>
+                                            <a onclick={handleAssignChange}>View</a>/
+                                            <a>Edit</a>/
+                                            <a>Del</a>
+                                        </td>
+
+                                    </tr>
+                                    <tr>
+                                        <td>Tata Bus</td>
+                                        <td>Active</td>
+                                        <td>Bus</td>
+                                        <td>Reyaz</td>
+                                        <td>9984278612</td>
+                                        <td>45</td>
+                                        <td>
+                                            <a onclick={handleAssignChange}>View</a>/
+                                            <a>Edit</a>/
+                                            <a>Del</a>
+                                        </td>
+
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </lightning-tab>
+                <lightning-tab label="Route">
+                    <div class="libContainer">
+                        <div class="btns slds-clearfix">
+                            <lightning-button variant="brand" class="slds-float_right slds-p-around_medium"
+                                icon-name="utility:adduser" title="Create Route" onclick={handleAddRouteChange}>
+                            </lightning-button>
+                        </div>
+                        <div class="tabledata">
+                            <table>
+                                <tr>
+                                    <th style=" background-color: #d5d5d5;
+                            cursor: pointer;
+                            text-align: center;
+                            padding: 8px;">Route Name</th>
+                                    <th style=" background-color: #d5d5d5;
+                            cursor: pointer;
+                            text-align: center;
+                            padding: 8px;">Status</th>
+                                    <th style=" background-color: #d5d5d5;
+                            cursor: pointer;
+                            text-align: center;
+                            padding: 8px;">Stops</th>
+                                    <th style=" background-color: #d5d5d5;
+                            cursor: pointer;
+                            text-align: center;
+                            padding: 8px;">Start Time</th>
+                                    <th style=" background-color: #d5d5d5;
+                            cursor: pointer;
+                            text-align: center;
+                            padding: 8px;">End Time</th>
+                                    <th style=" background-color: #d5d5d5;
+                            cursor: pointer;
+                            text-align: center;
+                            padding: 8px;">Driver/Attender</th>
+                                    <th style=" background-color: #d5d5d5;
+                            cursor: pointer;
+                            text-align: center;
+                            padding: 8px;">Action</th>
+                                    <th style=" background-color: #d5d5d5;
+                            cursor: pointer;
+                            text-align: center;
+                            padding: 8px;"></th>
+                                </tr>
+                                <tr>
+                                    <td><a>OMR-Velachery</a></td>
+                                    <td>Active</td>
+                                    <td>3</td>
+                                    <td>9:00 AM</td>
+                                    <td>10:00 AM</td>
+                                    <td>Ram|Bijuda</td>
+                                    <td>
+                                        <a onclick={handleBookAssignChange}>Assign Vehicle</a>/
+                                        <a>Edit</a>/
+                                        <a>Del</a>
+                                    </td>
+                                    <td>
+                                        <lightning-icon class={rotateIconEng} icon-name="utility:chevronright"
+                                            onclick={handleShowLesson} name="velacheryRoute"
+                                            alternative-text="show more!" size="x-small" title="show more">
+                                        </lightning-icon>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th if:true={viewfirstRoute}></th>
+                                    <th if:true={viewfirstRoute}></th>
+                                    <th if:true={viewfirstRoute} style="  cursor: pointer;
+                            text-align: center;
+                            padding: 8px;">Stop</th>
+                                    <th if:true={viewfirstRoute} style="  cursor: pointer;
+                            text-align: center;
+                            padding: 8px;">Pick-up Time</th>
+                                    <th if:true={viewfirstRoute} style="  cursor: pointer;
+                            text-align: center;
+                            padding: 8px;">Drop time</th>
+                                    <th if:true={viewfirstRoute}></th>
+                                    <th if:true={viewfirstRoute}></th>
+                                    <th if:true={viewfirstRoute}></th>
+                                </tr>
+                                <tr>
+                                    <td if:true={viewfirstRoute}></td>
+                                    <td if:true={viewfirstRoute}>Start</td>
+                                    <td if:true={viewfirstRoute}>Kamakshi</td>
+                                    <td if:true={viewfirstRoute}>9:00 AM</td>
+                                    <td if:true={viewfirstRoute}>9:15AM</td>
+                                    <td if:true={viewfirstRoute}></td>
+                                    <td if:true={viewfirstRoute}>
+                                        <a onclick={handleStuAssignChange}>Assign Students</a>/
+                                        <a>Del</a></th>
+                                    </td>
+                                    <td if:true={viewfirstRoute}></td>
+                                </tr>
+                                <tr>
+                                    <td if:true={viewfirstRoute}></td>
+                                    <td if:true={viewfirstRoute}></td>
+                                    <td if:true={viewfirstRoute}>Velachery</td>
+                                    <td if:true={viewfirstRoute}>9:45 AM</td>
+                                    <td if:true={viewfirstRoute}>10:00 AM</td>
+                                    <td if:true={viewfirstRoute}></td>
+                                    <td if:true={viewfirstRoute}>
+                                        <a onclick={handleStuAssignChange}>Assign Students</a>/
+                                        <a>Del</a></th>
+                                    </td>
+                                    <td if:true={viewfirstRoute}></td>
+                                </tr>
+                                <tr>
+                                    <td if:true={viewfirstRoute}></td>
+                                    <td if:true={viewfirstRoute}>End</td>
+                                    <td if:true={viewfirstRoute}>OMR</td>
+                                    <td if:true={viewfirstRoute}>10:30 AM</td>
+                                    <td if:true={viewfirstRoute}>10:45 AM</td>
+                                    <td if:true={viewfirstRoute}></td>
+                                    <td if:true={viewfirstRoute}>
+                                        <a onclick={handleStuAssignChange}>Assign Students</a>/
+                                        <a>Del</a></th>
+                                    </td>
+                                    <td if:true={viewfirstRoute}></td>
+                                </tr>
+                                <tr>
+                                    <td><a>OMR-Adyar</a></td>
+                                    <td>Active</td>
+                                    <td>5</td>
+                                    <td>9:00 AM</td>
+                                    <td>11:20 AM</td>
+                                    <td>Lokesham|Reyaz</td>
+                                    <td>
+                                        <a onclick={handleBookAssignChange}>Assign Vehicle</a>/
+                                        <a>Edit</a>/
+                                        <a>Del</a>
+                                    </td>
+                                    <td>
+                                        <lightning-icon class={rotateIconEng} icon-name="utility:chevronright"
+                                            onclick={handleShowLesson} name="adyarRoute" alternative-text="show more!"
+                                            size="x-small" title="show more">
+                                        </lightning-icon>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th if:true={viewSecondRoute}></th>
+                                    <th if:true={viewSecondRoute}></th>
+                                    <th if:true={viewSecondRoute} style="  cursor: pointer;
+                            text-align: center;
+                            padding: 8px;">Stop</th>
+                                    <th if:true={viewSecondRoute} style="  cursor: pointer;
+                            text-align: center;
+                            padding: 8px;">Pick-up Time</th>
+                                    <th if:true={viewSecondRoute} style="  cursor: pointer;
+                            text-align: center;
+                            padding: 8px;">Drop time</th>
+                                    <th if:true={viewSecondRoute}></th>
+                                    <th if:true={viewSecondRoute}></th>
+                                    <th if:true={viewSecondRoute}></th>
+                                </tr>
+                                <tr>
+                                    <td if:true={viewSecondRoute}></td>
+                                    <td if:true={viewSecondRoute}>Start</td>
+                                    <td if:true={viewSecondRoute}>Kamakshi</td>
+                                    <td if:true={viewSecondRoute}>9:00 AM</td>
+                                    <td if:true={viewSecondRoute}>9:15AM</td>
+                                    <td if:true={viewSecondRoute}></td>
+                                    <td if:true={viewSecondRoute}>
+                                        <a onclick={handleStuAssignChange}>Assign Students</a>/
+                                        <a>Del</a></th>
+                                    </td>
+                                    <td if:true={viewSecondRoute}></td>
+                                </tr>
+                                <tr>
+                                    <td if:true={viewSecondRoute}></td>
+                                    <td if:true={viewSecondRoute}></td>
+                                    <td if:true={viewSecondRoute}>Velachery</td>
+                                    <td if:true={viewSecondRoute}>9:45 AM</td>
+                                    <td if:true={viewSecondRoute}>10:00 AM</td>
+                                    <td if:true={viewSecondRoute}></td>
+                                    <td if:true={viewSecondRoute}>
+                                        <a onclick={handleStuAssignChange}>Assign Students</a>/
+                                        <a>Del</a></th>
+                                    </td>
+                                    <td if:true={viewSecondRoute}></td>
+                                </tr>
+                                <tr>
+                                    <td if:true={viewSecondRoute}></td>
+                                    <td if:true={viewSecondRoute}></td>
+                                    <td if:true={viewSecondRoute}>Thoraipakkam</td>
+                                    <td if:true={viewSecondRoute}>10:30 AM</td>
+                                    <td if:true={viewSecondRoute}>10:45 AM</td>
+                                    <td if:true={viewSecondRoute}></td>
+                                    <td if:true={viewSecondRoute}>
+                                        <a onclick={handleStuAssignChange}>Assign Students</a>/
+                                        <a>Del</a></th>
+                                    </td>
+                                    <td if:true={viewSecondRoute}></td>
+                                </tr>
+                                <tr>
+                                    <td if:true={viewSecondRoute}></td>
+                                    <td if:true={viewSecondRoute}></td>
+                                    <td if:true={viewSecondRoute}>MGR Salai</td>
+                                    <td if:true={viewSecondRoute}>11:00 AM</td>
+                                    <td if:true={viewSecondRoute}>11:05 AM</td>
+                                    <td if:true={viewSecondRoute}></td>
+                                    <td if:true={viewSecondRoute}>
+                                        <a onclick={handleStuAssignChange}>Assign Students</a>/
+                                        <a>Del</a></th>
+                                    </td>
+                                    <td if:true={viewSecondRoute}></td>
+                                </tr>
+                                <tr>
+                                    <td if:true={viewSecondRoute}></td>
+                                    <td if:true={viewSecondRoute}>End</td>
+                                    <td if:true={viewSecondRoute}>OMR</td>
+                                    <td if:true={viewSecondRoute}>11:15 AM</td>
+                                    <td if:true={viewSecondRoute}>11:20 AM</td>
+                                    <td if:true={viewSecondRoute}></td>
+                                    <td if:true={viewSecondRoute}>
+                                        <a onclick={handleStuAssignChange}>Assign Students</a>/
+                                        <a>Del</a></th>
+                                    </td>
+                                    <td if:true={viewSecondRoute}></td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </lightning-tab>
+            </lightning-tabset>
+        </div>
+    </div>
+
     
+    <div if:true={openCreateRoute}>
+        <c-create-route onmodalchange={handleAddRouteChange}></c-create-route>
+    </div>
+
+    <div if:true={openAssignStudents}>
+        <c-assign-student-to-route onmodalchange={handleStuAssignChange}></c-assign-student-to-route>
+    </div>
 </template>

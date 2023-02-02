@@ -2,28 +2,31 @@
     <lightning-tabset if:true={showListView}>
         <lightning-tab label="Library">
             <div class="libContainer">
-                <div class="dashboard">
-                    <div class="info">
-                        <span>Books</span>
-                        <span>40</span>
-                    </div>
-                    <div class="info">
-                        <span>Assigned</span>
-                        <span>20</span>
-                    </div>
-                    <div class="info">
-                        <span>Available</span>
-                        <span>20</span>
-                    </div>
-                </div>
                 <div class="listView">
-                    <div class="btns slds-clearfix">
-                        <lightning-button variant="brand" class="slds-float_right slds-p-around_medium"
-                            icon-name="utility:upload" title="Import" onclick={openModal}>
-                        </lightning-button>
-                        <lightning-button variant="brand" class="slds-float_right slds-p-around_medium"
-                            icon-name="utility:adduser" title="Add book" onclick={handleAddChange}>
-                        </lightning-button>
+                    <div class="dashboard">
+                        <div class="dashboardInfo">
+                            <div class="info">
+                                <span>Books</span>
+                                <span>40</span>
+                            </div>
+                            <div class="info">
+                                <span>Assigned</span>
+                                <span>20</span>
+                            </div>
+                            <div class="info">
+                                <span>Available</span>
+                                <span>20</span>
+                            </div>
+                        </div>
+
+                        <div class="btns">
+                            <lightning-button variant="brand" class="slds-p-around_medium" icon-name="utility:upload"
+                                title="Import" onclick={openModal}>
+                            </lightning-button>
+                            <lightning-button variant="brand" class="slds-p-around_medium" icon-name="utility:adduser"
+                                title="Add book" onclick={handleAddChange}>
+                            </lightning-button>
+                        </div>
                     </div>
                     <div class="tabledata">
                         <table>
