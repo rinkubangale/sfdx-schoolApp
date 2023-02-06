@@ -1,8 +1,31 @@
-import { LightningElement, track, api } from "lwc";
+import { LightningElement, track, wire } from "lwc";
 import { loadStyle } from "lightning/platformResourceLoader";
 import externalVidCSS from "@salesforce/resourceUrl/externalVidCSS";
+import { getRecord } from "lightning/uiRecordApi";
+import Id from "@salesforce/user/Id";
+import ProfileId from "@salesforce/schema/User.ProfileId";
 
 export default class ScreenContainer extends LightningElement {
+  isTeacher;
+  isParent;
+  branchDisabled;
+  @wire(getRecord, { recordId: Id, fields: [ProfileId] })
+  userDetails({ error, data }) {
+    if (data) {
+      this.isTeacher =
+        data.fields.ProfileId.value === "00e6D000000Ri7wQAC" ? true : false;
+      this.isParent =
+        data.fields.ProfileId.value === "00e6D000000Rj45QAC" ? true : false;
+
+      if (this.isParent) {
+        this.branchDisabled = true;
+      } else {
+        this.branchDisabled = false;
+      }
+    } else if (error) {
+      this.error = error;
+    }
+  }
   isCssLoaded = false;
   renderedCallback() {
     if (this.isCssLoaded) return;

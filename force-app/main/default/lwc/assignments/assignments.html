@@ -15,63 +15,68 @@
                             </span>
                         </lightning-layout-item>
                         <lightning-layout-item size="2">
-                            <div class=" slds-p-horizontal_small"
-                                style="font-weight:bold;font-size: 16px;text-align:center; margin-top: 6px;">
-                                37
-                            </div>
-                            <div class="slds-p-horizontal_large"
-                                style="color:rgb(2, 178, 231); font-size:medium; text-align:center;font-family: serif; ">
-                                Submitted
+                            <div class="status" style="margin: 1rem 0rem 0rem 3rem;">
+                                <span class="slds-box_xx-small slds-text-color_inverse slds-badge slds-theme_warning"
+                                    style="background: transparent;
+                                    font-size: large;
+                                    color: black;">2</span>
+
+                                <span>Assignment</span>
                             </div>
                         </lightning-layout-item>
 
                         <lightning-layout-item size="2">
-                            <div class="slds-p-horizontal_small"
-                                style="font-weight:bold;font-size: 16px;text-align:center; margin-top: 6px;">
-                                20
-                            </div>
-                            <div class="slds-p-horizontal_large"
-                                style="color:rgb(30, 114, 23); font-size:medium; text-align:center;font-family: serif;">
-                                Due
+
+                            <div class="status" style="margin: 1rem 0rem 0rem 3rem;">
+                                <span class="slds-box_xx-small slds-text-color_inverse slds-badge slds-theme_warning"
+                                    style="background: transparent;
+                                    font-size: large;
+                                    color: black;">37</span>
+
+                                <span>Submitted</span>
                             </div>
                         </lightning-layout-item>
 
                         <lightning-layout-item size="2">
-                            <div class=" slds-p-horizontal_small"
-                                style="font-weight:bold;font-size: 16px;text-align:center; margin-top: 6px;">
-                                11
-                            </div>
-                            <div class="slds-p-horizontal_large"
-                                style="color:rgb(51, 129, 173); font-size:medium; text-align:center;font-family: serif;">
-                                Completed
+                            <div class="status" style="margin: 1rem 0rem 0rem 3rem;">
+                                <span class="slds-box_xx-small slds-text-color_inverse slds-badge slds-theme_warning"
+                                    style="background: transparent;
+                                    font-size: large;
+                                    color: black;">11</span>
+
+                                <span>Completed</span>
                             </div>
 
                         </lightning-layout-item>
                         <lightning-layout-item size="2">
-                            <div class="slds-p-horizontal_small"
-                                style="font-weight:bold;font-size: 16px;text-align:center; margin-top: 6px;">
-                                2
+
+                            <div class="status" style="margin: 1rem 0rem 0rem 3rem;">
+                                <span class="slds-box_xx-small slds-text-color_inverse slds-badge slds-theme_warning"
+                                    style="background: transparent;
+                                    font-size: large;
+                                    color: black;">20</span>
+
+                                <span>Due</span>
                             </div>
-                            <div class="slds-p-horizontal_large"
-                                style="color:rgb(201, 130, 24); font-size:medium; text-align:center;font-family: serif;">
-                                Assignment</div>
                         </lightning-layout-item>
                         <lightning-layout-item size="2">
 
                         </lightning-layout-item>
 
                         <lightning-layout-item size="1">
-                            <p style="padding-top:26px; padding-left: 16px; color:black">From Date</p>
+                            <p style="padding-top:26px; padding-left: 16px; color:black" if:false={calendarView}>From
+                                Date</p>
                         </lightning-layout-item>
                         <lightning-layout-item size="2">
-                            <lightning-input type="date"></lightning-input>
+                            <lightning-input if:false={calendarView} type="date"></lightning-input>
                         </lightning-layout-item>
                         <lightning-layout-item size="1"></lightning-layout-item>
                         <lightning-layout-item size="1">
-                            <p style="padding-top:26px; padding-left: 36px; color:black">To Date</p>
+                            <p style="padding-top:26px; padding-left: 36px; color:black" if:false={calendarView}>To Date
+                            </p>
                         </lightning-layout-item>
                         <lightning-layout-item size="2">
-                            <lightning-input type="date"></lightning-input>
+                            <lightning-input if:false={calendarView} type="date"></lightning-input>
                         </lightning-layout-item>
                         <lightning-layout-item size="1"></lightning-layout-item>
                         <lightning-layout-item size="1" style="padding: 4px 0px 0px 20px;">
@@ -150,14 +155,14 @@
                         </c-delete-confirmation>
                     </template>
 
-                    <div style="height:auto; margin-top: 1rem" if:false={calendarView}>
+                    <div style="height:auto;" if:false={calendarView}>
                         <lightning-datatable key-field="Id" data={dataList} columns={columns}
                             onrowaction={rowActionHandler} resize-column-disabled suppress-bottom-bar>
                         </lightning-datatable>
 
                     </div>
 
-                    <div style="height:auto; margin-top: 1rem" if:true={calendarView}>
+                    <div style="height:auto;" if:true={calendarView}>
                         <c-full-calendar-js></c-full-calendar-js>
                     </div>
 

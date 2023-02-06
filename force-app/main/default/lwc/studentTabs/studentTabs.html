@@ -1,0 +1,186 @@
+<template>
+    <div class="container">
+        <lightning-tabset>
+            <lightning-tab label="Student Profile">
+                <c-student-profile></c-student-profile>
+            </lightning-tab>
+            <lightning-tab label="Academics">
+                <div class="selectTerm">
+                    <select>
+                        <option value="" hidden>Term</option>
+                        <option value="Term1">Term 1</option>
+                        <option value="Term2">Term 2</option>
+                        <option value="Term3">Term 3</option>
+                    </select>
+                </div>
+                <div class="tabledata">
+                    <table>
+                        <tr>
+                            <th>Term</th>
+                            <th>Subject</th>
+                            <th>Exam Date</th>
+                            <th>Total Marks</th>
+                            <th>Grade</th>
+                            <th>%</th>
+                            <th>Need Improvement</th>
+                            <th>Comments</th>
+                        </tr>
+                        <tr>
+                            <td>Term 1</td>
+                            <td>
+                                <div>English</div>
+                                <div>Hindi</div>
+                                <div>Tamil</div>
+                            </td>
+                            <td>
+                                <div>1/27/2023</div>
+                                <div>1/27/2023</div>
+                                <div>1/27/2023</div>
+                            </td>
+                            <td>
+                                <div>85/100</div>
+                                <div>85/100</div>
+                                <div>85/100</div>
+                            </td>
+                            <td>
+                                <div>A+</div>
+                                <div>A+</div>
+                                <div>B+</div>
+                            </td>
+                            <td>
+                                <div>85%</div>
+                                <div>85%</div>
+                                <div>85%</div>
+                            </td>
+                            <td>
+                                <div>No</div>
+                                <div>No</div>
+                                <div>Yes</div>
+                            </td>
+                            <td>
+                                <div></div>
+                                <div></div>
+                                <div>Focus on handwriting, synonyms</div>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </lightning-tab>
+            <lightning-tab label="Curricular Activities">
+                <div class="selectTerm">
+                    <select>
+                        <option value="" hidden>Term</option>
+                        <option value="Term1">Term 1</option>
+                        <option value="Term2">Term 2</option>
+                        <option value="Term3">Term 3</option>
+                    </select>
+                </div>
+                <div class="tabledata">
+                    <table>
+                        <tr>
+                            <th>Term</th>
+                            <th>Activities</th>
+                            <th>Date</th>
+                            <th>Total Marks</th>
+                            <th>Grade</th>
+                        </tr>
+                        <tr>
+                            <td>Term 1</td>
+                            <td>
+                                <div>Games</div>
+                                <div>Arts/Craft</div>
+                                <div>Health</div>
+                            </td>
+                            <td>
+                                <div>1/27/2023</div>
+                                <div>1/27/2023</div>
+                                <div>1/27/2023</div>
+                            </td>
+                            <td>
+                                <div>20</div>
+                                <div>25</div>
+                                <div>30</div>
+                            </td>
+                            <td>
+                                <div>A+</div>
+                                <div>A+</div>
+                                <div>A+</div>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </lightning-tab>
+            <lightning-tab label="Attendance">
+                <div class="tabledata" style="width: 50%;">
+                    <table>
+                        <tr>
+                            <th>Total School Days</th>
+                            <th>Present</th>
+                            <th>Absent</th>
+                            <th>Grade</th>
+                        </tr>
+                        <tr>
+                            <td>85</td>
+                            <td>84</td>
+                            <td>1</td>
+                            <td>A+</td>
+                        </tr>
+                    </table>
+                </div>
+            </lightning-tab>
+            <lightning-tab label="Overall Performance">
+                <div class="overallContainer">
+                    <div class="userRank">
+                        <div class="rank">
+                            <div class="infoTagHead">Ranking</div>
+                            <div class="infoTag">Your Student is ranked 2nd in your class Section and overall 5th
+                                rank at school Level
+                            </div>
+                        </div>
+                        <div class="feedback">
+                            <div class="infoTagHead">Feedback</div>
+                            <div class="infoTag">He/she does all his work accurately and neatly. Keep it up</div>
+                        </div>
+                    </div>
+                    <div class="overAllRank">
+                        <div class="rankHeading">
+                            <select name="classSection" id="classSection">
+                                <option value="cs" hidden>Class Section</option>
+                                <option value="1A">1st A</option>
+                                <option value="1B">1st B</option>
+                                <option value="2A">2nd A</option>
+                                <option value="2B">2nd B</option>
+                            </select>
+                            <div class="header">Overall Ranking</div>
+                        </div>
+                        <div class="tabledata">
+                            <table>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Student Name</th>
+                                    <th>Ranking</th>
+                                </tr>
+                                <tr>
+                                    <td>1</td>
+                                    <td>hari</td>
+                                    <td>1</td>
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td>Om</td>
+                                    <td>2</td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td>Priya</td>
+                                    <td>3</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </lightning-tab>
+        </lightning-tabset>
+    </div>
+
+</template>

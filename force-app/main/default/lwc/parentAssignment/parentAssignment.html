@@ -1,0 +1,77 @@
+<template>
+    <lightning-card style="margin:15px; text-transform:capitalize;" class="slds-card__header ">
+        <lightning-layout multiple-rows>
+            <lightning-layout-item size="2" class="slds-float_left slds-p-around_medium slds-p-around_small">
+                <lightning-icon icon-name="standard:record" alternative-text="Clone" title="View Assignments">
+                </lightning-icon>
+
+                <span style="font-weight:bold; font-size:larger; color:black" class=" slds-p-around_small ">Assignments
+                </span>
+            </lightning-layout-item>
+            <lightning-layout-item size="2">
+                <div class="status" style="margin: 1rem 0rem 0rem 3rem;">
+                    <span class="slds-box_xx-small slds-text-color_inverse slds-badge slds-theme_warning" style="background: transparent;
+                        font-size: large;
+                        color: black;">2</span>
+
+                    <span>Assignment</span>
+                </div>
+            </lightning-layout-item>
+            <lightning-layout-item size="2">
+
+                <div class="status" style="margin: 1rem 0rem 0rem 3rem;">
+                    <span class="slds-box_xx-small slds-text-color_inverse slds-badge slds-theme_warning" style="background: transparent;
+                        font-size: large;
+                        color: black;">37</span>
+
+                    <span>Submitted</span>
+                </div>
+            </lightning-layout-item>
+            <lightning-layout-item size="2">
+                <div class="status" style="margin: 1rem 0rem 0rem 3rem;">
+                    <span class="slds-box_xx-small slds-text-color_inverse slds-badge slds-theme_warning" style="background: transparent;
+                        font-size: large;
+                        color: black;">11</span>
+
+                    <span>Completed</span>
+                </div>
+
+            </lightning-layout-item>
+            <lightning-layout-item size="2">
+
+                <div class="status" style="margin: 1rem 0rem 0rem 3rem;">
+                    <span class="slds-box_xx-small slds-text-color_inverse slds-badge slds-theme_warning" style="background: transparent;
+                        font-size: large;
+                        color: black;">20</span>
+
+                    <span>Due</span>
+                </div>
+            </lightning-layout-item>
+            <lightning-layout-item size="2">
+
+            </lightning-layout-item>
+        </lightning-layout>
+
+
+        <template if:true={isDelete}>
+            <c-delete-confirmation records-id={DelId} obj-name="Academic_Year__c" onmodalchange={closemodaldelete}>
+            </c-delete-confirmation>
+        </template>
+
+        <div style="height:auto;">
+            <lightning-datatable key-field="Id" data={dataList} columns={columns} onrowaction={rowActionHandler}
+                resize-column-disabled suppress-bottom-bar>
+            </lightning-datatable>
+
+        </div>
+
+
+
+        <div slot="footer" class="slds-clearfix slds-p-top_xxx-small ">
+            <lightning-button label="Delete" onclick={getSelectedRec} variant="brand"
+                class="slds-var-m-left_xx-small slds-float_right">
+            </lightning-button>
+        </div>
+    </lightning-card>
+
+</template>

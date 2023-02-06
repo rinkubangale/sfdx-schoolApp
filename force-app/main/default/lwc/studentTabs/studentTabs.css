@@ -1,0 +1,72 @@
+.container {
+    color: #444;
+}
+
+.tabledata td {
+    text-align: center;
+    padding: 8px;
+}
+
+.tabledata td>div {
+    padding: 8px;
+    height: 35px;
+}
+
+.tabledata th {
+    background-color: #d5d5d5;
+    cursor: pointer;
+    text-align: center;
+    padding: 8px;
+}
+
+.tabledata tr:nth-child(odd) {
+    background-color: #f5f5f5;
+}
+
+.overallContainer {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+}
+
+.infoTagHead {
+    font-size: 18px;
+    padding: 10px 0;
+}
+
+.infoTag {
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 50px;
+    background-color: #00a1e0;
+    color: #fff;
+}
+
+.overAllRank {
+    width: 40%;
+    padding: 10px;
+}
+
+.overAllRank select {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.selectTerm {
+    font-size: 16px;
+    margin-bottom: 12px;
+    width: 100px;
+}
+
+.rankHeading {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row-reverse;
+}
+
+.header {
+    font-size: 18px;
+    font-weight: 500;
+}

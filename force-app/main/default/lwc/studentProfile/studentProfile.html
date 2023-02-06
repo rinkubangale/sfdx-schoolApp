@@ -1,0 +1,223 @@
+<template>
+    <div class="profileContainer">
+        <lightning-layout multiple-rows>
+            <lightning-layout-item size="4" padding="around-small">
+                <lightning-input variant="label-stacked" label="First Name" required></lightning-input>
+            </lightning-layout-item>
+            <lightning-layout-item size="4" padding="around-small">
+                <lightning-input variant="label-stacked" label="Middle Name"></lightning-input>
+            </lightning-layout-item>
+            <lightning-layout-item size="4" padding="around-small">
+                <lightning-input variant="label-stacked" label="Last Name" required></lightning-input>
+            </lightning-layout-item>
+            <lightning-layout-item size="4" padding="around-small">
+                <lightning-input variant="label-stacked" label="Roll No" required></lightning-input>
+            </lightning-layout-item>
+            <lightning-layout-item size="4" padding="around-small">
+                <lightning-input variant="label-stacked" label="User Name" required></lightning-input>
+            </lightning-layout-item>
+            <lightning-layout-item size="4" padding="around-small">
+                <lightning-input variant="label-stacked" label="Primary Email" type="Email" required>
+                </lightning-input>
+            </lightning-layout-item>
+            <lightning-layout-item size="4" padding="around-small">
+                <lightning-input variant="label-stacked" label="Parent Email Verification Status">
+                </lightning-input>
+            </lightning-layout-item>
+            <lightning-layout-item size="4" padding="around-small">
+                <lightning-input variant="label-stacked" label="Date of Birth" type="Date" required>
+                </lightning-input>
+            </lightning-layout-item>
+            <lightning-layout-item size="4" padding="around-small">
+                <lightning-input variant="label-stacked" label="Date of Joining" type="Date" required>
+                </lightning-input>
+            </lightning-layout-item>
+            <lightning-layout-item size="4" padding="around-small">
+                <lightning-input variant="label-stacked" label="Date of Leaving" type="Date">
+                </lightning-input>
+            </lightning-layout-item>
+            <lightning-layout-item size="4" padding="around-small">
+                <lightning-input variant="label-stacked" label="Siblings?" type="toggle">
+                </lightning-input>
+            </lightning-layout-item>
+        </lightning-layout>
+
+        <lightning-accordion allow-multiple-sections-open>
+            <lightning-accordion-section name="A" label="CLASS SECTION DETAILS">
+                <lightning-layout multiple-rows>
+                    <lightning-layout-item size="4" padding="around-small">
+                        <lightning-input variant="label-stacked" label="Academic Year" required>
+                        </lightning-input>
+                    </lightning-layout-item>
+                    <lightning-layout-item size="4" padding="around-small">
+                        <lightning-input variant="label-stacked" label="Class Name"></lightning-input>
+                    </lightning-layout-item>
+                    <lightning-layout-item size="4" padding="around-small">
+                        <lightning-input variant="label-stacked" label="Section" required>
+                        </lightning-input>
+                    </lightning-layout-item>
+                </lightning-layout>
+            </lightning-accordion-section>
+
+            <lightning-accordion-section name="B" label="PARENT DETAILS">
+
+                <lightning-layout multiple-rows>
+                    <lightning-layout-item size="6" padding="around-small">
+                        <lightning-input variant="label-stacked" label="Point of Contact" required>
+                        </lightning-input>
+                    </lightning-layout-item>
+                    <lightning-layout-item size="6" padding="around-small">
+                    </lightning-layout-item>
+                    <lightning-layout-item size="3" padding="around-small">
+                        <lightning-input variant="label-stacked" label="Father First Name" required>
+                        </lightning-input>
+                    </lightning-layout-item>
+                    <lightning-layout-item size="3" padding="around-small">
+                        <lightning-input variant="label-stacked" label="Father Last Name" required>
+                        </lightning-input>
+                    </lightning-layout-item>
+                    <lightning-layout-item size="3" padding="around-small">
+                        <lightning-input variant="label-stacked" label="Mobile" required>
+                        </lightning-input>
+                    </lightning-layout-item>
+                    <lightning-layout-item size="3" padding="around-small">
+                        <lightning-input variant="label-stacked" label="Occupation">
+                        </lightning-input>
+                    </lightning-layout-item>
+                    <lightning-layout-item size="3" padding="around-small">
+                        <lightning-input variant="label-stacked" label="Mother First Name">
+                        </lightning-input>
+                    </lightning-layout-item>
+                    <lightning-layout-item size="3" padding="around-small">
+                        <lightning-input variant="label-stacked" label="Mother Last Name">
+                        </lightning-input>
+                    </lightning-layout-item>
+                    <lightning-layout-item size="3" padding="around-small">
+                        <lightning-input variant="label-stacked" label="Mobile">
+                        </lightning-input>
+                    </lightning-layout-item>
+                    <lightning-layout-item size="3" padding="around-small">
+                        <lightning-input variant="label-stacked" label="Occupation">
+                        </lightning-input>
+                    </lightning-layout-item>
+                    <lightning-layout-item size="3" padding="around-small">
+                        <lightning-input variant="label-stacked" label="Guardian First Name">
+                        </lightning-input>
+                    </lightning-layout-item>
+                    <lightning-layout-item size="3" padding="around-small">
+                        <lightning-input variant="label-stacked" label="Guardian Last Name">
+                        </lightning-input>
+                    </lightning-layout-item>
+                    <lightning-layout-item size="3" padding="around-small">
+                        <lightning-input variant="label-stacked" label="Mobile">
+                        </lightning-input>
+                    </lightning-layout-item>
+                    <lightning-layout-item size="3" padding="around-small">
+                        <lightning-input variant="label-stacked" label="Occupation">
+                        </lightning-input>
+                    </lightning-layout-item>
+                </lightning-layout>
+            </lightning-accordion-section>
+
+            <lightning-accordion-section name="C" label="ADDRESS DETAILS">
+                <lightning-layout multiple-rows>
+                    <lightning-layout-item size="12" padding="around-small">
+                        <b>Current Address</b>
+                    </lightning-layout-item>
+                    <lightning-layout-item size="4" padding="around-small">
+                        <lightning-input variant="label-stacked" label="Address Line 1">
+                        </lightning-input>
+                    </lightning-layout-item>
+                    <lightning-layout-item size="4" padding="around-small">
+                        <lightning-input variant="label-stacked" label="Address Line 2"></lightning-input>
+                    </lightning-layout-item>
+                    <lightning-layout-item size="4" padding="around-small">
+                        <lightning-input variant="label-stacked" label="Country">
+                        </lightning-input>
+                    </lightning-layout-item>
+                    <lightning-layout-item size="4" padding="around-small">
+                        <lightning-input variant="label-stacked" label="State">
+                        </lightning-input>
+                    </lightning-layout-item>
+                    <lightning-layout-item size="4" padding="around-small">
+                        <lightning-input variant="label-stacked" label="City/Town"></lightning-input>
+                    </lightning-layout-item>
+                    <lightning-layout-item size="4" padding="around-small">
+                        <lightning-input variant="label-stacked" label="Pin Code">
+                        </lightning-input>
+                    </lightning-layout-item>
+
+                    <lightning-layout-item size="12" padding="around-small">
+                        <lightning-input label="Permanent address same as current address ?" type="checkbox">
+                        </lightning-input>
+                    </lightning-layout-item>
+
+                    <lightning-layout-item size="12" padding="around-small">
+                        <b>Permanent Address</b>
+                    </lightning-layout-item>
+                    <lightning-layout-item size="4" padding="around-small">
+                        <lightning-input variant="label-stacked" label="Address Line 1">
+                        </lightning-input>
+                    </lightning-layout-item>
+                    <lightning-layout-item size="4" padding="around-small">
+                        <lightning-input variant="label-stacked" label="Address Line 2"></lightning-input>
+                    </lightning-layout-item>
+                    <lightning-layout-item size="4" padding="around-small">
+                        <lightning-input variant="label-stacked" label="Country">
+                        </lightning-input>
+                    </lightning-layout-item>
+                    <lightning-layout-item size="4" padding="around-small">
+                        <lightning-input variant="label-stacked" label="State">
+                        </lightning-input>
+                    </lightning-layout-item>
+                    <lightning-layout-item size="4" padding="around-small">
+                        <lightning-input variant="label-stacked" label="City/Town"></lightning-input>
+                    </lightning-layout-item>
+                    <lightning-layout-item size="4" padding="around-small">
+                        <lightning-input variant="label-stacked" label="Pin Code">
+                        </lightning-input>
+                    </lightning-layout-item>
+                </lightning-layout>
+            </lightning-accordion-section>
+
+            <lightning-accordion-section name="D" label="OTHER INFORMATION">
+                <lightning-layout multiple-rows>
+                    <lightning-layout-item size="4" padding="around-small">
+                        <lightning-input variant="label-stacked" label="Blood Group">
+                        </lightning-input>
+                    </lightning-layout-item>
+                    <lightning-layout-item size="4" padding="around-small">
+                        <lightning-input variant="label-stacked" label="Gender"></lightning-input>
+                    </lightning-layout-item>
+                    <lightning-layout-item size="4" padding="around-small">
+                        <lightning-input variant="label-stacked" label="Religion">
+                        </lightning-input>
+                    </lightning-layout-item>
+                    <lightning-layout-item size="4" padding="around-small">
+                        <lightning-input variant="label-stacked" label="Nationality">
+                        </lightning-input>
+                    </lightning-layout-item>
+                    <lightning-layout-item size="4" padding="around-small">
+                        <lightning-input variant="label-stacked" label="Category"></lightning-input>
+                    </lightning-layout-item>
+                    <lightning-layout-item size="4" padding="around-small">
+                        <lightning-input variant="label-stacked" label="Previous School">
+                        </lightning-input>
+                    </lightning-layout-item>
+                    <lightning-layout-item size="4" padding="around-small">
+                        <lightning-input variant="label-stacked" label="Previous Class Passed">
+                        </lightning-input>
+                    </lightning-layout-item>
+                    <lightning-layout-item size="4" padding="around-small">
+                        <lightning-input variant="label-stacked" label="RTE Quota" type="toggle">
+                        </lightning-input>
+                    </lightning-layout-item>
+                    <lightning-layout-item size="4" padding="around-small">
+                        <lightning-input variant="label-stacked" label="Disability" type="toggle">
+                        </lightning-input>
+                    </lightning-layout-item>
+                </lightning-layout>
+            </lightning-accordion-section>
+        </lightning-accordion>
+    </div>
+</template>
