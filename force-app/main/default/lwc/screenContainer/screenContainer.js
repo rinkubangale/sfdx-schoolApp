@@ -17,7 +17,7 @@ export default class ScreenContainer extends LightningElement {
       this.isParent =
         data.fields.ProfileId.value === "00e6D000000Rj45QAC" ? true : false;
 
-      if (this.isParent) {
+      if (this.isParent || this.isTeacher) {
         this.branchDisabled = true;
       } else {
         this.branchDisabled = false;

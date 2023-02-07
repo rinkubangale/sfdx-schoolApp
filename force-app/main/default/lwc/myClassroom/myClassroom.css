@@ -6,6 +6,13 @@ div {
     display: none;
 }
 
+.midContainer>select {
+    border: none;
+    padding: 6px;
+    border-radius: 4px;
+}
+
+
 .clsContent {
     margin: 2rem 0;
 }

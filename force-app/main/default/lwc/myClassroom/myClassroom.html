@@ -7,23 +7,15 @@
                 </div>
             </div>
             <div class="midContainer">
-                <lightning-tabset>
-                    <lightning-tab label="Classrooms">
-
-                        <div class="clsContent">
-                            <span class="class">
-                                <span class="section">LKG - A</span>
-                            </span>
-                            <span class="class">
-                                <span class="section">UKG - A</span>
-                            </span>
-                            <span class="class">
-                                <span class="section">UKG - B</span>
-                            </span>
-                        </div>
-
-                    </lightning-tab>
-                </lightning-tabset>
+                <select>
+                    <option value="" hidden>Select Classroom</option>
+                    <option value="LKG">LKG A</option>
+                    <option value="LKG">LKG B</option>
+                    <option value="UKG">UKG A</option>
+                    <option value="UKG">UKG B</option>
+                    <option value="PreKG">PreKG A</option>
+                    <option value="PreKG">PreKG B</option>
+                </select>
             </div>
             <div class="bottomContainer">
                 <lightning-tabset>
